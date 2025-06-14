@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigil Testnet Faucet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .info-box h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .label {
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .value {
+            color: #333;
+            font-family: monospace;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            font-family: monospace;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            display: none;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .cooldown {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">VGL</div>
+        <h1>Vigil Testnet Faucet</h1>
+        <p class="subtitle">Get free testnet VGL coins for testing</p>
+        
+        <div class="info-box">
+            <h3>Testnet Information</h3>
+            <div class="info-item">
+                <span class="label">Network:</span>
+                <span class="value">Vigil Testnet</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Algorithm:</span>
+                <span class="value">KawPoW (GPU Mining)</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Faucet Amount:</span>
+                <span class="value">10 VGL</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Cooldown:</span>
+                <span class="value">24 hours</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Launch Date:</span>
+                <span class="value">January 1, 2025</span>
+            </div>
+        </div>
+        
+        <form id="faucetForm">
+            <div class="form-group">
+                <label for="address">Testnet Address (starts with 'Vg'):</label>
+                <input type="text" id="address" name="address" placeholder="VgTestnetAddress123..." required>
+            </div>
+            
+            <button type="submit" class="btn" id="submitBtn">Request Testnet Coins</button>
+        </form>
+        
+        <div id="status" class="status"></div>
+        
+        <div class="footer">
+            <p><strong>Note:</strong> This is testnet software. Testnet coins have no monetary value.</p>
+            <p>Need help? Join our <a href="#">Discord</a> or <a href="#">Telegram</a></p>
+            <p>Experiencing issues? Check the <a href="../TESTNET_README.md">documentation</a></p>
+        </div>
+    </div>
+    
+    <script>
+        const form = document.getElementById('faucetForm');
+        const addressInput = document.getElementById('address');
+        const submitBtn = document.getElementById('submitBtn');
+        const status = document.getElementById('status');
+        
+        // Check for existing cooldown
+        function checkCooldown() {
+            const lastRequest = localStorage.getItem('lastFaucetRequest');
+            if (lastRequest) {
+                const timeDiff = Date.now() - parseInt(lastRequest);
+                const cooldownTime = 24 * 60 * 60 * 1000; // 24 hours
+                
+                if (timeDiff < cooldownTime) {
+                    const remainingTime = cooldownTime - timeDiff;
+                    const hours = Math.floor(remainingTime / (60 * 60 * 1000));
+                    const minutes = Math.floor((remainingTime % (60 * 60 * 1000)) / (60 * 1000));
+                    
+                    showStatus(`Cooldown active. Try again in ${hours}h ${minutes}m`, 'info');
+                    submitBtn.disabled = true;
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        // Validate Vigil testnet address
+        function validateAddress(address) {
+            // Basic validation for Vigil testnet addresses
+            if (!address.startsWith('Vg')) {
+                return false;
+            }
+            if (address.length < 25 || address.length > 35) {
+                return false;
+            }
+            // Additional validation could be added here
+            return true;
+        }
+        
+        // Show status message
+        function showStatus(message, type) {
+            status.textContent = message;
+            status.className = `status ${type}`;
+            status.style.display = 'block';
+        }
+        
+        // Hide status message
+        function hideStatus() {
+            status.style.display = 'none';
+        }
+        
+        // Simulate faucet request (replace with actual API call)
+        async function requestCoins(address) {
+            // This is a placeholder - in a real implementation, this would
+            // make an API call to the faucet backend
+            
+            showStatus('Processing request...', 'info');
+            
+            // Simulate network delay
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            // Simulate random success/failure for demo
+            const success = Math.random() > 0.2; // 80% success rate
+            
+            if (success) {
+                // Generate a fake transaction ID
+                const txid = '0x' + Array.from({length: 64}, () => Math.floor(Math.random() * 16).toString(16)).join('');
+                
+                showStatus(`Success! 10 VGL sent to your address. TXID: ${txid}`, 'success');
+                
+                // Set cooldown
+                localStorage.setItem('lastFaucetRequest', Date.now().toString());
+                submitBtn.disabled = true;
+                
+                // Reset form
+                addressInput.value = '';
+                
+                // Show cooldown message after a delay
+                setTimeout(() => {
+                    showStatus('Cooldown active. You can request again in 24 hours.', 'info');
+                }, 3000);
+            } else {
+                showStatus('Request failed. Please try again later or contact support.', 'error');
+            }
+        }
+        
+        // Form submission handler
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const address = addressInput.value.trim();
+            
+            if (!address) {
+                showStatus('Please enter a valid testnet address.', 'error');
+                return;
+            }
+            
+            if (!validateAddress(address)) {
+                showStatus('Invalid address format. Testnet addresses must start with "Vg".', 'error');
+                return;
+            }
+            
+            if (checkCooldown()) {
+                return;
+            }
+            
+            submitBtn.disabled = true;
+            hideStatus();
+            
+            try {
+                await requestCoins(address);
+            } catch (error) {
+                showStatus('Network error. Please try again later.', 'error');
+            } finally {
+                if (!localStorage.getItem('lastFaucetRequest')) {
+                    submitBtn.disabled = false;
+                }
+            }
+        });
+        
+        // Input validation
+        addressInput.addEventListener('input', () => {
+            hideStatus();
+            const address = addressInput.value.trim();
+            
+            if (address && !validateAddress(address)) {
+                showStatus('Address must start with "Vg" for testnet', 'error');
+            }
+        });
+        
+        // Check cooldown on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            checkCooldown();
+        });
+        
+        // Auto-clear status messages after 10 seconds
+        setInterval(() => {
+            if (status.style.display === 'block' && !status.textContent.includes('Cooldown')) {
+                hideStatus();
+            }
+        }, 10000);
+    </script>
+</body>
+</html>

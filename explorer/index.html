@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigil (VGL) | Visual Demonstration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Styles for the Vigil "Forged Core" Theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #212121; /* Warm Dark Gray background */
+            color: #E0E0E0;
+            overflow-x: hidden;
+        }
+
+        /* Glow effects for text and elements */
+        .glow-text-gold {
+            text-shadow: 0 0 5px rgba(255, 191, 0, 0.7), 0 0 10px rgba(255, 191, 0, 0.5);
+        }
+        .glow-text-white {
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+        .glow-button {
+            box-shadow: 0 0 15px rgba(255, 191, 0, 0.5), inset 0 0 5px rgba(255, 191, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 25px rgba(255, 191, 0, 0.7), inset 0 0 10px rgba(255, 191, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Animation for the energy streams */
+        @keyframes flow {
+            0% { stroke-dashoffset: 1000; }
+            100% { stroke-dashoffset: 0; }
+        }
+        .energy-stream {
+            stroke-dasharray: 1000;
+            animation: flow 20s linear infinite;
+        }
+
+        /* Animation for the shield pulse */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.03); opacity: 1; }
+        }
+        .shield-pulse {
+            animation: pulse 4s ease-in-out infinite;
+            transform-origin: center;
+        }
+        
+        /* Glassmorphism effect for panels */
+        .glass-panel {
+            background: rgba(45, 45, 45, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Particle animation container for "Meet the Vigil" and Hero section */
+        .particle-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .crypto-glyph {
+            position: absolute;
+            color: rgba(255, 191, 0, 0.2);
+            font-size: 24px;
+            user-select: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- ** UPDATED LOGO ** -->
+            <a href="#" class="flex items-center space-x-3">
+                <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path d="M 10,10 L 50,90 L 90,10" fill="none" stroke="#F5F5F5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M 50,60 L 65,30 L 35,30 Z" fill="#FFBF00" />
+                    </g>
+                </svg>
+                <div class="text-2xl font-black tracking-wider text-white">
+                    VIGIL
+                </div>
+            </a>
+            
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#pool" class="hover:text-amber-400 transition-colors">Pool</a>
+                <a href="#wallet" class="hover:text-amber-400 transition-colors">Wallet</a>
+                <a href="#governance" class="hover:text-amber-400 transition-colors">Governance</a>
+                <a href="#source" class="hover:text-amber-400 transition-colors">Source</a>
+                <a href="#" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg glow-button">Launch App</a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Hero Section: The "Living" Dashboard -->
+    <main class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-0">
+        <div class="particle-container"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#212121] z-10"></div>
+        
+        <!-- Background Grid -->
+        <div class="absolute inset-0 z-0 opacity-10" style="background-image: linear-gradient(rgba(255, 191, 0, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 191, 0, 0.2) 1px, transparent 1px); background-size: 40px 40px;"></div>
+        
+        <div class="container mx-auto px-6 text-center z-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-8">
+                
+                <!-- Left Side: Text and Call to Action -->
+                <div class="text-left">
+                    <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-4 leading-tight">
+                        Fairly Mined.
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-400">Vigilantly Secured.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 max-w-xl mb-8">
+                        Vigil is the first hybrid PoW/PoS network that combines the grassroots fairness of GPU mining with the ironclad security of a decentralized stakeholder community.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-3 px-8 rounded-lg glow-button text-lg text-center">Start Mining</a>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg text-center">Learn About Staking</a>
+                    </div>
+                </div>
+
+                <!-- Right Side: The Living Shield Animation -->
+                <div class="relative w-full h-96 flex items-center justify-center">
+                    <svg viewBox="0 0 400 400" class="w-full h-full max-w-md">
+                        <!-- Energy Streams -->
+                        <path id="pow-stream" d="M 50 50 Q 150 150 200 200" stroke="url(#white-gradient)" stroke-width="3" fill="none" class="energy-stream"/>
+                        <path id="pos-stream" d="M 350 50 Q 250 150 200 200" stroke="url(#gold-gradient)" stroke-width="3" fill="none" class="energy-stream" style="animation-delay: -10s;"/>
+                        
+                        <!-- The Vigil Shield -->
+                        <g class="shield-pulse">
+                            <path d="M200,50 L325,125 L325,275 L200,350 L75,275 L75,125 Z" fill="rgba(120, 81, 16, 0.2)" stroke="#f59e0b" stroke-width="2" />
+                            <path d="M200,65 L305,132.5 L305,267.5 L200,335 L95,267.5 L95,132.5 Z" fill="rgba(180, 83, 9, 0.3)" stroke="#d97706" stroke-width="1.5" />
+                            <circle cx="200" cy="200" r="30" fill="url(#core-gradient)" />
+                        </g>
+
+                        <!-- SVG Gradients -->
+                        <defs>
+                            <linearGradient id="white-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#ffffff; stop-opacity:0" />
+                                <stop offset="100%" style="stop-color:#ffffff; stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gold-gradient" x1="100%" y1="0%" x2="0%" y2="0%">
+                                <stop offset="0%" style="stop-color:#FFBF00; stop-opacity:0" />
+                                <stop offset="100%" style="stop-color:#FFBF00; stop-opacity:1" />
+                            </linearGradient>
+                            <radialGradient id="core-gradient">
+                                <stop offset="0%" style="stop-color:#ffffff; stop-opacity:1;" />
+                                <stop offset="100%" style="stop-color:#fcd34d; stop-opacity:0.5;" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                    
+                    <!-- Live Data Labels -->
+                    <div class="absolute top-0 left-0 text-left">
+                        <p class="font-bold text-gray-200 glow-text-white">PoW HASHRATE</p>
+                        <p id="hashrate" class="text-2xl font-mono font-bold">42.17 GH/s</p>
+                    </div>
+                    <div class="absolute top-0 right-0 text-right">
+                        <p class="font-bold text-amber-400 glow-text-gold">TOTAL VGL STAKED</p>
+                        <p id="staked" class="text-2xl font-mono font-bold">8,412,991 VGL</p>
+                    </div>
+                    <div class="absolute bottom-0 text-center w-full">
+                        <p class="font-bold text-yellow-400">NETWORK SECURITY RATIO</p>
+                        <p id="security-ratio" class="text-3xl font-mono font-bold">78.4%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Tokenomics Section -->
+    <section id="tokenomics" class="py-20 bg-[#1A1A1A]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-black text-center mb-2">Sustainable Economics</h2>
+            <p class="text-lg text-gray-400 text-center mb-12 max-w-3xl mx-auto">Vigil's block reward is split to fairly incentivize all network participants, ensuring both a viral launch and long-term survival.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- PoW Miners Card -->
+                <div class="glass-panel rounded-xl p-8 border-gray-400/30">
+                    <div class="text-gray-100 text-5xl font-black glow-text-white mb-4">50%</div>
+                    <h3 class="text-2xl font-bold mb-2">To PoW Miners</h3>
+                    <p class="text-gray-300">An aggressive reward for GPU miners to bootstrap network security and drive a fair, decentralized launch on the KawPoW algorithm.</p>
+                </div>
+                <!-- PoS Stakers Card -->
+                <div class="glass-panel rounded-xl p-8 border-amber-500/30">
+                    <div class="text-amber-400 text-5xl font-black glow-text-gold mb-4">40%</div>
+                    <h3 class="text-2xl font-bold mb-2">To PoS Stakers</h3>
+                    <p class="text-gray-300">A substantial incentive for stakeholders to lock up VGL, participate in governance, and provide the vigilant security that protects the network.</p>
+                </div>
+                <!-- Treasury Card -->
+                <div class="glass-panel rounded-xl p-8 border-yellow-500/30">
+                    <div class="text-yellow-400 text-5xl font-black mb-4">10%</div>
+                    <h3 class="text-2xl font-bold mb-2">To The Treasury</h3>
+                    <p class="text-gray-300">A self-sustaining development fund, controlled by stakeholder votes, to pay for future development, audits, and ecosystem growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Vigil Section -->
+    <section id="security" class="py-20 relative overflow-hidden">
+         <div class="particle-container"></div>
+         <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl font-black mb-2">Meet the Vigil</h2>
+            <p class="text-lg text-gray-400 mb-12 max-w-3xl mx-auto">Every staked coin becomes part of a decentralized wall, a vigilant security force that validates the chain and protects it from attack.</p>
+            <div class="glass-panel rounded-xl p-8 max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="text-center md:text-left mb-6 md:mb-0">
+                        <h3 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-400 mb-2">Your Stake is Your Shield</h3>
+                        <p class="text-gray-300">By purchasing tickets and staking VGL, you don't just earn rewards—you actively participate in consensus. Your vote makes the network stronger, more resilient, and truly decentralized.</p>
+                    </div>
+                    <a href="#" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-3 px-8 rounded-lg glow-button text-lg flex-shrink-0">Become a Vigil</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // --- Live Data Simulation Script ---
+        const hashrateEl = document.getElementById('hashrate');
+        const stakedEl = document.getElementById('staked');
+        const securityRatioEl = document.getElementById('security-ratio');
+
+        let hashrate = 42.17;
+        let staked = 8412991;
+        let securityRatio = 78.4;
+
+        function updateValues() {
+            hashrate += (Math.random() - 0.5) * 0.1;
+            staked += Math.floor(Math.random() * 100) - 40;
+            securityRatio += (Math.random() - 0.5) * 0.05;
+            if (hashrate < 40) hashrate = 40;
+            if (securityRatio < 75 || securityRatio > 80) securityRatio = 78.5;
+            hashrateEl.textContent = `${hashrate.toFixed(2)} GH/s`;
+            stakedEl.textContent = `${staked.toLocaleString('en-US')} VGL`;
+            securityRatioEl.textContent = `${securityRatio.toFixed(1)}%`;
+        }
+        setInterval(updateValues, 1500);
+
+        // --- Crypto Glyph Animation Script ---
+        function createGlyphAnimation(containerSelector) {
+            const particleContainer = document.querySelector(containerSelector);
+            if (!particleContainer) return;
+            
+            const glyphs = ['₿', '⟠', '◇', 'V', '◈', 'Σ'];
+            const numParticles = 50;
+
+            for (let i = 0; i < numParticles; i++) {
+                let particle = document.createElement('div');
+                particle.className = 'crypto-glyph';
+                particle.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.fontSize = `${Math.random() * 30 + 25}px`;
+                
+                const duration = Math.random() * 15 + 10;
+                const delay = Math.random() * 5;
+                
+                particle.animate([
+                    { transform: 'translate(0, 0) rotate(0deg)', opacity: 1 },
+                    { transform: `translate(${(Math.random() - 0.5) * 300}px, ${(Math.random() - 0.5) * 300}px) rotate(${(Math.random() - 0.5) * 720}deg)`, opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    delay: delay * 1000,
+                    iterations: Infinity,
+                    direction: 'alternate',
+                    easing: 'ease-in-out'
+                });
+                
+                particleContainer.appendChild(particle);
+            }
+        }
+        
+        createGlyphAnimation('main .particle-container');
+        createGlyphAnimation('#security .particle-container');
+
+    </script>
+
+</body>
+</html>
