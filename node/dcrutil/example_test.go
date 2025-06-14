@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
 )
 
 func ExampleAmount() {

@@ -12,8 +12,8 @@ import (
 	"os"
 	"path"
 
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/internal/fees"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/internal/fees"
 	flags "github.com/jessevdk/go-flags"
 )
 

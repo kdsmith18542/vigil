@@ -10,8 +10,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/addrmgr/v3"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/addrmgr/v3"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // TestHostToNetAddress ensures that hostToNetAddress behaves as expected

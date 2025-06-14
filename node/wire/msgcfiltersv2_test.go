@@ -12,7 +12,7 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // baseMsgCFiltersV2 returns a MsgCFiltersV2 struct populated with mock values

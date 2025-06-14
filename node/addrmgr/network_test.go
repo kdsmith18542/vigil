@@ -9,7 +9,7 @@ import (
 	"net"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // TestIPTypes ensures the various functions which determine the type of an IP

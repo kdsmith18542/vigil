@@ -9,7 +9,7 @@ import (
 	"context"
 	"encoding/json"
 
-	chainjson "github.com/vigilnetwork/vgl/rpc/jsonrpc/types/v4"
+	chainjson "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
 )
 
 // AddNodeCommand enumerates the available commands that the AddNode function

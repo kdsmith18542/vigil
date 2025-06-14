@@ -8,7 +8,7 @@ package mining
 import (
 	"container/heap"
 
-	"github.com/vigilnetwork/vgl/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
 )
 
 // txPrioItem houses a transaction along with extra information that allows the

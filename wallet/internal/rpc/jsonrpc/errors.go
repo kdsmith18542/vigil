@@ -8,8 +8,8 @@ package jsonrpc
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/VGLjson/v4"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
 	"github.com/jrick/wsrpc/v2"
 )
 

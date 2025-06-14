@@ -9,8 +9,8 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // fromHex converts the passed hex string into a byte slice and will panic if

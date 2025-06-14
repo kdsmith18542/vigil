@@ -7,8 +7,8 @@ package stdscript
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/VGLec"
-	"github.com/vigilnetwork/vgl/txscript/v4"
+	"github.com/kdsmith18542/vigil/VGLec"
+	"github.com/kdsmith18542/vigil/txscript/v4"
 )
 
 const (

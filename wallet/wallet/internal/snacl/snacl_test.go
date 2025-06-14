@@ -8,7 +8,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/errors"
 )
 
 var (

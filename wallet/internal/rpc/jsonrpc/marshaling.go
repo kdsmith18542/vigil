@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/vigilnetwork/vgl/wallet/wallet"
+	"github.com/kdsmith18542/vigil/wallet/wallet"
 )
 
 type marshalJSONFunc func() ([]byte, error)

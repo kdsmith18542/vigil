@@ -8,7 +8,7 @@ package treap
 import (
 	"bytes"
 
-	"github.com/vigilnetwork/vgl/crypto/rand"
+	"github.com/kdsmith18542/vigil/crypto/rand"
 )
 
 // Mutable represents a treap data structure which is used to hold ordered

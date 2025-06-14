@@ -8,7 +8,7 @@ package treap
 import (
 	"bytes"
 
-	"github.com/vigilnetwork/vgl/crypto/rand"
+	"github.com/kdsmith18542/vigil/crypto/rand"
 )
 
 // cloneTreapNode returns a shallow copy of the passed node.

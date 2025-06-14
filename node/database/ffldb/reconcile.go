@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"hash/crc32"
 
-	"github.com/vigilnetwork/vgl/database/v3"
+	"github.com/kdsmith18542/vigil/database/v3"
 )
 
 // The serialized write cursor location format is:

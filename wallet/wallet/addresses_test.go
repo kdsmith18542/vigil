@@ -10,8 +10,8 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/wallet/wallet/walletdb"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 )
 
 // expectedAddr is used to house the expected return values from a managed

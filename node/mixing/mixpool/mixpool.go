@@ -14,16 +14,16 @@ import (
 	"sync"
 	"time"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/container/lru"
-	"github.com/vigilnetwork/vgl/mixing"
-	"github.com/vigilnetwork/vgl/mixing/utxoproof"
-	"github.com/vigilnetwork/vgl/txscript/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdscript"
-	"github.com/vigilnetwork/vgl/wire"
-	"github.com/vigilnetwork/vgl/slog"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/container/lru"
+	"github.com/kdsmith18542/vigil/mixing"
+	"github.com/kdsmith18542/vigil/mixing/utxoproof"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
+	"github.com/kdsmith18542/vigil/wire"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 const minconf = 1

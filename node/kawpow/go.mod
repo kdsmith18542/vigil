@@ -1,4 +1,4 @@
-module github.com/vigilnetwork/vgl/kawpow
+module github.com/kdsmith18542/vigil/kawpow
 
 go 1.21
 

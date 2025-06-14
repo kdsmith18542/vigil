@@ -13,14 +13,14 @@ import (
 	"net/url"
 	"sync"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/wallet/wallet/udb"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
-	"github.com/vigilnetwork/vgl/wire"
-	"github.com/vigilnetwork/vgl/slog"
-	vspd "github.com/vigilnetwork/vgl/vspd/client/v4"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
+	"github.com/kdsmith18542/vigil/slog"
+	vspd "github.com/kdsmith18542/vigil/vspd/client/v4"
 )
 
 type DialFunc func(ctx context.Context, network, addr string) (net.Conn, error)

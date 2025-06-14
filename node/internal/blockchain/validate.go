@@ -10,11 +10,11 @@ import (
 	"math"
 	"time"
 
-	"github.com/vigil/vgl/node/blockchain/standalone/v2"
-	"github.com/vigil/vgl/node/chaincfg/chainhash"
-	"github.com/vigil/vgl/node/chaincfg/v3"
-	"github.com/vigil/vgl/node/VGLutil/v4"
-	"github.com/vigil/vgl/node/wire"
+	"github.com/kdsmith18542/vigil/node/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/node/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/node/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/node/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/node/wire"
 )
 
 // AgendaFlags is a bitmask defining which agendas are active.

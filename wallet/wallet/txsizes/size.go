@@ -5,7 +5,7 @@
 
 package txsizes
 
-import "github.com/vigilnetwork/vgl/wire"
+import "github.com/kdsmith18542/vigil/wire"
 
 // Worst case script and input/output size estimates.
 const (

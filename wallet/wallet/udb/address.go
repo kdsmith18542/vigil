@@ -6,8 +6,8 @@
 package udb
 
 import (
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 )
 
 // ManagedAddress is an interface that provides acces to information regarding

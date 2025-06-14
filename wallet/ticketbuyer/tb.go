@@ -9,10 +9,10 @@ import (
 	"runtime/trace"
 	"sync"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/wallet/wallet"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 const minconf = 1

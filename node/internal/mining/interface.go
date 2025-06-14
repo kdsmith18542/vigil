@@ -8,8 +8,8 @@ package mining
 import (
 	"time"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // PriorityInputser defines an interface that provides access to information

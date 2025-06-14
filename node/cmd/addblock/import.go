@@ -14,12 +14,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/database/v3"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/internal/blockchain"
-	"github.com/vigilnetwork/vgl/internal/blockchain/indexers"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/internal/blockchain"
+	"github.com/kdsmith18542/vigil/internal/blockchain/indexers"
+	"github.com/kdsmith18542/vigil/wire"
 	"github.com/syndtr/goleveldb/leveldb"
 )
 

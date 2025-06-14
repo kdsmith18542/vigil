@@ -7,15 +7,15 @@
 package txauthor
 
 import (
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/wallet/wallet/txrules"
-	"github.com/vigilnetwork/vgl/wallet/wallet/txsizes"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/crypto/rand"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4/sign"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txrules"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txsizes"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/sign"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 const (

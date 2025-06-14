@@ -22,8 +22,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
 )
 
 // errSubTestFail is used to signal that a sub test returned false.

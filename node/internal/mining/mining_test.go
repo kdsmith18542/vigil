@@ -10,13 +10,13 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/internal/blockchain"
-	"github.com/vigilnetwork/vgl/txscript/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/internal/blockchain"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // TestNewBlockTemplateBasicErrorScenarios tests various basic error scenarios

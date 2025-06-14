@@ -11,8 +11,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/vigilnetwork/vgl/VGLjson/v4"
-	"github.com/vigilnetwork/vgl/rpc/jsonrpc/types/v4"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
+	"github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
 )
 
 // helpDescsEnUS defines the English descriptions used for the help strings.

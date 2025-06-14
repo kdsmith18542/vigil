@@ -11,8 +11,8 @@ import (
 	"io"
 	"time"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/certgen"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/certgen"
 )
 
 // CurveID specifies a recognized curve through a constant value.

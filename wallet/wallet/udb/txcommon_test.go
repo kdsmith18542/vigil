@@ -10,13 +10,13 @@ import (
 	"testing"
 	"time"
 
-	_ "github.com/vigilnetwork/vgl/wallet/wallet/drivers/bdb"
-	"github.com/vigilnetwork/vgl/wallet/wallet/walletdb"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	gcs2 "github.com/vigilnetwork/vgl/gcs/v4"
-	"github.com/vigilnetwork/vgl/gcs/v4/blockcf2"
-	"github.com/vigilnetwork/vgl/wire"
+	_ "github.com/kdsmith18542/vigil/wallet/wallet/drivers/bdb"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	gcs2 "github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/gcs/v4/blockcf2"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 func tempDB(t *testing.T) (db walletdb.DB, teardown func()) {

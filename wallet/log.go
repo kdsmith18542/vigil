@@ -8,19 +8,19 @@ package main
 import (
 	"os"
 
-	"github.com/vigilnetwork/vgl/wallet/chain"
-	"github.com/vigilnetwork/vgl/wallet/internal/loader"
-	"github.com/vigilnetwork/vgl/wallet/internal/loggers"
-	"github.com/vigilnetwork/vgl/wallet/internal/rpc/jsonrpc"
-	"github.com/vigilnetwork/vgl/wallet/internal/rpc/rpcserver"
-	"github.com/vigilnetwork/vgl/wallet/p2p"
-	"github.com/vigilnetwork/vgl/wallet/spv"
-	"github.com/vigilnetwork/vgl/wallet/ticketbuyer"
-	"github.com/vigilnetwork/vgl/wallet/wallet"
-	"github.com/vigilnetwork/vgl/wallet/wallet/udb"
-	"github.com/vigilnetwork/vgl/connmgr/v3"
-	"github.com/vigilnetwork/vgl/mixing/mixpool"
-	"github.com/vigilnetwork/vgl/slog"
+	"github.com/kdsmith18542/vigil/wallet/chain"
+	"github.com/kdsmith18542/vigil/wallet/internal/loader"
+	"github.com/kdsmith18542/vigil/wallet/internal/loggers"
+	"github.com/kdsmith18542/vigil/wallet/internal/rpc/jsonrpc"
+	"github.com/kdsmith18542/vigil/wallet/internal/rpc/rpcserver"
+	"github.com/kdsmith18542/vigil/wallet/p2p"
+	"github.com/kdsmith18542/vigil/wallet/spv"
+	"github.com/kdsmith18542/vigil/wallet/ticketbuyer"
+	"github.com/kdsmith18542/vigil/wallet/wallet"
+	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
+	"github.com/kdsmith18542/vigil/connmgr/v3"
+	"github.com/kdsmith18542/vigil/mixing/mixpool"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 var log = loggers.MainLog

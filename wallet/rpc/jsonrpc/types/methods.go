@@ -9,8 +9,8 @@
 package types
 
 import (
-	"github.com/vigilnetwork/vgl/VGLjson/v4"
-	vgldtypes "github.com/vigilnetwork/vgl/rpc/jsonrpc/types/v4"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
+	vgldtypes "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
 )
 
 // Method describes the exact type used when registering methods with VGLjson.

@@ -4,7 +4,7 @@
 
 package wallet
 
-import "github.com/vigilnetwork/vgl/crypto/rand"
+import "github.com/kdsmith18542/vigil/crypto/rand"
 
 // Shuffle cryptographically shuffles a total of n items.
 func Shuffle(n int, swap func(i, j int)) {

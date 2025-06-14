@@ -7,12 +7,12 @@ package blockchain
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/blockchain/standalone/v2"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/database/v3"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/gcs/v4"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 const (

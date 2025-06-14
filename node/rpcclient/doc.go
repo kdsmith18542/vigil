@@ -9,8 +9,8 @@ Package rpcclient implements a websocket-enabled Vigil JSON-RPC client.
 This client provides a robust and easy to use client for interfacing
 with a Vigil RPC server that uses a mostly btcd/bitcoin core
 style Vigil JSON-RPC API.  This client has been tested with vgld
-(https://github.com/vigilnetwork/vgl) and vglwallet
-(https://github.com/Vigil/vglwallet).
+(https://github.com/kdsmith18542/vigil) and vglwallet
+(https://github.com/kdsmith18542/vigilwallet).
 
 In addition to the compatible standard HTTP POST JSON-RPC API, vgld and
 vglwallet provide a websocket interface that is more efficient than the standard

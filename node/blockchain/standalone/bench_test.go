@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // BenchmarkCalcMerkleRootInPlace benchmarks merkle root calculation for various

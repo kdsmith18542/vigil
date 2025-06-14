@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // isVoterMajorityVersion determines if minVer requirement is met based on

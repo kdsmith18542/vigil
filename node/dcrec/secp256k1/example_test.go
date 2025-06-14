@@ -13,7 +13,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
 )
 
 // This example demonstrates use of GenerateSharedSecret to encrypt a message

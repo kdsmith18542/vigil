@@ -11,8 +11,8 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // bigOne is 1 represented as a big.Int.  It is defined here to avoid the

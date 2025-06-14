@@ -13,7 +13,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/vigil/vgl/node/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/node/chaincfg/chainhash"
 )
 
 const (

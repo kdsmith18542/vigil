@@ -8,7 +8,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
 )
 
 // TestDiscoveryCursorPos tests that the account cursor index is not reset

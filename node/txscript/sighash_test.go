@@ -9,8 +9,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // TestVarIntSerializeSize ensures the serialize size for variable length

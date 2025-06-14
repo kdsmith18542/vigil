@@ -12,7 +12,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // TestHashToBig ensures HashToBig properly converts a hash treated as a little

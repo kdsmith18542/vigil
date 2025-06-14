@@ -9,7 +9,7 @@ import (
 	"hash"
 	"io"
 
-	"github.com/Vigil-Labs/vgl/node/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
 )
 
 // MsgMixSecrets reveals secrets of a failed mix run.  After secrets are

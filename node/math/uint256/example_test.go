@@ -7,7 +7,7 @@ package uint256_test
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/math/uint256"
+	"github.com/kdsmith18542/vigil/math/uint256"
 )
 
 // This example demonstrates calculating the result of dividing a max unsigned

@@ -8,7 +8,7 @@ package indexers
 import (
 	"context"
 
-	"github.com/vigilnetwork/vgl/database/v3"
+	"github.com/kdsmith18542/vigil/database/v3"
 )
 
 const (

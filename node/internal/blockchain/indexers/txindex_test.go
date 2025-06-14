@@ -11,13 +11,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vigilnetwork/vgl/blockchain/v5/chaingen"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/database/v3"
-	_ "github.com/vigilnetwork/vgl/database/v3/ffldb"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/database/v3"
+	_ "github.com/kdsmith18542/vigil/database/v3/ffldb"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // testChain represents a mock implementation of a block chain as

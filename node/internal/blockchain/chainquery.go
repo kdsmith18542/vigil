@@ -9,7 +9,7 @@ import (
 	"math"
 	"sort"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // nodeHeightSorter implements sort.Interface to allow a slice of nodes to

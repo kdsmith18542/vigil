@@ -9,9 +9,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Vigil/base58"
-	"github.com/vigilnetwork/vgl/blockchain/standalone/v2"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/base58"
+	"github.com/kdsmith18542/vigil/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // checkPowLimitsAreConsistent ensures PowLimit and PowLimitBits are consistent

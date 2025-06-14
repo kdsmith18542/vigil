@@ -13,7 +13,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/vigilnetwork/vgl/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
 )
 
 var (

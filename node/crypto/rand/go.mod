@@ -1,4 +1,4 @@
-module github.com/vigilnetwork/vgl/crypto/rand
+module github.com/kdsmith18542/vigil/crypto/rand
 
 go 1.18
 

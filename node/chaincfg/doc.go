@@ -24,8 +24,8 @@
 //		"fmt"
 //		"log"
 //
-//		"github.com/vigilnetwork/vgl/chaincfg/v3"
-//		"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
+//		"github.com/kdsmith18542/vigil/chaincfg/v3"
+//		"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 //	)
 //
 //	func main() {

@@ -6,8 +6,8 @@
 package cfgutil
 
 import (
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 )
 
 // AddressFlag contains a stdaddr.Address and implements the flags.Marshaler and

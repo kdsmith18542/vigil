@@ -11,8 +11,8 @@ import (
 	"io"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/node/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/node/kawpow"
+	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vgl/node/kawpow"
 	"lukechampine.com/blake3"
 )
 

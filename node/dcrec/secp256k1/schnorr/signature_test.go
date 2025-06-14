@@ -12,7 +12,7 @@ import (
 	"time"
 
 	
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
 )
 
 // TestSignatureParsing ensures that signatures are properly parsed including

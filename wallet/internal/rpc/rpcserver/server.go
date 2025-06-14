@@ -9,11 +9,11 @@
 // Full documentation of the API implemented by this package is maintained in a
 // language-agnostic document:
 //
-//	https://github.com/Vigil/vglwallet/blob/master/rpc/documentation/api.md
+//	https://github.com/kdsmith18542/vigilwallet/blob/master/rpc/documentation/api.md
 //
 // Any API changes must be performed according to the steps listed here:
 //
-//	https://github.com/Vigil/vglwallet/blob/master/rpc/documentation/serverchanges.md
+//	https://github.com/kdsmith18542/vigilwallet/blob/master/rpc/documentation/serverchanges.md
 package rpcserver
 
 import (
@@ -30,33 +30,33 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/vigilnetwork/vgl/wallet/chain"
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/wallet/internal/cfgutil"
-	"github.com/vigilnetwork/vgl/wallet/internal/loader"
-	"github.com/vigilnetwork/vgl/wallet/internal/netparams"
-	"github.com/vigilnetwork/vgl/wallet/p2p"
-	pb "github.com/vigilnetwork/vgl/wallet/rpc/walletrpc"
-	"github.com/vigilnetwork/vgl/wallet/spv"
-	"github.com/vigilnetwork/vgl/wallet/ticketbuyer"
-	"github.com/vigilnetwork/vgl/wallet/wallet"
-	"github.com/vigilnetwork/vgl/wallet/wallet/txauthor"
-	"github.com/vigilnetwork/vgl/wallet/wallet/txrules"
-	"github.com/vigilnetwork/vgl/wallet/wallet/udb"
-	"github.com/vigilnetwork/vgl/wallet/walletseed"
-	"github.com/vigilnetwork/vgl/addrmgr/v2"
-	"github.com/vigilnetwork/vgl/blockchain/stake/v5"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/crypto/rand"
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/gcs/v4"
-	"github.com/vigilnetwork/vgl/hdkeychain/v3"
-	"github.com/vigilnetwork/vgl/txscript/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdscript"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/chain"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/internal/cfgutil"
+	"github.com/kdsmith18542/vigil/wallet/internal/loader"
+	"github.com/kdsmith18542/vigil/wallet/internal/netparams"
+	"github.com/kdsmith18542/vigil/wallet/p2p"
+	pb "github.com/kdsmith18542/vigil/wallet/rpc/walletrpc"
+	"github.com/kdsmith18542/vigil/wallet/spv"
+	"github.com/kdsmith18542/vigil/wallet/ticketbuyer"
+	"github.com/kdsmith18542/vigil/wallet/wallet"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txauthor"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txrules"
+	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
+	"github.com/kdsmith18542/vigil/wallet/walletseed"
+	"github.com/kdsmith18542/vigil/addrmgr/v2"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/hdkeychain/v3"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // Public API version constants

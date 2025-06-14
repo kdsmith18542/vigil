@@ -7,13 +7,13 @@ package wallet
 import (
 	"context"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/wallet/wallet/txrules"
-	"github.com/vigilnetwork/vgl/wallet/wallet/txsizes"
-	"github.com/vigilnetwork/vgl/wallet/wallet/udb"
-	"github.com/vigilnetwork/vgl/wallet/wallet/walletdb"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txrules"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txsizes"
+	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // FetchP2SHMultiSigOutput fetches information regarding a wallet's P2SH

@@ -26,9 +26,9 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/vigilnetwork/vgl/VGLjson/v4"
-	chainjson "github.com/vigilnetwork/vgl/rpc/jsonrpc/types/v4"
-	"github.com/Vigil/go-socks/socks"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
+	chainjson "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
+	"github.com/kdsmith18542/vigil/go-socks/socks"
 )
 
 var (

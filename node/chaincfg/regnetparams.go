@@ -9,8 +9,8 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // RegNetParams returns the network parameters for the regression test network.

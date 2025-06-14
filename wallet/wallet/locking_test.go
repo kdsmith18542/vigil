@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/errors"
 )
 
 func TestLocking(t *testing.T) {

@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // NetAddress defines information about a peer on the network.

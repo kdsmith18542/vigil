@@ -12,11 +12,11 @@ import (
 
 	"github.com/companyzero/sntrup4591761"
 	
-	"github.com/vigilnetwork/vgl/crypto/rand"
-	"github.com/vigilnetwork/vgl/kawpow"
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4"
-	"github.com/vigilnetwork/vgl/mixing/internal/chacha20prng"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/kawpow"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/mixing/internal/chacha20prng"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // Aliases for sntrup4591761 types.

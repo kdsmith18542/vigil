@@ -11,9 +11,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vigilnetwork/vgl/peer/v3"
-	"github.com/vigilnetwork/vgl/wire"
-	"github.com/Vigil/go-socks/socks"
+	"github.com/kdsmith18542/vigil/peer/v3"
+	"github.com/kdsmith18542/vigil/wire"
+	"github.com/kdsmith18542/vigil/go-socks/socks"
 )
 
 // TestBanPeer tests ban manager peer banning functionality.

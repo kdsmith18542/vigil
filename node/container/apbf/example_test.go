@@ -7,7 +7,7 @@ package apbf_test
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/container/apbf"
+	"github.com/kdsmith18542/vigil/container/apbf"
 )
 
 // This example demonstrates creating a new APBF, adding items to it up to the

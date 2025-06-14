@@ -9,7 +9,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/slog"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 var logFlag = flag.Bool("log", false, "enable package logger")

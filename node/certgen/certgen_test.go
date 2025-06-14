@@ -13,7 +13,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vigilnetwork/vgl/certgen"
+	"github.com/kdsmith18542/vigil/certgen"
 )
 
 // TestNewTLSCertPair ensures the NewTLSCertPair function works as expected.

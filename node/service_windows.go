@@ -10,7 +10,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/vigilnetwork/vgl/internal/version"
+	"github.com/kdsmith18542/vigil/internal/version"
 	"golang.org/x/sys/windows/svc"
 	"golang.org/x/sys/windows/svc/eventlog"
 	"golang.org/x/sys/windows/svc/mgr"

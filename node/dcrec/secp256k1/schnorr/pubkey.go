@@ -8,7 +8,7 @@ package schnorr
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
 )
 
 // These constants define the lengths of serialized public keys.

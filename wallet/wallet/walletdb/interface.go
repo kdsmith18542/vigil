@@ -13,7 +13,7 @@ import (
 	"io"
 	"runtime/trace"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/errors"
 )
 
 // ReadTx represents a database transaction that can only be used for reads.  If

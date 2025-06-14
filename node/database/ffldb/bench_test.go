@@ -8,9 +8,9 @@ package ffldb
 import (
 	"testing"
 
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/database/v3"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
 )
 
 // BenchmarkBlockHeader benchmarks how long it takes to load the mainnet genesis

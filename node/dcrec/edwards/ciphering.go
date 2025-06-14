@@ -14,7 +14,7 @@ import (
 	"crypto/sha512"
 	"errors"
 
-	"github.com/vigilnetwork/vgl/crypto/rand"
+	"github.com/kdsmith18542/vigil/crypto/rand"
 )
 
 var (

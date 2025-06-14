@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // TestEstimateSupply ensures the supply estimation function used in the stake

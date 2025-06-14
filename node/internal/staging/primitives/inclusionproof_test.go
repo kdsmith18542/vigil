@@ -7,7 +7,7 @@ package primitives
 import (
 	"testing"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // TestGenerateInclusionProof ensures the expected proofs are produced for

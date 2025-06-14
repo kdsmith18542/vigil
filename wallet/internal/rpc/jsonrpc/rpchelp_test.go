@@ -19,9 +19,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/wallet/internal/rpchelp"
-	"github.com/vigilnetwork/vgl/wallet/rpc/jsonrpc/types"
-	"github.com/vigilnetwork/vgl/VGLjson/v4"
+	"github.com/kdsmith18542/vigil/wallet/internal/rpchelp"
+	"github.com/kdsmith18542/vigil/wallet/rpc/jsonrpc/types"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
 )
 
 func serverMethods() map[string]struct{} {

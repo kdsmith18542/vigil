@@ -1,9 +1,9 @@
-module github.com/vigilnetwork/vgl/certgen
+module github.com/kdsmith18542/vigil/certgen
 
 go 1.18
 
 require (
-	github.com/vigilnetwork/vgl/crypto/rand v1.0.0
+	github.com/kdsmith18542/vigil/crypto/rand v1.0.0
 	golang.org/x/net v0.28.0
 )
 

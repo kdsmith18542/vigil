@@ -11,10 +11,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/database/v3"
-	"github.com/vigilnetwork/vgl/internal/blockchain"
-	"github.com/vigilnetwork/vgl/internal/progresslog"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/internal/blockchain"
+	"github.com/kdsmith18542/vigil/internal/progresslog"
 )
 
 const (

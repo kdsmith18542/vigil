@@ -21,7 +21,7 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/vigilnetwork/vgl/crypto/rand"
+	"github.com/kdsmith18542/vigil/crypto/rand"
 	"golang.org/x/net/idna"
 )
 

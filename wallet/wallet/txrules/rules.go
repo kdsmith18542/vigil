@@ -6,11 +6,11 @@
 package txrules
 
 import (
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdscript"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // StakeSubScriptType potentially transforms the provided script type by

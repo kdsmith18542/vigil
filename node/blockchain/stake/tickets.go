@@ -7,12 +7,12 @@ package stake
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/blockchain/stake/v5/internal/dbnamespace"
-	"github.com/vigilnetwork/vgl/blockchain/stake/v5/internal/ticketdb"
-	"github.com/vigilnetwork/vgl/blockchain/stake/v5/internal/tickettreap"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/database/v3"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5/internal/dbnamespace"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5/internal/ticketdb"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5/internal/tickettreap"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // UndoTicketDataSlice is a pass through for ticketdb's UndoTicketData, which is

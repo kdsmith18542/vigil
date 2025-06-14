@@ -7,7 +7,7 @@ package stdaddr
 import (
 	"testing"
 
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // BenchmarkDecode benchmarks the performance of decoding various types of

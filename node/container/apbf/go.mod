@@ -1,4 +1,4 @@
-module github.com/vigilnetwork/vgl/container/apbf
+module github.com/kdsmith18542/vigil/container/apbf
 
 go 1.17
 

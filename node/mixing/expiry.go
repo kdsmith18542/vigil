@@ -7,7 +7,7 @@ package mixing
 import (
 	"time"
 
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // MaxExpiry returns the maximum allowed expiry for a new pair request message

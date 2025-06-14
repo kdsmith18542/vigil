@@ -9,9 +9,9 @@ import (
 	"encoding/binary"
 	"sort"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/kawpow"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/kawpow"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // deriveSessionID creates the mix session identifier from an initial sorted

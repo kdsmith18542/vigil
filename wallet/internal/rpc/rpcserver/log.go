@@ -19,7 +19,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/vigilnetwork/vgl/slog"
+	"github.com/kdsmith18542/vigil/slog"
 	"google.golang.org/grpc/grpclog"
 )
 

@@ -10,11 +10,11 @@ import (
 	"testing"
 	"time"
 
-	_ "github.com/vigilnetwork/vgl/wallet/wallet/drivers/bdb"
-	"github.com/vigilnetwork/vgl/wallet/wallet/walletdb"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/wire"
+	_ "github.com/kdsmith18542/vigil/wallet/wallet/drivers/bdb"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 func TestInsertsCreditsDebitsRollbacks(t *testing.T) {

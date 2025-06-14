@@ -13,12 +13,12 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	pb "github.com/vigilnetwork/vgl/wallet/rpc/walletrpc"
+	pb "github.com/kdsmith18542/vigil/wallet/rpc/walletrpc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/protobuf/encoding/prototext"
 
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
 )
 
 var (

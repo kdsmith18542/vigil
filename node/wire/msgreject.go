@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/Vigil-Labs/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vigil/chaincfg/chainhash"
 )
 
 // RejectCode represents a numeric value by which a remote peer indicates

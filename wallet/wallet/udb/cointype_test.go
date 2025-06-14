@@ -8,12 +8,12 @@ import (
 	"context"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/wallet/internal/compat"
-	"github.com/vigilnetwork/vgl/wallet/wallet/walletdb"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/hdkeychain/v3"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/internal/compat"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/hdkeychain/v3"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 )
 
 func TestCoinTypes(t *testing.T) {

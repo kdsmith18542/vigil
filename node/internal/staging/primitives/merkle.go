@@ -5,7 +5,7 @@
 package primitives
 
 import (
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // CalcMerkleRootInPlace is an in-place version of CalcMerkleRoot that reuses

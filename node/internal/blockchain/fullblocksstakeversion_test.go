@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/blockchain/v5/chaingen"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // TestStakeVersion ensures that the stake version field in the block header is

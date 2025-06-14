@@ -10,11 +10,11 @@ import (
 	"testing"
 	"time"
 
-	_ "github.com/vigilnetwork/vgl/wallet/wallet/internal/bdb"
-	"github.com/vigilnetwork/vgl/wallet/wallet/walletdb"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	gcs2 "github.com/vigilnetwork/vgl/gcs/v4"
-	"github.com/vigilnetwork/vgl/wire"
+	_ "github.com/kdsmith18542/vigil/wallet/wallet/internal/bdb"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	gcs2 "github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 func insertMainChainHeaders(s *Store, dbtx walletdb.ReadWriteTx,

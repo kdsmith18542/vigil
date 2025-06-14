@@ -10,7 +10,7 @@ import (
 	"encoding/json"
 	"errors"
 
-	"github.com/vigilnetwork/vgl/VGLjson/v4"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
 )
 
 // FutureRawResult is a future promise to deliver the result of a RawRequest RPC

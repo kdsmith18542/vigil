@@ -11,9 +11,9 @@ import (
 	"encoding/json"
 	"errors"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	chainjson "github.com/vigilnetwork/vgl/rpc/jsonrpc/types/v4"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	chainjson "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
 )
 
 // FutureGenerateResult is a future promise to deliver the result of a

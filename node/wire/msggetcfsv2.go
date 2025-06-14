@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/Vigil-Labs/vgl/node/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
 )
 
 // MsgGetCFsV2 implements the Message interface and represents a Vigil

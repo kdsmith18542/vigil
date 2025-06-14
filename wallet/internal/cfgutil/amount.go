@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
 )
 
 // AmountFlag embeds a VGLutil.Amount and implements the flags.Marshaler and

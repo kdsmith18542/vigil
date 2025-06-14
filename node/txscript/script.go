@@ -10,7 +10,7 @@ import (
 	"encoding/binary"
 	"strings"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // These are the constants specified for maximums in individual scripts.

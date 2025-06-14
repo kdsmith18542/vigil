@@ -15,8 +15,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/vigilnetwork/vgl/crypto/rand"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 const (

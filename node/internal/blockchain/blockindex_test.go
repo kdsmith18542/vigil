@@ -11,9 +11,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/math/uint256"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/math/uint256"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // TestBlockNodeHeader ensures that block nodes reconstruct the correct header

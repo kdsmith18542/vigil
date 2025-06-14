@@ -8,8 +8,8 @@ package VGLutil
 import (
 	"hash"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/crypto/ripemd160"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/crypto/ripemd160"
 )
 
 // Calculate the hash of hasher over buf.

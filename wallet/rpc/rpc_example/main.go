@@ -8,11 +8,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/vigilnetwork/vgl/wallet/rpc/client/vglwallet"
-	"github.com/vigilnetwork/vgl/wallet/rpc/jsonrpc/types"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/rpcclient/v8"
+	"github.com/kdsmith18542/vigil/wallet/rpc/client/vglwallet"
+	"github.com/kdsmith18542/vigil/wallet/rpc/jsonrpc/types"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/rpcclient/v8"
 )
 
 const (

@@ -14,9 +14,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	_ "github.com/vigilnetwork/vgl/wallet/wallet/internal/bdb"
-	"github.com/vigilnetwork/vgl/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	_ "github.com/kdsmith18542/vigil/wallet/wallet/internal/bdb"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
 )
 
 // This example demonstrates creating a new database.

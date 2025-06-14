@@ -7,8 +7,8 @@ package primitives
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/math/uint256"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/math/uint256"
 )
 
 // DiffBitsToUint256 converts the compact representation used to encode

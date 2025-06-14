@@ -8,7 +8,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // mockVote is a convenience func to return a mock vote that is used as a base

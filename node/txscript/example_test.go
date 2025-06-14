@@ -8,8 +8,8 @@ package txscript_test
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/txscript/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 )
 
 // This example demonstrates creating a script tokenizer instance and using it

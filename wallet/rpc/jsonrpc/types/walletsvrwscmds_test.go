@@ -12,7 +12,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/VGLjson/v4"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
 )
 
 // TestWalletSvrWsCmds tests all of the wallet server websocket-specific

@@ -5,8 +5,8 @@
 package stdscript
 
 import (
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 )
 
 // addrToSlice is a convenience function that returns a slice containing the

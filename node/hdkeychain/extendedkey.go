@@ -18,11 +18,11 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/Vigil/base58"
+	"github.com/kdsmith18542/vigil/base58"
 	
-	"github.com/vigilnetwork/vgl/crypto/ripemd160"
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4"
-	"github.com/vigilnetwork/vgl/kawpow"
+	"github.com/kdsmith18542/vigil/crypto/ripemd160"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/kawpow"
 )
 
 const (

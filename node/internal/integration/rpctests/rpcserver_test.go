@@ -14,8 +14,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/Vigil/VGLtest/vgldtest"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigiltest/vgldtest"
 )
 
 func testGetBestBlock(ctx context.Context, r *vgldtest.Harness, t *testing.T) {

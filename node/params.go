@@ -6,7 +6,7 @@
 package main
 
 import (
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // params is used to group parameters for various networks such as the main

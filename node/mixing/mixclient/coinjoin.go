@@ -8,12 +8,12 @@ import (
 	"crypto/subtle"
 	"errors"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4"
-	"github.com/vigilnetwork/vgl/VGLutil/v4/txsort"
-	"github.com/vigilnetwork/vgl/mixing/utxoproof"
-	"github.com/vigilnetwork/vgl/txscript/v4"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLutil/v4/txsort"
+	"github.com/kdsmith18542/vigil/mixing/utxoproof"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // msize is the message size of a mixed message (hash160).

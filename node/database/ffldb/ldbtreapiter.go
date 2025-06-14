@@ -6,7 +6,7 @@
 package ffldb
 
 import (
-	"github.com/vigilnetwork/vgl/database/v3/internal/treap"
+	"github.com/kdsmith18542/vigil/database/v3/internal/treap"
 	"github.com/syndtr/goleveldb/leveldb/iterator"
 	"github.com/syndtr/goleveldb/leveldb/util"
 )

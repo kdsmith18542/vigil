@@ -13,9 +13,9 @@ import (
 	"time"
 
 	"github.com/dchest/siphash"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/gcs/v4"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // TestMaxSize verifies the max size of blockcf2 filters for various

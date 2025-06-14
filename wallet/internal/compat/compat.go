@@ -1,10 +1,10 @@
 package compat
 
 import (
-	"github.com/vigilnetwork/vgl/blockchain/standalone/v2"
-	"github.com/vigilnetwork/vgl/hdkeychain/v3"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/hdkeychain/v3"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 func HD2Address(k *hdkeychain.ExtendedKey, params stdaddr.AddressParams) (*stdaddr.AddressPubKeyHashEcdsaSecp256k1V0, error) {

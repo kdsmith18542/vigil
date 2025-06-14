@@ -15,10 +15,10 @@ import (
 	"runtime/pprof"
 	"strings"
 
-	"github.com/vigilnetwork/vgl/internal/blockchain"
-	"github.com/vigilnetwork/vgl/internal/blockchain/indexers"
-	"github.com/vigilnetwork/vgl/internal/limits"
-	"github.com/vigilnetwork/vgl/internal/version"
+	"github.com/kdsmith18542/vigil/internal/blockchain"
+	"github.com/kdsmith18542/vigil/internal/blockchain/indexers"
+	"github.com/kdsmith18542/vigil/internal/limits"
+	"github.com/kdsmith18542/vigil/internal/version"
 )
 
 var cfg *config

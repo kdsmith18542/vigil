@@ -11,10 +11,10 @@ import (
 	"math"
 	"runtime"
 
-	"github.com/vigilnetwork/vgl/blockchain/stake/v5"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // PrevScripter defines an interface that provides access to scripts and their

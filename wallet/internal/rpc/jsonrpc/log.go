@@ -5,7 +5,7 @@
 
 package jsonrpc
 
-import "github.com/vigilnetwork/vgl/slog"
+import "github.com/kdsmith18542/vigil/slog"
 
 var log = slog.Disabled
 

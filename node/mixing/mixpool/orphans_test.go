@@ -10,11 +10,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 	
-	"github.com/vigilnetwork/vgl/mixing"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/mixing"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 var (

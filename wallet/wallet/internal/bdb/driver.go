@@ -8,8 +8,8 @@ package bdb
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
 )
 
 const (

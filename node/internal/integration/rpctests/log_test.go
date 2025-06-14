@@ -9,8 +9,8 @@ package rpctests
 import (
 	"testing"
 
-	"github.com/Vigil/VGLtest/vgldtest"
-	"github.com/vigilnetwork/vgl/slog"
+	"github.com/kdsmith18542/vigiltest/vgldtest"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 type testLog struct {

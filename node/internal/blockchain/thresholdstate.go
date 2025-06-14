@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"math/bits"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // ThresholdState define the various threshold states used when voting on

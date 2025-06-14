@@ -11,8 +11,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/vigilnetwork/vgl/wallet/wallet/walletdb"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 var (

@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/VigilanteNetwork/Vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // MessageHeaderSize is the number of bytes in a Vigil message header.

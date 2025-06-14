@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/Vigil-Labs/vgl/node/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
 )
 
 // MaxCFiltersV2PerBatch is the maximum number of committed filters that may

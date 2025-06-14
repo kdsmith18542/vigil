@@ -13,8 +13,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // assertPanic tests that code correctly panics, and will raise a testing error

@@ -8,7 +8,7 @@
 
 package types
 
-import "github.com/vigilnetwork/vgl/VGLjson/v4"
+import "github.com/kdsmith18542/vigil/VGLjson/v4"
 
 // AuthenticateCmd defines the authenticate JSON-RPC command.
 type AuthenticateCmd struct {

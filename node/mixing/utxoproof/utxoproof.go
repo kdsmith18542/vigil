@@ -7,9 +7,9 @@ package utxoproof
 import (
 	"encoding/binary"
 
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4"
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4/schnorr"
-	"github.com/vigilnetwork/vgl/kawpow"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4/schnorr"
+	"github.com/kdsmith18542/vigil/kawpow"
 )
 
 // Tags and schemes describing the message being signed.

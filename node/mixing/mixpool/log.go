@@ -5,7 +5,7 @@
 package mixpool
 
 import (
-	"github.com/vigilnetwork/vgl/slog"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 // log is a logger that is initialized with no output filters.  This

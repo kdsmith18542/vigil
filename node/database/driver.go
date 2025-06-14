@@ -8,7 +8,7 @@ package database
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/slog"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 // Driver defines a structure for backend drivers to use when they register

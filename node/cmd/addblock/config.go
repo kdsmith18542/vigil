@@ -11,10 +11,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/database/v3"
-	_ "github.com/vigilnetwork/vgl/database/v3/ffldb"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/database/v3"
+	_ "github.com/kdsmith18542/vigil/database/v3/ffldb"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
 	flags "github.com/jessevdk/go-flags"
 )
 

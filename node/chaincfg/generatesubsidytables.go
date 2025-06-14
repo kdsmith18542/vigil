@@ -16,7 +16,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 type payout struct {

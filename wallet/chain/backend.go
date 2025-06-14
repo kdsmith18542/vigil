@@ -7,13 +7,13 @@ package chain
 import (
 	"context"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/gcs/v4"
-	"github.com/vigilnetwork/vgl/mixing"
-	vgldtypes "github.com/vigilnetwork/vgl/rpc/jsonrpc/types/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/mixing"
+	vgldtypes "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
 	"github.com/jrick/bitset"
 )
 

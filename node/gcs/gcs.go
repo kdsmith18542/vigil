@@ -15,9 +15,9 @@ import (
 	"sync"
 
 	"github.com/dchest/siphash"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/kawpow"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/kawpow"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // modReduceV1 is the reduction method used in version 1 filters and simply

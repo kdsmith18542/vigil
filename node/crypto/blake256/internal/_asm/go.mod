@@ -1,4 +1,4 @@
-module github.com/vigilnetwork/vgl/crypto/blake256/internal/_asm
+module github.com/kdsmith18542/vigil/crypto/blake256/internal/_asm
 
 go 1.18
 

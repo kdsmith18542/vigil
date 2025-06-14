@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/vigilnetwork/vgl/container/lru"
+	"github.com/kdsmith18542/vigil/container/lru"
 )
 
 // This example demonstrates creating a new map instance, inserting items into

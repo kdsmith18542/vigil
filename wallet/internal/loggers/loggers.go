@@ -9,7 +9,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/vigilnetwork/vgl/slog"
+	"github.com/kdsmith18542/vigil/slog"
 	"github.com/jrick/logrotate/rotator"
 )
 

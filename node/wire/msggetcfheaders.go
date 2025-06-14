@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/Vigil-Labs/vgl/node/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
 )
 
 // MsgGetCFHeaders is a message similar to MsgGetHeaders, but for committed

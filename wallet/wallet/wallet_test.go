@@ -9,8 +9,8 @@ import (
 	"math"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 func TestCoinbaseMatured(t *testing.T) {

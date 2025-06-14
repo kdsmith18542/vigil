@@ -9,7 +9,7 @@ import (
 	"hash"
 	"io"
 
-	"github.com/Vigil-Labs/vgl/node/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
 )
 
 // MsgMixFactoredPoly encodes the solution of the factored slot reservation

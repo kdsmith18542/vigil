@@ -10,14 +10,14 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/blockchain/stake/v5"
-	"github.com/vigilnetwork/vgl/blockchain/standalone/v2"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/database/v3"
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4/schnorr"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4/schnorr"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // errDbTreasury signifies that a problem was encountered when fetching or

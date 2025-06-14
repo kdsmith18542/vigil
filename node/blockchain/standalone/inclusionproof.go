@@ -5,7 +5,7 @@
 package standalone
 
 import (
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // log2FloorMasks defines the masks to use when quickly calculating

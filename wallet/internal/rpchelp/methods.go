@@ -8,8 +8,8 @@
 package rpchelp
 
 import (
-	"github.com/vigilnetwork/vgl/wallet/rpc/jsonrpc/types"
-	vgldtypes "github.com/vigilnetwork/vgl/rpc/jsonrpc/types/v4"
+	"github.com/kdsmith18542/vigil/wallet/rpc/jsonrpc/types"
+	vgldtypes "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
 )
 
 // Common return types.

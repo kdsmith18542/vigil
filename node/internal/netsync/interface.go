@@ -5,8 +5,8 @@
 package netsync
 
 import (
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/mixing"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/mixing"
 )
 
 // PeerNotifier provides an interface to notify peers of status changes related

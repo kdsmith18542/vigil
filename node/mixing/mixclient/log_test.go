@@ -7,8 +7,8 @@ package mixclient
 import (
 	"testing"
 
-	"github.com/vigilnetwork/vgl/mixing/mixpool"
-	"github.com/vigilnetwork/vgl/slog"
+	"github.com/kdsmith18542/vigil/mixing/mixpool"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 type testLog struct {

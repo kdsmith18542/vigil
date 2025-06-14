@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vigilnetwork/vgl/blockchain/v5/chaingen"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // TestIndexSubscriberAsync ensures the index subscriber

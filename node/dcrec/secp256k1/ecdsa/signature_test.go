@@ -14,7 +14,7 @@ import (
 	"time"
 
 	
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
 )
 
 // hexToBytes converts the passed hex string into bytes and will panic if there

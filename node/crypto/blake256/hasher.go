@@ -13,7 +13,7 @@ import (
 	"encoding/binary"
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/crypto/blake256/internal/compress"
+	"github.com/kdsmith18542/vigil/crypto/blake256/internal/compress"
 )
 
 const (

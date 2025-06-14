@@ -3,9 +3,9 @@ package txrules_test
 import (
 	"testing"
 
-	. "github.com/vigilnetwork/vgl/wallet/wallet/txrules"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
+	. "github.com/kdsmith18542/vigil/wallet/wallet/txrules"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
 )
 
 func TestStakePoolTicketFee(t *testing.T) {

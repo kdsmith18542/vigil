@@ -3,8 +3,8 @@ package txsizes_test
 import (
 	"testing"
 
-	. "github.com/vigilnetwork/vgl/wallet/wallet/txsizes"
-	"github.com/vigilnetwork/vgl/wire"
+	. "github.com/kdsmith18542/vigil/wallet/wallet/txsizes"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 const (

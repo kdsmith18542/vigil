@@ -11,8 +11,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/vigilnetwork/vgl/connmgr/v3"
-	"github.com/vigilnetwork/vgl/peer/v3"
+	"github.com/kdsmith18542/vigil/connmgr/v3"
+	"github.com/kdsmith18542/vigil/peer/v3"
 )
 
 // Config is the configuration struct for the ban manager.

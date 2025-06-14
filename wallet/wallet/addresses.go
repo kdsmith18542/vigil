@@ -9,16 +9,16 @@ import (
 	"encoding/binary"
 	"runtime/trace"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/wallet/internal/compat"
-	"github.com/vigilnetwork/vgl/wallet/wallet/txsizes"
-	"github.com/vigilnetwork/vgl/wallet/wallet/udb"
-	"github.com/vigilnetwork/vgl/wallet/wallet/walletdb"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/hdkeychain/v3"
-	"github.com/vigilnetwork/vgl/txscript/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/internal/compat"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txsizes"
+	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/hdkeychain/v3"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 )
 
 // AccountKind describes the purpose and type of a wallet account.

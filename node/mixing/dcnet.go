@@ -8,8 +8,8 @@ import (
 	"encoding/binary"
 	"math/big"
 
-	"github.com/vigilnetwork/vgl/kawpow"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/kawpow"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // SRMixPads creates a vector of exponential DC-net pads from a vector of

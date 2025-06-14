@@ -8,7 +8,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/txscript/v4/stdscript"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
 )
 
 // hexToBytes converts the passed hex string into bytes and will panic if there

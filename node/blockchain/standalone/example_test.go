@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/vigilnetwork/vgl/blockchain/standalone/v2"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // This example demonstrates how to convert the compact "bits" in a block header

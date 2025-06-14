@@ -5,6 +5,6 @@
 
 package main
 
-import "github.com/vigilnetwork/vgl/wallet/internal/netparams"
+import "github.com/kdsmith18542/vigil/wallet/internal/netparams"
 
 var activeNet = &netparams.MainNetParams

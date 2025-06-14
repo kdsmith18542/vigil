@@ -8,9 +8,9 @@ package blockchain
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/blockchain/stake/v5"
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4"
-	"github.com/vigilnetwork/vgl/txscript/v4"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
 )
 
 // currentCompressionVersion is the current script compression version of the

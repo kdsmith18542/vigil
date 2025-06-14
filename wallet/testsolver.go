@@ -12,7 +12,7 @@ import (
 	"net/rpc"
 
 	"vigil.network/vgl/cspp/v2/solverrpc"
-	"github.com/vigilnetwork/vgl/mixing"
+	"github.com/kdsmith18542/vigil/mixing"
 )
 
 func testStartedSolverWorks() error {

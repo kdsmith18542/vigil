@@ -10,8 +10,8 @@ import (
 	"net"
 	"time"
 
-	"github.com/vigilnetwork/vgl/peer/v3"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/peer/v3"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // mockRemotePeer creates a basic inbound peer listening on the simnet port for

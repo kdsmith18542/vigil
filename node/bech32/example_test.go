@@ -9,7 +9,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/bech32"
+	"github.com/kdsmith18542/vigil/bech32"
 )
 
 // This example demonstrates how to decode a bech32 encoded string.

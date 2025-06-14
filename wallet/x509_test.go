@@ -20,7 +20,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vigilnetwork/vgl/crypto/rand"
+	"github.com/kdsmith18542/vigil/crypto/rand"
 )
 
 type keygen func(t *testing.T) (pub, priv any, name string)

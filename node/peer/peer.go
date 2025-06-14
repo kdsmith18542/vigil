@@ -19,14 +19,14 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/container/lru"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/container/lru"
 	
-	"github.com/vigilnetwork/vgl/crypto/rand"
-	"github.com/vigilnetwork/vgl/kawpow"
-	"github.com/vigilnetwork/vgl/wire"
-	"github.com/Vigil/go-socks/socks"
-	"github.com/vigilnetwork/vgl/slog"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/kawpow"
+	"github.com/kdsmith18542/vigil/wire"
+	"github.com/kdsmith18542/vigil/go-socks/socks"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 const (

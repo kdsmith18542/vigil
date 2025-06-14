@@ -12,8 +12,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/vigilnetwork/vgl/database/v3"
-	"github.com/vigilnetwork/vgl/slog"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/slog"
 	flags "github.com/jessevdk/go-flags"
 )
 

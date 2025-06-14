@@ -5,7 +5,7 @@
 
 package netparams
 
-import "github.com/vigilnetwork/vgl/chaincfg/v3"
+import "github.com/kdsmith18542/vigil/chaincfg/v3"
 
 // Params is used to group parameters for various networks such as the main
 // network and test networks.

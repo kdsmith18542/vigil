@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/database/v3"
-	_ "github.com/vigilnetwork/vgl/database/v3/ffldb"
+	"github.com/kdsmith18542/vigil/database/v3"
+	_ "github.com/kdsmith18542/vigil/database/v3/ffldb"
 )
 
 // checkDbError ensures the passed error is an Error that matches the passed

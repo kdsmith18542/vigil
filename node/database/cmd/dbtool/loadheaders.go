@@ -8,8 +8,8 @@ package main
 import (
 	"time"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/database/v3"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/database/v3"
 )
 
 // headersCmd defines the configuration options for the loadheaders command.

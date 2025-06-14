@@ -11,7 +11,7 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/Vigil-Labs/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vigil/chaincfg/chainhash"
 )
 
 const (

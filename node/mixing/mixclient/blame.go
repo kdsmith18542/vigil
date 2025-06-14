@@ -13,12 +13,12 @@ import (
 	"sort"
 	"time"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4"
-	"github.com/vigilnetwork/vgl/mixing"
-	"github.com/vigilnetwork/vgl/mixing/internal/chacha20prng"
-	"github.com/vigilnetwork/vgl/mixing/mixpool"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/mixing"
+	"github.com/kdsmith18542/vigil/mixing/internal/chacha20prng"
+	"github.com/kdsmith18542/vigil/mixing/mixpool"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 var errBlameFailed = errors.New("blame failed")

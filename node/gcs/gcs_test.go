@@ -14,7 +14,7 @@ import (
 	"time"
 
 	"github.com/dchest/siphash"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // filterMatcher allows different versions of the filter types to be used for

@@ -5,11 +5,11 @@
 package udb
 
 import (
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/wallet/wallet/walletdb"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	gcs2 "github.com/vigilnetwork/vgl/gcs/v4"
-	"github.com/vigilnetwork/vgl/gcs/v4/blockcf2"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	gcs2 "github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/gcs/v4/blockcf2"
 )
 
 // CFilterV2 returns the saved regular compact filter v2 for a block along with

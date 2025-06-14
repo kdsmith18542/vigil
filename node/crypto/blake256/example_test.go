@@ -11,7 +11,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/vigilnetwork/vgl/crypto/blake256"
+	"github.com/kdsmith18542/vigil/crypto/blake256"
 )
 
 // This example demonstrates the simplest method of hashing an existing

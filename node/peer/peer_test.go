@@ -15,9 +15,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/wire"
-	"github.com/Vigil/go-socks/socks"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
+	"github.com/kdsmith18542/vigil/go-socks/socks"
 )
 
 // conn mocks a network connection by implementing the net.Conn interface.  It

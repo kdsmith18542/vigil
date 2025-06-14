@@ -10,7 +10,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
 )
 
 // TestStakeTxFeePrioHeap tests the priority heap including the stake types for

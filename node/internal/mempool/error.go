@@ -9,7 +9,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/internal/blockchain"
+	"github.com/kdsmith18542/vigil/internal/blockchain"
 )
 
 // ErrorKind identifies a kind of error.  It has full support for errors.Is and

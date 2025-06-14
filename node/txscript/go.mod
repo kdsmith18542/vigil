@@ -1,19 +1,19 @@
-module github.com/Vigil-Labs/vgl/node/txscript/v4
+module github.com/kdsmith18542/vigil/txscript/v4
 
 go 1.17
 
 require (
 	github.com/dchest/siphash v1.2.3
-	github.com/Vigil/base58 v1.0.5
-	github.com/vigilnetwork/vgl/chaincfg/chainhash v1.0.4
-	github.com/vigilnetwork/vgl/chaincfg/v3 v3.2.1
-	github.com/vigilnetwork/vgl/crypto/blake256 v1.0.1
-	github.com/vigilnetwork/vgl/crypto/ripemd160 v1.0.2
-	github.com/vigilnetwork/vgl/dcrec v1.0.1
-	github.com/vigilnetwork/vgl/dcrec/edwards/v2 v2.0.3
-	github.com/vigilnetwork/vgl/dcrec/secp256k1/v4 v4.3.0
-	github.com/vigilnetwork/vgl/wire v1.7.0
-	github.com/vigilnetwork/vgl/slog v1.2.0
+	github.com/kdsmith18542/vigil/base58 v1.0.5
+	github.com/kdsmith18542/vigil/chaincfg/chainhash v1.0.4
+	github.com/kdsmith18542/vigil/chaincfg/v3 v3.2.1
+	github.com/kdsmith18542/vigil/crypto/blake256 v1.0.1
+	github.com/kdsmith18542/vigil/crypto/ripemd160 v1.0.2
+	github.com/kdsmith18542/vigil/dcrec v1.0.1
+	github.com/kdsmith18542/vigil/dcrec/edwards/v2 v2.0.3
+	github.com/kdsmith18542/vigil/dcrec/secp256k1/v4 v4.3.0
+	github.com/kdsmith18542/vigil/wire v1.7.0
+	github.com/kdsmith18542/vigil/slog v1.2.0
 )
 
 require (

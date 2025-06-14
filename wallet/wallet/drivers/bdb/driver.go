@@ -13,4 +13,4 @@
 //	if err != nil { /* handle error */ }
 package bdb
 
-import _ "github.com/vigilnetwork/vgl/wallet/wallet/internal/bdb" // Register bdb driver during init
+import _ "github.com/kdsmith18542/vigil/wallet/wallet/internal/bdb" // Register bdb driver during init

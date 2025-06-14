@@ -8,9 +8,9 @@ package hdkeychain_test
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/hdkeychain/v3"
-	"github.com/vigilnetwork/vgl/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/hdkeychain/v3"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 )
 
 // This example demonstrates how to generate a cryptographically random seed

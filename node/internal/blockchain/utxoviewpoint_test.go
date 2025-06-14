@@ -7,10 +7,10 @@ package blockchain
 import (
 	"testing"
 
-	"github.com/vigilnetwork/vgl/blockchain/v5/chaingen"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
-	"github.com/vigilnetwork/vgl/wire"
+	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // TestFetchUtxoView ensures fetching a utxo viewpoint for the current tip block

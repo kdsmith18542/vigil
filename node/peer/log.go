@@ -9,10 +9,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/txscript/v4"
-	"github.com/vigilnetwork/vgl/wire"
-	"github.com/vigilnetwork/vgl/slog"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/wire"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 // log is a logger that is initialized with no output filters.  This

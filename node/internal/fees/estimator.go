@@ -13,9 +13,9 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/vigilnetwork/vgl/blockchain/stake/v5"
-	"github.com/vigilnetwork/vgl/chaincfg/chainhash"
-	"github.com/vigilnetwork/vgl/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
 	"github.com/syndtr/goleveldb/leveldb"
 	ldbutil "github.com/syndtr/goleveldb/leveldb/util"
 )

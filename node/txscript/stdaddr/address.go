@@ -9,7 +9,7 @@ package stdaddr
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/crypto/ripemd160"
+	"github.com/kdsmith18542/vigil/crypto/ripemd160"
 )
 
 // AddressParams defines an interface that is used to provide the parameters

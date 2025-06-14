@@ -10,10 +10,10 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/Vigil/base58"
-	"github.com/vigilnetwork/vgl/crypto/ripemd160"
-	"github.com/vigilnetwork/vgl/VGLec/edwards/v2"
-	"github.com/vigilnetwork/vgl/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/base58"
+	"github.com/kdsmith18542/vigil/crypto/ripemd160"
+	"github.com/kdsmith18542/vigil/VGLec/edwards/v2"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
 )
 
 // mockAddrParams implements the AddressParams interface and is used throughout

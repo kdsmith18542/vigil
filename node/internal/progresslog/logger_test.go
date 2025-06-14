@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vigilnetwork/vgl/wire"
-	"github.com/vigilnetwork/vgl/slog"
+	"github.com/kdsmith18542/vigil/wire"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 var (

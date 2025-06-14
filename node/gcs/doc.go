@@ -15,7 +15,7 @@ This package currently implements two different versions for backwards
 compatibility.  Version 1 is deprecated and therefore should no longer be used.
 
 Version 2 is the GCS variation that follows the specification details in
-VGLP0005: https://github.com/Vigil/VGLPs/blob/master/VGLP-0005/VGLP-0005.mediawiki#golomb-coded-sets.
+VGLP0005: https://github.com/kdsmith18542/vigilPs/blob/master/VGLP-0005/VGLP-0005.mediawiki#golomb-coded-sets.
 
 Version 2 sets do not permit empty items (data of zero length) to be added and
 are parameterized by the following:
@@ -42,6 +42,6 @@ filter locally to determine if the block is potentially relevant.  The required
 parameters for Vigil are defined by the blockcf2 package.
 
 For more details, see the Block Filters section of VGLP0005:
-https://github.com/Vigil/VGLPs/blob/master/VGLP-0005/VGLP-0005.mediawiki#block-filters
+https://github.com/kdsmith18542/vigilPs/blob/master/VGLP-0005/VGLP-0005.mediawiki#block-filters
 */
 package gcs

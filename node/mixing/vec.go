@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/vigilnetwork/vgl/mixing/internal/chacha20prng"
+	"github.com/kdsmith18542/vigil/mixing/internal/chacha20prng"
 )
 
 // Msize is the size of the message being mixed.  This is the size of a

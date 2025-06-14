@@ -7,8 +7,8 @@ package chaingen_test
 import (
 	"fmt"
 
-	"github.com/vigilnetwork/vgl/blockchain/v5/chaingen"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // This example demonstrates creating a new generator instance and using it to

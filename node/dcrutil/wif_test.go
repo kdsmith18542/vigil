@@ -11,7 +11,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/vigilnetwork/vgl/VGLec"
+	"github.com/kdsmith18542/vigil/VGLec"
 )
 
 // TestWIF ensures that WIF-related APIs work as intended including that they

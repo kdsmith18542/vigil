@@ -19,12 +19,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
-	"github.com/vigilnetwork/vgl/wallet/internal/loader"
-	"github.com/vigilnetwork/vgl/wallet/rpc/jsonrpc/types"
-	"github.com/vigilnetwork/vgl/chaincfg/v3"
-	"github.com/vigilnetwork/vgl/VGLjson/v4"
-	vgldtypes "github.com/vigilnetwork/vgl/rpc/jsonrpc/types/v4"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/internal/loader"
+	"github.com/kdsmith18542/vigil/wallet/rpc/jsonrpc/types"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
+	vgldtypes "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
 	"github.com/gorilla/websocket"
 )
 

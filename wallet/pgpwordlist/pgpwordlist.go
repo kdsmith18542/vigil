@@ -19,7 +19,7 @@ package pgpwordlist
 import (
 	"strings"
 
-	"github.com/vigilnetwork/vgl/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/errors"
 )
 
 // ByteToMnemonic returns the PGP word list encoding of b when found at index.

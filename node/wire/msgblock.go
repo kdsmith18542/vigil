@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/Vigil-Labs/vgl/node/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
 )
 
 // defaultTransactionAlloc is the default size used for the backing array

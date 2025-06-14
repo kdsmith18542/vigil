@@ -1,3 +1,3 @@
-module github.com/vigilnetwork/vgl/bech32
+module github.com/kdsmith18542/vigil/bech32
 
 go 1.17
