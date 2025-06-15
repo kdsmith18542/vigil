@@ -18,17 +18,17 @@ import (
 	"strings"
 
 	"vigil.network/vgl/cspp/v2/solverrpc"
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/wallet/internal/cfgutil"
-	"github.com/Vigil-Labs/vgl/wallet/internal/loggers"
-	"github.com/Vigil-Labs/vgl/wallet/internal/netparams"
-	"github.com/Vigil-Labs/vgl/wallet/version"
-	"github.com/Vigil-Labs/vgl/wallet/wallet"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/txrules"
-	"github.com/Vigil-Labs/vgl/connmgr"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/go-socks/socks"
-	"github.com/Vigil-Labs/vgl/slog"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/internal/cfgutil"
+	"github.com/kdsmith18542/vigil/wallet/internal/loggers"
+	"github.com/kdsmith18542/vigil/wallet/internal/netparams"
+	"github.com/kdsmith18542/vigil/wallet/version"
+	"github.com/kdsmith18542/vigil/wallet/wallet"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txrules"
+	"github.com/kdsmith18542/vigil/connmgr/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/go-socks/socks"
+	"github.com/kdsmith18542/vigil/slog"
 	flags "github.com/jessevdk/go-flags"
 )
 
@@ -40,10 +40,10 @@ const (
 
 const (
 	defaultCAFilename              = "vgld.cert"
-	defaultConfigFilename          = "vigilwallet.conf"
+	defaultConfigFilename          = "vglwallet.conf"
 	defaultLogLevel                = "info"
 	defaultLogDirname              = "logs"
-	defaultLogFilename             = "vigilwallet.log"
+	defaultLogFilename             = "vglwallet.log"
 	defaultLogSize                 = "10M"
 	defaultRPCMaxClients           = 10
 	defaultRPCMaxWebsockets        = 25
@@ -71,7 +71,7 @@ const (
 
 var (
 	vgldDefaultCAFile         = filepath.Join(VGLutil.AppDataDir("vgld", false), "rpc.cert")
-	defaultAppDataDir         = VGLutil.AppDataDir("vigilwallet", false)
+	defaultAppDataDir         = VGLutil.AppDataDir("vglwallet", false)
 	defaultConfigFile         = filepath.Join(defaultAppDataDir, defaultConfigFilename)
 	defaultRPCKeyFile         = filepath.Join(defaultAppDataDir, "rpc.key")
 	defaultRPCCertFile        = filepath.Join(defaultAppDataDir, "rpc.cert")
@@ -331,7 +331,7 @@ func parseAndSetDebugLevels(debugLevel string) error {
 //  3. Load configuration file overwriting defaults with any specified options
 //  4. Parse CLI options and overwrite/add any specified options
 //
-// The above results in vigilwallet functioning properly without any config
+// The above results in vglwallet functioning properly without any config
 // settings while still allowing the user to override settings with config files
 // and command line options.  Command line options always take precedence.
 // The bool returned indicates whether or not the wallet was recreated from a
@@ -1049,7 +1049,3 @@ func loadConfig(ctx context.Context) (*config, []string, error) {
 
 	return &cfg, remainingArgs, nil
 }
-
-
-
-

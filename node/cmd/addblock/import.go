@@ -14,12 +14,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/database"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/internal/blockchain"
-	"github.com/Vigil-Labs/vgl/internal/blockchain/indexers"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/internal/blockchain"
+	"github.com/kdsmith18542/vigil/internal/blockchain/indexers"
+	"github.com/kdsmith18542/vigil/wire"
 	"github.com/syndtr/goleveldb/leveldb"
 )
 
@@ -376,7 +376,3 @@ func newBlockImporter(ctx context.Context, db database.DB, utxoDb *leveldb.DB, r
 		cancel:          cancel,
 	}, nil
 }
-
-
-
-

@@ -29,7 +29,3 @@ implementations for the pay-to-pubkey, pay-to-pubkey-hash, and
 pay-to-script-hash address types.
 */
 package VGLutil
-
-
-
-

@@ -175,7 +175,3 @@ func BenchmarkShuffleSlice(b *testing.B) {
 		ShuffleSlice(s)
 	}
 }
-
-
-
-

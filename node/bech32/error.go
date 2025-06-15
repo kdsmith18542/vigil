@@ -83,7 +83,3 @@ type ErrInvalidDataByte byte
 func (e ErrInvalidDataByte) Error() string {
 	return fmt.Sprintf("invalid data byte: %v", byte(e))
 }
-
-
-
-

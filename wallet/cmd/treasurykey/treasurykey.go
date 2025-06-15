@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/VGLec"
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
-	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/VGLec"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
 )
 
 func generateKeys(params *chaincfg.Params) error {
@@ -67,7 +67,3 @@ func main() {
 		os.Exit(1)
 	}
 }
-
-
-
-

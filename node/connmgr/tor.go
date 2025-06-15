@@ -135,7 +135,3 @@ func TorLookupIP(ctx context.Context, host, proxy string) ([]net.IP, error) {
 
 	return []net.IP{addr}, nil
 }
-
-
-
-

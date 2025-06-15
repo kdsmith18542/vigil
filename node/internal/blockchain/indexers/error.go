@@ -71,7 +71,3 @@ func (e IndexerError) Unwrap() error {
 func indexerError(kind ErrorKind, desc string) IndexerError {
 	return IndexerError{Err: kind, Description: desc}
 }
-
-
-
-

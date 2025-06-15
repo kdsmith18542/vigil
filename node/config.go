@@ -23,17 +23,17 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/connmgr"
-	"github.com/Vigil-Labs/vgl/database"
-	_ "github.com/Vigil-Labs/vgl/database/ffldb"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/internal/mempool"
-	"github.com/Vigil-Labs/vgl/internal/version"
-	"github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
-	"github.com/Vigil-Labs/vgl/sampleconfig"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/go-socks/socks"
-	"github.com/Vigil-Labs/vgl/slog"
+	"github.com/kdsmith18542/vigil/connmgr/v3"
+	"github.com/kdsmith18542/vigil/database/v3"
+	_ "github.com/kdsmith18542/vigil/database/v3/ffldb"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/internal/mempool"
+	"github.com/kdsmith18542/vigil/internal/version"
+	"github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
+	"github.com/kdsmith18542/vigil/sampleconfig"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/go-socks/socks"
+	"github.com/kdsmith18542/vigil/slog"
 	flags "github.com/jessevdk/go-flags"
 )
 
@@ -1398,7 +1398,3 @@ func tlsCurve(curve string) (elliptic.Curve, error) {
 		return nil, fmt.Errorf("unsupported curve %s", curve)
 	}
 }
-
-
-
-

@@ -13,7 +13,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 	)
 
 func main() {
@@ -52,7 +52,3 @@ func main() {
 		os.Exit(1)
 	}
 }
-
-
-
-

@@ -8,8 +8,8 @@ package mining
 import (
 	"time"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // PriorityInputser defines an interface that provides access to information
@@ -58,7 +58,3 @@ type TxSource interface {
 	// MiningView returns a snapshot of the underlying TxSource.
 	MiningView() *TxMiningView
 }
-
-
-
-

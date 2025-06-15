@@ -44,7 +44,3 @@ var (
 	// looked up later to insert new tickets into the live ticket database.
 	TicketsInBlockBucketName = []byte("ticketsinblock")
 )
-
-
-
-

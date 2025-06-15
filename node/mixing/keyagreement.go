@@ -12,11 +12,11 @@ import (
 
 	"github.com/companyzero/sntrup4591761"
 	
-	"github.com/Vigil-Labs/vgl/crypto/rand"
-	"github.com/Vigil-Labs/vgl/kawpow"
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
-	"github.com/Vigil-Labs/vgl/mixing/internal/chacha20prng"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/kawpow"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/mixing/internal/chacha20prng"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // Aliases for sntrup4591761 types.
@@ -236,7 +236,3 @@ func (kx *KX) SharedSecrets(k *RevealedKeys, sid []byte, run uint32, mcounts []u
 
 	return s, nil
 }
-
-
-
-

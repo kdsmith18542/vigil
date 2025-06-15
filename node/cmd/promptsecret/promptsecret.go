@@ -48,7 +48,3 @@ func main() {
 		prompt()
 	}
 }
-
-
-
-

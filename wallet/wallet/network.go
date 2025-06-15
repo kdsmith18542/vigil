@@ -8,13 +8,13 @@ import (
 	"context"
 	"sync"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/gcs"
-	"github.com/Vigil-Labs/vgl/mixing"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/mixing"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // FilterProof specifies cfilterv2 data of an individual block during a
@@ -187,7 +187,3 @@ func (o OfflineNetworkBackend) Err() error {
 // Compile time check to ensure OfflineNetworkBackend fulfills the
 // NetworkBackend interface.
 var _ NetworkBackend = OfflineNetworkBackend{}
-
-
-
-

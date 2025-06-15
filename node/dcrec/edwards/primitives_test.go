@@ -324,7 +324,3 @@ func TestPointConversion(t *testing.T) {
 		encodedPointsIdx++
 	}
 }
-
-
-
-

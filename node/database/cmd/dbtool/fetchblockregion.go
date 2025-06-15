@@ -11,8 +11,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/database"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/database/v3"
 )
 
 // blockRegionCmd defines the configuration options for the fetchblockregion
@@ -88,7 +88,3 @@ func (cmd *blockRegionCmd) Execute(args []string) error {
 func (cmd *blockRegionCmd) Usage() string {
 	return "<block-hash> <start-offset> <length-of-region>"
 }
-
-
-
-

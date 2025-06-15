@@ -30,11 +30,7 @@ Invoke the tool passing the CLI arguments so that it can connect to the wallet
 and import the provided cfilter data.
 
 ```
-$ go run . -c localhost:19110 -u USER -p PASSWORD --cafile ~/.vigilwallet/rpc.cert
+$ go run . -c localhost:19110 -u USER -p PASSWORD --cafile ~/.vglwallet/rpc.cert
 --cfiltersfile testnet-data.bin
 ```
-
-
-
-
 

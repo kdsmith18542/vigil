@@ -13,7 +13,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/kdsmith18542/vigil/txscript/v4"
 )
 
 var (
@@ -213,7 +213,3 @@ func mustParseShortForm(scriptVersion uint16, script string) []byte {
 
 	return s
 }
-
-
-
-

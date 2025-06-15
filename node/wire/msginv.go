@@ -144,7 +144,3 @@ func NewMsgInvSizeHint(sizeHint uint) *MsgInv {
 		InvList: make([]*InvVect, 0, sizeHint),
 	}
 }
-
-
-
-

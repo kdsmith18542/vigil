@@ -61,7 +61,3 @@ the specific rule violation by examining the ErrorCode field of the type
 asserted standalone.RuleError.
 */
 package standalone
-
-
-
-

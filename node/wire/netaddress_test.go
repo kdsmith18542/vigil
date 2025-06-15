@@ -240,7 +240,3 @@ func TestNetAddressWireErrors(t *testing.T) {
 		}
 	}
 }
-
-
-
-

@@ -18,19 +18,19 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
-	"github.com/Vigil-Labs/vgl/blockchain/standalone"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/container/lru"
-	"github.com/Vigil-Labs/vgl/database"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/gcs"
-	"github.com/Vigil-Labs/vgl/gcs/blockcf2"
-	"github.com/Vigil-Labs/vgl/internal/blockchain/indexers"
-	"github.com/Vigil-Labs/vgl/math/uint256"
-	"github.com/Vigil-Labs/vgl/txscript"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/container/lru"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/gcs/v4/blockcf2"
+	"github.com/kdsmith18542/vigil/internal/blockchain/indexers"
+	"github.com/kdsmith18542/vigil/math/uint256"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 const (
@@ -2593,7 +2593,3 @@ func New(ctx context.Context, config *Config) (*BlockChain, error) {
 
 	return &b, nil
 }
-
-
-
-

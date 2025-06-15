@@ -19,11 +19,11 @@ package blockcf2
 import (
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/gcs"
-	"github.com/Vigil-Labs/vgl/txscript"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 const (
@@ -459,7 +459,3 @@ func Regular(block *wire.MsgBlock, prevScripts PrevScripter) (*gcs.FilterV2, err
 	key := Key(&block.Header.MerkleRoot)
 	return gcs.NewFilterV2(B, M, key, data)
 }
-
-
-
-

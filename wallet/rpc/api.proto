@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package walletrpc;
 
-option go_package = "kdsmith18542.vigil/wallet/v5/rpc/walletrpc";
+option go_package = "vigil.network/vgl/wallet/v5/rpc/walletrpc";
 
 service VersionService {
 	rpc Version (VersionRequest) returns (VersionResponse);

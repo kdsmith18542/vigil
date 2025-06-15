@@ -39,7 +39,3 @@ good peers.  The general idea is to make a best effort to only provide usable
 addresses.
 */
 package addrmgr
-
-
-
-

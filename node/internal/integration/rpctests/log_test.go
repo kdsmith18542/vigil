@@ -9,8 +9,8 @@ package rpctests
 import (
 	"testing"
 
-	"github.com/Vigil-Labs/vgltest/vgldtest"
-	"github.com/Vigil-Labs/vgl/slog"
+	"github.com/kdsmith18542/vigiltest/vgldtest"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 type testLog struct {
@@ -37,7 +37,3 @@ func useTestLogger(t *testing.T) func() {
 		vgldtest.UseLogger(slog.Disabled)
 	}
 }
-
-
-
-

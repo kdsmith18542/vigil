@@ -6,7 +6,3 @@ package types
 
 // Method is the type used to register method and parameter pairs with VGLjson.
 type Method string
-
-
-
-

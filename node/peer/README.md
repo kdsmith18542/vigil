@@ -66,7 +66,3 @@ standard go tooling for working with modules to incorporate it.
 ## License
 
 Package peer is licensed under the [copyfree](http://copyfree.org) ISC License.
-
-
-
-

@@ -205,7 +205,3 @@ $ ./vgld --proxy=127.0.0.1:9050 --torisolation
 proxy=127.0.0.1:9050
 torisolation=1
 ```
-
-
-
-

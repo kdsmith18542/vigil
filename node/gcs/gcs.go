@@ -15,9 +15,9 @@ import (
 	"sync"
 
 	"github.com/dchest/siphash"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/kawpow"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/kawpow"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // modReduceV1 is the reduction method used in version 1 filters and simply
@@ -598,7 +598,3 @@ func MaxFilterV2Size(B uint8, M uint64, N uint32) uint64 {
 	maxBytes := (maxBits+7)/8 + nSerSize
 	return maxBytes
 }
-
-
-
-

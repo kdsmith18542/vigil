@@ -195,7 +195,3 @@ func (s *profileServer) Listeners() []string {
 
 	return s.listeners
 }
-
-
-
-

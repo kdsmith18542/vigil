@@ -9,6 +9,8 @@ github.com/kdsmith18542/vigilnetwork/vgl/chaincfg/chainhash v1.0.4 h1:zRCv6tdncL
 github.com/kdsmith18542/vigilnetwork/vgl/chaincfg/chainhash v1.0.4/go.mod h1:hA86XxlBWwHivMvxzXTSD0ZCG/LoYsFdWnCekkTMCqY=
 github.com/kdsmith18542/vigilnetwork/vgl/container/lru v1.0.0 h1:7foQymtbu18aQWYiY9RnNIeE+kvpiN+fiBQ3+viyJjI=
 github.com/kdsmith18542/vigilnetwork/vgl/container/lru v1.0.0/go.mod h1:vlPwj0l+IzAHhQSsbgQnJgO5Cte78+yI065V+Mc5PRQ=
+github.com/kdsmith18542/vigilnetwork/vgl/crypto/blake256 v1.1.0 h1:zPMNGQCm0g4QTY27fOCorQW7EryeQ/U0x++OzVrdms8=
+github.com/kdsmith18542/vigilnetwork/vgl/crypto/blake256 v1.1.0/go.mod h1:2OfgNZ5wDpcsFmHmCK5gZTPcCXqlm2ArzUIkw9czNJo=
 github.com/kdsmith18542/vigilnetwork/vgl/crypto/rand v1.0.0 h1:Ah9Asl36OZt09sGSMbJZuL1HfwGdlC38q/ZUeLDVKRg=
 github.com/kdsmith18542/vigilnetwork/vgl/crypto/rand v1.0.0/go.mod h1:coa7BbxSTiKH6esi257plGfMFYuGL4MTbQlLYnOdzpE=
 github.com/kdsmith18542/vigilnetwork/vgl/crypto/ripemd160 v1.0.2 h1:TvGTmUBHDU75OHro9ojPLK+Yv7gDl2hnUvRocRCjsys=

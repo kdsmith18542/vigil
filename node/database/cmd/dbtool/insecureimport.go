@@ -14,10 +14,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/database"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // importCmd defines the configuration options for the insecureimport command.
@@ -394,7 +394,3 @@ func (cmd *importCmd) Execute(args []string) error {
 	err = <-shutdownChannel
 	return err
 }
-
-
-
-

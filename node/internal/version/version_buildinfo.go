@@ -30,7 +30,3 @@ func vcsCommitID() string {
 	}
 	return revision
 }
-
-
-
-

@@ -51,7 +51,3 @@ func (r *Reader) Next(n int) []byte {
 	r.cipher.XORKeyStream(b, b)
 	return b
 }
-
-
-
-

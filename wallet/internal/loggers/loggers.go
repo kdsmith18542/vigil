@@ -9,7 +9,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/Vigil-Labs/vgl/slog"
+	"github.com/kdsmith18542/vigil/slog"
 	"github.com/jrick/logrotate/rotator"
 )
 
@@ -88,7 +88,3 @@ func CloseLogRotator() error {
 
 	return logRotator.Close()
 }
-
-
-
-

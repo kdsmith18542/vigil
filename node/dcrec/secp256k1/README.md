@@ -70,7 +70,3 @@ Use the standard go tooling for working with modules to incorporate it.
 
 Package secp256k1 is licensed under the [copyfree](http://copyfree.org) ISC
 License.
-
-
-
-

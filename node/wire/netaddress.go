@@ -159,7 +159,3 @@ func writeNetAddress(w io.Writer, pver uint32, na *NetAddress, ts bool) error {
 	// Sigh.  Vigil protocol mixes little and big endian.
 	return binary.Write(w, bigEndian, na.Port)
 }
-
-
-
-

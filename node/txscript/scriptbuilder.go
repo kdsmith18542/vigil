@@ -292,7 +292,3 @@ func NewScriptBuilder() *ScriptBuilder {
 		script: make([]byte, 0, defaultScriptAlloc),
 	}
 }
-
-
-
-

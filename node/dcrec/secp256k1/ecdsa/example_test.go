@@ -10,8 +10,8 @@ import (
 	"fmt"
 
 	
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1/ecdsa"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4/ecdsa"
 )
 
 // This example demonstrates signing a message with a secp256k1 private key that
@@ -84,7 +84,3 @@ func ExampleSignature_Verify() {
 	// Output:
 	// Signature Verified? true
 }
-
-
-
-

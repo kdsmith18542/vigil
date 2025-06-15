@@ -7,9 +7,9 @@ package utxoproof
 import (
 	"encoding/binary"
 
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1/schnorr"
-	"github.com/Vigil-Labs/vgl/kawpow"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4/schnorr"
+	"github.com/kdsmith18542/vigil/kawpow"
 )
 
 // Tags and schemes describing the message being signed.
@@ -88,7 +88,3 @@ func ValidateSecp256k1P2PKH(pubkey, proof []byte, expires uint32) bool {
 
 	return proofParsed.Verify(hash, pubkeyParsed)
 }
-
-
-
-

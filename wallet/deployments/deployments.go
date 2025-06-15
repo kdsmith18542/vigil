@@ -7,10 +7,10 @@ package deployments
 import (
 	"context"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	vgldtypes "github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	vgldtypes "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // HardcodedDeployment specifies hardcoded block heights that a deployment
@@ -28,7 +28,7 @@ type HardcodedDeployment struct {
 }
 
 // VGLP0001 specifies hard forking changes to the stake difficulty algorithm as
-// defined by https://github.com/Vigil-Labs/vglPs/blob/master/VGLP-0001/VGLP-0001.mediawiki.
+// defined by https://github.com/kdsmith18542/vigilPs/blob/master/VGLP-0001/VGLP-0001.mediawiki.
 var VGLP0001 = HardcodedDeployment{
 	MainNetActivationHeight:  149248,
 	TestNet2ActivationHeight: 46128,
@@ -37,7 +37,7 @@ var VGLP0001 = HardcodedDeployment{
 }
 
 // VGLP0002 specifies the activation of the OP_SHA256 hard fork as defined by
-// https://github.com/Vigil-Labs/vglPs/blob/master/VGLP-0002/VGLP-0002.mediawiki.
+// https://github.com/kdsmith18542/vigilPs/blob/master/VGLP-0002/VGLP-0002.mediawiki.
 var VGLP0002 = HardcodedDeployment{
 	MainNetActivationHeight:  189568,
 	TestNet2ActivationHeight: 151968,
@@ -46,7 +46,7 @@ var VGLP0002 = HardcodedDeployment{
 }
 
 // VGLP0003 specifies the activation of a CSV soft fork as defined by
-// https://github.com/Vigil-Labs/vglPs/blob/master/VGLP-0003/VGLP-0003.mediawiki.
+// https://github.com/kdsmith18542/vigilPs/blob/master/VGLP-0003/VGLP-0003.mediawiki.
 var VGLP0003 = HardcodedDeployment{
 	MainNetActivationHeight:  189568,
 	TestNet2ActivationHeight: 151968,
@@ -155,7 +155,3 @@ func VGLP0012Active(ctx context.Context, height int32, params *chaincfg.Params,
 		return false, nil
 	}
 }
-
-
-
-

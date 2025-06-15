@@ -1,19 +1,19 @@
-Vigil Wallet
-============
+vglwallet
+=========
 
-Vigil Vigil Wallet is a daemon handling Vigil wallet functionality. All interaction
+vglwallet is a daemon handling Vigil wallet functionality.  All interaction
 with the wallet is performed over RPC.
 
 Public and private keys are derived using the hierarchical
 deterministic format described by
 [BIP0032](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki).
 Unencrypted private keys are not supported and are never written to
-disk. Vigil Wallet uses the
+disk.  vglwallet uses the
 `m/44'/<coin type>'/<account>'/<branch>/<address index>`
 HD path for all derived addresses, as described by
 [BIP0044](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki).
 
-Vigil Vigil Wallet provides two modes of operation to connect to the Vigil
+vglwallet provides two modes of operation to connect to the Vigil
 network.  The first (and default) is to communicate with a single
 trusted `vgld` instance using JSON-RPC.  The second is a
 privacy-preserving Simplified Payment Verification (SPV) mode (enabled
@@ -49,7 +49,7 @@ Wallet clients interact with the wallet using one of two RPC servers:
 
   2. A gRPC server
 
-     The gRPC server uses a new API built for Vigil Wallet, but the API is not
+     The gRPC server uses a new API built for vglwallet, but the API is not
      stabilized.  This server is enabled by default and may be disabled with
      the config option `--nogrpc`.  If you don't mind applications breaking
      due to API changes, don't want to deal with issues of the JSON-RPC API, or
@@ -61,16 +61,16 @@ Wallet clients interact with the wallet using one of two RPC servers:
 ### Binaries (Windows/Linux/macOS)
 
 Binary releases are provided for common operating systems and architectures.
-Please note that Vigil Wallet is CLI only. It is included in the
-[CLI app suite](https://github.com/Vigil-Labs/vgl-release/releases/latest).
+Please note that vglwallet is CLI only. It is included in the
+[CLI app suite](https://github.com/Vigil/Vigil-release/releases/latest).
 If you would prefer a graphical user interface (GUI) instead, consider
-downloading the GUI wallet [Vigiliton](https://github.com/Vigil-Labs/vgliton).
+downloading the GUI wallet [Vigiliton](https://github.com/Vigil/Vigiliton).
 
-https://kdsmith18542.vigil/downloads/
+https://vigil.network/downloads/
 
-* How to verify binaries before installing: https://docs.kdsmith18542.vigil/advanced/verifying-binaries/
-* How to install the CLI Suite: https://docs.kdsmith18542.vigil/wallets/cli/cli-installation/
-* How to install Vigiliton: https://docs.kdsmith18542.vigil/wallets/Vigiliton/Vigiliton-setup/
+* How to verify binaries before installing: https://docs.vigil.network/advanced/verifying-binaries/
+* How to install the CLI Suite: https://docs.vigil.network/wallets/cli/cli-installation/
+* How to install Vigiliton: https://docs.vigil.network/wallets/Vigiliton/Vigiliton-setup/
 
 ### Build from source (all platforms)
 
@@ -85,19 +85,19 @@ https://kdsmith18542.vigil/downloads/
   NOTE: `GOROOT` and `GOPATH` must not be on the same path. It is recommended
   to add `$GOPATH/bin` to your `PATH` according to the Golang.org instructions.
 
-- **Build or Update Vigil Wallet**
+- **Build or Update vglwallet**
 
-  Since Vigil Wallet is a single Go module, it's possible to use a single command
+  Since vglwallet is a single Go module, it's possible to use a single command
   to download, build, and install without needing to clone the repo. Run:
 
   ```sh
-  $ go install kdsmith18542.vigil/wallet@master
+  $ go install vigil.network/vgl/wallet@master
   ```
 
   to build the latest master branch, or:
 
   ```sh
-  $ go install kdsmith18542.vigil/wallet@latest
+  $ go install vigil.network/vgl/wallet@latest
   ```
 
   for the latest released version.
@@ -109,39 +109,39 @@ https://kdsmith18542.vigil/downloads/
   the `module` line in the `go.mod` at that version.  See `go help install`
   for more details.
 
-  The `vigilwallet` executable will be installed to `$GOPATH/bin`. `GOPATH`
+  The `vglwallet` executable will be installed to `$GOPATH/bin`.  `GOPATH`
   defaults to `$HOME/go` (or `%USERPROFILE%\go` on Windows).
 
 ## Getting Started
 
-Vigil Wallet can connect to the Vigil blockchain using either [vgld](https://github.com/Vigil-Labs/vgl) 
-or by running in [Simple Payment Verification (SPV)](https://docs.kdsmith18542.vigil/wallets/spv/)
+vglwallet can connect to the Vigil blockchain using either [vgld](https://github.com/vigilnetwork/vgl)
+or by running in [Simple Payment Verification (SPV)](https://docs.vigil.network/wallets/spv/)
 mode. Commands should be run in `cmd.exe` or PowerShell on Windows, or any
 terminal emulator on *nix.
 
 - Run the following command to create a wallet:
 
 ```sh
-vigilwallet --create
+vglwallet --create
 ```
 
-- To use Vigil Wallet in SPV mode:
+- To use vglwallet in SPV mode:
 
 ```sh
-vigilwallet --spv
+vglwallet --spv
 ```
 
-Vigil Vigil Wallet will find external full node peers. It will take a few minutes to
+vglwallet will find external full node peers. It will take a few minutes to
 download the blockchain headers and filters, but it will not download full blocks.
 
-- To use Vigil Wallet using a localhost vgld:
+- To use vglwallet using a localhost vgld:
 
-You will need to install both [vgld](https://github.com/Vigil-Labs/vgl) and
-[vglctl](https://github.com/kdsmith18542/vglctl). `vglctl` is the client that controls
-`vgld` and `Vigil Wallet` via remote procedure call (RPC).
+You will need to install both [vgld](https://github.com/vigilnetwork/vgl) and
+[vglctl](https://github.com/Vigil/vglctl). `vglctl` is the client that controls
+`vgld` and `vglwallet` via remote procedure call (RPC).
 
 Please follow the instructions in the documentation, beginning with
-[Startup Basics](https://docs.kdsmith18542.vigil/wallets/cli/startup-basics/)
+[Startup Basics](https://docs.vigil.network/wallets/cli/startup-basics/)
 
 ## Running Tests
 
@@ -156,25 +156,21 @@ supports the current and previous major versions of Go.
 
 If you have any further questions you can find us at:
 
-https://kdsmith18542.vigil/community/
+https://vigil.network/community/
 
 ## Issue Tracker
 
-The [integrated github issue tracker](https://github.com/Vigil-Labs/vgl/wallet/issues)
+The [integrated github issue tracker](https://github.com/Vigil/vglwallet/issues)
 is used for this project.
 
 ## Documentation
 
-The documentation for Vigil Wallet is a work-in-progress. It is located in the
-[docs](https://github.com/Vigil-Labs/vgl/wallet/tree/master/docs) folder.
+The documentation for vglwallet is a work-in-progress.  It is located in the
+[docs](https://github.com/Vigil/vglwallet/tree/master/docs) folder.
 
 Additional documentation can be found on
-[docs.vigil.network](https://docs.vigil.network/wallets/cli/vigilwallet-setup/).
+[docs.vigil.network](https://docs.vigil.network/wallets/cli/vglwallet-setup/).
 
 ## License
 
-Vigil Vigil Wallet is licensed under the liberal ISC License.
-
-
-
-
+vglwallet is licensed under the liberal ISC License.

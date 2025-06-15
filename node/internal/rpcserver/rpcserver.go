@@ -26,7 +26,7 @@ import (
 	"net/http"
 	"net/url"
 	"runtime"
-	"github.com/Vigil-Labs/vgl/kawpow"
+	"github.com/kdsmith18542/vigil/kawpow"
 	"sort"
 	"strconv"
 	"strings"
@@ -35,27 +35,27 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
-	"github.com/Vigil-Labs/vgl/blockchain/standalone"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 	
-	"github.com/Vigil-Labs/vgl/crypto/rand"
-	"github.com/Vigil-Labs/vgl/database"
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1/ecdsa"
-	"github.com/Vigil-Labs/vgl/VGLjson"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/internal/blockchain"
-	"github.com/Vigil-Labs/vgl/internal/mempool"
-	"github.com/Vigil-Labs/vgl/internal/mining"
-	"github.com/Vigil-Labs/vgl/internal/version"
-	"github.com/Vigil-Labs/vgl/mixing"
-	"github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
-	"github.com/Vigil-Labs/vgl/txscript"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/txscript/stdscript"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4/ecdsa"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/internal/blockchain"
+	"github.com/kdsmith18542/vigil/internal/mempool"
+	"github.com/kdsmith18542/vigil/internal/mining"
+	"github.com/kdsmith18542/vigil/internal/version"
+	"github.com/kdsmith18542/vigil/mixing"
+	"github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
 
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wire"
 	"github.com/gorilla/websocket"
 	"github.com/jrick/bitset"
 )
@@ -81,9 +81,34 @@ const (
 	// 256-bit integer.
 	uint256Size = 32
 
+	// getworkDataLenBlake256 is the length of the data field of the getwork
+	// RPC when providing work for blake256.  It consists of the serialized
+	// block header plus the internal blake256 padding.  The internal blake256
+	// padding consists of a single 1 bit followed by zeros and a final 1 bit in
+	// order to pad the message out to 56 bytes followed by length of the
+	// message in bits encoded as a big-endian uint64 (8 bytes).  Thus, the
+	// resulting length is a multiple of the blake256 block size (64 bytes).
+	// Given the padding requires at least a 1 bit and 64 bits for the padding,
+	// the following converts the block header length and hash block size to
+	// bits in order to ensure the correct number of hash blocks are calculated
+	// and then multiplies the result by the block hash block size in bytes.
+	getworkDataLenBlake256 = (1 + ((wire.MaxBlockHeaderPayload*8 + 65) /
+		(kawpow.BlockSize * 8))) * kawpow.BlockSize // Assuming kawpow.BlockSize is a constant or accessible
 
+	// TODO: Ensure kawpow package is properly imported and its components are accessible.
+	// If kawpow.BlockSize is not directly accessible, it might need to be defined or imported from a specific path.
+	// For now, assuming it's a constant or globally available after import.
 
+	// blake3BlkSize is the internal block size of the blake3 hashing algorithm.
+	blake3BlkSize = 64
 
+	// getworkDataLenBlake3 is the length of the data field of the getwork RPC
+	// when providing work for blake3.  It consists of the serialized block
+	// header plus the internal blake3 padding.  The internal blake3 padding
+	// consists of enough zeros to pad the message out to a multiple of the
+	// blake3 block size (64 bytes).
+	getworkDataLenBlake3 = ((wire.MaxBlockHeaderPayload + (blake3BlkSize - 1)) /
+		blake3BlkSize) * blake3BlkSize
 
 	// getworkDataLenKawPow is the length of the data field of the getwork RPC
 	// when providing work for KawPoW. It consists of the serialized block header
@@ -114,9 +139,14 @@ var (
 	jsonrpcSemverString = fmt.Sprintf("%d.%d.%d", jsonrpcSemverMajor,
 		jsonrpcSemverMinor, jsonrpcSemverPatch)
 
+	// blake256Pad is the extra blake256 internal padding needed for the
+	// data of the getwork RPC.  It is set in the init routine since it is
+	// based on the size of the block header and requires a bit of
+	// calculation.
+	blake256Pad []byte
 
-
-
+	// blake3Pad is the extra blake3 internal padding needed for the data of the getwork RPC.  It consists of all zeros.
+	blake3Pad = make([]byte, getworkDataLenBlake3-wire.MaxBlockHeaderPayload)
 
 	// kawpowPad is the extra data needed for KawPoW work data, which includes the mix hash and nonce
 	kawpowPad = make([]byte, 32+8) // 32 bytes for mix hash + 8 bytes for nonce
@@ -201,7 +231,6 @@ var rpcHandlersBeforeInit = map[types.Method]commandHandler{
 	"getstakedifficulty":    handleGetStakeDifficulty,
 	"getstakeversioninfo":   handleGetStakeVersionInfo,
 	"getstakeversions":      handleGetStakeVersions,
-	"getstakinginfo":        handleGetStakingInfo,
 	"getticketpoolvalue":    handleGetTicketPoolValue,
 	"gettreasurybalance":    handleGetTreasuryBalance,
 	"gettreasuryspendvotes": handleGetTreasurySpendVotes,
@@ -1964,12 +1993,15 @@ func handleGetBlock(_ context.Context, s *Server, cmd interface{}) (interface{},
 		return nil, rpcInternalErr(err, "Unable to retrieve median block time")
 	}
 
-	
+	isBlake3PowActive, err := s.isBlake3PowAgendaActive(&blockHeader.PrevBlock)
 	if err != nil {
 		return nil, err
 	}
-	_, finalHash := blockHeader.PowHashKawPow()
-	powHash := finalHash
+	powHashFn := blockHeader.PowHashV1
+	if isBlake3PowActive {
+		powHashFn = blockHeader.PowHashV2
+	}
+	powHash := powHashFn()
 
 	blockReply := types.GetBlockVerboseResult{
 		Hash:          c.Hash,
@@ -2248,12 +2280,15 @@ func handleGetBlockHeader(_ context.Context, s *Server, cmd interface{}) (interf
 		return nil, rpcInternalErr(err, "Unable to retrieve median block time")
 	}
 
-	
+	isBlake3PowActive, err := s.isBlake3PowAgendaActive(&blockHeader.PrevBlock)
 	if err != nil {
 		return nil, err
 	}
-	_, finalHash := blockHeader.PowHashKawPow()
-	powHash := finalHash
+	powHashFn := blockHeader.PowHashV1
+	if isBlake3PowActive {
+		powHashFn = blockHeader.PowHashV2
+	}
+	powHash := powHashFn()
 
 	blockHeaderReply := types.GetBlockHeaderVerboseResult{
 		Hash:          c.Hash,
@@ -3177,44 +3212,6 @@ func handleGetTicketPoolValue(_ context.Context, s *Server, _ interface{}) (inte
 	return amt.ToCoin(), nil
 }
 
-// handleGetStakingInfo implements the getstakinginfo command.
-func handleGetStakingInfo(_ context.Context, s *Server, _ interface{}) (interface{}, error) {
-	best := s.cfg.Chain.BestSnapshot()
-
-		securityScore := uint32(75) // Placeholder for SecurityScore
-		projectedROI := 0.15 // Placeholder for ProjectedROI
-
-	return &VGLjson.GetStakingInfoResult{
-		SecurityScore: securityScore,
-		ProjectedROI:  projectedROI,
-		Enabled:          true,
-		PoolSize:         int64(best.NextPoolSize),
-		Difficulty:       best.NextStakeDiff,
-		AllTickets:       int64(len(best.LiveTickets) + len(best.MissedTickets) + len(best.ExpiredTickets) + len(best.RevokedTickets)),
-		LiveTickets:      best.LiveTickets,
-		MissedTickets:    int64(len(best.MissedTickets)),
-		ExpiredTickets:   best.ExpiredTickets,
-		VotedTickets:     best.VotedTickets,
-		RevokedTickets:   best.RevokedTickets,
-		PoolValue:        0.0, // Not available in BestState
-		VSPTickets:       0, // Not available in BestState
-		NetworkStakeAvg:  0.0, // Not available in BestState
-		TicketsPerBlock:  0, // Not available in BestState
-		ROI:              0.0, // Not available in BestState
-		StakedVGL:        float64(best.TotalStaked),
-		ProjectedROI:     0.0, // Not available in BestState
-		VotingWallet:     "", // Not available in BestState
-		VotingAddress:    "", // Not available in BestState
-		VotingAccount:    "", // Not available in BestState
-		VotingAccountID:  "", // Not available in BestState
-		VotingPrivKey:    "", // Not available in BestState
-		VotingPubKey:     "", // Not available in BestState
-		VotingScript:     "", // Not available in BestState
-		VotingScriptHash: "", // Not available in BestState
-		VotingWIF:        "", // Not available in BestState
-	}, nil
-}
-
 // handleGetTreasuryBalance implements the gettreasurybalance command.
 func handleGetTreasuryBalance(_ context.Context, s *Server, cmd interface{}) (interface{}, error) {
 	c := cmd.(*types.GetTreasuryBalanceCmd)
@@ -3782,10 +3779,39 @@ func getWorkTemplateKey(header *wire.BlockHeader) [merkleRootPairSize]byte {
 	return merkleRootPair
 }
 
+// serializeGetWorkData returns serialized data that represents work to be
+// solved and is used in the getwork RPC and notifywork WebSocket notification.
+// It consists of the serialized block header along with any internal padding
+// that makes the data ready for callers to make use of only the final chunk
+// along with the midstate for the rest when solving the block.
+func serializeGetWorkData(header *wire.BlockHeader, isBlake3PowActive bool) ([]byte, error) {
+	// Choose the full buffer data length as well as internal padding to apply
+	// based on the active proof of work algorithm.
+	var getworkDataLen int
+	var internalHashFuncPad []byte
+	
+	// For KawPoW, we include the mix hash and nonce in the work data
+	if header.Version >= 3 { // Assuming version 3+ indicates KawPoW blocks
+		getworkDataLen = getworkDataLenKawPow
+		internalHashFuncPad = kawpowPad
+	} else if isBlake3PowActive {
+		getworkDataLen = getworkDataLenBlake3
+		internalHashFuncPad = blake3Pad
+	} else {
+		getworkDataLen = getworkDataLenBlake256
+		internalHashFuncPad = blake256Pad
+	}
 
+	// Serialize the block header into a buffer large enough to hold the block
+	// header and any internal padding that is added and returned as part of the
+	// data below.
+	//
+	// For reference (0-index based, end value is exclusive):
+	// data[115:119] --> Bits
+	// data[135:139] --> Timestamp
 	// data[139:143] --> Nonce
 	// data[143:151] --> ExtraNonce
-	data := make([]byte, 0, getworkDataLenKawPow)
+	data := make([]byte, 0, getworkDataLen)
 	buf := bytes.NewBuffer(data)
 	err := header.Serialize(buf)
 	if err != nil {
@@ -3794,15 +3820,15 @@ func getWorkTemplateKey(header *wire.BlockHeader) [merkleRootPairSize]byte {
 
 	// Expand the data slice to include the full data buffer and apply internal
 	// padding or additional data based on the PoW algorithm.
-	data = data[:getworkDataLenKawPow]
+	data = data[:getworkDataLen]
 	
 	if header.Version >= 3 { // KawPoW
 		// Copy mix hash (32 bytes) and nonce (8 bytes) after the header
 		copy(data[wire.MaxBlockHeaderPayload:], header.MixHash[:])
 		binary.LittleEndian.PutUint64(data[wire.MaxBlockHeaderPayload+32:], header.Nonce)
 	} else {
-	
-		copy(data[wire.MaxBlockHeaderPayload:], kawpowPad)
+		// For Blake256/Blake3, just copy the hash function padding
+		copy(data[wire.MaxBlockHeaderPayload:], internalHashFuncPad)
 	}
 	
 	return data, nil
@@ -3914,7 +3940,11 @@ func handleGetWorkRequest(ctx context.Context, s *Server) (interface{}, error) {
 	// internal padding that makes the data ready for callers to make use of
 	// only the final chunk along with the midstate for the rest when solving
 	// the block.
-	data, err := serializeGetWorkData(&headerCopy)
+	isBlake3PowActive, err := s.isBlake3PowAgendaActive(&headerCopy.PrevBlock)
+	if err != nil {
+		return nil, err
+	}
+	data, err := serializeGetWorkData(&headerCopy, isBlake3PowActive)
 	if err != nil {
 		return nil, err
 	}
@@ -3961,8 +3991,10 @@ func maxInt(a, b int) int {
 // the calling submitting work to be verified and processed.
 func handleGetWorkSubmission(_ context.Context, s *Server, hexData string) (interface{}, error) {
 	// Ensure the provided data is sane.
-	minDataLen := getworkDataLenKawPow
-	maxDataLen := getworkDataLenKawPow
+	minDataLen := minInt(getworkDataLenBlake256, getworkDataLenBlake3)
+	minDataLen = minInt(minDataLen, getworkDataLenKawPow)
+	maxDataLen := maxInt(getworkDataLenBlake256, getworkDataLenBlake3)
+	maxDataLen = maxInt(maxDataLen, getworkDataLenKawPow)
 	paddedHexDataLen := len(hexData) + len(hexData)%2
 	if paddedHexDataLen < minDataLen*2 || paddedHexDataLen > maxDataLen*2 {
 		if minDataLen == maxDataLen {
@@ -4024,13 +4056,8 @@ func handleGetWorkSubmission(_ context.Context, s *Server, hexData string) (inte
 		return false, rpcInternalErr(err, "Failed to check KawPoW agenda status")
 	}
 
-	// Determine if Blake3 is active.
-	isBlake3Active, err := s.isBlake3AgendaActive(prevBlkHash)
-	if err != nil {
-		return false, rpcInternalErr(err, "Failed to check Blake3 agenda status")
-	}
-
-
+	// Declare isBlake3PowActive for later use.
+	var isBlake3PowActive bool
 
 	// Handle KawPoW verification for version 3+ blocks.
 	if isKawpowActive {
@@ -4039,7 +4066,7 @@ func handleGetWorkSubmission(_ context.Context, s *Server, hexData string) (inte
 		headerHash := submittedHeader.BlockHash()
 		
 		// For KawPoW, use the PowHashKawPow method to verify
-		mixHash, err := submittedHeader.PowHashKawPow()
+		mixHash, finalHash, err := submittedHeader.PowHashKawPow()
 		if err != nil {
 			const context = "Unexpected error while calculating KawPoW hash"
 			return false, rpcInternalErr(err, context)
@@ -4069,28 +4096,23 @@ func handleGetWorkSubmission(_ context.Context, s *Server, hexData string) (inte
 				"expected %s, got %s", mixHash, submittedHeader.MixHash)
 			return false, nil
 		}
-	} else if isBlake3Active {
-		// Verify the Blake3 solution
-		headerHash := submittedHeader.BlockHashBlake3()
+	} else {
+		// Original Blake256/Blake3 verification for older blocks.
+		isBlake3PowActive, err = s.isBlake3PowAgendaActive(prevBlkHash)
+		if err != nil {
+			return false, rpcInternalErr(err, "Failed to check Blake3 agenda status")
+		}
 		
-		// Check if the final hash meets the target difficulty
-		err = standalone.CheckProofOfWork(headerHash, submittedHeader.Bits,
+		powHashFn := submittedHeader.PowHashV1
+		if isBlake3PowActive {
+			powHashFn = submittedHeader.PowHashV2
+		}
+
+		// Ensure the submitted proof of work hash is less than the target difficulty
+		powHash := powHashFn()
+		err = standalone.CheckProofOfWork(&powHash, submittedHeader.Bits,
 			s.cfg.ChainParams.PowLimit)
 		if err != nil {
-			// Anything other than a rule violation is an unexpected error, so
-			// return that error as an internal error.
-			var rErr standalone.RuleError
-			if !errors.As(err, &rErr) {
-				const context = "Unexpected error while checking Blake3 proof of work"
-				return false, rpcInternalErr(err, context)
-			}
-			
-			log.Errorf("Block submitted via getwork does not meet the required "+
-				"Blake3 proof of work: header %s", headerHash)
-			return false, nil
-		}
-	}
-
 			// Anything other than a rule violation is an unexpected error, so
 			// return that error as an internal error.
 			var rErr standalone.RuleError
@@ -4148,14 +4170,17 @@ func handleGetWorkSubmission(_ context.Context, s *Server, hexData string) (inte
 	
 	// Add pow hash info.
 	if isKawpowActive {
-			powHash, err := submittedHeader.PowHashKawPow()
+			powHash, _, err := submittedHeader.PowHashKawPow()
 			if err != nil {
 				return false, err
 			}
 			powHashStr = powHash.String()
 	} else {
-			_, finalHash := submittedHeader.PowHashKawPow()
-			powHash := finalHash
+		powHashFn := submittedHeader.PowHashV1
+		if isBlake3PowActive {
+			powHashFn = submittedHeader.PowHashV2
+		}
+		powHash := powHashFn()
 		if *blockHash != powHash {
 			powHashStr = ", pow hash " + powHash.String()
 		}
@@ -4224,11 +4249,7 @@ func handleGetWork(ctx context.Context, s *Server, cmd interface{}) (interface{}
 	}
 
 	// No data was provided, so the caller is requesting work.
-	// Pay to the first mining address.  This is only valid because the
-	// RPC server already checks that there is at least one mining address
-	// available.
-	payToAddress := s.cfg.MiningAddrs[0]
-	return handleGetWorkRequest(ctx, s, payToAddress)
+	return handleGetWorkRequest(ctx, s)
 }
 
 // handleHelp implements the help command.
@@ -5328,7 +5349,19 @@ func (s *Server) isSubsidySplitAgendaActive(prevBlkHash *chainhash.Hash) (bool, 
 	return isSubsidySplitEnabled, nil
 }
 
-
+// isBlake3PowAgendaActive returns whether or not the agenda to change the proof
+// of work hash function to blake3 is active or not for the block AFTER the
+// provided block hash.
+func (s *Server) isBlake3PowAgendaActive(prevBlkHash *chainhash.Hash) (bool, error) {
+	chain := s.cfg.Chain
+	isActive, err := chain.IsBlake3PowAgendaActive(prevBlkHash)
+	if err != nil {
+		context := fmt.Sprintf("Could not obtain blake3 proof of work "+
+			"agenda status for block %s", prevBlkHash)
+		return false, rpcInternalErr(err, context)
+	}
+	return isActive, nil
+}
 
 // isKawpowAgendaActive returns whether or not the agenda to change the proof
 // of work hash function to KawPoW is active or not for the block AFTER the
@@ -5338,20 +5371,6 @@ func (s *Server) isKawpowAgendaActive(prevBlkHash *chainhash.Hash) (bool, error)
 	isActive, err := chain.IsKawpowAgendaActive(prevBlkHash)
 	if err != nil {
 		context := fmt.Sprintf("Could not obtain KawPoW proof of work "+
-			"agenda status for block %s", prevBlkHash)
-		return false, rpcInternalErr(err, context)
-	}
-	return isActive, nil
-}
-
-// isBlake3AgendaActive returns whether or not the agenda to change the proof
-// of work hash function to Blake3 is active or not for the block AFTER the
-// provided block hash.
-func (s *Server) isBlake3AgendaActive(prevBlkHash *chainhash.Hash) (bool, error) {
-	chain := s.cfg.Chain
-	isActive, err := chain.IsBlake3AgendaActive(prevBlkHash)
-	if err != nil {
-		context := fmt.Sprintf("Could not obtain Blake3 proof of work "+
 			"agenda status for block %s", prevBlkHash)
 		return false, rpcInternalErr(err, context)
 	}
@@ -6317,13 +6336,17 @@ func New(config *Config) (*Server, error) {
 func init() {
 	rpcHandlers = rpcHandlersBeforeInit
 
-
+	// blake256Pad is the extra blake256 internal padding needed for the
+	// data of the getwork RPC.  The internal blake256 padding consists of
+	// a single 1 bit followed by zeros and a final 1 bit in order to pad
+	// the message out to 56 bytes followed by length of the message in
+	// bits encoded as a big-endian uint64 (8 bytes).  Thus, the resulting
+	// length is a multiple of the blake256 block size (64 bytes).  Since
 	// the block header is a fixed size, it only needs to be calculated
 	// once.
-
+	blake256Pad = make([]byte, getworkDataLenBlake256-wire.MaxBlockHeaderPayload)
+	blake256Pad[0] = 0x80
+	blake256Pad[len(blake256Pad)-9] |= 0x01
+	binary.BigEndian.PutUint64(blake256Pad[len(blake256Pad)-8:],
 		wire.MaxBlockHeaderPayload*8)
 }
-
-
-
-

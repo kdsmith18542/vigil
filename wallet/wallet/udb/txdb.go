@@ -11,15 +11,15 @@ import (
 	"runtime/debug"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
-"github.com/Vigil-Labs/vgl/blockchain/stake"
-"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-"github.com/Vigil-Labs/vgl/chaincfg"
-"github.com/Vigil-Labs/vgl/crypto/ripemd160"
-"github.com/Vigil-Labs/vgl/dcrutil"
-"github.com/Vigil-Labs/vgl/txscript"
-"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/crypto/ripemd160"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // Naming
@@ -2436,7 +2436,3 @@ func upgradeToVersion3(ns walletdb.ReadWriteBucket, chainParams *chaincfg.Params
 
 	return nil
 }
-
-
-
-

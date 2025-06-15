@@ -123,7 +123,3 @@ func BenchmarkBigIsGtOrEqPrimeMinusOrder(b *testing.B) {
 		_ = new(big.Int).SetBytes(val.Bytes()).Cmp(bigPMinusN) >= 0
 	}
 }
-
-
-
-

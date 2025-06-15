@@ -11,8 +11,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/Vigil-Labs/vgl/VGLjson"
-	"github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
+	"github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
 )
 
 // helpDescsEnUS defines the English descriptions used for the help strings.
@@ -1130,7 +1130,3 @@ func newHelpCacher() *helpCacher {
 		methodHelp: make(map[types.Method]string),
 	}
 }
-
-
-
-

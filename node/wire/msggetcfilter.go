@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
 )
 
 // MsgGetCFilter implements the Message interface and represents a vigilgetcfilter
@@ -82,7 +82,3 @@ func NewMsgGetCFilter(blockHash *chainhash.Hash, filterType FilterType) *MsgGetC
 		FilterType: filterType,
 	}
 }
-
-
-
-

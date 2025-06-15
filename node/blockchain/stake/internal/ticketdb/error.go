@@ -74,7 +74,3 @@ func (e DBError) Unwrap() error {
 func ticketDBError(kind ErrorKind, desc string) DBError {
 	return DBError{Err: kind, Description: desc}
 }
-
-
-
-

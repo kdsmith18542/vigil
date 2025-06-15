@@ -234,7 +234,3 @@ func (p *PublicKey) AsJacobian(result *JacobianPoint) {
 func (p *PublicKey) IsOnCurve() bool {
 	return isOnCurve(&p.x, &p.y)
 }
-
-
-
-

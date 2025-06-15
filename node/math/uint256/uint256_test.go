@@ -4235,7 +4235,3 @@ func TestUint256SetBigRandom(t *testing.T) {
 		}
 	}
 }
-
-
-
-

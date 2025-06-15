@@ -8,13 +8,11 @@ Package validate provides context-free consensus validation.
 package validate
 
 import (
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	blockchain "github.com/Vigil-Labs/vgl/blockchain/standalone"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/dcrutil"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/gcs"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	blockchain "github.com/kdsmith18542/vigil/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 const (
@@ -52,7 +50,7 @@ func MerkleRoots(block *wire.MsgBlock) error {
 // VGLP0005MerkleRoot recreates the combined regular and stake transaction merkle
 // root and compares it against the merkle root in the block header.
 //
-// VGLP0005 (https://github.com/Vigil-Labs/vglPs/blob/master/VGLP-0005/VGLP-0005.mediawiki)
+// VGLP0005 (https://github.com/kdsmith18542/vigilPs/blob/master/VGLP-0005/VGLP-0005.mediawiki)
 // describes (among other changes) the hard forking change which combined the
 // individual regular and stake merkle roots into a single root.
 func VGLP0005MerkleRoot(block *wire.MsgBlock) error {
@@ -130,7 +128,3 @@ func PreVGLP0005CFilterHash(net wire.CurrencyNet, cfsethash *chainhash.Hash) err
 
 	return nil
 }
-
-
-
-

@@ -9,7 +9,7 @@ import (
 	"hash"
 	"io"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
 )
 
 // MsgMixFactoredPoly encodes the solution of the factored slot reservation
@@ -257,7 +257,3 @@ func NewMsgMixFactoredPoly(identity [33]byte, sid [32]byte, run uint32,
 		SeenSlotReserves: seenSlotReserves,
 	}
 }
-
-
-
-

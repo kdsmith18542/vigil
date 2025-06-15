@@ -10,7 +10,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
 )
 
 // TestStakeTxFeePrioHeap tests the priority heap including the stake types for
@@ -76,7 +76,3 @@ func TestStakeTxFeePrioHeap(t *testing.T) {
 		}
 	}
 }
-
-
-
-

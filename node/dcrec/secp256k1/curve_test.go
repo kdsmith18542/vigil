@@ -1279,7 +1279,3 @@ func TestDecompressYRandom(t *testing.T) {
 		}
 	}
 }
-
-
-
-

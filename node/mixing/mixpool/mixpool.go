@@ -14,16 +14,16 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/container/lru"
-	"github.com/Vigil-Labs/vgl/mixing"
-	"github.com/Vigil-Labs/vgl/mixing/utxoproof"
-	"github.com/Vigil-Labs/vgl/txscript"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/txscript/stdscript"
-	"github.com/Vigil-Labs/vgl/wire"
-	"github.com/Vigil-Labs/vgl/slog"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/container/lru"
+	"github.com/kdsmith18542/vigil/mixing"
+	"github.com/kdsmith18542/vigil/mixing/utxoproof"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
+	"github.com/kdsmith18542/vigil/wire"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 const minconf = 1
@@ -1625,7 +1625,3 @@ func estimateOutputSize(scriptSize int) int {
 		wire.VarIntSerializeSize(uint64(scriptSize)) + // size of script
 		scriptSize // script itself
 }
-
-
-
-

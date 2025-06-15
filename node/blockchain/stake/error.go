@@ -333,7 +333,3 @@ func (e RuleError) Unwrap() error {
 func stakeRuleError(kind ErrorKind, desc string) RuleError {
 	return RuleError{Err: kind, Description: desc}
 }
-
-
-
-

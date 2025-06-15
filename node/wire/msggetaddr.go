@@ -46,7 +46,3 @@ func (msg *MsgGetAddr) MaxPayloadLength(pver uint32) uint32 {
 func NewMsgGetAddr() *MsgGetAddr {
 	return &MsgGetAddr{}
 }
-
-
-
-

@@ -8,9 +8,9 @@ package blockchain
 import (
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
-	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
 )
 
 // currentCompressionVersion is the current script compression version of the
@@ -718,7 +718,3 @@ func absInt64(i int64) uint64 {
 	m := i >> 63
 	return uint64((i + m) ^ m)
 }
-
-
-
-

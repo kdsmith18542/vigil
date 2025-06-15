@@ -13,7 +13,3 @@ separator 1, then a checksummed data part encoded using the 32 characters
 More info: https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki
 */
 package bech32
-
-
-
-

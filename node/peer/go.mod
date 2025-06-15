@@ -1,4 +1,4 @@
-module github.com/Vigil-Labs/vgl/peer/v3
+module github.com/kdsmith18542/vigil/peer/v3
 
 go 1.18
 
@@ -6,6 +6,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1
 	github.com/kdsmith18542/vigil/chaincfg/chainhash v1.0.4
 	github.com/kdsmith18542/vigil/container/lru v1.0.0
+	github.com/kdsmith18542/vigil/crypto/blake256 v1.1.0
 	github.com/kdsmith18542/vigil/crypto/rand v1.0.0
 	github.com/kdsmith18542/vigil/txscript/v4 v4.1.1
 	github.com/kdsmith18542/vigil/wire v1.7.0

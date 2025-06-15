@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Vigil-Labs/vgl/mixing/internal/chacha20prng"
+	"github.com/kdsmith18542/vigil/mixing/internal/chacha20prng"
 )
 
 // Msize is the size of the message being mixed.  This is the size of a
@@ -76,7 +76,3 @@ func XorVectors(vs []Vec) Vec {
 	}
 	return res
 }
-
-
-
-

@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // assertTransactionImmutability throws a panic when a transaction has been
@@ -233,7 +233,3 @@ func NewTxFromReader(r io.Reader) (*Tx, error) {
 
 	return &t, nil
 }
-
-
-
-

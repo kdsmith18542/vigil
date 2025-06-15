@@ -9,11 +9,11 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	chainjson "github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	chainjson "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 var (
@@ -1059,7 +1059,3 @@ func (c *Client) GetTreasurySpendVotesAsync(ctx context.Context, block *chainhas
 func (c *Client) GetTreasurySpendVotes(ctx context.Context, block *chainhash.Hash, tspends []*chainhash.Hash) (*chainjson.GetTreasurySpendVotesResult, error) {
 	return c.GetTreasurySpendVotesAsync(ctx, block, tspends).Receive()
 }
-
-
-
-

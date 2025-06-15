@@ -8,7 +8,7 @@
 
 package types
 
-import "github.com/Vigil-Labs/vgl/VGLjson"
+import "github.com/kdsmith18542/vigil/VGLjson/v4"
 
 // AuthenticateCmd defines the authenticate JSON-RPC command.
 type AuthenticateCmd struct {
@@ -225,7 +225,3 @@ func init() {
 	VGLjson.MustRegister(Method("stopnotifymixmessages"), (*StopNotifyMixMessagesCmd)(nil), flags)
 	VGLjson.MustRegister(Method("rescan"), (*RescanCmd)(nil), flags)
 }
-
-
-
-

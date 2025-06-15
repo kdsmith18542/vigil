@@ -8,7 +8,7 @@ package schnorr
 import (
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
 )
 
 // These constants define the lengths of serialized public keys.
@@ -43,7 +43,3 @@ func ParsePubKey(pubKeyStr []byte) (key *secp256k1.PublicKey, err error) {
 
 	return secp256k1.ParsePubKey(pubKeyStr)
 }
-
-
-
-

@@ -39,7 +39,3 @@ f is then adjusted for the fact that at least one subsidy reduction is
 likely to occur before it can vote on a block.
 */
 package txrules
-
-
-
-

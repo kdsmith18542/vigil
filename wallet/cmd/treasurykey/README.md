@@ -48,7 +48,3 @@ Why?
 This approach was chosen in order to generate *independent* random keys. If the
 treasury wallet machine were to be compromised the seed would be compromised as
 well.
-
-
-
-

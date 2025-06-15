@@ -26,7 +26,3 @@ snapshot capability with efficient memory usage characteristics since the old
 nodes only remain allocated until there are no longer any references to them.
 */
 package treap
-
-
-
-

@@ -29,7 +29,3 @@ func (i TicketStatus) String() string {
 	}
 	return _TicketStatus_name[_TicketStatus_index[i]:_TicketStatus_index[i+1]]
 }
-
-
-
-

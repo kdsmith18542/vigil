@@ -5,7 +5,7 @@
 
 package jsonrpc
 
-import "github.com/Vigil-Labs/vgl/slog"
+import "github.com/kdsmith18542/vigil/slog"
 
 var log = slog.Disabled
 
@@ -14,7 +14,3 @@ var log = slog.Disabled
 func UseLogger(logger slog.Logger) {
 	log = logger
 }
-
-
-
-

@@ -13,10 +13,6 @@
 package main
 
 import (
-	_ "github.com/Vigil-Labs/vgl/bech32"
-	_ "github.com/Vigil-Labs/vgl/mixing/mixclient"
+	_ "github.com/kdsmith18542/vigil/bech32"
+	_ "github.com/kdsmith18542/vigil/mixing/mixclient"
 )
-
-
-
-

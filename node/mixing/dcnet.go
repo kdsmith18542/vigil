@@ -8,8 +8,8 @@ import (
 	"encoding/binary"
 	"math/big"
 
-	"github.com/Vigil-Labs/vgl/kawpow"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/kawpow"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // SRMixPads creates a vector of exponential DC-net pads from a vector of
@@ -176,7 +176,3 @@ func DCMix(pads Vec, m []byte, slot uint32) Vec {
 	}
 	return dcmix
 }
-
-
-
-

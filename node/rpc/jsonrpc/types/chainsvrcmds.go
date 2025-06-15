@@ -9,7 +9,7 @@
 package types
 
 import (
-	"github.com/Vigil-Labs/vgl/VGLjson"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
 )
 
 // AddNodeSubCmd defines the type used in the addnode JSON-RPC command for the
@@ -1224,7 +1224,3 @@ func init() {
 	VGLjson.MustRegister(Method("verifymessage"), (*VerifyMessageCmd)(nil), flags)
 	VGLjson.MustRegister(Method("version"), (*VersionCmd)(nil), flags)
 }
-
-
-
-

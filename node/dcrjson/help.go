@@ -562,7 +562,3 @@ func GenerateHelp(method interface{}, descs map[string]string, resultTypes ...in
 	}
 	return help, nil
 }
-
-
-
-

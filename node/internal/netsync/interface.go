@@ -5,8 +5,8 @@
 package netsync
 
 import (
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/mixing"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/mixing"
 )
 
 // PeerNotifier provides an interface to notify peers of status changes related
@@ -20,7 +20,3 @@ type PeerNotifier interface {
 	// passed messages.
 	AnnounceMixMessages(msgs []mixing.Message)
 }
-
-
-
-

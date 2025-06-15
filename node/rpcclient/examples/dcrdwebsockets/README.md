@@ -27,7 +27,3 @@ $ go run *.go
 ## License
 
 This example is licensed under the [copyfree](http://copyfree.org) ISC License.
-
-
-
-

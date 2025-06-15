@@ -8,9 +8,9 @@ package blockchain
 import (
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/database"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/database/v3"
 )
 
 // maybeFetchNewTickets loads the list of newly maturing tickets for a given
@@ -204,7 +204,3 @@ func (b *BlockChain) fetchStakeNode(node *blockNode) (*stake.Node, error) {
 
 	return node.stakeNode, nil
 }
-
-
-
-

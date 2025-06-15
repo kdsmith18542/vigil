@@ -10,11 +10,11 @@ import (
 	"math"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/blockchain/standalone"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash
-	"github.com/Vigil-Labs/vgl/node/chaincfg"
-	"github.com/Vigil-Labs/vgl/node/VGLutil"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/node/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/node/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/node/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/node/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/node/wire"
 )
 
 // AgendaFlags is a bitmask defining which agendas are active.
@@ -334,9 +334,13 @@ func checkBlockHeaderSanity(header *wire.BlockHeader, p *chaincfg.Params, flags 
 // checks are context free in that they do not depend on any previous blocks or
 // network state.
 func checkProofOfWorkSanity(header *wire.BlockHeader, p *chaincfg.Params) error {
-	// The proof of work must be valid according to the KawPoW algorithm
-	// which verifies both the mix hash and final hash against the target difficulty.
-	return standalone.CheckKawPowProofOfWork(header, p.PowLimit)
+	// The proof of work hash must be less than or equal to the target difficulty
+	// (aka compact "bits").
+	_, finalHash, err := header.PowHashKawPow()
+	if err != nil {
+		return err
+	}
+	return standalone.CheckProofOfWork(&finalHash, header.Bits, p.PowLimit)
 }
 
 // checkBlockSanity performs some preliminary checks on a block to ensure it is
@@ -1826,7 +1830,3 @@ func IsFinalizedTransaction(tx *VGLutil.Tx, blockHeight int64, blockTime time.Ti
 	// signature script to ensure it commits to the treasury spend transactions.
 	//
 	//
-
-
-
-

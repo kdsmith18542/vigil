@@ -39,9 +39,6 @@ const (
 	EpochLength = 30000
 )
 
-
-
-
 // Hash represents a KawPoW hash
 // Hash is a KawPoW hash.
 type Hash [HashSize]byte
@@ -230,53 +227,43 @@ type MiningResult struct {
 }
 
 // Mine performs KawPoW mining
-func Mine(ctx context.Context, headerHash Hash, height uint64, nonceRange uint64, target *big.Int, totalHashes *uint64, elapsedMicros *int64) (uint64, Hash, Hash, error) {
+func Mine(headerHash []byte, startNonce, nonceRange uint64, height uint64, target []byte) (*MiningResult, bool, error) {
 	// Create DAG for the epoch
 	epoch := height / EpochLength
-
 	dag := NewDAG(epoch)
 	err := dag.Generate(epoch)
 	if err != nil {
-		return 0, Hash{}, Hash{}, err
+		return nil, false, err
 	}
+
+	// Convert headerHash to Hash type
+	var hashArray Hash
+	copy(hashArray[:], headerHash)
 
 	// Convert target to big.Int for comparison
 	targetBig := new(big.Int).SetBytes(target)
 
-	// Iterate over the nonce range
-	for nonce := nonceRange; ; nonce++ {
-		select {
-		case <-ctx.Done():
-			return 0, Hash{}, Hash{}, ctx.Err()
-		default:
-		}
-		// Calculate KawPoW hash
-		finalHashBytes, mixHashBytes, err := KawPowHash(headerHash, nonce, int64(height), dag)
+	// Mining loop
+	for i := uint64(0); i < nonceRange; i++ {
+		nonce := startNonce + i
+		finalHash, mixHash, err := KawPowHash(hashArray, nonce, int64(height), dag)
 		if err != nil {
-			return 0, Hash{}, Hash{}, err
-		}
-		*totalHashes++
-
-		// Convert finalHash to big.Int for comparison
-		finalHashBig := new(big.Int).SetBytes(finalHashBytes)
-
-		// Check if the hash meets the target
-		if finalHashBig.Cmp(targetBig) <= 0 {
-			var mixHash Hash
-			copy(mixHash[:], mixHashBytes)
-
-			var finalHash Hash
-			copy(finalHash[:], finalHashBytes)
-
-			return nonce, mixHash, finalHash, nil
+			return nil, false, err
 		}
 
-		if nonce%1000 == 0 {
-			*elapsedMicros += 1000
+		// Check if hash meets target
+		hashBig := new(big.Int).SetBytes(finalHash)
+		if hashBig.Cmp(targetBig) <= 0 {
+			result := &MiningResult{
+				Nonce:   nonce,
+				MixHash: mixHash,
+				Hash:    finalHash,
+			}
+			return result, true, nil
 		}
 	}
 
-	return 0, Hash{}, Hash{}, fmt.Errorf("no solution found in given nonce range")
+	return nil, false, nil
 }
 
 // Verify verifies a KawPoW solution
@@ -304,7 +291,3 @@ func Verify(headerHash Hash, nonce uint64, mixHash []byte, bits uint32, height i
 	// For now, we'll assume it's valid if we got this far
 	return true
 }
-
-
-
-

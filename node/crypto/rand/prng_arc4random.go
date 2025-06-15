@@ -41,7 +41,3 @@ func (*lockingPRNG) Read(s []byte) (n int, err error) {
 
 func (*lockingPRNG) Lock()   {}
 func (*lockingPRNG) Unlock() {}
-
-
-
-

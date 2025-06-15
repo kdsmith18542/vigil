@@ -94,7 +94,3 @@ func BenchmarkCalcTreasurySubsidy(b *testing.B) {
 		}
 	}
 }
-
-
-
-

@@ -227,7 +227,3 @@ func TestScalarMult(t *testing.T) {
 		}
 	}
 }
-
-
-
-

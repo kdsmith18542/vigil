@@ -7,7 +7,7 @@ package txscript
 import (
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
 )
 
 const (
@@ -286,7 +286,3 @@ func IsStrictNullData(scriptVersion uint16, script []byte, requiredLen uint32) b
 			(tokenizer.Opcode() <= OP_DATA_75 &&
 				uint32(len(tokenizer.Data())) == requiredLen))
 }
-
-
-
-

@@ -61,7 +61,3 @@ func (msg *MsgSendHeaders) MaxPayloadLength(pver uint32) uint32 {
 func NewMsgSendHeaders() *MsgSendHeaders {
 	return &MsgSendHeaders{}
 }
-
-
-
-

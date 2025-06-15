@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
 )
 
 // defaultTransactionAlloc is the default size used for the backing array
@@ -359,7 +359,20 @@ func (msg *MsgBlock) BlockHash() chainhash.Hash {
 	return msg.Header.BlockHash()
 }
 
+// PowHashV1 calculates and returns the version 1 proof of work hash for the
+// block.
+//
+// NOTE: This is the original proof of work hash that was used at Vigil launch
+// and applies to all blocks prior to the activation of VGLP0011.
+func (msg *MsgBlock) PowHashV1() chainhash.Hash {
+	return msg.Header.PowHashV1()
+}
 
+// PowHashV2 calculates and returns the version 2 proof of work hash as defined
+// in VGLP0011 for the block.
+func (msg *MsgBlock) PowHashV2() chainhash.Hash {
+	return msg.Header.PowHashV2()
+}
 
 // TxHashes returns a slice of hashes of all of transactions in this block.
 func (msg *MsgBlock) TxHashes() []chainhash.Hash {
@@ -389,7 +402,3 @@ func NewMsgBlock(blockHeader *BlockHeader) *MsgBlock {
 		STransactions: make([]*MsgTx, 0, defaultTransactionAlloc),
 	}
 }
-
-
-
-

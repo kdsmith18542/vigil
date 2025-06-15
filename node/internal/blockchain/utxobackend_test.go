@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wire"
 	"github.com/syndtr/goleveldb/leveldb"
 	ldberrors "github.com/syndtr/goleveldb/leveldb/errors"
 )
@@ -391,7 +391,3 @@ func TestPutInfo(t *testing.T) {
 		}
 	}
 }
-
-
-
-

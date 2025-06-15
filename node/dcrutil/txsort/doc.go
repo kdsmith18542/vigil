@@ -26,7 +26,3 @@ The sort order for transaction outputs is defined as follows:
 - Raw public key script bytes lexicographically in ascending order
 */
 package txsort
-
-
-
-

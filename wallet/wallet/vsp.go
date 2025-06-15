@@ -13,14 +13,14 @@ import (
 	"net/url"
 	"sync"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-"github.com/Vigil-Labs/vgl/wallet/wallet/udb"
-"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-"github.com/Vigil-Labs/vgl/dcrutil"
-"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-"github.com/Vigil-Labs/vgl/wire"
-"github.com/Vigil-Labs/vgl/slog"
-vspd "github.com/Vigil-Labs/vgl/vspd/client"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
+	"github.com/kdsmith18542/vigil/slog"
+	vspd "github.com/kdsmith18542/vigil/vspd/client/v4"
 )
 
 type DialFunc func(ctx context.Context, network, addr string) (net.Conn, error)
@@ -375,7 +375,3 @@ func (c *VSPClient) TrackedTickets() []*VSPTicketInfo {
 
 	return tickets
 }
-
-
-
-

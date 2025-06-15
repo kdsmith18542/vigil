@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
 )
 
 // MsgGetHeaders implements the Message interface and represents a vigil
@@ -139,7 +139,3 @@ func NewMsgGetHeaders() *MsgGetHeaders {
 			MaxBlockLocatorsPerMsg),
 	}
 }
-
-
-
-

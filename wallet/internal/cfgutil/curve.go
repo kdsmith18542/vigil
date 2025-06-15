@@ -11,8 +11,8 @@ import (
 	"io"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/certgen"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/certgen"
 )
 
 // CurveID specifies a recognized curve through a constant value.
@@ -121,7 +121,3 @@ func (f *CurveFlag) CertGen(org string, validUntil time.Time, extraHosts []strin
 	}
 	return nil, nil, errors.New("unknown curve ID")
 }
-
-
-
-

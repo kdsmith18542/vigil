@@ -5,7 +5,7 @@
 // Package stdscript provides facilities for working with standard scripts.
 package stdscript
 
-import "github.com/Vigil-Labs/vgl/txscript/stdaddr"
+import "github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 
 // ExtractAddrs analyzes the passed public key script and returns the associated
 // script type along with any addresses associated with it when possible.
@@ -27,7 +27,3 @@ func ExtractAddrs(scriptVersion uint16, pkScript []byte, params stdaddr.AddressP
 
 	return STNonStandard, nil
 }
-
-
-
-

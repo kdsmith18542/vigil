@@ -10,8 +10,8 @@ import (
 	"encoding/binary"
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/blockchain/stake/internal/tickettreap"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5/internal/tickettreap"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 var (
@@ -207,7 +207,3 @@ func fetchWinners(idxs []int, t *tickettreap.Immutable) ([]*tickettreap.Key, err
 
 	return winners, nil
 }
-
-
-
-

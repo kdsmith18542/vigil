@@ -9,10 +9,10 @@ import (
 	"runtime/trace"
 	"sync"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-"github.com/Vigil-Labs/vgl/wallet/wallet"
-"github.com/Vigil-Labs/vgl/dcrutil"
-"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 const minconf = 1
@@ -334,7 +334,3 @@ func (tb *TB) mixChange(ctx context.Context, cfg *Config) error {
 
 	return tb.wallet.MixAccount(ctx, changeAccount, mixedAccount, mixedBranch)
 }
-
-
-
-

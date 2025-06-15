@@ -18,7 +18,3 @@ package for any projects needing to test their implementation against a full set
 of blocks that exercise the consensus validation rules.
 */
 package fullblocktests
-
-
-
-

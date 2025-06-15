@@ -24,7 +24,3 @@ The cumulative totals include:
   - Total number of revocations
 */
 package progresslog
-
-
-
-

@@ -8,9 +8,9 @@ package ffldb
 import (
 	"testing"
 
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/database"
-	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
 )
 
 // BenchmarkBlockHeader benchmarks how long it takes to load the mainnet genesis
@@ -96,7 +96,3 @@ func BenchmarkBlock(b *testing.B) {
 	// Don't benchmark teardown.
 	b.StopTimer()
 }
-
-
-
-

@@ -5,8 +5,8 @@
 package udb
 
 import (
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
 )
 
 type unifiedDBMetadata struct {
@@ -35,7 +35,3 @@ func (unifiedDBMetadata) getVersion(bucket walletdb.ReadBucket) (uint32, error) 
 	}
 	return byteOrder.Uint32(v), nil
 }
-
-
-
-

@@ -13,9 +13,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Vigil-Labs/vgl/wallet/internal/rpchelp"
-	"github.com/Vigil-Labs/vgl/wallet/rpc/jsonrpc/types"
-	"github.com/Vigil-Labs/vgl/VGLjson"
+	"github.com/kdsmith18542/vigil/wallet/internal/rpchelp"
+	"github.com/kdsmith18542/vigil/wallet/rpc/jsonrpc/types"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
 )
 
 func init() {
@@ -98,7 +98,3 @@ func main() {
 	writefln("")
 	writeUsage()
 }
-
-
-
-

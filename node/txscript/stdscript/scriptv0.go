@@ -7,8 +7,8 @@ package stdscript
 import (
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/VGLec"
-	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/kdsmith18542/vigil/VGLec"
+	"github.com/kdsmith18542/vigil/txscript/v4"
 )
 
 const (
@@ -982,7 +982,3 @@ func ExtractAtomicSwapDataPushesV0(redeemScript []byte) *AtomicSwapDataPushesV0 
 	copy(pushes.RefundHash160[:], template[16].extractedData)
 	return &pushes
 }
-
-
-
-

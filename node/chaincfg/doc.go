@@ -24,8 +24,8 @@
 //		"fmt"
 //		"log"
 //
-//		"github.com/Vigil-Labs/vgl/chaincfg"
-//		"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+//		"github.com/kdsmith18542/vigil/chaincfg/v3"
+//		"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 //	)
 //
 //	func main() {
@@ -57,7 +57,3 @@
 // non-standard network.  As a general rule of thumb, all network parameters
 // should be unique to the network, but parameter collisions can still occur.
 package chaincfg
-
-
-
-

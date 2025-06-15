@@ -5,7 +5,7 @@
 package stake
 
 import (
-	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/kdsmith18542/vigil/txscript/v4"
 )
 
 // isScriptHashScript returns whether or not the passed script is a
@@ -80,7 +80,3 @@ func IsVoteScript(version uint16, script []byte) bool {
 func IsTreasuryGenScript(version uint16, script []byte) bool {
 	return isTaggedScript(version, script, txscript.OP_TGEN)
 }
-
-
-
-

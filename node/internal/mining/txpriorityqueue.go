@@ -8,7 +8,7 @@ package mining
 import (
 	"container/heap"
 
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
 )
 
 // txPrioItem houses a transaction along with extra information that allows the
@@ -160,7 +160,3 @@ func newTxPriorityQueue(reserve int, lessFunc func(*txPriorityQueue, int, int) b
 	pq.SetLessFunc(lessFunc)
 	return pq
 }
-
-
-
-

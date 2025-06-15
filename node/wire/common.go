@@ -13,7 +13,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash
+	"github.com/kdsmith18542/vigil/node/chaincfg/chainhash"
 )
 
 const (
@@ -866,7 +866,3 @@ func isStrictAscii(s string) bool {
 
 	return true
 }
-
-
-
-

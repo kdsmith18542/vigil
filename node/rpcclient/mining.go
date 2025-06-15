@@ -11,9 +11,9 @@ import (
 	"encoding/json"
 	"errors"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	chainjson "github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	chainjson "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
 )
 
 // FutureGenerateResult is a future promise to deliver the result of a
@@ -441,7 +441,3 @@ func (c *Client) RegenTemplateAsync(ctx context.Context) *FutureRegenTemplateRes
 func (c *Client) RegenTemplate(ctx context.Context) error {
 	return c.RegenTemplateAsync(ctx).Receive()
 }
-
-
-
-

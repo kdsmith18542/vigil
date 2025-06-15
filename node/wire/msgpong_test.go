@@ -166,7 +166,3 @@ func TestPongWireErrors(t *testing.T) {
 		}
 	}
 }
-
-
-
-

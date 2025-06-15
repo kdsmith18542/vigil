@@ -192,7 +192,3 @@ func TestSendHeadersWire(t *testing.T) {
 		}
 	}
 }
-
-
-
-

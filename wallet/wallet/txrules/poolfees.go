@@ -9,9 +9,9 @@ import (
 	"math/big"
 	"sync"
 
-	blockchain "github.com/Vigil-Labs/vgl/blockchain/standalone"
-"github.com/Vigil-Labs/vgl/chaincfg"
-"github.com/Vigil-Labs/vgl/dcrutil"
+	blockchain "github.com/kdsmith18542/vigil/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
 )
 
 // ValidPoolFeeRate tests to see if a pool fee is a valid percentage from
@@ -93,7 +93,3 @@ func StakePoolTicketFee(stakeDiff VGLutil.Amount, relayFee VGLutil.Amount,
 
 	return VGLutil.Amount(num.Int64())
 }
-
-
-
-

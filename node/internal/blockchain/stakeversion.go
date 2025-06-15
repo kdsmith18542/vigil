@@ -9,7 +9,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 var (
@@ -320,7 +320,3 @@ func (b *BlockChain) CalcStakeVersionByHash(hash *chainhash.Hash) (uint32, error
 	b.chainLock.Unlock()
 	return version, err
 }
-
-
-
-

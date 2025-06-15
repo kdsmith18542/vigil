@@ -7,7 +7,7 @@ package uint256_test
 import (
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/math/uint256"
+	"github.com/kdsmith18542/vigil/math/uint256"
 )
 
 // This example demonstrates calculating the result of dividing a max unsigned
@@ -22,7 +22,3 @@ func Example_basicUsage() {
 	// Output:
 	// result: 0000000000000000000000000000000100000000000000000000000000000001
 }
-
-
-
-

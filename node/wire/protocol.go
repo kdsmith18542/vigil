@@ -160,7 +160,3 @@ func (n CurrencyNet) String() string {
 
 	return fmt.Sprintf("Unknown CurrencyNet (%d)", uint32(n))
 }
-
-
-
-

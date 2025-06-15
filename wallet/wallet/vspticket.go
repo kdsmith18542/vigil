@@ -9,14 +9,14 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/udb"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/txscript/stdscript"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 type VSPTicket struct {
@@ -340,7 +340,3 @@ func (v *VSPTicket) VSPTicketInfo(ctx context.Context) (*TicketInfo, error) {
 	}
 	return convertedData, err
 }
-
-
-
-

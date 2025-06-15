@@ -5,9 +5,9 @@
 package udb
 
 import (
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
-"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 var (
@@ -280,7 +280,3 @@ func serializeVSPPubKey(record *VSPPubKey) []byte {
 
 	return buf
 }
-
-
-
-

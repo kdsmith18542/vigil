@@ -15,8 +15,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/crypto/rand"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 const (
@@ -200,7 +200,3 @@ func SeedAddrs(ctx context.Context, seeder string, dialFn DialFunc, filters ...f
 
 	return addrs, nil
 }
-
-
-
-

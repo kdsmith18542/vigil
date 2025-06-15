@@ -9,7 +9,3 @@ code in the future.
 It is currently a work in progress.
 */
 package mining
-
-
-
-

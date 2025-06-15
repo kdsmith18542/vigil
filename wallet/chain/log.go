@@ -5,7 +5,7 @@
 
 package chain
 
-import "github.com/Vigil-Labs/vgl/slog"
+import "github.com/kdsmith18542/vigil/slog"
 
 // log is a logger that is initialized with no output filters.  This
 // means the package will not perform any logging by default until the caller
@@ -18,7 +18,3 @@ var log = slog.Disabled
 func UseLogger(logger slog.Logger) {
 	log = logger
 }
-
-
-
-

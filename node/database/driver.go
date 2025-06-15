@@ -8,7 +8,7 @@ package database
 import (
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/slog"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 // Driver defines a structure for backend drivers to use when they register
@@ -88,7 +88,3 @@ func Open(dbType string, args ...interface{}) (DB, error) {
 
 	return drv.Open(args...)
 }
-
-
-
-

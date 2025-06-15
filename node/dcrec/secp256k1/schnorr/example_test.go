@@ -9,8 +9,8 @@ import (
 	"fmt"
 
 	
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1/schnorr"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4/schnorr"
 )
 
 // This example demonstrates signing a message with the EC-Schnorr-VGLv0 scheme
@@ -88,7 +88,3 @@ func ExampleSignature_Verify() {
 	// Output:
 	// Signature Verified? true
 }
-
-
-
-

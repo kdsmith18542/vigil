@@ -31,7 +31,3 @@ func TestGenerateSharedSecret(t *testing.T) {
 			secret1, secret2)
 	}
 }
-
-
-
-

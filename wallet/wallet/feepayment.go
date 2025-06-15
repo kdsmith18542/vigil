@@ -13,13 +13,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/crypto/rand"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/wire"
-	"github.com/Vigil-Labs/vgl/vspd/types"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
+	"github.com/kdsmith18542/vigil/vspd/types/v3"
 )
 
 var (
@@ -623,7 +623,3 @@ func marshalTx(tx *wire.MsgTx) (string, error) {
 	err := tx.Serialize(hex.NewEncoder(&buf))
 	return buf.String(), err
 }
-
-
-
-

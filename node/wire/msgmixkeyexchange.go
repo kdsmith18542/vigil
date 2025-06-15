@@ -9,7 +9,7 @@ import (
 	"hash"
 	"io"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
 )
 
 const (
@@ -237,7 +237,3 @@ func NewMsgMixKeyExchange(identity [33]byte, sid [32]byte, epoch uint64,
 		SeenPRs:    seenPRs,
 	}
 }
-
-
-
-

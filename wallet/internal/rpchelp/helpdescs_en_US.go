@@ -1043,7 +1043,3 @@ var helpDescsEnUS = map[string]string{
 	"walletpubpassphrasechange-oldpassphrase": "The old wallet passphrase",
 	"walletpubpassphrasechange-newpassphrase": "The new wallet passphrase",
 }
-
-
-
-

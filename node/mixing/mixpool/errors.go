@@ -7,8 +7,8 @@ package mixpool
 import (
 	"errors"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // RuleError represents a mixpool rule violation.
@@ -125,7 +125,3 @@ func (e *MissingOwnPRError) Error() string {
 var (
 	errMessageNotFound = errors.New("message not found")
 )
-
-
-
-

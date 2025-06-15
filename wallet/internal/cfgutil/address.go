@@ -6,8 +6,8 @@
 package cfgutil
 
 import (
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 )
 
 // AddressFlag contains a stdaddr.Address and implements the flags.Marshaler and
@@ -57,7 +57,3 @@ func (a *AddressFlag) StakeAddress(params stdaddr.AddressParams) (stdaddr.StakeA
 	}
 	return nil, errors.Errorf("address is not suitable for stake usage")
 }
-
-
-
-

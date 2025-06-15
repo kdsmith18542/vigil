@@ -26,7 +26,3 @@ func (e *DecapsulateError) Error() string {
 	return fmt.Sprintf("decapsulate failure of ciphertext by peer %d",
 		e.SubmittingIndex)
 }
-
-
-
-

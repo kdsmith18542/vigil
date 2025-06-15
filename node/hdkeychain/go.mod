@@ -5,6 +5,7 @@ go 1.17
 require (
 	github.com/kdsmith18542/vigil/base58 v1.0.5
 	github.com/kdsmith18542/vigil/chaincfg/v3 v3.2.1
+	github.com/kdsmith18542/vigil/crypto/blake256 v1.0.1
 	github.com/kdsmith18542/vigil/crypto/ripemd160 v1.0.2
 	github.com/kdsmith18542/vigil/dcrec/secp256k1/v4 v4.3.0
 	github.com/kdsmith18542/vigil/txscript/v4 v4.1.1

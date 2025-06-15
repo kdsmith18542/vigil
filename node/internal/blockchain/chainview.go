@@ -432,7 +432,3 @@ func (c *chainView) BlockLocator(node *blockNode) BlockLocator {
 	c.mtx.Unlock()
 	return locator
 }
-
-
-
-

@@ -9,7 +9,7 @@ import (
 	"context"
 	"encoding/json"
 
-	chainjson "github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
+	chainjson "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
 )
 
 // AddNodeCommand enumerates the available commands that the AddNode function
@@ -322,7 +322,3 @@ func (c *Client) GetNetworkInfoAsync(ctx context.Context) *FutureGetNetworkInfoR
 func (c *Client) GetNetworkInfo(ctx context.Context) (*chainjson.GetNetworkInfoResult, error) {
 	return c.GetNetworkInfoAsync(ctx).Receive()
 }
-
-
-
-

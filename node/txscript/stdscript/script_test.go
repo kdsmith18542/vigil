@@ -220,7 +220,3 @@ func TestDetermineRequiredSigs(t *testing.T) {
 		}
 	}
 }
-
-
-
-

@@ -10,11 +10,11 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/base58"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/VGLec"
-	"github.com/Vigil-Labs/vgl/VGLec/edwards"
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/kdsmith18542/vigil/base58"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLec"
+	"github.com/kdsmith18542/vigil/VGLec/edwards/v2"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
 )
 
 var (
@@ -196,7 +196,3 @@ func (w *WIF) PubKey() []byte {
 func (w *WIF) DSA() VGLec.SignatureType {
 	return w.scheme
 }
-
-
-
-

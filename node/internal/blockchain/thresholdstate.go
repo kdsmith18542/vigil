@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"math/bits"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // ThresholdState define the various threshold states used when voting on
@@ -859,19 +859,26 @@ func (b *BlockChain) IsBlake3PowAgendaActive(prevHash *chainhash.Hash) (bool, er
 }
 
 // isKawpowAgendaActive returns whether or not the agenda to change the proof
-// of work hash function to KawPoW is active or not for the block AFTER the
-// provided block node.
-func (b *BlockChain) isKawpowAgendaActive(prevNode *blockNode) (bool, error) {
-	deployment := b.chainParams.Deployments[chaincfg.DeploymentKawpow]
-	state := b.deploymentState(prevNode, &deployment)
-	return state.State == ThresholdActive, nil
-}
 
-// isBlake3AgendaActive returns whether or not the agenda to change the proof
-// of work hash function to Blake3 is active or not for the block AFTER the
-// provided block node.
-func (b *BlockChain) isBlake3AgendaActive(prevNode *blockNode) (bool, error) {
-	deployment := b.chainParams.Deployments[chaincfg.DeploymentBlake3]
+// and is now active from the point of view of the passed block node.
+//
+// It is important to note that, as the variable name indicates, this function
+// expects the block node prior to the block for which the deployment state is
+// desired.  In other words, the returned deployment state is for the block
+// AFTER the passed node.
+//
+// This function MUST be called with the chain state lock held (for writes).
+func (b *BlockChain) isKawpowAgendaActive(prevNode *blockNode) (bool, error) {
+	const deploymentID = chaincfg.VoteIDKawPoW
+	deployment, ok := b.deploymentData[deploymentID]
+	if !ok {
+		str := fmt.Sprintf("deployment ID %s does not exist", deploymentID)
+		return false, contextError(ErrUnknownDeploymentID, str)
+	}
+
+	// NOTE: The choice field of the return threshold state is not examined
+	// here because there is only one possible choice that can be active for
+	// the agenda, which is yes, so there is no need to check it.
 	state := b.deploymentState(prevNode, &deployment)
 	return state.State == ThresholdActive, nil
 }
@@ -883,15 +890,6 @@ func (b *BlockChain) isBlake3AgendaActive(prevNode *blockNode) (bool, error) {
 // This function is safe for concurrent access.
 func (b *BlockChain) IsKawpowAgendaActive(prevHash *chainhash.Hash) (bool, error) {
 	return b.isAgendaActiveByHash(prevHash, b.isKawpowAgendaActive)
-}
-
-// IsBlake3AgendaActive returns whether or not the agenda to change the proof
-// of work hash function to Blake3 has passed
-// and is now active for the block AFTER the given block.
-//
-// This function is safe for concurrent access.
-func (b *BlockChain) IsBlake3AgendaActive(prevHash *chainhash.Hash) (bool, error) {
-	return b.isAgendaActiveByHash(prevHash, b.isBlake3AgendaActive)
 }
 
 // isSubsidySplitR2AgendaActive returns whether or not the agenda to change the
@@ -1054,7 +1052,3 @@ func (b *BlockChain) CountVoteVersion(version uint32) (uint32, error) {
 
 	return total, nil
 }
-
-
-
-

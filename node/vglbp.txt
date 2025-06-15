@@ -65,7 +65,7 @@ Primary Goal: To build and internally test a feature-complete and stable version
 
 Task 2.1: Full KawPoW Integration (Vigil-node)
 
-Sub-Task 2.1.1: Replace hashing logic with KawPoW.
+Sub-Task 2.1.1: Replace BLAKE-256 hashing logic with KawPoW.
 
 Sub-Task 2.1.2: Modify the block header structure to accommodate KawPoW's nonce and mix-hash.
 
@@ -97,7 +97,7 @@ Block Reward Split (50/40/10 Model):
 
 Task 2.3: Software Suite Rebranding & Development
 
-Fully rebrand the Vigil Wallet and Vigil Explorer forks to Vigil Wallet and Vigil Explorer.
+Fully rebrand the vglwallet and vgldata forks to Vigil Wallet and Vigil Explorer.
 
 Develop a one-click "Vigil Launcher" application that bundles the node and wallet for less technical users.
 

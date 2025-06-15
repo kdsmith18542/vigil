@@ -21,7 +21,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/crypto/rand"
+	"github.com/kdsmith18542/vigil/crypto/rand"
 )
 
 // NewEd25519TLSCertPair returns a new PEM-encoded x.509 certificate pair with
@@ -140,7 +140,3 @@ func NewEd25519TLSCertPair(organization string, validUntil time.Time, extraHosts
 
 	return certBuf.Bytes(), keyBuf.Bytes(), nil
 }
-
-
-
-

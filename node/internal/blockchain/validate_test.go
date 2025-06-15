@@ -21,15 +21,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
-	"github.com/Vigil-Labs/vgl/blockchain/standalone"
-	"github.com/Vigil-Labs/vgl/blockchain/chaingen"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/database"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/txscript"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // TestBlockchainSpendJournal tests for whether or not the spend journal is being
@@ -2116,12 +2116,12 @@ func TestBlake3PowSemantics(t *testing.T) {
 	// updated hash algorithms.
 	powLimit := params.PowLimit
 	isSolvedV1 := func(header *wire.BlockHeader) bool {
-		_, powHash := header.PowHashKawPow()
+		powHash := header.PowHashV1()
 		err := standalone.CheckProofOfWork(&powHash, header.Bits, powLimit)
 		return err == nil
 	}
 	isSolvedV2 := func(header *wire.BlockHeader) bool {
-		_, powHash := header.PowHashKawPow()
+		powHash := header.PowHashV2()
 		err := standalone.CheckProofOfWork(&powHash, header.Bits, powLimit)
 		return err == nil
 	}
@@ -2176,7 +2176,7 @@ func TestBlake3PowSemantics(t *testing.T) {
 	// -------------------------------------------------------------------------
 
 	g.SetTip(tipName)
-	g.UsePowHashAlgo(chaingen.PHAKawpow)
+	g.UsePowHashAlgo(chaingen.PHABlake256r14)
 	g.UsePowDiffAlgo(chaingen.PDAEma)
 	g.AdvanceFromSVHToActiveAgendas(voteID)
 
@@ -2443,7 +2443,3 @@ func TestModifiedSubsidySplitR2Semantics(t *testing.T) {
 	g.SaveTipCoinbaseOuts()
 	g.AcceptTipBlock()
 }
-
-
-
-

@@ -15,7 +15,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
 )
 
 // mockNetParams implements the NetworkParams interface and is used throughout
@@ -1049,7 +1049,3 @@ tests:
 		}
 	}
 }
-
-
-
-

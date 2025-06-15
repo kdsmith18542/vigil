@@ -14,7 +14,7 @@ import (
 	"time"
 
 	"github.com/dchest/siphash"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // filterMatcher allows different versions of the filter types to be used for
@@ -564,7 +564,3 @@ func TestPanics(t *testing.T) {
 		t.Fatal("newFilter did not panic with unsupported version")
 	}
 }
-
-
-
-

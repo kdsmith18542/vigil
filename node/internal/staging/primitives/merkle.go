@@ -5,7 +5,7 @@
 package primitives
 
 import (
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // CalcMerkleRootInPlace is an in-place version of CalcMerkleRoot that reuses
@@ -75,7 +75,7 @@ func CalcMerkleRootInPlace(leaves []chainhash.Hash) chainhash.Hash {
 //
 // A merkle tree is a tree in which every non-leaf node is the hash of its
 // children nodes.  A diagram depicting how this works for Vigil transactions
-// where h(x) is a kawpow hash follows:
+// where h(x) is a blake256 hash follows:
 //
 //	         root = h1234 = h(h12 + h34)
 //	        /                           \
@@ -102,7 +102,3 @@ func CalcMerkleRoot(leaves []chainhash.Hash) chainhash.Hash {
 	copy(dupLeaves, leaves)
 	return CalcMerkleRootInPlace(dupLeaves)
 }
-
-
-
-

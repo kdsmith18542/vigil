@@ -8,24 +8,24 @@ import (
 	"context"
 	"sync/atomic"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/txrules"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/txsizes"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/udb"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/dcrec"
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
-	"github.com/Vigil-Labs/vgl/dcrutil"
-	"github.com/Vigil-Labs/vgl/mixing"
-	"github.com/Vigil-Labs/vgl/mixing/mixclient"
-	"github.com/Vigil-Labs/vgl/mixing/mixpool"
-	"github.com/Vigil-Labs/vgl/txscript"
-	"github.com/Vigil-Labs/vgl/txscript/sign"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/txscript/stdscript"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txrules"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txsizes"
+	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/VGLec"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/mixing"
+	"github.com/kdsmith18542/vigil/mixing/mixclient"
+	"github.com/kdsmith18542/vigil/mixing/mixpool"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/sign"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
+	"github.com/kdsmith18542/vigil/wire"
 	"golang.org/x/sync/errgroup"
 )
 
@@ -561,7 +561,3 @@ func (w *Wallet) AcceptMixMessage(msg mixing.Message) error {
 
 	return nil
 }
-
-
-
-

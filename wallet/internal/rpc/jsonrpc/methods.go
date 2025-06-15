@@ -20,34 +20,34 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/wallet/chain"
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/wallet/p2p"
-	"github.com/Vigil-Labs/vgl/wallet/rpc/client/vgld"
-	"github.com/Vigil-Labs/vgl/wallet/rpc/jsonrpc/types"
-	"github.com/Vigil-Labs/vgl/wallet/spv"
-	"github.com/Vigil-Labs/vgl/wallet/version"
-	"github.com/Vigil-Labs/vgl/wallet/wallet"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/txauthor"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/txrules"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/txsizes"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/udb"
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
-	blockchain "github.com/Vigil-Labs/vgl/blockchain/standalone"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/crypto/rand"
-	"github.com/Vigil-Labs/vgl/VGLec"
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
-	"github.com/Vigil-Labs/vgl/VGLjson"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/hdkeychain"
-	vgldtypes "github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
-	"github.com/Vigil-Labs/vgl/txscript"
-	"github.com/Vigil-Labs/vgl/txscript/sign"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/txscript/stdscript"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/chain"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/p2p"
+	"github.com/kdsmith18542/vigil/wallet/rpc/client/vgld"
+	"github.com/kdsmith18542/vigil/wallet/rpc/jsonrpc/types"
+	"github.com/kdsmith18542/vigil/wallet/spv"
+	"github.com/kdsmith18542/vigil/wallet/version"
+	"github.com/kdsmith18542/vigil/wallet/wallet"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txauthor"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txrules"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txsizes"
+	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	blockchain "github.com/kdsmith18542/vigil/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/VGLec"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/hdkeychain/v3"
+	vgldtypes "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/sign"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
+	"github.com/kdsmith18542/vigil/wire"
 	"golang.org/x/sync/errgroup"
 )
 
@@ -209,11 +209,11 @@ func unimplemented(*Server, context.Context, any) (any, error) {
 }
 
 // unsupported handles a standard bitcoind RPC request which is
-// unsupported by vigilwallet due to design differences.
+// unsupported by vglwallet due to design differences.
 func unsupported(*Server, context.Context, any) (any, error) {
 	return nil, &VGLjson.RPCError{
 		Code:    -1,
-		Message: "Request unsupported by vigilwallet",
+		Message: "Request unsupported by vglwallet",
 	}
 }
 
@@ -5357,7 +5357,7 @@ func (s *Server) version(ctx context.Context, icmd any) (any, error) {
 		}
 	}
 
-	resp["vigilwallet"] = vgldtypes.VersionResult{
+	resp["vglwallet"] = vgldtypes.VersionResult{
 		VersionString: version.String(),
 		Major:         version.Major,
 		Minor:         version.Minor,
@@ -5365,7 +5365,7 @@ func (s *Server) version(ctx context.Context, icmd any) (any, error) {
 		Prerelease:    version.PreRelease,
 		BuildMetadata: version.BuildMetadata,
 	}
-	resp["vigilwalletjsonrpcapi"] = vgldtypes.VersionResult{
+	resp["vglwalletjsonrpcapi"] = vgldtypes.VersionResult{
 		VersionString: jsonrpcSemverString,
 		Major:         jsonrpcSemverMajor,
 		Minor:         jsonrpcSemverMinor,
@@ -5773,7 +5773,3 @@ func (s *Server) getcoinjoinsbyacct(ctx context.Context, icmd any) (any, error) 
 
 	return acctNameCoinjoinSum, nil
 }
-
-
-
-

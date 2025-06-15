@@ -11,14 +11,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/container/lru"
-	"github.com/Vigil-Labs/vgl/crypto/rand"
-	"github.com/Vigil-Labs/vgl/internal/blockchain"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/container/lru"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/internal/blockchain"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 const (
@@ -726,26 +726,10 @@ func (g *BgBlkTmplGenerator) genTemplateAsync(ctx context.Context, reason Templa
 		// Pick a mining address at random and generate a block template that
 		// pays to it.
 		payToAddr := g.cfg.MiningAddrs[rand.IntN(len(g.cfg.MiningAddrs))]
-
-		// Determine if KawPoW is active for the next block to be generated.
-		var template *BlockTemplate
-		var err error
-		best := g.tg.cfg.BestSnapshot()
-		isKawpowActive, err := g.tg.cfg.Chain.IsKawpowAgendaActive(&best.Hash)
-		if err != nil {
-			log.Errorf("Unable to determine KawPoW agenda status: %v", err)
-			g.setCurrentTemplate(nil, turUnknown, err)
-			return
-		}
-
-		if isKawpowActive {
-			template, err = g.tg.GetBlockTemplateKawPow(payToAddr)
-		} else {
-			template, err = g.tg.NewBlockTemplate(payToAddr)
-		}
+		template, err := g.tg.NewBlockTemplate(payToAddr)
 		// NOTE: err is handled below.
 		if err != nil {
-			log.Tracef("NewBlockTemplate (or GetBlockTemplateKawPow): %v", err)
+			log.Tracef("NewBlockTemplate: %v", err)
 		}
 
 		// Don't update the state or notify subscribers when the template
@@ -1548,6 +1532,3 @@ func (g *BgBlkTmplGenerator) Run(ctx context.Context) {
 	close(g.quit)
 	wg.Wait()
 }
-
-
-

@@ -734,7 +734,3 @@ func TestCalcBlockSubsidySparseCaching(t *testing.T) {
 		}
 	}
 }
-
-
-
-

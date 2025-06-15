@@ -16,7 +16,3 @@ func init() {
 		return compressedBytePoints
 	}
 }
-
-
-
-

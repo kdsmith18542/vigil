@@ -1,10 +1,10 @@
 vgld
 ====
 
-[![Build Status](https://github.com/Vigil-Labs/vgl/workflows/Build%20and%20Test/badge.svg)](https://github.com/Vigil-Labs/vgl/actions)
+[![Build Status](https://github.com/vigilnetwork/vgl/workflows/Build%20and%20Test/badge.svg)](https://github.com/vigilnetwork/vgl/actions)
 [![ISC License](https://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![Doc](https://img.shields.io/badge/doc-reference-blue.svg)](https://pkg.go.dev/github.com/Vigil-Labs/vgl)
-[![Go Report Card](https://goreportcard.com/badge/github.com/Vigil-Labs/vgl)](https://goreportcard.com/report/github.com/Vigil-Labs/vgl)
+[![Doc](https://img.shields.io/badge/doc-reference-blue.svg)](https://pkg.go.dev/github.com/vigilnetwork/vgl)
+[![Go Report Card](https://goreportcard.com/badge/github.com/vigilnetwork/vgl)](https://goreportcard.com/report/github.com/vigilnetwork/vgl)
 
 ## Vigil Overview
 
@@ -23,15 +23,15 @@ https://vigil.network/downloads/
 Core software:
 
 * vgld: a Vigil full node daemon (this)
-* [vigilwallet](https://github.com/Vigil-Labs/vgl/wallet): a CLI Vigil wallet daemon
-* [vglctl](https://github.com/Vigil-Labs/vgl/vglctl): a CLI client for vgld and vigilwallet
+* [vglwallet](https://github.com/Vigil/vglwallet): a CLI Vigil wallet daemon
+* [vglctl](https://github.com/Vigil/vglctl): a CLI client for vgld and vglwallet
 
 Bundles:
 
-* [Vigiliton](https://github.com/Vigil-Labs/vgliton): a GUI bundle for `vgld`
-  and `vigilwallet`
-* [CLI app suite](https://github.com/Vigil-Labs/vgl-release/releases/latest):
-  a CLI bundle for `vgld` and `vigilwallet`
+* [Vigiliton](https://github.com/Vigil/Vigiliton): a GUI bundle for `vgld`
+  and `vglwallet`
+* [CLI app suite](https://github.com/Vigil/Vigil-release/releases/latest):
+  a CLI bundle for `vgld` and `vglwallet`
 
 ## What is vgld?
 
@@ -45,8 +45,8 @@ This software is currently under active development.  It is extremely stable and
 has been in production use since February 2016.
 
 It important to note that vgld does *NOT* include wallet functionality.  Users
-who desire a wallet will need to use [vigilwallet (CLI)](https://github.com/Vigil-Labs/vglwallet)
-or [Vigiliton(GUI)](https://github.com/Vigil-Labs/vgliton).
+who desire a wallet will need to use [vglwallet(CLI)](https://github.com/Vigil/vglwallet)
+or [Vigiliton(GUI)](https://github.com/Vigil/Vigiliton).
 
 ## What is a full node?
 
@@ -82,8 +82,8 @@ censorship.
 In terms of individual benefits, since vgld fully validates every block and
 transaction, it provides the highest security and privacy possible when used in
 conjunction with a wallet that also supports directly connecting to it in full
-validation mode, such as [vigilwallet (CLI)](https://github.com/Vigil-Labs/vglwallet)
-and [Vigiliton (GUI)](https://github.com/Vigil-Labs/vgliton).  It is also ideal
+validation mode, such as [vglwallet (CLI)](https://github.com/Vigil/vglwallet)
+and [Vigiliton (GUI)](https://github.com/Vigil/Vigiliton).  It is also ideal
 for businesses and services that need the most reliable and accurate data about
 transactions.
 
@@ -115,7 +115,7 @@ Also, make sure your firewall is configured to allow inbound connections to port
 Binary releases are provided for common operating systems and architectures.
 The easiest method is to download Vigiliton from the link below, which will
 include vgld. Advanced users may prefer the Command-line app suite, which
-includes vgld and vigilwallet.
+includes vgld and vglwallet.
 
 https://vigil.network/downloads/
 
@@ -159,7 +159,7 @@ https://vigil.network/downloads/
 <details><summary><b>Windows Example</b></summary>
 
   ```PowerShell
-  PS> git clone https://github.com/Vigil-Labs/vgl $env:USERPROFILE\src\vgld
+  PS> git clone https://github.com/vigilnetwork/vgl $env:USERPROFILE\src\vgld
   PS> cd $env:USERPROFILE\src\vgld
   PS> go install . .\cmd\...
   PS> vgld -V
@@ -173,8 +173,8 @@ https://vigil.network/downloads/
   in dependencies.
 
   ```sh
-  $ git clone https://github.com/Vigil-Labs/vgl $HOME/src/vgld
-  $ git clone https://github.com/kdsmith18542/vglctl $HOME/src/vglctl
+  $ git clone https://github.com/vigilnetwork/vgl $HOME/src/vgld
+  $ git clone https://github.com/Vigil/vglctl $HOME/src/vglctl
   $ (cd $HOME/src/vgld && go install . ./...)
   $ (cd $HOME/src/vglctl && go install)
   $ vgld -V
@@ -234,7 +234,3 @@ The documentation for vgld is a work-in-progress.  It is located in the
 ## License
 
 vgld is licensed under the [copyfree](http://copyfree.org) ISC License.
-
-
-
-

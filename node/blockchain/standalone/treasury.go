@@ -64,7 +64,3 @@ func InsideTSpendWindow(blockHeight int64, expiry uint32, tvi, multiplier uint64
 
 	return uint32(blockHeight) >= start && uint32(blockHeight) <= end
 }
-
-
-
-

@@ -149,7 +149,3 @@ func TestErrorKindIsAs(t *testing.T) {
 		}
 	}
 }
-
-
-
-

@@ -97,7 +97,3 @@ func appDataDir(goos, appName string, roaming bool) string {
 func AppDataDir(appName string, roaming bool) string {
 	return appDataDir(runtime.GOOS, appName, roaming)
 }
-
-
-
-

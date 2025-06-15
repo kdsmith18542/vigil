@@ -11,7 +11,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // TestGetSigOpCount tests that the GetSigOpCount function behaves as expected.
@@ -733,7 +733,3 @@ func TestGenerateSSGenVotes(t *testing.T) {
 		}
 	}
 }
-
-
-
-

@@ -9,13 +9,13 @@ import (
 	"math/big"
 	"sort"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
-blockchain "github.com/Vigil-Labs/vgl/blockchain/standalone"
-"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-"github.com/Vigil-Labs/vgl/chaincfg"
-"github.com/Vigil-Labs/vgl/gcs"
-"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	blockchain "github.com/kdsmith18542/vigil/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // SidechainForest provides in-memory management of sidechain and orphan blocks.
@@ -460,7 +460,3 @@ func (w *Wallet) EvaluateBestChain(ctx context.Context, f *SidechainForest) ([]*
 	}
 	return newBestChain, nil
 }
-
-
-
-

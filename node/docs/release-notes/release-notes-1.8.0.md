@@ -242,7 +242,7 @@ commitments are added to the header proof in future upgrades.
 The previously deprecated optional address index that could be enabled via
 `--addrindex` and removed via `--dropaddrindex` is no longer available.  All of
 the information previously provided from the address index, and much more, is
-available via [Vigil Explorer](https://github.com/Vigil/Vigil-Explorer/).
+available via [vgldata](https://github.com/vigilnetwork/vglata/).
 
 ### Several CLI Options Deprecated
 
@@ -305,7 +305,7 @@ obtain all transactions that either credit or debit a given address via RPC is
 no longer available.
 
 Callers that wish to access details related to addresses are encouraged to use
-[Vigil Explorer](https://github.com/Vigil/Vigil-Explorer/) instead.
+[vgldata](https://github.com/vigilnetwork/vglata/) instead.
 
 #### Removal of Address Index Status Field on Info RPC (`getinfo`)
 
@@ -689,6 +689,7 @@ All commits since the last release may be viewed on GitHub
 - blockchain: Remove deprecated subscribers method ([Vigil/vgld#3113](https://github.com/vigilnetwork/vgl/pull/3113))
 - multi: Remove unused tip generation error ([Vigil/vgld#3112](https://github.com/vigilnetwork/vgl/pull/3112))
 - blockchain: Correct total subsidy database entry ([Vigil/vgld#3112](https://github.com/vigilnetwork/vgl/pull/3112))
+- wire: Add PowHashV2 using blake3 ([Vigil/vgld#3115](https://github.com/vigilnetwork/vgl/pull/3115))
 - rpcserver: Consolidate work data serialization ([Vigil/vgld#3115](https://github.com/vigilnetwork/vgl/pull/3115))
 - standalone: Add separate proof of work hash check ([Vigil/vgld#3115](https://github.com/vigilnetwork/vgl/pull/3115))
 - chaincfg: Use consts for pow limit bits ([Vigil/vgld#3115](https://github.com/vigilnetwork/vgl/pull/3115))
@@ -848,7 +849,3 @@ All commits since the last release may be viewed on GitHub
 - norwnd
 - peterzen
 - 刘昆
-
-
-
-

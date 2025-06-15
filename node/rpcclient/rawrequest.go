@@ -10,7 +10,7 @@ import (
 	"encoding/json"
 	"errors"
 
-	"github.com/Vigil-Labs/vgl/VGLjson"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
 )
 
 // FutureRawResult is a future promise to deliver the result of a RawRequest RPC
@@ -78,7 +78,3 @@ func (c *Client) RawRequestAsync(ctx context.Context, method string, params []js
 func (c *Client) RawRequest(ctx context.Context, method string, params []json.RawMessage) (json.RawMessage, error) {
 	return c.RawRequestAsync(ctx, method, params).Receive()
 }
-
-
-
-

@@ -9,8 +9,8 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // RegNetParams returns the network parameters for the regression test network.
@@ -104,7 +104,7 @@ func RegNetParams() *Params {
 		MaxTxSize:            1000000,
 		TargetTimePerBlock:   time.Second,
 
-		// Version 1 difficulty algorithm (EMA) parameters.
+		// Version 1 difficulty algorithm (EMA + BLAKE256) parameters.
 		WorkDiffAlpha:            1,
 		WorkDiffWindowSize:       8,
 		WorkDiffWindows:          4,
@@ -596,7 +596,3 @@ func RegNetParams() *Params {
 		seeders: nil, // NOTE: There must NOT be any seeds.
 	}
 }
-
-
-
-

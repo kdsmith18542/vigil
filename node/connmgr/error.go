@@ -82,7 +82,3 @@ func (e Error) Unwrap() error {
 func MakeError(kind ErrorKind, desc string) Error {
 	return Error{Err: kind, Description: desc}
 }
-
-
-
-

@@ -10,9 +10,9 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // newHashFromStr converts the passed big-endian hex string into a
@@ -554,7 +554,3 @@ var regNetParams = &chaincfg.Params{
 		Amount:        100000 * 1e8,
 	}},
 }
-
-
-
-

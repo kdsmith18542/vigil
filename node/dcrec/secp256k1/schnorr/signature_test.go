@@ -12,7 +12,7 @@ import (
 	"time"
 
 	
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
 )
 
 // TestSignatureParsing ensures that signatures are properly parsed including
@@ -92,7 +92,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		rfc6979  bool   // whether or not the nonce is an RFC6979 nonce
 		expected string // expected signature
 	}{{
-		name:    "key 0x1, kawpow(0x01020304), rfc6979 nonce",
+		name:    "key 0x1, blake256(0x01020304), rfc6979 nonce",
 		key:     "0000000000000000000000000000000000000000000000000000000000000001",
 		msg:     "01020304",
 		hash:    "c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7",
@@ -101,7 +101,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "4c68976afe187ff0167919ad181cb30f187e2af1c8233b2cbebbbe0fc97fff61" +
 			"e9ae2d0e306497236d4e328dc1a34244045745e87da69d806859348bc2a74525",
 	}, {
-		name:    "key 0x1, kawpow(0x01020304), random nonce",
+		name:    "key 0x1, blake256(0x01020304), random nonce",
 		key:     "0000000000000000000000000000000000000000000000000000000000000001",
 		msg:     "01020304",
 		hash:    "c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7",
@@ -110,7 +110,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "b073759a96a835b09b79e7b93c37fdbe48fb82b000c4a0e1404ba5d1fbc15d0a" +
 			"299d614b02dec30f8261ae43d09a224b233f3221405c9ffd3d2b00a3d2188fd4",
 	}, {
-		name:    "key 0x2, kawpow(0x01020304), rfc6979 nonce",
+		name:    "key 0x2, blake256(0x01020304), rfc6979 nonce",
 		key:     "0000000000000000000000000000000000000000000000000000000000000002",
 		msg:     "01020304",
 		hash:    "c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7",
@@ -119,7 +119,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "c6deb3a26c08842612bfd4411a91c90f64cfea2206c758cd1352ff2b93cc3611" +
 			"c9ffe5dd240f52d3ee199e29373030a5d795b674cd4da991fd07f5edefc3817d",
 	}, {
-		name:    "key 0x2, kawpow(0x01020304), random nonce",
+		name:    "key 0x2, blake256(0x01020304), random nonce",
 		key:     "0000000000000000000000000000000000000000000000000000000000000002",
 		msg:     "01020304",
 		hash:    "c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7",
@@ -128,7 +128,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "4a090d82f48ca12d9e7aa24b5dcc187ee0db2920496f671d63e86036aaa7997e" +
 			"16d33ae10eade4db33dda17873948b4803d6eb9b10781616880a6f66ba2d1b78",
 	}, {
-		name:    "key 0x1, kawpow(0x0102030405), rfc6979 nonce",
+		name:    "key 0x1, blake256(0x0102030405), rfc6979 nonce",
 		key:     "0000000000000000000000000000000000000000000000000000000000000001",
 		msg:     "0102030405",
 		hash:    "dc063eba3c8d52a159e725c1a161506f6cb6b53478ad5ef3f08d534efa871d9f",
@@ -137,7 +137,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "461646005002d673c2e903f3c9ff2c2455e60810445ee486b9c36152287bc41a" +
 			"1b54733190ed128e466c5263a404f17344b73426d7faf00325c7a0af04be6cfe",
 	}, {
-		name:    "key 0x1, kawpow(0x0102030405), random nonce",
+		name:    "key 0x1, blake256(0x0102030405), random nonce",
 		key:     "0000000000000000000000000000000000000000000000000000000000000001",
 		msg:     "0102030405",
 		hash:    "dc063eba3c8d52a159e725c1a161506f6cb6b53478ad5ef3f08d534efa871d9f",
@@ -146,7 +146,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "72e5666f4e9d1099447b825cf737ee32112f17a67e2ca7017ae098da31dfbb8b" +
 			"c19f5a4f815e9737f1b635075c50b3fa28dbbbebfcb98749b9f3c7b0fa748422",
 	}, {
-		name:    "key 0x2, kawpow(0x0102030405), rfc6979 nonce",
+		name:    "key 0x2, blake256(0x0102030405), rfc6979 nonce",
 		key:     "0000000000000000000000000000000000000000000000000000000000000002",
 		msg:     "0102030405",
 		hash:    "dc063eba3c8d52a159e725c1a161506f6cb6b53478ad5ef3f08d534efa871d9f",
@@ -155,7 +155,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "f3632492a72eb8e175b93e1eb31ef382e49f3f3fe385892523beaef9171aa15d" +
 			"441e1a94ab9b1dafa93e0d48d08c26513d53449197e761c74bebb2fae97525c3",
 	}, {
-		name:    "key 0x2, kawpow(0x0102030405), random nonce",
+		name:    "key 0x2, blake256(0x0102030405), random nonce",
 		key:     "0000000000000000000000000000000000000000000000000000000000000002",
 		msg:     "0102030405",
 		hash:    "dc063eba3c8d52a159e725c1a161506f6cb6b53478ad5ef3f08d534efa871d9f",
@@ -164,7 +164,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "3c4c5a2f217ea758113fd4e89eb756314dfad101a300f48e5bd764d3b6e0f8bf" +
 			"c29f43beed7d84348386152f1c43fc606d0887fa5b6f5c0b7875687f53b344f0",
 	}, {
-		name:    "random key 1, kawpow(0x01), rfc6979 nonce",
+		name:    "random key 1, blake256(0x01), rfc6979 nonce",
 		key:     "a1becef2069444a9dc6331c3247e113c3ee142edda683db8643f9cb0af7cbe33",
 		msg:     "01",
 		hash:    "4a6c419a1e25c85327115c4ace586decddfe2990ed8f3d4d801871158338501d",
@@ -173,7 +173,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "0b89d1fb10635e4a5da463c7339fd0f8d2e7d205a8288d4f973635beb8b59f7f" +
 			"e7c69c94ac665d14c105c2b4ba3b4c59a7819f8ecfe0d9f5f0c93a9f6d7ef447",
 	}, {
-		name:    "random key 2, kawpow(0x02), rfc6979 nonce",
+		name:    "random key 2, blake256(0x02), rfc6979 nonce",
 		key:     "59930b76d4b15767ec0e8c8e5812aa2e57db30c6af7963e2a6295ba02af5416b",
 		msg:     "02",
 		hash:    "49af37ab5270015fe25276ea5a3bb159d852943df23919522a202205fb7d175c",
@@ -182,7 +182,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "533e99ee9c838af4cc0280b0223ab0560e7e2083694bd5b0cab3c0cb80bc2e1e" +
 			"cf4f777f046a18b7f8eb2c29325945025e6d5a145176b1a1de9aca7d882ca5d2",
 	}, {
-		name:    "random key 3, kawpow(0x03), rfc6979 nonce",
+		name:    "random key 3, blake256(0x03), rfc6979 nonce",
 		key:     "c5b205c36bb7497d242e96ec19a2a4f086d8daa919135cf490d2b7c0230f0e91",
 		msg:     "03",
 		hash:    "b706d561742ad3671703c247eb927ee8a386369c79644131cdeb2c5c26bf6c5d",
@@ -191,7 +191,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "95c966fd6435d505a492548370b29a3c40efc3fefa3e1d997b3e2788cc33836e" +
 			"84a19d1d32c98f266f57f12c4363c0d9d432ca76985c6b7cb21c9970e14c75d8",
 	}, {
-		name:    "random key 4, kawpow(0x04), rfc6979 nonce",
+		name:    "random key 4, blake256(0x04), rfc6979 nonce",
 		key:     "65b46d4eb001c649a86309286aaf94b18386effe62c2e1586d9b1898ccf0099b",
 		msg:     "04",
 		hash:    "4c6eb9e38415034f4c93d3304d10bef38bf0ad420eefd0f72f940f11c5857786",
@@ -200,7 +200,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "327f4e1dc74948df95dba34f26b63317568325316742fc8276be8cd2544a105c" +
 			"ecd401dcd37834c2c007bb3402130fcac0cca549326b81727097d4420e73268c",
 	}, {
-		name:    "random key 5, kawpow(0x05), rfc6979 nonce",
+		name:    "random key 5, blake256(0x05), rfc6979 nonce",
 		key:     "915cb9ba4675de06a182088b182abcf79fa8ac989328212c6b866fa3ec2338f9",
 		msg:     "05",
 		hash:    "bdd15db13448905791a70b68137445e607cca06cc71c7a58b9b2e84a06c54d08",
@@ -209,7 +209,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "b3ac51091150852794914e12f12b8db00ec517ca8eeca0175a20e62b1a413a5c" +
 			"f942de4435ff6016a3faf233100b82c66d2e6efa423b2df0f3f1ee115dfc39f5",
 	}, {
-		name:    "random key 6, kawpow(0x06), rfc6979 nonce",
+		name:    "random key 6, blake256(0x06), rfc6979 nonce",
 		key:     "93e9d81d818f08ba1f850c6dfb82256b035b42f7d43c1fe090804fb009aca441",
 		msg:     "06",
 		hash:    "19b7506ad9c189a9f8b063d2aee15953d335f5c88480f8515d7d848e7771c4ae",
@@ -218,7 +218,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "01bfb35cf41d809d572d1d891eb474e2c0decf67ebb0f1432edce06b75d73fe0" +
 			"36a1015a13c6bcf50a94b87f5ef2725cf892c40e0e0fbaa5ca33e02dc6d3f19d",
 	}, {
-		name:    "random key 7, kawpow(0x07), rfc6979 nonce",
+		name:    "random key 7, blake256(0x07), rfc6979 nonce",
 		key:     "c249bbd5f533672b7dcd514eb1256854783531c2b85fe60bf4ce6ea1f26afc2b",
 		msg:     "07",
 		hash:    "53d661e71e47a0a7e416591200175122d83f8af31be6a70af7417ad6f54d0038",
@@ -227,7 +227,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "cb5bd3805bdd0a2e4daf58b30aa26b48c81ca59421ca320ad983c1eef672ad52" +
 			"5be5b6de8c0c343830bb803e0384a3942404485e8797cb48ac9ea332831fb5ad",
 	}, {
-		name:    "random key 8, kawpow(0x08), rfc6979 nonce",
+		name:    "random key 8, blake256(0x08), rfc6979 nonce",
 		key:     "ec0be92fcec66cf1f97b5c39f83dfd4ddcad0dad468d3685b5eec556c6290bcc",
 		msg:     "08",
 		hash:    "9bff7982eab6f7883322edf7bdc86a23c87ca1c07906fbb1584f57b197dc6253",
@@ -236,7 +236,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "9fbd427ddaef7c7ab87e5555c1faca398695e423ce44e5fc648b9203e38b69a0" +
 			"47f0752e1d421e24b3eb8666c9a966b86fd49438dda1a4987cb77f3147b8fa6a",
 	}, {
-		name:    "random key 9, kawpow(0x09), rfc6979 nonce",
+		name:    "random key 9, blake256(0x09), rfc6979 nonce",
 		key:     "6847b071a7cba6a85099b26a9c3e57a964e4990620e1e1c346fecc4472c4d834",
 		msg:     "09",
 		hash:    "4c2231813064f8500edae05b40195416bd543fd3e76c16d6efb10c816d92e8b6",
@@ -245,7 +245,7 @@ func TestSchnorrSignAndVerify(t *testing.T) {
 		expected: "cd9e9100f0fc8b631b40c4d93437eaf608e25ab6ad295d8b6460289ce571fb1e" +
 			"a91d3c16da2fb15ce0090702df4d824dc167a205af5824579a3e587646bf4251",
 	}, {
-		name:    "random key 10, kawpow(0x0a), rfc6979 nonce",
+		name:    "random key 10, blake256(0x0a), rfc6979 nonce",
 		key:     "b7548540f52fe20c161a0d623097f827608c56023f50442cc00cc50ad674f6b5",
 		msg:     "0a",
 		hash:    "e81db4f0d76e02805155441f50c861a8f86374f3ae34c7a3ff4111d3a634ecb1",
@@ -422,7 +422,7 @@ func TestVerifyErrors(t *testing.T) {
 		pubY string //  hex encoded y component of pubkey to verify against
 		err  error  // expected error
 	}{{
-		// Signature created from private key 0x01, kawpow(0x01020304) || 00.
+		// Signature created from private key 0x01, blake256(0x01020304) || 00.
 		// It is otherwise valid.
 		name: "hash too long",
 		sigR: "4c68976afe187ff0167919ad181cb30f187e2af1c8233b2cbebbbe0fc97fff61",
@@ -432,7 +432,7 @@ func TestVerifyErrors(t *testing.T) {
 		pubY: "483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8",
 		err:  ErrInvalidHashLen,
 	}, {
-		// Signature created from private key 0x01, kawpow(0x40) and removing
+		// Signature created from private key 0x01, blake256(0x40) and removing
 		// the leading zero byte.  It is otherwise valid.
 		name: "hash too short",
 		sigR: "938de23d0785c7d4775f47bbcadaa2a56447dd98029c8196f2bbed0ab4b8457f",
@@ -442,7 +442,7 @@ func TestVerifyErrors(t *testing.T) {
 		pubY: "483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8",
 		err:  ErrInvalidHashLen,
 	}, {
-		// Signature created from private key 0x01, kawpow(0x01020304) over
+		// Signature created from private key 0x01, blake256(0x01020304) over
 		// the secp256r1 curve (note the r1 instead of k1).
 		name: "pubkey not on the curve, signature valid for secp256r1 instead",
 		sigR: "c6c62660176b3daa90dbf4d7e21d9406ce93895771a16c7c5c91258a9b522174",
@@ -496,7 +496,7 @@ func TestVerifyErrors(t *testing.T) {
 		pubY: "483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8",
 		err:  ErrSigSTooBig,
 	}, {
-		// Signature created from private key 0x01, kawpow(0x01020304) and
+		// Signature created from private key 0x01, blake256(0x01020304) and
 		// manually setting s = -ed.
 		//
 		// Signature is otherwise invalid too since finding a signature where
@@ -510,7 +510,7 @@ func TestVerifyErrors(t *testing.T) {
 		pubY: "483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8",
 		err:  ErrSigRNotOnCurve,
 	}, {
-		// Signature created from private key 0x01, kawpow(0x01020304050607).
+		// Signature created from private key 0x01, blake256(0x01020304050607).
 		// It is otherwise valid.
 		name: "odd R",
 		sigR: "2c2c71f7bf3e183238b1f20d856e068dc6d37805c8b2d872d0f23d906bc95789",
@@ -520,9 +520,9 @@ func TestVerifyErrors(t *testing.T) {
 		pubY: "483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8",
 		err:  ErrSigRYIsOdd,
 	}, {
-		// Signature created from private key 0x01, kawpow(0x01020304).  Thus,
+		// Signature created from private key 0x01, blake256(0x01020304).  Thus,
 		// it is valid for that message.  Attempting to verify wrong message
-		// kawpow(0x01020307).
+		// blake256(0x01020307).
 		name: "mismatched R",
 		sigR: "4c68976afe187ff0167919ad181cb30f187e2af1c8233b2cbebbbe0fc97fff61",
 		sigS: "e9ae2d0e306497236d4e328dc1a34244045745e87da69d806859348bc2a74525",
@@ -565,7 +565,3 @@ func TestVerifyErrors(t *testing.T) {
 		}
 	}
 }
-
-
-
-

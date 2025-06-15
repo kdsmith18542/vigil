@@ -7,10 +7,10 @@ package wallet
 import (
 	"time"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-"github.com/Vigil-Labs/vgl/dcrutil"
-"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // Note: The following common types should never reference the Wallet type.
@@ -27,7 +27,7 @@ type BlockIdentity struct {
 // None returns whether there is no block described by the instance.  When
 // associated with a transaction, this indicates the transaction is unmined.
 func (b *BlockIdentity) None() bool {
-	// BUG: Because vigilwallet uses both 0 and -1 in various places to refer
+	// BUG: Because vglwallet uses both 0 and -1 in various places to refer
 	// to an unmined transaction this must check against both and may not
 	// ever be usable to represent the genesis block.
 	return *b == BlockIdentity{Height: -1} || *b == BlockIdentity{}
@@ -87,7 +87,3 @@ type P2SHMultiSigOutput struct {
 	M, N         uint8           // M of N signatures required to redeem
 	Redeemer     *OutputRedeemer // nil unless spent
 }
-
-
-
-

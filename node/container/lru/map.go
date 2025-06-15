@@ -525,7 +525,3 @@ func (m *Map[K, V]) HitRatio() float64 {
 
 	return float64(m.hits) / float64(totalLookups) * 100
 }
-
-
-
-

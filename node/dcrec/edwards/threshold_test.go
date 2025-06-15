@@ -216,7 +216,3 @@ func TestSchnorrThreshold(t *testing.T) {
 		}
 	}
 }
-
-
-
-

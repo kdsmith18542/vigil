@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="256px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Vigil Logo</title>
+    <g id="Vigil-Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- The main 'V' shape -->
+        <!-- This represents the foundational, stable element of Vigil -->
+        <path d="M 10,10 L 50,90 L 90,10" 
+              id="V-Shape" 
+              stroke="#F5F5F5" 
+              stroke-width="8" 
+              stroke-linecap="round" 
+              stroke-linejoin="round">
+        </path>
+        
+        <!-- The "eye" or "beacon" shape -->
+        <!-- This represents the watchful PoS stakers and the 'vigilant' aspect -->
+        <path d="M 50,60 L 65,30 L 35,30 Z" 
+              id="Sentry-Eye" 
+              fill="#FFBF00">
+        </path>
+    </g>
+</svg>

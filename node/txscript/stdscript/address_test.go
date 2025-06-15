@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 )
 
 // addressTest describes tests for scripts that are used to ensure various
@@ -96,7 +96,3 @@ func TestExtractAddrs(t *testing.T) {
 		}
 	}
 }
-
-
-
-

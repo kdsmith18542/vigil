@@ -13,7 +13,3 @@ maintaining a set number of outbound connections, sourcing peers, banning,
 limiting max connections, tor lookup, etc.
 */
 package connmgr
-
-
-
-

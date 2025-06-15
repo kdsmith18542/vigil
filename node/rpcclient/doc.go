@@ -9,17 +9,17 @@ Package rpcclient implements a websocket-enabled Vigil JSON-RPC client.
 This client provides a robust and easy to use client for interfacing
 with a Vigil RPC server that uses a mostly btcd/bitcoin core
 style Vigil JSON-RPC API.  This client has been tested with vgld
-(https://github.com/Vigil-Labs/vgl) and Vigil Wallet
-(https://github.com/Vigil-Labs/vgl).
+(https://github.com/kdsmith18542/vigil) and vglwallet
+(https://github.com/kdsmith18542/vigilwallet).
 
 In addition to the compatible standard HTTP POST JSON-RPC API, vgld and
-Vigil Wallet provide a websocket interface that is more efficient than the standard
+vglwallet provide a websocket interface that is more efficient than the standard
 HTTP POST method of accessing RPC.  The section below discusses the differences
 between HTTP POST and websockets.
 
 By default, this client assumes the RPC server supports websockets and has
 TLS enabled.  In practice, this currently means it assumes you are talking to
-vgld or Vigil Wallet by default. However, configuration options are provided to
+vgld or vglwallet by default.  However, configuration options are provided to
 fall back to HTTP POST and disable TLS to support talking with inferior bitcoin
 core style RPC servers.
 
@@ -31,7 +31,7 @@ quite a bit of overhead to every call and lacks flexibility for features such as
 notifications.
 
 In contrast, the websocket-based JSON-RPC interface provided by vgld and
-Vigil Wallet only uses a single connection that remains open and allows
+vglwallet only uses a single connection that remains open and allows
 asynchronous bi-directional communication.
 
 The websocket interface supports all of the same commands as HTTP POST, but they
@@ -99,7 +99,7 @@ commands.
 The automatic reconnection can be disabled by setting the DisableAutoReconnect
 flag to true in the connection config when creating the client.
 
-# Interacting with Vigil Wallet
+# Interacting with vglwallet
 
 This package only provides methods for vgld RPCs.  Using the websocket
 connection and request-response mapping provided by rpcclient with arbitrary
@@ -107,27 +107,27 @@ methods or different servers is possible through the generic RawRequest and
 RawRequestAsync methods (each of which deal with json.RawMessage for parameters
 and return results).
 
-Previous versions of this package provided methods for Vigil Wallet's JSON-RPC
+Previous versions of this package provided methods for vglwallet's JSON-RPC
 server in addition to vgld.  These were removed in major version 6 of this
 module.  Projects depending on these calls are advised to use the
-github.com/Vigil-Labs/vgl/wallet/rpc/client/vigilwallet package which is able to wrap
+vigil.network/vgl/wallet/rpc/client/vglwallet package which is able to wrap
 rpcclient.Client using the aforementioned RawRequest method:
 
-	var _ *rpcclient.Client = client // Should be connected to Vigil Wallet
+	var _ *rpcclient.Client = client // Should be connected to vglwallet
 	var _ *chaincfg.Params = params
-	var walletClient = vigilwallet.NewClient(vigilwallet.RawRequestCaller(client), params)
+	var walletClient = vglwallet.NewClient(vglwallet.RawRequestCaller(client), params)
 
 Using struct embedding, it is possible to create a single variable with the
-combined method sets of both rpcclient.Client and Vigil Wallet.Client:
+combined method sets of both rpcclient.Client and vglwallet.Client:
 
-	type WalletClient = vigilwallet.Client // Avoids naming clash for selectors
+	type WalletClient = vglwallet.Client // Avoids naming clash for selectors
 	type MyClient struct {
 		*rpcclient.Client
 		*WalletClient
 	}
 	var myClient = MyClient{Client: client, WalletClient: walletClient}
 
-This technique is valuable as Vigil Wallet (syncing in RPC mode) will passthrough
+This technique is valuable as vglwallet (syncing in RPC mode) will passthrough
 any unknown RPCs to the backing vgld server, proxying requests and responses for
 the client.
 
@@ -184,7 +184,3 @@ The following full-blown client examples are in the examples directory:
     block count
 */
 package rpcclient
-
-
-
-

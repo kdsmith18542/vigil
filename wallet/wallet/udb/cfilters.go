@@ -5,11 +5,11 @@
 package udb
 
 import (
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
-"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-gcs2 "github.com/Vigil-Labs/vgl/gcs"
-"github.com/Vigil-Labs/vgl/gcs/blockcf2"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	gcs2 "github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/gcs/v4/blockcf2"
 )
 
 // CFilterV2 returns the saved regular compact filter v2 for a block along with
@@ -65,7 +65,3 @@ func (s *Store) ImportCFiltersV2(dbtx walletdb.ReadWriteTx, startHeight int32, f
 
 	return nil
 }
-
-
-
-

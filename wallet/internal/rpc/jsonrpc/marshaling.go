@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/Vigil-Labs/vgl/wallet/wallet"
+	"github.com/kdsmith18542/vigil/wallet/wallet"
 )
 
 type marshalJSONFunc func() ([]byte, error)
@@ -46,7 +46,3 @@ func addressStringsMarshaler(addrs []string) json.Marshaler {
 		return addrs[i]
 	})
 }
-
-
-
-

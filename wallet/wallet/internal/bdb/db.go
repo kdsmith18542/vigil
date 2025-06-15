@@ -9,8 +9,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
 	bolt "go.etcd.io/bbolt"
 )
 
@@ -321,7 +321,3 @@ func openDB(dbPath string, create bool) (walletdb.DB, error) {
 	boltDB, err := bolt.Open(dbPath, 0600, nil)
 	return (*db)(boltDB), convertErr(err)
 }
-
-
-
-

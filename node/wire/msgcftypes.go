@@ -140,7 +140,3 @@ func NewMsgCFTypes(filterTypes []FilterType) *MsgCFTypes {
 		SupportedFilters: filterTypes,
 	}
 }
-
-
-
-

@@ -718,7 +718,3 @@ func TestImmutableEmptyIterator(t *testing.T) {
 		t.Fatal("Prev: iterator should be exhausted")
 	}
 }
-
-
-
-

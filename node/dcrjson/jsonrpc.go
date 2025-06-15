@@ -164,7 +164,3 @@ func MarshalResponse(rpcVersion string, id interface{}, result interface{}, rpcE
 	}
 	return json.Marshal(&response)
 }
-
-
-
-

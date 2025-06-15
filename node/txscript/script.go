@@ -10,7 +10,7 @@ import (
 	"encoding/binary"
 	"strings"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // These are the constants specified for maximums in individual scripts.
@@ -490,7 +490,3 @@ func GenerateSSGenVotes(votebits uint16) ([]byte, error) {
 
 	return NewScriptBuilder().AddOp(OP_RETURN).AddData(vbBytes).Script()
 }
-
-
-
-

@@ -419,7 +419,3 @@ It would probably be nice to provide some variants such as:
   latest release tag instead of building the master branch
 - `Dockerfile.local` that builds an image using the code in the build context
   instead of cloning and building the latest master branch
-
-
-
-

@@ -311,7 +311,3 @@ func RegisteredMethods(methodType interface{}) []string {
 	sort.Strings(methods)
 	return methods
 }
-
-
-
-

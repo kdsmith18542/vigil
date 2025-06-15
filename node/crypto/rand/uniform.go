@@ -235,7 +235,3 @@ func (p *PRNG) BigInt(max *big.Int) *big.Int {
 	n, _ := rand.Int(p, max)
 	return n
 }
-
-
-
-

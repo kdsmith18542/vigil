@@ -81,7 +81,3 @@ func addInterruptHandler(handler func()) {
 
 	addHandlerChannel <- handler
 }
-
-
-
-

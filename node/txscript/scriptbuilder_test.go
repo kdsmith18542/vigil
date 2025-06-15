@@ -412,7 +412,3 @@ func TestErroredScript(t *testing.T) {
 		t.Fatal("ErrScriptNotCanonical.Error does not have any text")
 	}
 }
-
-
-
-

@@ -1103,7 +1103,3 @@ func (s *ModNScalar) IsOverHalfOrder() bool {
 
 	return result != 0
 }
-
-
-
-

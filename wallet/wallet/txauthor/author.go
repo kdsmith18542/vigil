@@ -7,15 +7,15 @@
 package txauthor
 
 import (
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-"github.com/Vigil-Labs/vgl/wallet/wallet/txrules"
-"github.com/Vigil-Labs/vgl/wallet/wallet/txsizes"
-"github.com/Vigil-Labs/vgl/chaincfg"
-"github.com/Vigil-Labs/vgl/crypto/rand"
-"github.com/Vigil-Labs/vgl/dcrutil"
-"github.com/Vigil-Labs/vgl/txscript"
-"github.com/Vigil-Labs/vgl/txscript/sign"
-"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txrules"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txsizes"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/sign"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 const (
@@ -232,7 +232,3 @@ func AddAllInputScripts(tx *wire.MsgTx, prevPkScripts [][]byte, secrets SecretsS
 func (tx *AuthoredTx) AddAllInputScripts(secrets SecretsSource) error {
 	return AddAllInputScripts(tx.Tx, tx.PrevScripts, secrets)
 }
-
-
-
-

@@ -8,8 +8,8 @@ package schnorr
 import (
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
-	"github.com/Vigil-Labs/vgl/kawpow"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/kawpow"
 )
 
 const (
@@ -20,7 +20,20 @@ const (
 	scalarSize = 32
 )
 
-
+var (
+	// rfc6979ExtraDataV0 is the extra data to feed to RFC6979 when generating
+	// the deterministic nonce for the EC-Schnorr-VGLv0 scheme.  This ensures
+	// the same nonce is not generated for the same message and key as for other
+	// signing algorithms such as ECDSA.
+	//
+	// It is equal to BLAKE-256([]byte("EC-Schnorr-VGLv0")).
+	rfc6979ExtraDataV0 = [32]byte{
+		0x0b, 0x75, 0xf9, 0x7b, 0x60, 0xe8, 0xa5, 0x76,
+		0x28, 0x76, 0xc0, 0x04, 0x82, 0x9e, 0xe9, 0xb9,
+		0x26, 0xfa, 0x6f, 0x0d, 0x2e, 0xea, 0xec, 0x3a,
+		0x4f, 0xd1, 0x44, 0x6a, 0x76, 0x83, 0x31, 0xcb,
+	}
+)
 
 // Signature is a type representing a Schnorr signature.
 type Signature struct {
@@ -122,7 +135,7 @@ func schnorrVerify(sig *Signature, hash []byte, pubKey *secp256k1.PublicKey) err
 	// 2. Fail if Q is not a point on the curve
 	// 3. Fail if r >= p
 	// 4. Fail if s >= n
-	// 5. e = Keccak256(r || m) (Ensure r is padded to 32 bytes)
+	// 5. e = BLAKE-256(r || m) (Ensure r is padded to 32 bytes)
 	// 6. Fail if e >= n
 	// 7. R = s*G + e*Q
 	// 8. Fail if R is the point at infinity
@@ -160,11 +173,11 @@ func schnorrVerify(sig *Signature, hash []byte, pubKey *secp256k1.PublicKey) err
 
 	// Step 5.
 	//
-	// e = Keccak256(r || m) (Ensure r is padded to 32 bytes)
+	// e = BLAKE-256(r || m) (Ensure r is padded to 32 bytes)
 	var commitmentInput [scalarSize * 2]byte
 	sig.r.PutBytesUnchecked(commitmentInput[0:scalarSize])
 	copy(commitmentInput[scalarSize:], hash)
-	commitmentHash := kawpow.Keccak256(commitmentInput[:])
+	commitmentHash := kawpow.HashFunc(commitmentInput[:])
 	var commitment [32]byte
 	copy(commitment[:], commitmentHash[:])
 
@@ -258,7 +271,7 @@ func schnorrSign(privKey, nonce *secp256k1.ModNScalar, hash []byte) (*Signature,
 	// 4. R = kG
 	// 5. Negate nonce k if R.y is odd (R.y is the y coordinate of the point R)
 	// 6. r = R.x (R.x is the x coordinate of the point R)
-	// 7. e = Keccak256(r || m) (Ensure r is padded to 32 bytes)
+	// 7. e = BLAKE-256(r || m) (Ensure r is padded to 32 bytes)
 	// 8. Repeat from step 3 (with iteration + 1) if e >= n
 	// 9. s = k - e*d mod n
 	// 10. Return (r, s)
@@ -289,11 +302,11 @@ func schnorrSign(privKey, nonce *secp256k1.ModNScalar, hash []byte) (*Signature,
 
 	// Step 7.
 	//
-	// e = Keccak256(r || m) (Ensure r is padded to 32 bytes)
+	// e = BLAKE-256(r || m) (Ensure r is padded to 32 bytes)
 	var commitmentInput [scalarSize * 2]byte
 	r.PutBytesUnchecked(commitmentInput[0:scalarSize])
 	copy(commitmentInput[scalarSize:], hash)
-	commitmentHash := kawpow.Keccak256(commitmentInput[:])
+	commitmentHash := kawpow.HashFunc(commitmentInput[:])
 	var commitment [32]byte
 	copy(commitment[:], commitmentHash[:])
 
@@ -347,7 +360,7 @@ func Sign(privKey *secp256k1.PrivateKey, hash []byte) (*Signature, error) {
 	// 4. R = kG
 	// 5. Negate nonce k if R.y is odd (R.y is the y coordinate of the point R)
 	// 6. r = R.x (R.x is the x coordinate of the point R)
-	// 7. e = Keccak256(r || m) (Ensure r is padded to 32 bytes)
+	// 7. e = BLAKE-256(r || m) (Ensure r is padded to 32 bytes)
 	// 8. Repeat from step 3 (with iteration + 1) if e >= n
 	// 9. s = k - e*d mod n
 	// 10. Return (r, s)
@@ -393,7 +406,3 @@ func Sign(privKey *secp256k1.PrivateKey, hash []byte) (*Signature, error) {
 		return sig, nil
 	}
 }
-
-
-
-

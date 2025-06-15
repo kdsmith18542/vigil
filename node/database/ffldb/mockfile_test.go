@@ -162,7 +162,3 @@ func (f *mockFile) Sync() error {
 
 // Ensure the mockFile type implements the filer interface.
 var _ filer = (*mockFile)(nil)
-
-
-
-

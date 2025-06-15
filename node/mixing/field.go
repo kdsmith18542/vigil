@@ -19,7 +19,3 @@ func init() {
 func InField(x *big.Int) bool {
 	return x.Sign() != -1 && x.Cmp(F) == -1
 }
-
-
-
-

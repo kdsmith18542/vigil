@@ -10,10 +10,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/blockchain/chaingen"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // These variables are used to provide a shared set of generated blocks that
@@ -2067,7 +2067,3 @@ func TestAssumeValid(t *testing.T) {
 			"assumed valid node is nil")
 	}
 }
-
-
-
-

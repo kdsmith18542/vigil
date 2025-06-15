@@ -13,7 +13,7 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // TestGetHeaders tests the MsgGetHeader API.
@@ -301,7 +301,3 @@ func TestGetHeadersWireErrors(t *testing.T) {
 		}
 	}
 }
-
-
-
-

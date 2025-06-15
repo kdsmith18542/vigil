@@ -102,7 +102,6 @@
                 <a href="#wallet" class="hover:text-amber-400 transition-colors">Wallet</a>
                 <a href="#governance" class="hover:text-amber-400 transition-colors">Governance</a>
                 <a href="#source" class="hover:text-amber-400 transition-colors">Source</a>
-                <a href="staking_dashboard.html" class="hover:text-amber-400 transition-colors">Staking</a>
                 <a href="#" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 px-4 rounded-lg glow-button">Launch App</a>
             </div>
             <div class="md:hidden">
@@ -173,120 +172,128 @@
                     <!-- Live Data Labels -->
                     <div class="absolute top-0 left-0 text-left">
                         <p class="font-bold text-gray-200 glow-text-white">PoW HASHRATE</p>
-                        <p id="pow-hashrate" class="text-2xl font-mono font-bold">42.17 GH/s</p>
+                        <p id="hashrate" class="text-2xl font-mono font-bold">42.17 GH/s</p>
                     </div>
                     <div class="absolute top-0 right-0 text-right">
                         <p class="font-bold text-amber-400 glow-text-gold">TOTAL VGL STAKED</p>
-                        <p id="total-vgl-staked" class="text-2xl font-mono font-bold">8,412,991 VGL</p>
+                        <p id="staked" class="text-2xl font-mono font-bold">8,412,991 VGL</p>
                     </div>
                     <div class="absolute bottom-0 text-center w-full">
                         <p class="font-bold text-yellow-400">NETWORK SECURITY RATIO</p>
-                        <p id="network-security-ratio" class="text-3xl font-mono font-bold">78.4%</p>
+                        <p id="security-ratio" class="text-3xl font-mono font-bold">78.4%</p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Vigil Staking Dashboard Section -->
-    <section id="staking-dashboard" class="py-20 bg-[#212121] text-white">
+    <!-- Tokenomics Section -->
+    <section id="tokenomics" class="py-20 bg-[#1A1A1A]">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-black text-center mb-12 glow-text-gold">Vigil Staking Dashboard</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Network Hashrate vs. Staked VGL -->
-                <div class="glass-panel p-6 rounded-lg text-center">
-                    <h3 class="text-xl font-bold mb-4">Network Hashrate vs. Staked VGL</h3>
-                    <p class="text-5xl font-mono glow-text-white mb-2" id="network-hashrate-vs-staked">Loading...</p>
-                    <p class="text-gray-400">Ratio of PoW Hashrate to Total VGL Staked</p>
+            <h2 class="text-4xl font-black text-center mb-2">Sustainable Economics</h2>
+            <p class="text-lg text-gray-400 text-center mb-12 max-w-3xl mx-auto">Vigil's block reward is split to fairly incentivize all network participants, ensuring both a viral launch and long-term survival.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- PoW Miners Card -->
+                <div class="glass-panel rounded-xl p-8 border-gray-400/30">
+                    <div class="text-gray-100 text-5xl font-black glow-text-white mb-4">50%</div>
+                    <h3 class="text-2xl font-bold mb-2">To PoW Miners</h3>
+                    <p class="text-gray-300">An aggressive reward for GPU miners to bootstrap network security and drive a fair, decentralized launch on the KawPoW algorithm.</p>
                 </div>
-
-                <!-- Security Score -->
-                <div class="glass-panel p-6 rounded-lg text-center">
-                    <h3 class="text-xl font-bold mb-4">Security Score</h3>
-                    <p class="text-5xl font-mono glow-text-white mb-2" id="security-score">Loading...</p>
-                    <p class="text-gray-400">Overall network security rating</p>
+                <!-- PoS Stakers Card -->
+                <div class="glass-panel rounded-xl p-8 border-amber-500/30">
+                    <div class="text-amber-400 text-5xl font-black glow-text-gold mb-4">40%</div>
+                    <h3 class="text-2xl font-bold mb-2">To PoS Stakers</h3>
+                    <p class="text-gray-300">A substantial incentive for stakeholders to lock up VGL, participate in governance, and provide the vigilant security that protects the network.</p>
                 </div>
-
-                <!-- Projected ROI -->
-                <div class="glass-panel p-6 rounded-lg text-center">
-                    <h3 class="text-xl font-bold mb-4">Projected ROI</h3>
-                    <p class="text-5xl font-mono glow-text-white mb-2" id="projected-roi">Loading...</p>
-                    <p class="text-gray-400">Estimated annual return on staked VGL</p>
-                </div>
-
-                <!-- Network Security Ratio -->
-                <div class="glass-panel p-6 rounded-lg text-center">
-                    <h3 class="text-xl font-bold mb-4">Network Security Ratio</h3>
-                    <p class="text-5xl font-mono glow-text-gold mb-2" id="security-ratio">Loading...</p>
-                    <p class="text-gray-400">Estimated security against 51% attacks</p>
-                </div>
-
-                <!-- Projected Staking ROI -->
-                <div class="glass-panel p-6 rounded-lg text-center">
-                    <h3 class="text-xl font-bold mb-4">Projected Staking ROI</h3>
-                    <p class="text-5xl font-mono glow-text-white mb-2" id="staking-roi">Loading...</p>
-                    <p class="text-gray-400">Annual Return on Investment for Stakers</p>
+                <!-- Treasury Card -->
+                <div class="glass-panel rounded-xl p-8 border-yellow-500/30">
+                    <div class="text-yellow-400 text-5xl font-black mb-4">10%</div>
+                    <h3 class="text-2xl font-bold mb-2">To The Treasury</h3>
+                    <p class="text-gray-300">A self-sustaining development fund, controlled by stakeholder votes, to pay for future development, audits, and ecosystem growth.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <script src="./api.js"></script>
+    <!-- Meet the Vigil Section -->
+    <section id="security" class="py-20 relative overflow-hidden">
+         <div class="particle-container"></div>
+         <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl font-black mb-2">Meet the Vigil</h2>
+            <p class="text-lg text-gray-400 mb-12 max-w-3xl mx-auto">Every staked coin becomes part of a decentralized wall, a vigilant security force that validates the chain and protects it from attack.</p>
+            <div class="glass-panel rounded-xl p-8 max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="text-center md:text-left mb-6 md:mb-0">
+                        <h3 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-400 mb-2">Your Stake is Your Shield</h3>
+                        <p class="text-gray-300">By purchasing tickets and staking VGL, you don't just earn rewards—you actively participate in consensus. Your vote makes the network stronger, more resilient, and truly decentralized.</p>
+                    </div>
+                    <a href="#" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-3 px-8 rounded-lg glow-button text-lg flex-shrink-0">Become a Vigil</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
-        async function fetchData() {
-            try {
-                // Fetch PoW Hashrate
-                const miningInfo = await fetchDataFromAPI('/api/getmininginfo');
-                if (miningInfo) {
-                    document.getElementById('pow-hashrate').innerText = `${(miningInfo.networkhashps / 1e12).toFixed(2)} TH/s`;
-                } else {
-                    document.getElementById('pow-hashrate').innerText = 'N/A';
-                }
+        // --- Live Data Simulation Script ---
+        const hashrateEl = document.getElementById('hashrate');
+        const stakedEl = document.getElementById('staked');
+        const securityRatioEl = document.getElementById('security-ratio');
 
-                // Fetch staking data
-                const stakingInfo = await getStakingInfo(); // Use the new getStakingInfo function
-                if (stakingInfo) {
-                    document.getElementById('total-vgl-staked').innerText = `${stakingInfo.totalVGLStaked.toLocaleString()} VGL`;
+        let hashrate = 42.17;
+        let staked = 8412991;
+        let securityRatio = 78.4;
 
-                    // Update the new fields
-                    document.getElementById('security-score').innerText = `${stakingInfo.securityScore}%`;
-                    document.getElementById('projected-roi').innerText = `${(stakingInfo.projectedROI * 100).toFixed(2)}%`;
+        function updateValues() {
+            hashrate += (Math.random() - 0.5) * 0.1;
+            staked += Math.floor(Math.random() * 100) - 40;
+            securityRatio += (Math.random() - 0.5) * 0.05;
+            if (hashrate < 40) hashrate = 40;
+            if (securityRatio < 75 || securityRatio > 80) securityRatio = 78.5;
+            hashrateEl.textContent = `${hashrate.toFixed(2)} GH/s`;
+            stakedEl.textContent = `${staked.toLocaleString('en-US')} VGL`;
+            securityRatioEl.textContent = `${securityRatio.toFixed(1)}%`;
+        }
+        setInterval(updateValues, 1500);
 
-                    // Update the network security ratio in the hero section as well
-                    document.getElementById('network-security-ratio').innerText = `${stakingInfo.securityScore}%`;
-                    document.getElementById('security-ratio').innerText = `${stakingInfo.securityScore}%`;
+        // --- Crypto Glyph Animation Script ---
+        function createGlyphAnimation(containerSelector) {
+            const particleContainer = document.querySelector(containerSelector);
+            if (!particleContainer) return;
+            
+            const glyphs = ['₿', '⟠', '◇', 'V', '◈', 'Σ'];
+            const numParticles = 50;
 
-                    // Placeholder for Network Hashrate vs. Staked VGL
-                    document.getElementById('network-hashrate-vs-staked').innerText = 'N/A';
-
-                    // Display Projected Staking ROI
-                    document.getElementById('staking-roi').innerText = `${(stakingInfo.projectedROI * 100).toFixed(2)}%`;
-                } else {
-                    document.getElementById('total-vgl-staked').innerText = 'N/A';
-                    document.getElementById('network-hashrate-vs-staked').innerText = 'N/A';
-                    document.getElementById('network-security-ratio').innerText = 'N/A';
-                    document.getElementById('security-ratio').innerText = 'N/A';
-                    document.getElementById('staking-roi').innerText = 'N/A';
-                }
-
-                // The total VGL staked is now handled by the stakingInfo fetch, so this old call is commented out.
-                // if (totalVGLStaked !== null) {
-                //     document.getElementById('total-vgl-staked').innerText = `${(totalVGLStaked / 1e8).toFixed(2)} VGL`; // Assuming 1e8 for atomic units to VGL
-                // } else {
-                //     document.getElementById('total-vgl-staked').innerText = 'N/A';
-                // }
-
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                document.getElementById('pow-hashrate').innerText = 'N/A';
-                document.getElementById('total-vgl-staked').innerText = 'N/A';
-                document.getElementById('network-security-ratio').innerText = 'N/A';
+            for (let i = 0; i < numParticles; i++) {
+                let particle = document.createElement('div');
+                particle.className = 'crypto-glyph';
+                particle.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.fontSize = `${Math.random() * 30 + 25}px`;
+                
+                const duration = Math.random() * 15 + 10;
+                const delay = Math.random() * 5;
+                
+                particle.animate([
+                    { transform: 'translate(0, 0) rotate(0deg)', opacity: 1 },
+                    { transform: `translate(${(Math.random() - 0.5) * 300}px, ${(Math.random() - 0.5) * 300}px) rotate(${(Math.random() - 0.5) * 720}deg)`, opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    delay: delay * 1000,
+                    iterations: Infinity,
+                    direction: 'alternate',
+                    easing: 'ease-in-out'
+                });
+                
+                particleContainer.appendChild(particle);
             }
         }
+        
+        createGlyphAnimation('main .particle-container');
+        createGlyphAnimation('#security .particle-container');
 
-        // Fetch data immediately and then every 30 seconds
-        fetchData();
-        setInterval(fetchData, 30000);
     </script>
 
 </body>

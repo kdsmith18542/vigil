@@ -62,7 +62,3 @@ type UtxoBackendIterator interface {
 	// releasing it.
 	Release()
 }
-
-
-
-

@@ -11,8 +11,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
-	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // TestVoting ensure the overall voting of an agenda works as expected including
@@ -1434,7 +1434,3 @@ nextTest:
 		}
 	}
 }
-
-
-
-

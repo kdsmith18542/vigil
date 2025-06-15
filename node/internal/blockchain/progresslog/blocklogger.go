@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/wire"
-	"github.com/Vigil-Labs/vgl/slog"
+	"github.com/kdsmith18542/vigil/wire"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 // BlockProgressLogger provides periodic logging for other services in order
@@ -78,7 +78,3 @@ func (b *BlockProgressLogger) LogBlockHeight(block *wire.MsgBlock) {
 	b.receivedLogTx = 0
 	b.lastBlockLogTime = now
 }
-
-
-
-

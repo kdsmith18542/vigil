@@ -9,7 +9,7 @@ import (
 	"hash"
 	"io"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
 )
 
 // MsgMixCiphertexts is used by mixing peers to share SNTRUP4591761
@@ -237,7 +237,3 @@ func NewMsgMixCiphertexts(identity [33]byte, sid [32]byte, run uint32,
 		SeenKeyExchanges: seenKeyExchanges,
 	}
 }
-
-
-
-

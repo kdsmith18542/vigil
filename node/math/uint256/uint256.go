@@ -1827,7 +1827,3 @@ func (n *Uint256) SetBig(n2 *big.Int) *Uint256 {
 	}
 	return n
 }
-
-
-
-

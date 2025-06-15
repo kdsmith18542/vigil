@@ -14,15 +14,15 @@ import (
 	"sort"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/crypto/rand"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/txscript"
-	"github.com/Vigil-Labs/vgl/txscript/sign"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/txscript/stdscript"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/sign"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 var (
@@ -176,9 +176,6 @@ const (
 
 	// PHABlake3 specifies the blake3 hashing algorithm introduced by VGLP0011.
 	PHABlake3
-
-	// PHAKawPow specifies the KawPoW hashing algorithm.
-	PHAKawPow
 )
 
 // PowDifficultyAlgorithm defines the supported proof of work difficulty
@@ -274,7 +271,6 @@ func (g *Generator) UsePowHashAlgo(algo PowHashAlgorithm) {
 	switch algo {
 	case PHABlake256r14:
 	case PHABlake3:
-	case PHAKawPow:
 	default:
 		panic(fmt.Sprintf("unsupported proof of work hash algorithm %d", algo))
 	}
@@ -1857,11 +1853,9 @@ func (g *Generator) IsSolved(header *wire.BlockHeader) bool {
 	var hash chainhash.Hash
 	switch g.powHashAlgo {
 	case PHABlake256r14:
-		hash = header.BlockHash()
+		hash = header.PowHashV1()
 	case PHABlake3:
-		hash = header.BlockHashBlake3()
-	case PHAKawPow:
-		_, hash = header.PowHashKawPow()
+		hash = header.PowHashV2()
 	default:
 		panic(fmt.Sprintf("unsupported proof of work hash algorithm %d",
 			g.powHashAlgo))
@@ -1895,18 +1889,9 @@ func (g *Generator) solveBlock(header *wire.BlockHeader) bool {
 		var powHashFn func() chainhash.Hash
 		switch g.powHashAlgo {
 		case PHABlake256r14:
-			powHashFn = func() chainhash.Hash {
-				return hdr.BlockHash()
-			}
+			powHashFn = hdr.PowHashV1
 		case PHABlake3:
-			powHashFn = func() chainhash.Hash {
-				return hdr.BlockHashBlake3()
-			}
-		case PHAKawPow:
-			powHashFn = func() chainhash.Hash {
-				_, finalHash := hdr.PowHashKawPow()
-				return finalHash
-			}
+			powHashFn = hdr.PowHashV2
 		default:
 			panic(fmt.Sprintf("unsupported proof of work hash algorithm %d",
 				g.powHashAlgo))
@@ -3231,7 +3216,3 @@ func (g *Generator) AssertTipDisapprovesPrevious() {
 			g.tipName, g.tip.Header.Height))
 	}
 }
-
-
-
-

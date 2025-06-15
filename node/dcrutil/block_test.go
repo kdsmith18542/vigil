@@ -14,8 +14,8 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // TestBlock tests the API for Block.
@@ -581,7 +581,3 @@ var Block100000 = wire.MsgBlock{
 	},
 	STransactions: []*wire.MsgTx{},
 }
-
-
-
-

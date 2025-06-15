@@ -45,7 +45,3 @@ The following config file would configure the vgld RPC server to listen to all i
 
 rpclisten=
 ```
-
-
-
-

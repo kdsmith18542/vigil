@@ -8,7 +8,7 @@
 
 package types
 
-import "github.com/Vigil-Labs/vgl/VGLjson"
+import "github.com/kdsmith18542/vigil/VGLjson/v4"
 
 const (
 	// BlockConnectedNtfnMethod is the method used for notifications from
@@ -241,7 +241,3 @@ func init() {
 	VGLjson.MustRegister(WinningTicketsNtfnMethod, (*WinningTicketsNtfn)(nil), flags)
 	VGLjson.MustRegister(MixMessageNtfnMethod, (*MixMessageNtfn)(nil), flags)
 }
-
-
-
-

@@ -1,4 +1,4 @@
-module github.com/Vigil-Labs/vgl/rpcclient/v8
+module github.com/kdsmith18542/vigil/rpcclient/v8
 
 go 1.17
 
@@ -21,7 +21,7 @@ require (
 	github.com/kdsmith18542/vigil/base58 v1.0.5 // indirect
 	github.com/kdsmith18542/vigil/blockchain/stake/v5 v5.0.1 // indirect
 	github.com/kdsmith18542/vigil/chaincfg/v3 v3.2.1 // indirect
-	github.com/kdsmith18542/vigil/kawpow v1.0.0 // indirect
+	github.com/kdsmith18542/vigil/crypto/blake256 v1.0.1 // indirect
 	github.com/kdsmith18542/vigil/crypto/ripemd160 v1.0.2 // indirect
 	github.com/kdsmith18542/vigil/database/v3 v3.0.2 // indirect
 	github.com/kdsmith18542/vigil/dcrec v1.0.1 // indirect

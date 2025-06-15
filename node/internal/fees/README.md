@@ -21,7 +21,3 @@ See that issue for discussion of the selected approach.
 
 Package VGLutil is licensed under the [copyfree](http://copyfree.org) ISC
 License.
-
-
-
-

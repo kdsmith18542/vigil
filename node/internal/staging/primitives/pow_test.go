@@ -9,8 +9,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/math/uint256"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/math/uint256"
 )
 
 // hexToBytes converts the passed hex string into bytes and will panic if there
@@ -436,7 +436,3 @@ func TestCheckProofOfWork(t *testing.T) {
 		}
 	}
 }
-
-
-
-

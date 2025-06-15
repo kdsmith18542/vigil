@@ -21,7 +21,3 @@ type RescannedBlock struct {
 	Hash         string   `json:"hash"`
 	Transactions []string `json:"transactions"`
 }
-
-
-
-

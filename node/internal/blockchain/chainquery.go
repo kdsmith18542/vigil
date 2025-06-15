@@ -9,7 +9,7 @@ import (
 	"math"
 	"sort"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // nodeHeightSorter implements sort.Interface to allow a slice of nodes to
@@ -269,7 +269,3 @@ func (b *BlockChain) IsKnownInvalidBlock(hash *chainhash.Hash) bool {
 
 	return b.index.NodeStatus(node).KnownInvalid()
 }
-
-
-
-

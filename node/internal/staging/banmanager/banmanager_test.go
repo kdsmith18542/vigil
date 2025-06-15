@@ -11,9 +11,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/peer"
-	"github.com/Vigil-Labs/vgl/wire"
-	"github.com/Vigil-Labs/vgl/go-socks/socks"
+	"github.com/kdsmith18542/vigil/peer/v3"
+	"github.com/kdsmith18542/vigil/wire"
+	"github.com/kdsmith18542/vigil/go-socks/socks"
 )
 
 // TestBanPeer tests ban manager peer banning functionality.
@@ -284,7 +284,3 @@ func TestPeerWhitelist(t *testing.T) {
 		t.Errorf("Expected peer A to be whitelisted")
 	}
 }
-
-
-
-

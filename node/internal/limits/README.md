@@ -16,7 +16,3 @@ to be manually updated.
 
 Package limits is licensed under the [copyfree](http://copyfree.org) ISC
 License.
-
-
-
-

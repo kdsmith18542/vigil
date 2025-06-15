@@ -414,7 +414,3 @@ type AccountUnlockedResult struct {
 	Encrypted bool  `json:"encrypted"`
 	Unlocked  *bool `json:"unlocked,omitempty"`
 }
-
-
-
-

@@ -7,8 +7,8 @@ package wallet
 import (
 	"io"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
 )
 
 // DB represents an ACID database for a wallet.
@@ -49,7 +49,3 @@ func CreateDB(driver string, args ...any) (DB, error) {
 	}
 	return opaqueDB{db}, nil
 }
-
-
-
-

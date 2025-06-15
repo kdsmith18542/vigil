@@ -52,7 +52,3 @@ func BenchmarkParsePubKeyUncompressed(b *testing.B) {
 		ParsePubKey(pubKeyBytes)
 	}
 }
-
-
-
-

@@ -4,7 +4,7 @@
 // license that can be found in the LICENSE file.
 
 /*
-Package walletdb provides a namespaced database interface for Vigil Wallet.
+Package walletdb provides a namespaced database interface for vglwallet.
 
 A wallet essentially consists of a multitude of stored data such as private
 and public keys, key derivation bits, pay-to-script-hash scripts, and various
@@ -100,7 +100,3 @@ a good idea to avoid a lot of buckets with little data in them as it could lead
 to poor page utilization depending on the specific driver in use.
 */
 package walletdb
-
-
-
-

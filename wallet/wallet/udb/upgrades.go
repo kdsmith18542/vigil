@@ -8,18 +8,18 @@ import (
 	"context"
 	"crypto/sha256"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/wallet/internal/compat"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/internal/snacl"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/dcrutil"
-	"github.com/Vigil-Labs/vgl/gcs/blockcf2"
-	"github.com/Vigil-Labs/vgl/hdkeychain"
-	"github.com/Vigil-Labs/vgl/txscript/stdscript"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/internal/compat"
+	"github.com/kdsmith18542/vigil/wallet/wallet/internal/snacl"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/gcs/v4/blockcf2"
+	"github.com/kdsmith18542/vigil/hdkeychain/v3"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // Note: all manager functions always use the latest version of the database.
@@ -1725,7 +1725,3 @@ func Upgrade(ctx context.Context, db walletdb.DB, publicPassphrase []byte, param
 		return nil
 	})
 }
-
-
-
-

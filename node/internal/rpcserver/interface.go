@@ -9,21 +9,21 @@ import (
 	"net"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/addrmgr"
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/gcs"
-	"github.com/Vigil-Labs/vgl/internal/blockchain"
-	"github.com/Vigil-Labs/vgl/internal/blockchain/indexers"
-	"github.com/Vigil-Labs/vgl/internal/mempool"
-	"github.com/Vigil-Labs/vgl/internal/mining"
-	"github.com/Vigil-Labs/vgl/math/uint256"
-	"github.com/Vigil-Labs/vgl/mixing"
-	"github.com/Vigil-Labs/vgl/peer"
-	"github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/addrmgr/v3"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/internal/blockchain"
+	"github.com/kdsmith18542/vigil/internal/blockchain/indexers"
+	"github.com/kdsmith18542/vigil/internal/mempool"
+	"github.com/kdsmith18542/vigil/internal/mining"
+	"github.com/kdsmith18542/vigil/math/uint256"
+	"github.com/kdsmith18542/vigil/mixing"
+	"github.com/kdsmith18542/vigil/peer/v3"
+	"github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // ProfilerManager represents a profile server manager for use with the RPC
@@ -402,12 +402,6 @@ type Chain interface {
 	// ticket pool.
 	TicketPoolValue() (VGLutil.Amount, error)
 
-	// GetTicketPoolValue returns the current ticket pool value.
-	GetTicketPoolValue(ctx context.Context, args []json.RawMessage) (interface{}, error)
-
-	// GetStakingInfo returns staking information.
-	GetStakingInfo(ctx context.Context, args []json.RawMessage) (interface{}, error)
-
 	// TicketsWithAddress returns a slice of ticket hashes that are currently
 	// live corresponding to the given address.
 	TicketsWithAddress(address stdaddr.StakeAddress) ([]chainhash.Hash, error)
@@ -464,17 +458,15 @@ type Chain interface {
 	// tip of the main chain.
 	ReconsiderBlock(*chainhash.Hash) error
 
-
+	// IsBlake3PowAgendaActive returns whether or not the agenda to change the
+	// proof of work hash function to blake3, as defined in VGLP0011, has passed
+	// and is now active for the block AFTER the given block.
+	IsBlake3PowAgendaActive(*chainhash.Hash) (bool, error)
 
 	// IsKawpowAgendaActive returns whether or not the agenda to change the
 	
 	// has passed and is now active for the block AFTER the given block.
 	IsKawpowAgendaActive(*chainhash.Hash) (bool, error)
-
-	// IsBlake3AgendaActive returns whether or not the agenda to change the
-	// proof of work hash function to Blake3 has passed
-	// and is now active for the block AFTER the given block.
-	IsBlake3AgendaActive(*chainhash.Hash) (bool, error)
 }
 
 // Clock represents a clock for use with the RPC server. The purpose of this
@@ -825,7 +817,3 @@ type RPCHelpCacher interface {
 	// RPCUsage returns one-line usage for all supported RPC commands.
 	RPCUsage(includeWebsockets bool) (string, error)
 }
-
-
-
-

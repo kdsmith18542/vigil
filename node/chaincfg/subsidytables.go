@@ -3191,7 +3191,3 @@ var blockOnePayouts_RegNetParams = []blockOnePayout{
 func tokenPayouts_RegNetParams() []TokenPayout {
 	return tokenPayouts(blockOnePayoutScripts_RegNetParams, blockOnePayouts_RegNetParams)
 }
-
-
-
-

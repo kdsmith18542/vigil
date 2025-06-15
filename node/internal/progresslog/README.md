@@ -24,7 +24,3 @@ Tests are included to ensure proper functionality.
 
 Package progresslog is licensed under the [copyfree](http://copyfree.org) ISC
 License.
-
-
-
-

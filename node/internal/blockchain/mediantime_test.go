@@ -103,7 +103,3 @@ func TestMedianTime(t *testing.T) {
 		}
 	}
 }
-
-
-
-

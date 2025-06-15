@@ -48,7 +48,3 @@ func NormalizeAddresses(addrs []string, defaultPort string) ([]string, error) {
 
 	return normalized, nil
 }
-
-
-
-

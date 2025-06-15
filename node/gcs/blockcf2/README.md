@@ -13,7 +13,3 @@ this package is tailored for specific filter creation for Vigil blocks.
 
 Package blockcf2 is licensed under the [copyfree](http://copyfree.org) ISC
 License.
-
-
-
-

@@ -19,7 +19,3 @@ the sync peer is aware of.
 
 Package netsync is licensed under the [copyfree](http://copyfree.org) ISC
 License.
-
-
-
-

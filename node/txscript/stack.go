@@ -356,7 +356,3 @@ func (s *stack) String() string {
 
 	return result
 }
-
-
-
-

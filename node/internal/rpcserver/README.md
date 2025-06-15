@@ -14,7 +14,3 @@ pertaining to implementing the RPC server.
 
 Package rpcserver is licensed under the [copyfree](http://copyfree.org) ISC
 License.
-
-
-
-

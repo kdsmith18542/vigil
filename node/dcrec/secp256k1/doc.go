@@ -57,7 +57,3 @@ use on the Vigil network used to secure coins is based on elliptic curves
 defined by the secp256k1 domain parameters.
 */
 package secp256k1
-
-
-
-

@@ -12,10 +12,10 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1/ecdsa"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4/ecdsa"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // testDataPath is the path where txscript test fixtures reside.
@@ -274,7 +274,3 @@ func TestEvictEntries(t *testing.T) {
 		t.Errorf("previously added item not found in signature cache")
 	}
 }
-
-
-
-

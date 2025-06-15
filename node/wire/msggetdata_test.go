@@ -13,7 +13,7 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // TestGetData tests the MsgGetData API.
@@ -251,7 +251,3 @@ func TestGetDataWireErrors(t *testing.T) {
 		}
 	}
 }
-
-
-
-

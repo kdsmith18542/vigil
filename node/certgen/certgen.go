@@ -21,7 +21,7 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/Vigil-Labs/vgl/crypto/rand"
+	"github.com/kdsmith18542/vigil/crypto/rand"
 	"golang.org/x/net/idna"
 )
 
@@ -164,7 +164,3 @@ func NewTLSCertPair(curve elliptic.Curve, organization string, validUntil time.T
 
 	return certBuf.Bytes(), keyBuf.Bytes(), nil
 }
-
-
-
-

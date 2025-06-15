@@ -69,7 +69,3 @@ func shutdownListener() {
 		log.Info("Shutdown signaled.  Already shutting down...")
 	}
 }
-
-
-
-

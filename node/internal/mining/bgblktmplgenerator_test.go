@@ -154,7 +154,3 @@ func TestWaitGroup(t *testing.T) {
 		t.Run(tc.name, tc.test)
 	}
 }
-
-
-
-

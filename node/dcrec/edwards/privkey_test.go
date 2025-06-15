@@ -29,7 +29,3 @@ func TestPrivKeySign(t *testing.T) {
 		t.Fatalf("Sign and (PrivateKey).Sign differ")
 	}
 }
-
-
-
-

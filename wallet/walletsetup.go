@@ -15,18 +15,18 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-"github.com/Vigil-Labs/vgl/wallet/internal/loader"
-"github.com/Vigil-Labs/vgl/wallet/internal/prompt"
-"github.com/Vigil-Labs/vgl/wallet/wallet"
-_ "github.com/Vigil-Labs/vgl/wallet/wallet/drivers/bdb"
-"github.com/Vigil-Labs/vgl/wallet/wallet/udb"
-"github.com/Vigil-Labs/vgl/wallet/walletseed"
-"github.com/Vigil-Labs/vgl/chaincfg"
-"github.com/Vigil-Labs/vgl/dcrutil"
-"github.com/Vigil-Labs/vgl/hdkeychain"
-"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/internal/loader"
+	"github.com/kdsmith18542/vigil/wallet/internal/prompt"
+	"github.com/kdsmith18542/vigil/wallet/wallet"
+	_ "github.com/kdsmith18542/vigil/wallet/wallet/drivers/bdb"
+	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
+	"github.com/kdsmith18542/vigil/wallet/walletseed"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/hdkeychain/v3"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // networkDir returns the directory name of a network directory to hold wallet
@@ -386,7 +386,3 @@ func checkCreateDir(path string) error {
 
 	return nil
 }
-
-
-
-

@@ -56,7 +56,3 @@ $ go get github.com/vigilnetwork/vgl/database2
 
 Package database is licensed under the [copyfree](http://copyfree.org) ISC
 License.
-
-
-
-

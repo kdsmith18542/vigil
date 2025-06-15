@@ -12,21 +12,21 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/wallet/lru"
-	"github.com/Vigil-Labs/vgl/wallet/p2p"
-	"github.com/Vigil-Labs/vgl/wallet/validate"
-	"github.com/Vigil-Labs/vgl/wallet/wallet"
-	"github.com/Vigil-Labs/vgl/addrmgr"
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/crypto/rand"
-	"github.com/Vigil-Labs/vgl/dcrec/secp256k1/schnorr"
-	"github.com/Vigil-Labs/vgl/gcs/blockcf2"
-	"github.com/Vigil-Labs/vgl/mixing"
-	"github.com/Vigil-Labs/vgl/mixing/mixpool"
-	"github.com/Vigil-Labs/vgl/txscript"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/lru"
+	"github.com/kdsmith18542/vigil/wallet/p2p"
+	"github.com/kdsmith18542/vigil/wallet/validate"
+	"github.com/kdsmith18542/vigil/wallet/wallet"
+	"github.com/kdsmith18542/vigil/addrmgr/v2"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4/schnorr"
+	"github.com/kdsmith18542/vigil/gcs/v4/blockcf2"
+	"github.com/kdsmith18542/vigil/mixing"
+	"github.com/kdsmith18542/vigil/mixing/mixpool"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/wire"
 	"golang.org/x/sync/errgroup"
 )
 
@@ -1991,7 +1991,3 @@ func (s *Syncer) handleMixMessage(ctx context.Context, rp *p2p.RemotePeer, msg m
 
 	return
 }
-
-
-
-

@@ -28,7 +28,7 @@ const Integer = 1000000*Major + 10000*Minor + 100*Patch
 
 // PreRelease contains the prerelease name of the application.  It is a variable
 // so it can be modified at link time (e.g.
-// `-ldflags "-X github.com/Vigil-Labs/vgl/wallet/version.PreRelease=rc1"`)
+// `-ldflags "-X github.com/kdsmith18542/vigil/wallet/version.PreRelease=rc1"`).
 // It must only contain characters from the semantic version alphabet.
 var PreRelease = "pre"
 
@@ -111,7 +111,3 @@ func normalizeVerString(str string) string {
 	}
 	return buf.String()
 }
-
-
-
-

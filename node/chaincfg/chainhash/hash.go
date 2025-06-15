@@ -127,7 +127,3 @@ func Decode(dst *Hash, src string) error {
 
 	return nil
 }
-
-
-
-

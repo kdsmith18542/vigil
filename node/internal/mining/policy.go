@@ -6,9 +6,9 @@
 package mining
 
 import (
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/txscript"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 const (
@@ -124,7 +124,3 @@ func CalcPriority(tx *wire.MsgTx, prioInputs PriorityInputser, nextBlockHeight i
 	inputValueAge := calcInputValueAge(tx, prioInputs, nextBlockHeight)
 	return inputValueAge / float64(serializedTxSize-overhead)
 }
-
-
-
-

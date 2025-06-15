@@ -554,6 +554,7 @@ All commits since the last release may be viewed on GitHub [here](https://github
 - blockchain/standalone: Add merkle root calc funcs ([Vigil/vgld#1809](https://github.com/vigilnetwork/vgl/pull/1809))
 - blockchain/standalone: Add subsidy calc funcs ([Vigil/vgld#1812](https://github.com/vigilnetwork/vgl/pull/1812))
 - blockchain/standalone: Add IsCoinBaseTx ([Vigil/vgld#1815](https://github.com/vigilnetwork/vgl/pull/1815))
+- crypto/blake256: Add module with zero alloc funcs ([Vigil/vgld#1811](https://github.com/vigilnetwork/vgl/pull/1811))
 - stake: Check minimum req outputs for votes earlier ([Vigil/vgld#1819](https://github.com/vigilnetwork/vgl/pull/1819))
 - blockchain: Use standalone module for merkle calcs ([Vigil/vgld#1816](https://github.com/vigilnetwork/vgl/pull/1816))
 - blockchain: Use standalone for coinbase checks ([Vigil/vgld#1816](https://github.com/vigilnetwork/vgl/pull/1816))
@@ -648,6 +649,7 @@ All commits since the last release may be viewed on GitHub [here](https://github
 - rpcclient: Use VGLutil/v2 and chaincfg/v2 ([Vigil/vgld#1807](https://github.com/vigilnetwork/vgl/pull/1807))
 - release: Introduce rpcclient v4 module ([Vigil/vgld#1807](https://github.com/vigilnetwork/vgl/pull/1807))
 - blockchain/standalone: Prepare v1.0.0 ([Vigil/vgld#1817](https://github.com/vigilnetwork/vgl/pull/1817))
+- multi: Use crypto/blake256 ([Vigil/vgld#1818](https://github.com/vigilnetwork/vgl/pull/1818))
 - main: Consume latest module minors and patches ([Vigil/vgld#1822](https://github.com/vigilnetwork/vgl/pull/1822))
 - blockchain: Prepare v1.2.0 ([Vigil/vgld#1820](https://github.com/vigilnetwork/vgl/pull/1820))
 - mining: Prepare v1.1.1 ([Vigil/vgld#1826](https://github.com/vigilnetwork/vgl/pull/1826))
@@ -835,7 +837,3 @@ All commits since the last release may be viewed on GitHub [here](https://github
 - Roei Erez
 - Sarlor
 - Victor Oliveira
-
-
-
-

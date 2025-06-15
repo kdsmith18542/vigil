@@ -135,7 +135,3 @@ func NewMsgAddr() *MsgAddr {
 		AddrList: make([]*NetAddress, 0, MaxAddrPerMsg),
 	}
 }
-
-
-
-

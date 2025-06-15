@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/Vigil-Labs/vgl/blockchain/chaingen"
-	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // TestStakeVersion ensures that the stake version field in the block header is
@@ -391,7 +391,3 @@ func TestStakeVersion(t *testing.T) {
 	g.AssertStakeVersion(4)
 	g.AcceptTipBlock()
 }
-
-
-
-

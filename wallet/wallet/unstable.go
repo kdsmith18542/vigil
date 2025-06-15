@@ -7,11 +7,11 @@ package wallet
 import (
 	"context"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/udb"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 )
 
 type unstableAPI struct {
@@ -73,7 +73,3 @@ func (u unstableAPI) UnspentMultisigCreditsForAddress(ctx context.Context, p2shA
 	}
 	return multisigCredits, nil
 }
-
-
-
-

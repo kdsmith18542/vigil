@@ -7,7 +7,7 @@ package stdaddr
 import (
 	"testing"
 
-	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // BenchmarkDecode benchmarks the performance of decoding various types of
@@ -116,7 +116,3 @@ func BenchmarkPaymentScript(b *testing.B) {
 		})
 	}
 }
-
-
-
-

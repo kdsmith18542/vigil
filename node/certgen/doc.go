@@ -14,7 +14,3 @@ ECDSA certificates are supported on all Go versions.  Beginning with Go 1.13,
 this package additionally includes support for Ed25519 certificates.
 */
 package certgen
-
-
-
-

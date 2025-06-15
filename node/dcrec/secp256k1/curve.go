@@ -1308,7 +1308,3 @@ func DecompressY(x *FieldVal, odd bool, resultY *FieldVal) bool {
 	}
 	return true
 }
-
-
-
-

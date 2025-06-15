@@ -26,7 +26,3 @@ All commits since the last release may be viewed on GitHub [here](https://github
 - Dave Collins
 - Josh Rickmar
 - Matheus Degiovani
-
-
-
-

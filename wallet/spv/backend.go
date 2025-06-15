@@ -11,16 +11,16 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/wallet/p2p"
-	"github.com/Vigil-Labs/vgl/wallet/validate"
-	"github.com/Vigil-Labs/vgl/wallet/wallet"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/dcrutil"
-	"github.com/Vigil-Labs/vgl/gcs"
-	"github.com/Vigil-Labs/vgl/mixing"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/p2p"
+	"github.com/kdsmith18542/vigil/wallet/validate"
+	"github.com/kdsmith18542/vigil/wallet/wallet"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/mixing"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
 	"golang.org/x/sync/errgroup"
 )
 
@@ -642,7 +642,3 @@ func (s *Syncer) Err() error {
 		return nil
 	}
 }
-
-
-
-

@@ -12,7 +12,7 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 func newTestMixSlotReserve() *MsgMixSlotReserve {
@@ -221,7 +221,3 @@ func TestMsgMixSlotReserveMaxPayloadLength(t *testing.T) {
 		})
 	}
 }
-
-
-
-

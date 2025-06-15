@@ -6,7 +6,7 @@
 package ffldb
 
 import (
-	"github.com/Vigil-Labs/vgl/database/internal/treap"
+	"github.com/kdsmith18542/vigil/database/v3/internal/treap"
 	"github.com/syndtr/goleveldb/leveldb/iterator"
 	"github.com/syndtr/goleveldb/leveldb/util"
 )
@@ -57,7 +57,3 @@ func newLdbTreapIter(tx *transaction, slice *util.Range) *ldbTreapIter {
 	tx.addActiveIter(iter)
 	return &ldbTreapIter{Iterator: iter, tx: tx}
 }
-
-
-
-

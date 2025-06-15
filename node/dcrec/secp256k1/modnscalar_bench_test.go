@@ -292,7 +292,3 @@ func BenchmarkModNScalarIsOverHalfOrder(b *testing.B) {
 		s1.IsOverHalfOrder()
 	}
 }
-
-
-
-

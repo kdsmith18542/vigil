@@ -5,8 +5,8 @@
 package mining
 
 import (
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
 )
 
 const (
@@ -489,7 +489,3 @@ func (mv *TxMiningView) reject(txHash *chainhash.Hash) {
 func (mv *TxMiningView) TxDescs() []*TxDesc {
 	return mv.txDescs
 }
-
-
-
-

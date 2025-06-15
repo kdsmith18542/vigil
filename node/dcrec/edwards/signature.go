@@ -129,7 +129,3 @@ func (sig Signature) GetS() *big.Int {
 func (sig Signature) GetType() int {
 	return ecTypeEdwards
 }
-
-
-
-

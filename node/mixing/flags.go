@@ -10,7 +10,3 @@ const (
 	// reservation polynomials.
 	PRFlagCanSolveRoots byte = 1 << iota
 )
-
-
-
-

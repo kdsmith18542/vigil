@@ -13,7 +13,3 @@ configurations.
 |----|----|
 |Default Vigil peer-to-peer port|TCP 9108|
 |Default RPC port|TCP 9109|
-
-
-
-

@@ -23,7 +23,3 @@ module.  Use the standard go tooling for working with modules to incorporate it.
 ## License
 
 Package types is licensed under the [copyfree](http://copyfree.org) ISC License.
-
-
-
-

@@ -235,7 +235,3 @@ func TestGetInitStateWireErrors(t *testing.T) {
 		}
 	}
 }
-
-
-
-

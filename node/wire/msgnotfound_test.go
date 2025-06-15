@@ -13,7 +13,7 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // TestNotFound tests the MsgNotFound API.
@@ -241,7 +241,3 @@ func TestNotFoundWireErrors(t *testing.T) {
 		}
 	}
 }
-
-
-
-

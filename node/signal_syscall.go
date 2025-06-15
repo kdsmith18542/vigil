@@ -13,7 +13,3 @@ import (
 func init() {
 	interruptSignals = append(interruptSignals, syscall.SIGTERM, syscall.SIGHUP)
 }
-
-
-
-

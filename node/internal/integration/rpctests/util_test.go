@@ -7,7 +7,7 @@
 
 package rpctests
 
-import "github.com/Vigil-Labs/vgl/wire"
+import "github.com/kdsmith18542/vigil/wire"
 
 // newTxOut returns a new transaction output with the given parameters.
 func newTxOut(amount int64, pkScriptVer uint16, pkScript []byte) *wire.TxOut {
@@ -17,7 +17,3 @@ func newTxOut(amount int64, pkScriptVer uint16, pkScript []byte) *wire.TxOut {
 		PkScript: pkScript,
 	}
 }
-
-
-
-

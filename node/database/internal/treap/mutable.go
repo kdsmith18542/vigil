@@ -8,7 +8,7 @@ package treap
 import (
 	"bytes"
 
-	"github.com/Vigil-Labs/vgl/crypto/rand"
+	"github.com/kdsmith18542/vigil/crypto/rand"
 )
 
 // Mutable represents a treap data structure which is used to hold ordered
@@ -278,7 +278,3 @@ func (t *Mutable) Reset() {
 func NewMutable() *Mutable {
 	return &Mutable{}
 }
-
-
-
-

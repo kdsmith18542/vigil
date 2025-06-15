@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/blockchain/chaingen"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/txscript/stdscript"
+	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
 )
 
 // TestExistsAddrIndexAsync ensures the exist address index
@@ -311,7 +311,3 @@ func TestExistsAddrIndexAsync(t *testing.T) {
 		t.Fatalf("expected tip hash to be %s, got %s", bk4a.Hash(), tipHash)
 	}
 }
-
-
-
-

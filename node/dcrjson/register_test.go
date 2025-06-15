@@ -275,7 +275,3 @@ func TestRegisteredCmdMethods(t *testing.T) {
 		t.Fatal("RegisteredCmdMethods: methods are not sorted")
 	}
 }
-
-
-
-

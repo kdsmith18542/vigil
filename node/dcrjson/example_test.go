@@ -147,7 +147,3 @@ func Example_unmarshalResponse() {
 	// Output:
 	// Block height: 350001
 }
-
-
-
-

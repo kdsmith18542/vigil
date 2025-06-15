@@ -250,7 +250,3 @@ func TestScriptNumInt32(t *testing.T) {
 		}
 	}
 }
-
-
-
-

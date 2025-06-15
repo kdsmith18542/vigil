@@ -20,7 +20,3 @@ func FileExists(filePath string) (bool, error) {
 	}
 	return true, nil
 }
-
-
-
-

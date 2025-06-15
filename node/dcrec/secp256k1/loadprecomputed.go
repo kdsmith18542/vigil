@@ -89,7 +89,3 @@ var s256BytePoints = func() func() *bytePointTable {
 		return data
 	}
 }()
-
-
-
-

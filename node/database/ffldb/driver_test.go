@@ -11,10 +11,10 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/database"
-	"github.com/Vigil-Labs/vgl/database/ffldb"
-	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/database/v3/ffldb"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
 )
 
 // dbType is the database type name for this driver.
@@ -284,7 +284,3 @@ func TestInterface(t *testing.T) {
 		testInterface(t, db)
 	})
 }
-
-
-
-

@@ -17,10 +17,10 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-"github.com/Vigil-Labs/vgl/wallet/walletseed"
-"github.com/Vigil-Labs/vgl/chaincfg"
-"github.com/Vigil-Labs/vgl/hdkeychain"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/walletseed"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/hdkeychain/v3"
 	"golang.org/x/term"
 )
 
@@ -478,7 +478,3 @@ func collapseSpace(in string) string {
 	}
 	return out
 }
-
-
-
-

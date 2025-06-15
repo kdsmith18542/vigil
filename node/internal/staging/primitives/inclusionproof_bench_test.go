@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // BenchmarkGenerateInclusionProof benchmarks generating inclusion proofs for
@@ -67,7 +67,3 @@ func BenchmarkVerifyInclusionProof(b *testing.B) {
 		})
 	}
 }
-
-
-
-

@@ -11,8 +11,8 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // bigOne is 1 represented as a big.Int.  It is defined here to avoid the
@@ -177,16 +177,6 @@ const (
 	// VoteIDKawPoW is the vote ID for the agenda that changes the proof of
 	
 	VoteIDKawPoW = "kawpow"
-)
-
-// DeploymentID specifies the ID of a consensus rule change that is voted in.
-type DeploymentID uint32
-
-const (
-	// DeploymentKawpow is the consensus rule change for Kawpow.
-	DeploymentKawpow DeploymentID = iota
-	// DeploymentBlake3 is the consensus rule change for Blake3.
-	DeploymentBlake3
 )
 
 // ConsensusDeployment defines details related to a specific consensus rule
@@ -354,7 +344,7 @@ type Params struct {
 	// -------------------------------------------------------------------------
 
 	// WorkDiffV2Blake3StartBits is the starting difficulty bits to use for
-	// the version 2 difficulty algorithm (ASERT + Blake3).
+	// proof of work under BLAKE3.
 	WorkDiffV2Blake3StartBits uint32
 
 	// WorkDiffV2HalfLife is the number of seconds to use for the relaxation
@@ -854,7 +844,3 @@ func (p *Params) PiKeyExists(key []byte) bool {
 func (p *Params) Seeders() []string {
 	return p.seeders
 }
-
-
-
-

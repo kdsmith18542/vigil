@@ -12,7 +12,3 @@ that it downloads all blocks from until it is up to date with the longest chain
 the sync peer is aware of.
 */
 package netsync
-
-
-
-

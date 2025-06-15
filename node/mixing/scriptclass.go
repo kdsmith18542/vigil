@@ -14,7 +14,3 @@ type ScriptClass string
 const (
 	ScriptClassP2PKHv0 ScriptClass = "P2PKH-secp256k1-v0"
 )
-
-
-
-

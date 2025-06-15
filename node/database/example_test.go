@@ -11,11 +11,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/database"
-	_ "github.com/Vigil-Labs/vgl/database/ffldb"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/database/v3"
+	_ "github.com/kdsmith18542/vigil/database/v3/ffldb"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // This example demonstrates creating a new database.
@@ -23,8 +23,8 @@ func ExampleCreate() {
 	// This example assumes the ffldb driver is imported.
 	//
 	// import (
-	// 	"github.com/Vigil-Labs/vgl/database2"
-	// 	_ "github.com/Vigil-Labs/vgl/database/ffldb"
+	// 	"github.com/kdsmith18542/vigil/database2"
+	// 	_ "github.com/kdsmith18542/vigil/database/v3/ffldb"
 	// )
 
 	// Create a database and schedule it to be closed and removed on exit.
@@ -49,8 +49,8 @@ func Example_basicUsage() {
 	// This example assumes the ffldb driver is imported.
 	//
 	// import (
-	// 	"github.com/Vigil-Labs/vgl/database2"
-	// 	_ "github.com/Vigil-Labs/vgl/database/ffldb"
+	// 	"github.com/kdsmith18542/vigil/database2"
+	// 	_ "github.com/kdsmith18542/vigil/database/v3/ffldb"
 	// )
 
 	// Create a database and schedule it to be closed and removed on exit.
@@ -115,8 +115,8 @@ func Example_blockStorageAndRetrieval() {
 	// This example assumes the ffldb driver is imported.
 	//
 	// import (
-	// 	"github.com/Vigil-Labs/vgl/database2"
-	// 	_ "github.com/Vigil-Labs/vgl/database/ffldb"
+	// 	"github.com/kdsmith18542/vigil/database2"
+	// 	_ "github.com/kdsmith18542/vigil/database/v3/ffldb"
 	// )
 
 	// Create a database and schedule it to be closed and removed on exit.
@@ -175,7 +175,3 @@ func Example_blockStorageAndRetrieval() {
 	// Output:
 	// Serialized block size: 300 bytes
 }
-
-
-
-

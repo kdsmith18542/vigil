@@ -12,7 +12,7 @@ The functions are only exported while the tests are being run.
 
 package ffldb
 
-import "github.com/Vigil-Labs/vgl/database"
+import "github.com/kdsmith18542/vigil/database/v3"
 
 // TstRunWithMaxBlockFileSize runs the passed function with the maximum allowed
 // file size for the database set to the provided value.  The value will be set
@@ -25,7 +25,3 @@ func TstRunWithMaxBlockFileSize(idb database.DB, size uint32, fn func()) {
 	fn()
 	ffldb.store.maxBlockFileSize = origSize
 }
-
-
-
-

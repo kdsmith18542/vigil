@@ -16,10 +16,10 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/database"
-	"github.com/Vigil-Labs/vgl/database/internal/treap"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/database/v3/internal/treap"
+	"github.com/kdsmith18542/vigil/wire"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/comparer"
 	ldberrors "github.com/syndtr/goleveldb/leveldb/errors"
@@ -2113,7 +2113,3 @@ func openDB(dbPath string, network wire.CurrencyNet, create bool) (database.DB, 
 	// well as database initialization, if needed.
 	return reconcileDB(pdb, create)
 }
-
-
-
-

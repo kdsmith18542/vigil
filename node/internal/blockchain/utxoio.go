@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // -----------------------------------------------------------------------------
@@ -311,7 +311,3 @@ func deserializeUtxoSetState(serialized []byte) (*UtxoSetState, error) {
 		lastFlushHash:   hash,
 	}, nil
 }
-
-
-
-

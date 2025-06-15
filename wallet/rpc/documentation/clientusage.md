@@ -15,7 +15,7 @@ each.  In short summary, to call RPC server methods, a client must:
 
 The only exception to these steps is if the client is being written in Go.  In
 that case, the first step may be omitted by importing the bindings from
-vigilwallet itself.
+vglwallet itself.
 
 The rest of this document provides short examples of how to quickly get started
 by implementing a basic client that fetches the balance of the default account
@@ -64,8 +64,8 @@ import (
 )
 
 var (
-	certificateFile      = filepath.Join(VGLutil.AppDataDir("vigilwallet", false), "rpc.cert")
-	walletClientCertFile = "client.pem" // must be part of ~/.vigilwallet/clients.pem
+	certificateFile      = filepath.Join(VGLutil.AppDataDir("vglwallet", false), "rpc.cert")
+	walletClientCertFile = "client.pem" // must be part of ~/.vglwallet/clients.pem
 	walletClientKeyFile  = "client-key.pem"
 )
 
@@ -124,9 +124,9 @@ example source code) with a source gRPC install in `/usr/local`.
 First, generate the C++ language bindings by compiling the `.proto`:
 
 ```bash
-$ protoc -I/path/to/vigilwallet/rpc --cpp_out=. --grpc_out=. \
+$ protoc -I/path/to/vglwallet/rpc --cpp_out=. --grpc_out=. \
   --plugin=protoc-gen-grpc=$(which grpc_cpp_plugin) \
-  /path/to/vigilwallet/rpc/api.proto
+  /path/to/vglwallet/rpc/api.proto
 ```
 
 Once the `.proto` file has been compiled, the example client can be completed.
@@ -166,7 +166,7 @@ auto read_file(std::string const& file_path) -> std::string {
 auto main() -> int {
     // Before the gRPC native library (gRPC Core) is lazily loaded and
     // initialized, an environment variable must be set so BoringSSL is
-    // configured to use ECDSA TLS certificates (required by vigilwallet).
+    // configured to use ECDSA TLS certificates (required by vglwallet).
     setenv("GRPC_SSL_CIPHER_SUITES", "HIGH+ECDSA", 1);
 
     // Note: This path is operating system-dependent.  This can be created
@@ -177,7 +177,7 @@ auto main() -> int {
         if (pw == nullptr || pw->pw_dir == nullptr) {
             throw NoHomeDirectoryException{};
         }
-        return pw->pw_dir + "/.vigilwallet/rpc.cert"s;
+        return pw->pw_dir + "/.vglwallet/rpc.cert"s;
     }();
 
     grpc::SslCredentialsOptions cred_options{
@@ -237,9 +237,9 @@ generated.  The following command generates the files `Api.cs` and `ApiGrpc.cs`
 in the `Example` project directory using the `Walletrpc` namespace:
 
 ```PowerShell
-PS> & protoc.exe -I \Path\To\vigilwallet\rpc --csharp_out=Example --grpc_out=Example `
+PS> & protoc.exe -I \Path\To\vglwallet\rpc --csharp_out=Example --grpc_out=Example `
     --plugin=protoc-gen-grpc=\Path\To\grpc_csharp_plugin.exe `
-    \Path\To\vigilwallet\rpc\api.proto
+    \Path\To\vglwallet\rpc\api.proto
 ```
 
 Once references have been added to the project for the `Google.Protobuf` and
@@ -266,10 +266,10 @@ namespace Example
         {
             // Before the gRPC native library (gRPC Core) is lazily loaded and initialized,
             // an environment variable must be set so BoringSSL is configured to use ECDSA TLS
-            // certificates (required by vigilwallet).
+            // certificates (required by vglwallet).
             Environment.SetEnvironmentVariable("GRPC_SSL_CIPHER_SUITES", "HIGH+ECDSA");
 
-            var walletAppData = Portability.LocalAppData(Environment.OSVersion.Platform, "vigilwallet");
+            var walletAppData = Portability.LocalAppData(Environment.OSVersion.Platform, "vglwallet");
             var walletTlsCertFile = Path.Combine(walletAppData, "rpc.cert");
             var cert = await FileUtils.ReadFileAsync(walletTlsCertFile);
             var channel = new Channel("localhost:19111", new SslCredentials(cert));
@@ -359,12 +359,12 @@ the wallet's API from the `.proto`.  Instead, a call to `grpc.load`
 with the `.proto` file path dynamically loads the Protobuf descriptor
 and generates bindings for each service.  Either copy the `.proto` to
 the client project directory, or reference the file from the
-`vigilwallet` project directory.
+`vglwallet` project directory.
 
 ```JavaScript
 // Before the gRPC native library (gRPC Core) is lazily loaded and
 // initialized, an environment variable must be set so BoringSSL is
-// configured to use ECDSA TLS certificates (required by vigilwallet).
+// configured to use ECDSA TLS certificates (required by vglwallet).
 process.env['GRPC_SSL_CIPHER_SUITES'] = 'HIGH+ECDSA';
 
 var fs = require('fs');
@@ -376,12 +376,12 @@ var walletrpc = protoDescriptor.walletrpc;
 
 var certPath = '';
 if (os.platform() == 'win32') {
-  certPath = path.join(process.env.LOCALAPPDATA, 'vigilwallet', 'rpc.cert');
+  certPath = path.join(process.env.LOCALAPPDATA, 'vglwallet', 'rpc.cert');
 } else if (os.platform() == 'darwin') {
   certPath = path.join(process.env.HOME, 'Library', 'Application Support',
-    'vigilwallet', 'rpc.cert');
+    'vglwallet', 'rpc.cert');
 } else {
-  certPath = path.join(process.env.HOME, '.vigilwallet', 'rpc.cert');
+  certPath = path.join(process.env.HOME, '.vglwallet', 'rpc.cert');
 }
 
 var cert = fs.readFileSync(certPath);
@@ -415,9 +415,9 @@ pip install grpcio
 Generate Python stubs from the `.proto`:
 
 ```bash
-$ protoc -I /path/to/Vigil/vigilwallet/rpc --python_out=. --grpc_out=. \
+$ protoc -I /path/to/Vigil/vglwallet/rpc --python_out=. --grpc_out=. \
   --plugin=protoc-gen-grpc=$(which grpc_python_plugin) \
-  /path/to/vigilwallet/rpc/api.proto
+  /path/to/vglwallet/rpc/api.proto
 ```
 
 Implement the client:
@@ -434,16 +434,16 @@ timeout = 1 # seconds
 def main():
     # Before the gRPC native library (gRPC Core) is lazily loaded and
     # initialized, an environment variable must be set so BoringSSL is
-    # configured to use ECDSA TLS certificates (required by vigilwallet).
+    # configured to use ECDSA TLS certificates (required by vglwallet).
     os.environ['GRPC_SSL_CIPHER_SUITES'] = 'HIGH+ECDSA'
 
     if platform.system() == 'Windows':
-        cert_file_path = os.path.join(os.environ['LOCALAPPDATA'], "vigilwallet", "rpc.cert")
+        cert_file_path = os.path.join(os.environ['LOCALAPPDATA'], "vglwallet", "rpc.cert")
     elif platform.system() == 'Darwin':
         cert_file_path = os.path.join(os.environ['HOME'], 'Library', 'Application Support',
-                                      'vigilwallet', 'rpc.cert')
+                                      'vglwallet', 'rpc.cert')
     else:
-        cert_file_path = os.path.join(os.environ['HOME'], '.vigilwallet', 'rpc.cert')
+        cert_file_path = os.path.join(os.environ['HOME'], '.vglwallet', 'rpc.cert')
 
     with open(cert_file_path, 'r') as f:
         cert = f.read()
@@ -458,7 +458,3 @@ def main():
 if __name__ == '__main__':
     main()
 ```
-
-
-
-

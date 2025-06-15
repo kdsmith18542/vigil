@@ -8,14 +8,14 @@ import (
 	"context"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-"github.com/Vigil-Labs/vgl/wallet/internal/compat"
-"github.com/Vigil-Labs/vgl/wallet/wallet/txauthor"
-"github.com/Vigil-Labs/vgl/wallet/wallet/udb"
-"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
-"github.com/Vigil-Labs/vgl/dcrutil"
-"github.com/Vigil-Labs/vgl/txscript/stdscript"
-"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/internal/compat"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txauthor"
+	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // OutputSelectionPolicy describes the rules for selecting an output from the
@@ -173,7 +173,3 @@ func (w *Wallet) OutputInfo(ctx context.Context, out *wire.OutPoint) (OutputInfo
 	}
 	return info, nil
 }
-
-
-
-

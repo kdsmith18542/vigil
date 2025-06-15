@@ -9,8 +9,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // TestBadPC sets the pc to a deliberately bad result then confirms that Step
@@ -150,7 +150,3 @@ func TestCheckErrorCondition(t *testing.T) {
 		t.Errorf("unexpected error %v on final check", err)
 	}
 }
-
-
-
-

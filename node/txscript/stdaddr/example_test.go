@@ -7,8 +7,8 @@ package stdaddr_test
 import (
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
 )
 
 // This example demonstrates decoding addresses, generating their payment
@@ -129,7 +129,3 @@ func ExampleDecodeAddress() {
 	//   reward script version: 0
 	//   reward script: 6a1eae7cd0a69b915796aa9318e1ad74f3579bfcb36500e1f505000000800058
 }
-
-
-
-

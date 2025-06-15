@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/blockchain/chaingen"
-	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
 )
 
 // TestIndexSubscriberAsync ensures the index subscriber
@@ -191,7 +191,3 @@ func TestIndexSubscriberAsync(t *testing.T) {
 			existsAddrIdxTipHash)
 	}
 }
-
-
-
-

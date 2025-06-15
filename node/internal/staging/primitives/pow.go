@@ -7,8 +7,8 @@ package primitives
 import (
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/math/uint256"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/math/uint256"
 )
 
 // DiffBitsToUint256 converts the compact representation used to encode
@@ -262,7 +262,3 @@ func CheckProofOfWork(powHash *chainhash.Hash, diffBits uint32, powLimit *uint25
 
 	return nil
 }
-
-
-
-

@@ -346,10 +346,6 @@ const (
 	// SSVVGLP0012 specifies the modified subsidy split specified by VGLP0012.
 	// In particular, 1% PoW, 89% PoS, and 10% Treasury.
 	SSVVGLP0012
-
-	// SSVKawPoW specifies the subsidy split for KawPoW.
-	// In particular, 50% PoW, 40% PoS, and 10% Treasury.
-	SSVKawPoW
 )
 
 // CalcWorkSubsidyV3 returns the proof of work subsidy for a block for a given
@@ -390,13 +386,6 @@ func (c *SubsidyCache) CalcWorkSubsidyV3(height int64, voters uint16, splitVaria
 		// subsidy params in order to avoid the need for a major module bump
 		// that would be required if the subsidy params interface were changed.
 		const workSubsidyProportion = 1
-		const totalProportions = 100
-		return c.calcWorkSubsidy(height, voters, workSubsidyProportion,
-			totalProportions)
-
-	case SSVKawPoW:
-		// The work subsidy proportion for KawPoW is 50%.
-		const workSubsidyProportion = 50
 		const totalProportions = 100
 		return c.calcWorkSubsidy(height, voters, workSubsidyProportion,
 			totalProportions)
@@ -513,34 +502,27 @@ func (c *SubsidyCache) CalcStakeVoteSubsidyV2(height int64, useVGLP0010 bool) in
 func (c *SubsidyCache) CalcStakeVoteSubsidyV3(height int64, splitVariant SubsidySplitVariant) int64 {
 	switch splitVariant {
 	case SSVVGLP0010:
-		// The stake subsidy proportion defined in VGLP0010 is 80%.  Thus it is 80
-		// since 80/100 = 80%.
+		// The stake vote subsidy proportion defined in VGLP0010 is 80%.  Thus it
+		// is 80 since 80/100 = 80%.
 		//
 		// Note that the value is hard coded here as opposed to using the
 		// subsidy params in order to avoid the need for a major module bump
 		// that would be required if the subsidy params interface were changed.
-		const stakeSubsidyProportion = 80
+		const voteSubsidyProportion = 80
 		const totalProportions = 100
-		return c.calcStakeVoteSubsidy(height, stakeSubsidyProportion,
+		return c.calcStakeVoteSubsidy(height, voteSubsidyProportion,
 			totalProportions)
 
 	case SSVVGLP0012:
-		// The stake subsidy proportion defined in VGLP0012 is 89%.  Thus it is 89
-		// since 89/100 = 89%.
+		// The stake vote subsidy proportion defined in VGLP0012 is 89%.  Thus it
+		// is 89 since 89/100 = 89%.
 		//
 		// Note that the value is hard coded here as opposed to using the
 		// subsidy params in order to avoid the need for a major module bump
 		// that would be required if the subsidy params interface were changed.
-		const stakeSubsidyProportion = 89
+		const voteSubsidyProportion = 89
 		const totalProportions = 100
-		return c.calcStakeVoteSubsidy(height, stakeSubsidyProportion,
-			totalProportions)
-
-	case SSVKawPoW:
-		// The stake subsidy proportion for KawPoW is 40%.
-		const stakeSubsidyProportion = 40
-		const totalProportions = 100
-		return c.calcStakeVoteSubsidy(height, stakeSubsidyProportion,
+		return c.calcStakeVoteSubsidy(height, voteSubsidyProportion,
 			totalProportions)
 	}
 
@@ -588,7 +570,3 @@ func (c *SubsidyCache) CalcTreasurySubsidy(height int64, voters uint16, isTreasu
 	// Adjust for the number of voters.
 	return (int64(voters) * subsidy) / int64(c.params.VotesPerBlock())
 }
-
-
-
-

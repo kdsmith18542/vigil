@@ -6,11 +6,11 @@
 package txrules
 
 import (
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/dcrutil"
-"github.com/Vigil-Labs/vgl/txscript"
-"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // StakeSubScriptType potentially transforms the provided script type by
@@ -143,7 +143,3 @@ func TxPaysHighFees(tx *wire.MsgTx) (bool, error) {
 	}
 	return PaysHighFees(input, tx), nil
 }
-
-
-
-

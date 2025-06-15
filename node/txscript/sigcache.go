@@ -11,10 +11,10 @@ import (
 	"sync"
 
 	"github.com/dchest/siphash"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1/ecdsa"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4/ecdsa"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // ProactiveEvictionDepth is the depth of the block at which the signatures for
@@ -201,7 +201,3 @@ func (s *SigCache) evictEntries(block *wire.MsgBlock) {
 	}
 	s.Unlock()
 }
-
-
-
-

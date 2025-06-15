@@ -13,7 +13,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 // genesisCoinbaseTx is the coinbase transaction for the genesis blocks for
@@ -665,7 +665,3 @@ func BenchmarkHashH(b *testing.B) {
 		_ = chainhash.HashH(txBytes)
 	}
 }
-
-
-
-

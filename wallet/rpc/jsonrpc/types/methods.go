@@ -9,8 +9,8 @@
 package types
 
 import (
-	"github.com/Vigil-Labs/vgl/dcrjson"
-dcrjson "github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
+	vgldtypes "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
 )
 
 // Method describes the exact type used when registering methods with VGLjson.
@@ -1293,7 +1293,7 @@ func init() {
 		VGLjson.MustRegister(Method(register[i].method), register[i].cmd, 0)
 	}
 
-	// vgld methods also implemented by vigilwallet
+	// vgld methods also implemented by vglwallet
 	register = []registeredMethod{
 		{"createrawtransaction", (*CreateRawTransactionCmd)(nil)},
 		{"debuglevel", (*DebugLevelCmd)(nil)},
@@ -1318,7 +1318,7 @@ func init() {
 		VGLjson.MustRegister(Method(register[i].method), register[i].cmd, 0)
 	}
 
-	// Websocket-specific methods implemented by vigilwallet
+	// Websocket-specific methods implemented by vglwallet
 	register = []registeredMethod{
 		{"authenticate", (*AuthenticateCmd)(nil)},
 	}
@@ -1350,7 +1350,3 @@ type (
 	VerifyMessageCmd        vgldtypes.VerifyMessageCmd
 	VersionCmd              vgldtypes.VersionCmd
 )
-
-
-
-

@@ -25,7 +25,3 @@ func tokenPayouts(scriptsHex string, payouts []blockOnePayout) []TokenPayout {
 	}
 	return tokenPayouts
 }
-
-
-
-

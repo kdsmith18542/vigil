@@ -11,7 +11,7 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil-Labs/vigil/chaincfg/chainhash"
 )
 
 const (
@@ -1277,7 +1277,3 @@ func writeTxOut(w io.Writer, pver uint32, version uint16, to *TxOut) error {
 
 	return WriteVarBytes(w, pver, to.PkScript)
 }
-
-
-
-

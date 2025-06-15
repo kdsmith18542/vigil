@@ -6,7 +6,7 @@
 package blockchain
 
 import (
-	"github.com/Vigil-Labs/vgl/slog"
+	"github.com/kdsmith18542/vigil/slog"
 )
 
 // log is a logger that is initialized with no output filters.  This
@@ -27,7 +27,3 @@ func UseLogger(logger slog.Logger) {
 func UseTreasuryLogger(logger slog.Logger) {
 	trsyLog = logger
 }
-
-
-
-

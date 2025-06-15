@@ -13,19 +13,19 @@ import (
 	"sort"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/blockchain/stake"
-	"github.com/Vigil-Labs/vgl/blockchain/standalone"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/crypto/rand"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/gcs/blockcf2"
-	"github.com/Vigil-Labs/vgl/internal/blockchain"
-	"github.com/Vigil-Labs/vgl/txscript"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/txscript/stdscript"
-	"github.com/Vigil-Labs/vgl/wire"
-	"github.com/Vigil-Labs/vgl/kawpow"
+	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/kdsmith18542/vigil/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/gcs/v4/blockcf2"
+	"github.com/kdsmith18542/vigil/internal/blockchain"
+	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
+	"github.com/kdsmith18542/vigil/wire"
+	"github.com/kdsmith18542/vigil/kawpow"
 )
 
 var (
@@ -1377,8 +1377,8 @@ func (g *BlkTmplGenerator) NewBlockTemplateKawPow(payToAddress stdaddr.Address) 
 		return nil, err
 	}
 
-	// Calculate the KawPoW hash, mixhash, and finalhash.
-	_, mixHash, finalHash, err := kawpow.KawPowHash(headerHash, nonce, blockTemplate.Block.Header.Height, dag)
+	// Calculate the KawPoW hash and mixhash.
+	_, mixHash, err := kawpow.KawPowHash(headerHash, nonce, blockTemplate.Block.Header.Height, dag)
 	if err != nil {
 		return nil, err
 	}
@@ -1387,10 +1387,9 @@ func (g *BlkTmplGenerator) NewBlockTemplateKawPow(payToAddress stdaddr.Address) 
 	blockTemplate.Nonce = nonce
 	copy(blockTemplate.MixHash[:], mixHash)
 
-	// Set the nonce, mixhash, and finalhash in the block header as well.
+	// Set the nonce and mixhash in the block header as well.
 	blockTemplate.Block.Header.Nonce = nonce
 	copy(blockTemplate.Block.Header.MixHash[:], mixHash)
-	copy(blockTemplate.Block.Header.FinalHash[:], finalHash)
 
 	// Add all of the transactions from the transaction source pool to the block
 	// template.
@@ -1513,15 +1512,7 @@ func (g *BlkTmplGenerator) NewBlockTemplateKawPow(payToAddress stdaddr.Address) 
 	// Determine which subsidy split variant to use depending on the active
 	// agendas.
 	subsidySplitVariant := standalone.SSVOriginal
-	
-	// First check if KawPoW is active as it has the highest priority
-	isKawPowActive, err := g.cfg.IsKawpowAgendaActive(&best.Hash)
-	if err != nil {
-		return nil, err
-	}
 	switch {
-	case isKawPowActive:
-		subsidySplitVariant = standalone.SSVKawPoW
 	case isSubsidyR2Enabled:
 		subsidySplitVariant = standalone.SSVVGLP0012
 	case isSubsidyEnabled:
@@ -2664,7 +2655,3 @@ func (g *BlkTmplGenerator) UpdateBlockTime(header *wire.BlockHeader) {
 	newTimestamp := g.medianAdjustedTime()
 	header.Timestamp = newTimestamp
 }
-
-
-
-

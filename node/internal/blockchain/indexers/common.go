@@ -14,12 +14,12 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/database"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/internal/blockchain/progresslog"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/internal/blockchain/progresslog"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 var (
@@ -701,7 +701,3 @@ func updateIndex(ctx context.Context, indexer Indexer, ntfn *IndexNtfn) error {
 
 	return nil
 }
-
-
-
-

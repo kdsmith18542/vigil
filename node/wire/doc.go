@@ -161,7 +161,3 @@ This package includes spec changes outlined by the following BIPs:
 	BIP0133 (https://github.com/bitcoin/bips/blob/master/bip-0133.mediawiki)
 */
 package wire
-
-
-
-

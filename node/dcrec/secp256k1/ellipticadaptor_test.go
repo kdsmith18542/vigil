@@ -419,7 +419,3 @@ func TestScalarMultAdaptor(t *testing.T) {
 		}
 	}
 }
-
-
-
-

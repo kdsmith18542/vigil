@@ -143,7 +143,3 @@ func (s AmountSorter) Swap(i, j int) {
 func (s AmountSorter) Less(i, j int) bool {
 	return s[i] < s[j]
 }
-
-
-
-

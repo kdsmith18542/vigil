@@ -13,9 +13,9 @@ import (
 	"time"
 
 	"github.com/dchest/siphash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/gcs"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/gcs/v4"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // TestMaxSize verifies the max size of blockcf2 filters for various
@@ -287,7 +287,3 @@ func TestRandomFilterSize(t *testing.T) {
 			sz, maxPossible)
 	}
 }
-
-
-
-

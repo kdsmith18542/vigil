@@ -1,8 +1,8 @@
 package wallet
 
 import (
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/wallet/internal/loggers"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/internal/loggers"
 )
 
 // VSP loads or creates a package-global instance of the VSP client for a host.
@@ -48,7 +48,3 @@ func (w *Wallet) AllVSPs() map[string]*VSPClient {
 	}
 	return res
 }
-
-
-
-

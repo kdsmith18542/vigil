@@ -40,7 +40,3 @@ with contextual information.  See ErrorKind in the package documentation for a
 full list.
 */
 package ecdsa
-
-
-
-

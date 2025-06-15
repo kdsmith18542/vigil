@@ -12,7 +12,7 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
 )
 
 func newTestMixCiphertexts() *MsgMixCiphertexts {
@@ -183,7 +183,3 @@ func TestMsgMixCiphertextsMaxPayloadLength(t *testing.T) {
 		})
 	}
 }
-
-
-
-

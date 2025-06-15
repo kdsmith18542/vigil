@@ -9,8 +9,8 @@ import (
 	"bytes"
 	"sort"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // sortableInputSlice implements sort.Interface to allow a slice of transaction
@@ -136,7 +136,3 @@ func IsSorted(tx *wire.MsgTx) bool {
 	}
 	return true
 }
-
-
-
-

@@ -217,7 +217,3 @@ func NewMedianTime() MedianTimeSource {
 		offsets:  make([]int64, 0, maxMedianTimeEntries),
 	}
 }
-
-
-
-

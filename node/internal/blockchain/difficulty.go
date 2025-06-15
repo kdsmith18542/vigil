@@ -10,10 +10,10 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/blockchain/standalone"
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/blockchain/standalone/v2"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 var (
@@ -45,173 +45,10 @@ func (b *BlockChain) findPrevTestNetDifficulty(startNode *blockNode) uint32 {
 	return lastBits
 }
 
-// calcNextKawpowDiff calculates the required difficulty for the block AFTER
+// calcNextBlake256Diff calculates the required difficulty for the block AFTER
 // the passed previous block node based on the difficulty retarget rules for the
-// kawpow hash algorithm used at Vigil launch.
-func (b *BlockChain) calcNextKawpowDiff(prevNode *blockNode, newBlockTime time.Time) uint32 {
-// ... existing code ...
-}
-
-// calcNextKawpowDiff calculates the required difficulty for the block AFTER
-// the passed previous block node based on the difficulty retarget rules for the
-// KawPoW hash algorithm.
-func (b *BlockChain) calcNextKawpowDiff(prevNode *blockNode, newBlockTime time.Time) uint32 {
-	// Get the old difficulty; if we aren't at a block height where it changes,
-	// just return this.
-	oldDiff := prevNode.bits
-	oldDiffBig := standalone.CompactToBig(prevNode.bits)
-
-	// We're not at a retarget point, return the oldDiff.
-	params := b.chainParams
-	nextHeight := prevNode.height + 1
-	if nextHeight%params.WorkDiffWindowSize != 0 {
-		// For networks that support it, allow special reduction of the required
-		// difficulty once too much time has elapsed without mining a block.
-		//
-		// Note that this behavior is deprecated and thus is only supported on
-		// testnet v3 prior to the max diff activation height.  It will be
-		// removed in future version of testnet.
-		if params.ReduceMinDifficulty && (!b.isTestNet3() || nextHeight <
-			testNet3MaxDiffActivationHeight) {
-
-			// Return minimum difficulty when more than the desired
-			// amount of time has elapsed without mining a block.
-			reductionTime := int64(params.MinDiffReductionTime / time.Second)
-			allowMinTime := prevNode.timestamp + reductionTime
-			if newBlockTime.Unix() > allowMinTime {
-				return params.PowLimitBits
-			}
-
-			// The block was mined within the desired timeframe, so
-			// return the difficulty for the last block which did
-			// not have the special minimum difficulty rule applied.
-			return b.findPrevTestNetDifficulty(prevNode)
-		}
-
-		return oldDiff
-	}
-
-	// Declare some useful variables.
-	RAFBig := big.NewInt(params.RetargetAdjustmentFactor)
-	nextDiffBigMin := standalone.CompactToBig(prevNode.bits)
-	nextDiffBigMin.Div(nextDiffBigMin, RAFBig)
-	nextDiffBigMax := standalone.CompactToBig(prevNode.bits)
-	nextDiffBigMax.Mul(nextDiffBigMax, RAFBig)
-
-	alpha := params.WorkDiffAlpha
-
-	// Number of nodes to traverse while calculating difficulty.
-	nodesToTraverse := (params.WorkDiffWindowSize * params.WorkDiffWindows)
-
-	// Initialize bigInt slice for the percentage changes for each window period
-	// above or below the target.
-	windowChanges := make([]*big.Int, params.WorkDiffWindows)
-
-	// Regress through all of the previous blocks and store the percent changes
-	// per window period; use bigInts to emulate 64.32 bit fixed point.
-	var olderTime, windowPeriod int64
-	var weights uint64
-	oldNode := prevNode
-	recentTime := prevNode.timestamp
-
-	for i := int64(0); ; i++ {
-		// Store and reset after reaching the end of every window period.
-		if i%params.WorkDiffWindowSize == 0 && i != 0 {
-			olderTime = oldNode.timestamp
-			timeDifference := recentTime - olderTime
-
-			// Just assume we're at the target (no change) if we've
-			// gone all the way back to the genesis block.
-			if oldNode.height == 0 {
-				timeDifference = int64(params.TargetTimespan / time.Second)
-			}
-
-			timeDifBig := big.NewInt(timeDifference)
-			timeDifBig.Lsh(timeDifBig, 32) // Add padding
-			targetTemp := big.NewInt(int64(params.TargetTimespan / time.Second))
-
-			windowAdjusted := targetTemp.Div(timeDifBig, targetTemp)
-
-			// Weight it exponentially. Be aware that this could at some point
-			// overflow if alpha or the number of blocks used is really large.
-			windowAdjusted = windowAdjusted.Lsh(windowAdjusted,
-				uint((params.WorkDiffWindows-windowPeriod)*alpha))
-
-			// Sum up all the different weights incrementally.
-			weights += 1 << uint64((params.WorkDiffWindows-windowPeriod)*alpha)
-
-			// Store it in the slice.
-			windowChanges[windowPeriod] = windowAdjusted
-
-			windowPeriod++
-
-			recentTime = olderTime
-		}
-
-		if i == nodesToTraverse {
-			break // Exit for loop when we hit the end.
-		}
-
-		// Get the previous node while staying at the genesis block as
-		// needed.
-		if oldNode.parent != nil {
-			oldNode = oldNode.parent
-		}
-	}
-
-	// Sum up the weighted window periods.
-	weightedSum := big.NewInt(0)
-	for i := int64(0); i < params.WorkDiffWindows; i++ {
-		weightedSum.Add(weightedSum, windowChanges[i])
-	}
-
-	// Divide by the sum of all weights.
-	weightsBig := big.NewInt(int64(weights))
-	weightedSumDiv := weightedSum.Div(weightedSum, weightsBig)
-
-	// Multiply by the old diff.
-	nextDiffBig := weightedSumDiv.Mul(weightedSumDiv, oldDiffBig)
-
-	// Right shift to restore the original padding (restore non-fixed point).
-	nextDiffBig = nextDiffBig.Rsh(nextDiffBig, 32)
-
-	// Check to see if we're over the limits for the maximum allowable retarget;
-	// if we are, return the maximum or minimum except in the case that oldDiff
-	// is zero.
-	if oldDiffBig.Cmp(bigZero) == 0 { // This should never really happen,
-		nextDiffBig.Set(nextDiffBig) // but in case it does...
-	} else if nextDiffBig.Cmp(bigZero) == 0 {
-		nextDiffBig.Set(params.PowLimit)
-	} else if nextDiffBig.Cmp(nextDiffBigMax) == 1 {
-		nextDiffBig.Set(nextDiffBigMax)
-	} else if nextDiffBig.Cmp(nextDiffBigMin) == -1 {
-		nextDiffBig.Set(nextDiffBigMin)
-	}
-
-	// Prevent the difficulty from going lower than the minimum allowed
-	// difficulty.
-	//
-	// Larger numbers result in a lower difficulty, so imposing a minimum
-	// difficulty equates to limiting the maximum target value.
-	if nextDiffBig.Cmp(params.PowLimit) > 0 {
-		nextDiffBig.Set(params.PowLimit)
-	}
-
-	// Prevent the difficulty from going higher than a maximum allowed
-	// difficulty on the test network.  This is to prevent runaway difficulty on
-	// testnet by ASICs and GPUs since it's not reasonable to require
-	// high-powered hardware to keep the test network running smoothly.
-	//	// Smaller numbers result in a higher difficulty, so imposing a maximum
-	// difficulty equates to limiting the minimum target value.
-	//
-	if b.isTestNet3() && nextHeight < testNet3MaxDiffActivationHeight &&
-		nextDiffBig.Cmp(params.PowLimit) < 0 {
-
-		nextDiffBig.Set(params.PowLimit)
-	}
-
-	return standalone.BigToCompact(nextDiffBig)
-}
+// blake256 hash algorithm used at Vigil launch.
+func (b *BlockChain) calcNextBlake256Diff(prevNode *blockNode, newBlockTime time.Time) uint32 {
 	// Get the old difficulty; if we aren't at a block height where it changes,
 	// just return this.
 	oldDiff := prevNode.bits
@@ -403,10 +240,12 @@ func (b *BlockChain) calcNextKawpowDiffFromAnchor(prevNode *blockNode, kawpowAnc
 	timeDelta := prevNode.timestamp - kawpowAnchor.timestamp
 	heightDelta := prevNode.height - kawpowAnchor.height
 
-	// Calculate the next target difficulty using the KawPoW-optimized ASERT algorithm
+	// Calculate the next target difficulty using the ASERT algorithm.
+	// Use the same ASERT parameters as Blake3 for KawPoW
 	params := b.chainParams
-	nextDiff := standalone.CalcKawPowASERTDiff(params.WorkDiffV2Blake3StartBits,
-		params.PowLimit, timeDelta, heightDelta)
+	nextDiff := standalone.CalcASERTDiff(params.WorkDiffV2Blake3StartBits,
+		params.PowLimit, int64(params.TargetTimePerBlock.Seconds()), timeDelta,
+		heightDelta, params.WorkDiffV2HalfLifeSecs)
 
 	// Prevent the difficulty from going higher than a maximum allowed
 	// difficulty on the test network for KawPoW as well.
@@ -617,9 +456,9 @@ func (b *BlockChain) calcNextRequiredDifficulty(prevNode *blockNode, newBlockTim
 		return 0, err
 	}
 	if isKawpowActive {
-			log.Debugf("Calculating next required difficulty using KawPoW algorithm for block at height %d", prevNode.height+1)
-			return b.calcNextKawpowDiff(prevNode, newBlockTime), nil
-		}
+		log.Debugf("Calculating next required difficulty using KawPoW algorithm for block at height %d", prevNode.height+1)
+		return b.calcNextKawpowDiff(prevNode, newBlockTime), nil
+	}
 
 	// Choose the difficulty algorithm based on the result of the vote for the
 	// blake3 proof of work agenda.
@@ -631,7 +470,7 @@ func (b *BlockChain) calcNextRequiredDifficulty(prevNode *blockNode, newBlockTim
 		return b.calcNextBlake3Diff(prevNode), nil
 	}
 
-	return b.calcNextKawpowDiff(prevNode, newBlockTime), nil
+	return b.calcNextBlake256Diff(prevNode, newBlockTime), nil
 }
 
 // CalcNextRequiredDifficulty calculates the required difficulty for the block
@@ -1647,7 +1486,3 @@ func (b *BlockChain) EstimateNextStakeDifficulty(hash *chainhash.Hash, newTicket
 	b.chainLock.Unlock()
 	return estimate, err
 }
-
-
-
-

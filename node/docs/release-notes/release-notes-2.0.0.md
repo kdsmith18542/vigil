@@ -386,7 +386,3 @@ All commits since the last release may be viewed on GitHub
 - Jonathan Chappelow
 - Josh Rickmark
 - SeedHammer
-
-
-
-

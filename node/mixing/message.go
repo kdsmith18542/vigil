@@ -7,8 +7,8 @@ package mixing
 import (
 	"hash"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // Message is a mixing message.  In addition to implementing wire encoding,
@@ -32,7 +32,3 @@ type Message interface {
 	Sid() []byte                // PR returns nil
 	GetRun() uint32             // PR returns 0
 }
-
-
-
-

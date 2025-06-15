@@ -11,19 +11,19 @@ import (
 	"net"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/connmgr"
-	"github.com/Vigil-Labs/vgl/VGLutil"
-	"github.com/Vigil-Labs/vgl/internal/blockchain"
-	"github.com/Vigil-Labs/vgl/internal/mempool"
-	"github.com/Vigil-Labs/vgl/internal/mining"
-	"github.com/Vigil-Labs/vgl/internal/mining/cpuminer"
-	"github.com/Vigil-Labs/vgl/internal/netsync"
-	"github.com/Vigil-Labs/vgl/internal/rpcserver"
-	"github.com/Vigil-Labs/vgl/mixing"
-	"github.com/Vigil-Labs/vgl/peer"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/connmgr/v3"
+	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/kdsmith18542/vigil/internal/blockchain"
+	"github.com/kdsmith18542/vigil/internal/mempool"
+	"github.com/kdsmith18542/vigil/internal/mining"
+	"github.com/kdsmith18542/vigil/internal/mining/cpuminer"
+	"github.com/kdsmith18542/vigil/internal/netsync"
+	"github.com/kdsmith18542/vigil/internal/rpcserver"
+	"github.com/kdsmith18542/vigil/mixing"
+	"github.com/kdsmith18542/vigil/peer/v3"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // rpcPeer provides a peer for use with the RPC server and implements the
@@ -628,7 +628,3 @@ func (c *rpcCPUMiner) SetNumWorkers(numWorkers int32) {
 		c.miner.SetNumWorkers(numWorkers)
 	}
 }
-
-
-
-

@@ -19,12 +19,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/wallet/internal/loader"
-	"github.com/Vigil-Labs/vgl/wallet/rpc/jsonrpc/types"
-	"github.com/Vigil-Labs/vgl/chaincfg"
-	"github.com/Vigil-Labs/vgl/VGLjson"
-	vgldtypes "github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/internal/loader"
+	"github.com/kdsmith18542/vigil/wallet/rpc/jsonrpc/types"
+	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/kdsmith18542/vigil/VGLjson/v4"
+	vgldtypes "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
 	"github.com/gorilla/websocket"
 )
 
@@ -618,7 +618,3 @@ func (s *Server) requestProcessShutdown() {
 func (s *Server) RequestProcessShutdown() <-chan struct{} {
 	return s.requestShutdownChan
 }
-
-
-
-

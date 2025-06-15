@@ -14,7 +14,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // testScriptFlags are the script flags which are used in the tests when
@@ -569,7 +569,3 @@ func TestForVMFailure(t *testing.T) {
 		}
 	}
 }
-
-
-
-

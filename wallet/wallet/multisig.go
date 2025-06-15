@@ -7,13 +7,13 @@ package wallet
 import (
 	"context"
 
-	"github.com/Vigil-Labs/vgl/wallet/errors"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/txrules"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/txsizes"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/udb"
-	"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
-	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
-	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txrules"
+	"github.com/kdsmith18542/vigil/wallet/wallet/txsizes"
+	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
+	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/kdsmith18542/vigil/wire"
 )
 
 // FetchP2SHMultiSigOutput fetches information regarding a wallet's P2SH
@@ -99,7 +99,3 @@ func (w *Wallet) PrepareRedeemMultiSigOutTxOutput(msgTx *wire.MsgTx, p2shOutput 
 	msgTx.AddTxOut(txOut)
 	return nil
 }
-
-
-
-

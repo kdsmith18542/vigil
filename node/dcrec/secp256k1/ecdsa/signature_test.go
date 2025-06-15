@@ -14,7 +14,7 @@ import (
 	"time"
 
 	
-	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
 )
 
 // hexToBytes converts the passed hex string into bytes and will panic if there
@@ -298,7 +298,7 @@ func signTests(t *testing.T) []signTest {
 	t.Helper()
 
 	tests := []signTest{{
-		name:     "key 0x1, Keccak256(0x01020304), rfc6979 nonce",
+		name:     "key 0x1, blake256(0x01020304), rfc6979 nonce",
 		key:      "0000000000000000000000000000000000000000000000000000000000000001",
 		msg:      "01020304",
 		hash:     "c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7",
@@ -308,7 +308,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "00ba213513572e35943d5acdd17215561b03f11663192a7252196cc8b2a99560",
 		wantCode: 0,
 	}, {
-		name:     "key 0x1, Keccak256(0x01020304), random nonce",
+		name:     "key 0x1, blake256(0x01020304), random nonce",
 		key:      "0000000000000000000000000000000000000000000000000000000000000001",
 		msg:      "01020304",
 		hash:     "c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7",
@@ -318,7 +318,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "7e34928a3e3832ec21e7711644d9388f7deb6340ead661d7056b0665974b87f3",
 		wantCode: pubKeyRecoveryCodeOddnessBit,
 	}, {
-		name:     "key 0x2, Keccak256(0x01020304), rfc6979 nonce",
+		name:     "key 0x2, blake256(0x01020304), rfc6979 nonce",
 		key:      "0000000000000000000000000000000000000000000000000000000000000002",
 		msg:      "01020304",
 		hash:     "c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7",
@@ -328,7 +328,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "44b9bc4620afa158b7efdfea5234ff2d5f2f78b42886f02cf581827ee55318ea",
 		wantCode: pubKeyRecoveryCodeOddnessBit,
 	}, {
-		name:     "key 0x2, Keccak256(0x01020304), random nonce",
+		name:     "key 0x2, blake256(0x01020304), random nonce",
 		key:      "0000000000000000000000000000000000000000000000000000000000000002",
 		msg:      "01020304",
 		hash:     "c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7",
@@ -338,7 +338,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "261ffe8ba45007fc5fbbba6b4c6ed41beafb48b09fa8af1d6a3fbc6ccefbad",
 		wantCode: 0,
 	}, {
-		name:     "key 0x1, Keccak256(0x0102030405), rfc6979 nonce",
+		name:     "key 0x1, blake256(0x0102030405), rfc6979 nonce",
 		key:      "0000000000000000000000000000000000000000000000000000000000000001",
 		msg:      "0102030405",
 		hash:     "dc063eba3c8d52a159e725c1a161506f6cb6b53478ad5ef3f08d534efa871d9f",
@@ -348,7 +348,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "0b6d67bab4929624e28f690407a15efc551354544fdc179970ff401eec2e5dc9",
 		wantCode: pubKeyRecoveryCodeOddnessBit,
 	}, {
-		name:     "key 0x1, Keccak256(0x0102030405), random nonce",
+		name:     "key 0x1, blake256(0x0102030405), random nonce",
 		key:      "0000000000000000000000000000000000000000000000000000000000000001",
 		msg:      "0102030405",
 		hash:     "dc063eba3c8d52a159e725c1a161506f6cb6b53478ad5ef3f08d534efa871d9f",
@@ -358,7 +358,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "1a7326da661a62f66358dcf53300afdc8e8407939dae1192b5b0899b0254311b",
 		wantCode: pubKeyRecoveryCodeOddnessBit,
 	}, {
-		name:     "key 0x2, Keccak256(0x0102030405), rfc6979 nonce",
+		name:     "key 0x2, blake256(0x0102030405), rfc6979 nonce",
 		key:      "0000000000000000000000000000000000000000000000000000000000000002",
 		msg:      "0102030405",
 		hash:     "dc063eba3c8d52a159e725c1a161506f6cb6b53478ad5ef3f08d534efa871d9f",
@@ -368,7 +368,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "353a44f2d949c04981e4e4d9c1f93a9e0644e63a5eaa188288c5ad68fd288d40",
 		wantCode: 0,
 	}, {
-		name:     "key 0x2, Keccak256(0x0102030405), random nonce",
+		name:     "key 0x2, blake256(0x0102030405), random nonce",
 		key:      "0000000000000000000000000000000000000000000000000000000000000002",
 		msg:      "0102030405",
 		hash:     "dc063eba3c8d52a159e725c1a161506f6cb6b53478ad5ef3f08d534efa871d9f",
@@ -378,7 +378,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "6513e82442f133cb892514926ed9158328ead488ff1b027a31827603a65009df",
 		wantCode: pubKeyRecoveryCodeOddnessBit,
 	}, {
-		name:     "random key 1, Keccak256(0x01), rfc6979 nonce",
+		name:     "random key 1, blake256(0x01), rfc6979 nonce",
 		key:      "a1becef2069444a9dc6331c3247e113c3ee142edda683db8643f9cb0af7cbe33",
 		msg:      "01",
 		hash:     "4a6c419a1e25c85327115c4ace586decddfe2990ed8f3d4d801871158338501d",
@@ -388,7 +388,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "0a2b9cb69fd794f7f204c272293b8585a294916a21a11fd94ec04acae2dc6d21",
 		wantCode: 0,
 	}, {
-		name:     "random key 2, Keccak256(0x02), rfc6979 nonce",
+		name:     "random key 2, blake256(0x02), rfc6979 nonce",
 		key:      "59930b76d4b15767ec0e8c8e5812aa2e57db30c6af7963e2a6295ba02af5416b",
 		msg:      "02",
 		hash:     "49af37ab5270015fe25276ea5a3bb159d852943df23919522a202205fb7d175c",
@@ -398,7 +398,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "609394185495f978ae84b69be90c69947e5dd8dcb4726da604fcbd139d81fc55",
 		wantCode: 0,
 	}, {
-		name:     "random key 3, Keccak256(0x03), rfc6979 nonce",
+		name:     "random key 3, blake256(0x03), rfc6979 nonce",
 		key:      "c5b205c36bb7497d242e96ec19a2a4f086d8daa919135cf490d2b7c0230f0e91",
 		msg:      "03",
 		hash:     "b706d561742ad3671703c247eb927ee8a386369c79644131cdeb2c5c26bf6c5d",
@@ -408,7 +408,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "2a26deba3241de852e786f5b4e2b98d3efb958d91fe9773b331dbcca9e8be800",
 		wantCode: 0,
 	}, {
-		name:     "random key 4, Keccak256(0x04), rfc6979 nonce",
+		name:     "random key 4, blake256(0x04), rfc6979 nonce",
 		key:      "65b46d4eb001c649a86309286aaf94b18386effe62c2e1586d9b1898ccf0099b",
 		msg:      "04",
 		hash:     "4c6eb9e38415034f4c93d3304d10bef38bf0ad420eefd0f72f940f11c5857786",
@@ -418,7 +418,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "1bdf719c4be69351ba7617a187ac246912101aea4b5a7d6dfc234478622b43c6",
 		wantCode: pubKeyRecoveryCodeOddnessBit,
 	}, {
-		name:     "random key 5, Keccak256(0x05), rfc6979 nonce",
+		name:     "random key 5, blake256(0x05), rfc6979 nonce",
 		key:      "915cb9ba4675de06a182088b182abcf79fa8ac989328212c6b866fa3ec2338f9",
 		msg:      "05",
 		hash:     "bdd15db13448905791a70b68137445e607cca06cc71c7a58b9b2e84a06c54d08",
@@ -428,7 +428,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "3d50edc03066584d50b8d19d681865a23960b37502ede5bf452bdca56744334a",
 		wantCode: pubKeyRecoveryCodeOddnessBit,
 	}, {
-		name:     "random key 6, Keccak256(0x06), rfc6979 nonce",
+		name:     "random key 6, blake256(0x06), rfc6979 nonce",
 		key:      "93e9d81d818f08ba1f850c6dfb82256b035b42f7d43c1fe090804fb009aca441",
 		msg:      "06",
 		hash:     "19b7506ad9c189a9f8b063d2aee15953d335f5c88480f8515d7d848e7771c4ae",
@@ -438,7 +438,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "2844d4c9020ddf9e96b86c1a04788e0f371bd562291fd17ee017db46259d04fb",
 		wantCode: pubKeyRecoveryCodeOddnessBit,
 	}, {
-		name:     "random key 7, Keccak256(0x07), rfc6979 nonce",
+		name:     "random key 7, blake256(0x07), rfc6979 nonce",
 		key:      "c249bbd5f533672b7dcd514eb1256854783531c2b85fe60bf4ce6ea1f26afc2b",
 		msg:      "07",
 		hash:     "53d661e71e47a0a7e416591200175122d83f8af31be6a70af7417ad6f54d0038",
@@ -448,7 +448,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "574923b7b5aec66b62f1589002db29342c9f5ed56d5e80f5361c0307ff1561fa",
 		wantCode: 0,
 	}, {
-		name:     "random key 8, Keccak256(0x08), rfc6979 nonce",
+		name:     "random key 8, blake256(0x08), rfc6979 nonce",
 		key:      "ec0be92fcec66cf1f97b5c39f83dfd4ddcad0dad468d3685b5eec556c6290bcc",
 		msg:      "08",
 		hash:     "9bff7982eab6f7883322edf7bdc86a23c87ca1c07906fbb1584f57b197dc6253",
@@ -458,7 +458,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "7d7bf4ff295ecfc9578eadc8378b0eea0c0362ad083b0fd1c9b3c06f4537f6ff",
 		wantCode: pubKeyRecoveryCodeOddnessBit,
 	}, {
-		name:     "random key 9, Keccak256(0x09), rfc6979 nonce",
+		name:     "random key 9, blake256(0x09), rfc6979 nonce",
 		key:      "6847b071a7cba6a85099b26a9c3e57a964e4990620e1e1c346fecc4472c4d834",
 		msg:      "09",
 		hash:     "4c2231813064f8500edae05b40195416bd543fd3e76c16d6efb10c816d92e8b6",
@@ -468,7 +468,7 @@ func signTests(t *testing.T) []signTest {
 		wantSigS: "3607997d36b48bce957ae9b3d450e0969f6269554312a82bf9499efc8280ea6d",
 		wantCode: 0,
 	}, {
-		name:     "random key 10, Keccak256(0x0a), rfc6979 nonce",
+		name:     "random key 10, blake256(0x0a), rfc6979 nonce",
 		key:      "b7548540f52fe20c161a0d623097f827608c56023f50442cc00cc50ad674f6b5",
 		msg:      "0a",
 		hash:     "e81db4f0d76e02805155441f50c861a8f86374f3ae34c7a3ff4111d3a634ecb1",
@@ -862,14 +862,14 @@ func TestRecoverCompactErrors(t *testing.T) {
 		hash: "c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7",
 		err:  ErrSigInvalidLen,
 	}, {
-		// Signature created from private key 0x02, Keccak256(0x01020304).
+		// Signature created from private key 0x02, blake256(0x01020304).
 		name: "no compact sig recovery code (otherwise valid sig)",
 		sig: "e6f137b52377250760cc702e19b7aee3c63b0e7d95a91939b14ab3b5c4771e59" +
 			"44b9bc4620afa158b7efdfea5234ff2d5f2f78b42886f02cf581827ee55318ea",
 		hash: "c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7",
 		err:  ErrSigInvalidLen,
 	}, {
-		// Signature created from private key 0x02, Keccak256(0x01020304).
+		// Signature created from private key 0x02, blake256(0x01020304).
 		name: "signature one byte too long (S padded with leading zero)",
 		sig: "1f" +
 			"e6f137b52377250760cc702e19b7aee3c63b0e7d95a91939b14ab3b5c4771e59" +
@@ -877,7 +877,7 @@ func TestRecoverCompactErrors(t *testing.T) {
 		hash: "c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7",
 		err:  ErrSigInvalidLen,
 	}, {
-		// Signature created from private key 0x02, Keccak256(0x01020304).
+		// Signature created from private key 0x02, blake256(0x01020304).
 		name: "compact sig recovery code too low (otherwise valid sig)",
 		sig: "1a" +
 			"e6f137b52377250760cc702e19b7aee3c63b0e7d95a91939b14ab3b5c4771e59" +
@@ -885,7 +885,7 @@ func TestRecoverCompactErrors(t *testing.T) {
 		hash: "c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7",
 		err:  ErrSigInvalidRecoveryCode,
 	}, {
-		// Signature created from private key 0x02, Keccak256(0x01020304).
+		// Signature created from private key 0x02, blake256(0x01020304).
 		name: "compact sig recovery code too high (otherwise valid sig)",
 		sig: "23" +
 			"e6f137b52377250760cc702e19b7aee3c63b0e7d95a91939b14ab3b5c4771e59" +
@@ -974,7 +974,7 @@ func TestRecoverCompactErrors(t *testing.T) {
 		hash: "c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7",
 		err:  ErrPointNotOnCurve,
 	}, {
-		// Signature created from private key 0x01, Keccak256(0x0102030407) over
+		// Signature created from private key 0x01, blake256(0x0102030407) over
 		// the secp256r1 curve (note the r1 instead of k1).
 		name: "pubkey not on the curve, signature valid for secp256r1 instead",
 		sig: "1f" +
@@ -983,7 +983,7 @@ func TestRecoverCompactErrors(t *testing.T) {
 		hash: "9165e957708bc95cf62d020769c150b2d7b08e7ab7981860815b1eaabd41d695",
 		err:  ErrPointNotOnCurve,
 	}, {
-		// Signature created from private key 0x01, Keccak256(0x01020304) and
+		// Signature created from private key 0x01, blake256(0x01020304) and
 		// manually setting s = -e*k^-1.
 		name: "calculated pubkey point at infinity",
 		sig: "1f" +
@@ -1094,7 +1094,3 @@ func TestSignAndRecoverCompactRandom(t *testing.T) {
 		}
 	}
 }
-
-
-
-
