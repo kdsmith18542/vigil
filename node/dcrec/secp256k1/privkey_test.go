@@ -167,3 +167,7 @@ func TestPrivateKeyZero(t *testing.T) {
 		t.Fatal("private key is non zero when it should be zero")
 	}
 }
+
+
+
+

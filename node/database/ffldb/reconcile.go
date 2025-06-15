@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"hash/crc32"
 
-	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/Vigil-Labs/vgl/database"
 )
 
 // The serialized write cursor location format is:
@@ -116,3 +116,7 @@ func reconcileDB(pdb *db, create bool) (database.DB, error) {
 
 	return pdb, nil
 }
+
+
+
+

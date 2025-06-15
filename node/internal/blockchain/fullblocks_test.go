@@ -10,11 +10,11 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/blockchain/v5/fullblocktests"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/fullblocktests"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // fullBlockTestErrToLocalErr converts the provided full block test error kind
@@ -332,3 +332,7 @@ func TestFullBlocks(t *testing.T) {
 		}
 	}
 }
+
+
+
+

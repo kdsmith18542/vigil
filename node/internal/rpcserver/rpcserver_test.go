@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
+	"github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
 )
 
 func TestCheckAuthUserPass(t *testing.T) {
@@ -151,3 +151,7 @@ func TestLimitedMethodsExist(t *testing.T) {
 		}
 	}
 }
+
+
+
+

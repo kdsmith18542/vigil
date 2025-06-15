@@ -270,3 +270,7 @@ func (na *NetAddress) GroupKey() string {
 
 	return netIP.Mask(net.CIDRMask(bits, 128)).String()
 }
+
+
+
+

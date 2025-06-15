@@ -5,8 +5,8 @@
 package mining
 
 import (
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/VGLutil"
 )
 
 // txDescGraph relates a set of transactions to their respective descendants and
@@ -240,3 +240,7 @@ func (g *txDescGraph) clone(fetchTx TxDescFind) *txDescGraph {
 
 	return graph
 }
+
+
+
+

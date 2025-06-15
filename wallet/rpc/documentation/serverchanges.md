@@ -1,6 +1,6 @@
 # Making API Changes
 
-This document describes the process of how vglwallet developers must make
+This document describes the process of how vigilwallet developers must make
 changes to the RPC API and server.  Due to the use of gRPC and Protocol Buffers
 for the RPC implementation, changes to this API require extra dependencies and
 steps before changes to the server can be implemented.
@@ -92,3 +92,7 @@ implemented in the [`rpcserver`](../rpcserver/) package.
 - [Protocol Buffers Language Guide (proto3)](https://developers.google.com/protocol-buffers/docs/proto3)
 - [Protocol Buffers Basics: Go](https://developers.google.com/protocol-buffers/docs/gotutorial)
 - [gRPC Basics: Go](https://www.grpc.io/docs/tutorials/basic/go.html)
+
+
+
+

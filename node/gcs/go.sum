@@ -12,8 +12,6 @@ github.com/kdsmith18542/vigilnetwork/vgl/chaincfg/chainhash v1.0.4 h1:zRCv6tdncL
 github.com/kdsmith18542/vigilnetwork/vgl/chaincfg/chainhash v1.0.4/go.mod h1:hA86XxlBWwHivMvxzXTSD0ZCG/LoYsFdWnCekkTMCqY=
 github.com/kdsmith18542/vigilnetwork/vgl/chaincfg/v3 v3.2.1 h1:x9zKJaU24WAKbxAR1UyFKHlM3oJgP0H9LodokM4X5lM=
 github.com/kdsmith18542/vigilnetwork/vgl/chaincfg/v3 v3.2.1/go.mod h1:SDCWDtY7BLj0leXc9FuoA1YjSVKyCIBVAyxwZn6+sXc=
-github.com/kdsmith18542/vigilnetwork/vgl/crypto/blake256 v1.0.1 h1:7PltbUIQB7u/FfZ39+DGa/ShuMyJ5ilcvdfma9wOH6Y=
-github.com/kdsmith18542/vigilnetwork/vgl/crypto/blake256 v1.0.1/go.mod h1:2OfgNZ5wDpcsFmHmCK5gZTPcCXqlm2ArzUIkw9czNJo=
 github.com/kdsmith18542/vigilnetwork/vgl/crypto/ripemd160 v1.0.2 h1:TvGTmUBHDU75OHro9ojPLK+Yv7gDl2hnUvRocRCjsys=
 github.com/kdsmith18542/vigilnetwork/vgl/crypto/ripemd160 v1.0.2/go.mod h1:uGfjDyePSpa75cSQLzNdVmWlbQMBuiJkvXw/MNKRY4M=
 github.com/kdsmith18542/vigilnetwork/vgl/database/v3 v3.0.2 h1:rgP7XNZemTs8ZC7bnTKO8JO79Woj5nq+yQYmB9ry7yM=

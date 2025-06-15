@@ -8,12 +8,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
-	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/Vigil-Labs/vgl/blockchain/chaingen"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // testLNFeaturesDeployment ensures the deployment of the LN features agenda
@@ -1296,3 +1296,7 @@ func TestSubsidySplitR2Deployment(t *testing.T) {
 	testSubsidySplitR2Deployment(t, chaincfg.MainNetParams())
 	testSubsidySplitR2Deployment(t, chaincfg.RegNetParams())
 }
+
+
+
+

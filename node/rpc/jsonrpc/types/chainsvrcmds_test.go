@@ -12,7 +12,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/VGLjson/v4"
+	"github.com/Vigil-Labs/vgl/VGLjson"
 )
 
 // TestChainSvrCmds tests all of the chain server commands marshal and unmarshal
@@ -1118,3 +1118,7 @@ func TestChainSvrCmds(t *testing.T) {
 		}
 	}
 }
+
+
+
+

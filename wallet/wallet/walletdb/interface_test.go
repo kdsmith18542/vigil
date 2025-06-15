@@ -19,8 +19,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
 )
 
 // errSubTestFail is used to signal that a sub test returned false.
@@ -707,3 +707,7 @@ func testInterface(ctx context.Context, t *testing.T, db walletdb.DB) {
 		return
 	}
 }
+
+
+
+

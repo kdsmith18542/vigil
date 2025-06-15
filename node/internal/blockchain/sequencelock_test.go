@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // mustLockTimeToSeq converts the passed relative lock time to a sequence number
@@ -498,3 +498,7 @@ func TestLockTimeToSequence(t *testing.T) {
 		}
 	}
 }
+
+
+
+

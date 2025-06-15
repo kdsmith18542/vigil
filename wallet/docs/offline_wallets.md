@@ -97,3 +97,7 @@ the following procedure can be done:
     ```
 	vglctl sendrawtransaction $(cat rawtx.txt)
     ```
+
+
+
+

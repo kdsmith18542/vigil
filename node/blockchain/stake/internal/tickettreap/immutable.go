@@ -459,3 +459,7 @@ func (t *Immutable) FetchWinnersAndExpired(idxs []int, height uint32) ([]*Key, [
 func NewImmutable() *Immutable {
 	return &Immutable{}
 }
+
+
+
+

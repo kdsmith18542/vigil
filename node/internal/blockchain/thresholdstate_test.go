@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/Vigil-Labs/vgl/blockchain/chaingen"
+	"github.com/Vigil-Labs/vgl/chaincfg"
 )
 
 const (
@@ -682,3 +682,7 @@ func TestThresholdState(t *testing.T) {
 	g.TestThresholdStateChoice(vote1.Id, ThresholdActive, vote1Yes)
 	g.TestThresholdStateChoice(vote2.Id, ThresholdFailed, vote2No)
 }
+
+
+
+

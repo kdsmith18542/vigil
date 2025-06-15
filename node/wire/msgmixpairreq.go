@@ -10,7 +10,7 @@ import (
 	"hash"
 	"io"
 
-	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 const (
@@ -480,3 +480,7 @@ func NewMsgMixPairReq(identity [33]byte, expiry uint32, mixAmount int64,
 	}
 	return msg, nil
 }
+
+
+
+

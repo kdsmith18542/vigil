@@ -15,9 +15,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/wire"
-	"github.com/kdsmith18542/vigil/go-socks/socks"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/Vigil-Labs/vgl/go-socks/socks"
 )
 
 // conn mocks a network connection by implementing the net.Conn interface.  It
@@ -938,3 +938,7 @@ func init() {
 	// Allow self connection when running the tests.
 	allowSelfConns = true
 }
+
+
+
+

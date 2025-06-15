@@ -8,8 +8,8 @@
 package rpchelp
 
 import (
-	"github.com/kdsmith18542/vigil/wallet/rpc/jsonrpc/types"
-	vgldtypes "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
+	"github.com/Vigil-Labs/vgl/wallet/rpc/jsonrpc/types"
+	vgldtypes "github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
 )
 
 // Common return types.
@@ -140,3 +140,7 @@ var HelpDescs = []struct {
 }{
 	{"en_US", "EnUS", helpDescsEnUS}, // helpdescs_en_US.go
 }
+
+
+
+

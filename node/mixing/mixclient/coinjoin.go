@@ -8,12 +8,12 @@ import (
 	"crypto/subtle"
 	"errors"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
-	"github.com/kdsmith18542/vigil/VGLutil/v4/txsort"
-	"github.com/kdsmith18542/vigil/mixing/utxoproof"
-	"github.com/kdsmith18542/vigil/txscript/v4"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/Vigil-Labs/vgl/VGLutil/txsort"
+	"github.com/Vigil-Labs/vgl/mixing/utxoproof"
+	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // msize is the message size of a mixed message (hash160).
@@ -293,3 +293,7 @@ func (c *CoinJoin) Tx() *wire.MsgTx {
 func (c *CoinJoin) MixedIndices() []int {
 	return c.mixedIndices
 }
+
+
+
+

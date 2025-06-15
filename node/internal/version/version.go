@@ -49,7 +49,7 @@ var (
 	//
 	// It is defined as a variable so it can be overridden during the build
 	// process with:
-	// '-ldflags "-X github.com/kdsmith18542/vigil/internal/version.Version=fullsemver"'
+	// '-ldflags "-X github.com/Vigil-Labs/vgl/internal/version.Version=fullsemver"'
 	// if needed.
 	//
 	// It MUST be a full semantic version per the semantic versioning spec or
@@ -169,3 +169,7 @@ func NormalizeString(str string) string {
 	}
 	return result.String()
 }
+
+
+
+

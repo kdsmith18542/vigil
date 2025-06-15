@@ -7,7 +7,7 @@ package blockchain
 import (
 	"testing"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // TestCalcCommitmentRootV1 ensures the expected version 1 commitment root is
@@ -54,3 +54,7 @@ func TestCalcCommitmentRootV1(t *testing.T) {
 		}
 	}
 }
+
+
+
+

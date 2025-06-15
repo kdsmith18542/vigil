@@ -18,21 +18,21 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
-	"github.com/kdsmith18542/vigil/blockchain/standalone/v2"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/crypto/rand"
-	"github.com/kdsmith18542/vigil/crypto/ripemd160"
-	"github.com/kdsmith18542/vigil/VGLjson/v4"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/internal/blockchain"
-	"github.com/kdsmith18542/vigil/internal/mining"
-	"github.com/kdsmith18542/vigil/mixing"
-	"github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/Vigil-Labs/vgl/blockchain/standalone"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/crypto/rand"
+	"github.com/Vigil-Labs/vgl/crypto/ripemd160"
+	"github.com/Vigil-Labs/vgl/VGLjson"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/internal/blockchain"
+	"github.com/Vigil-Labs/vgl/internal/mining"
+	"github.com/Vigil-Labs/vgl/mixing"
+	"github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+	"github.com/Vigil-Labs/vgl/txscript/stdscript"
+	"github.com/Vigil-Labs/vgl/wire"
 	"github.com/gorilla/websocket"
 )
 
@@ -862,12 +862,7 @@ func (m *wsNotificationManager) notifyWork(clients map[chan struct{}]*wsClient, 
 	// only the final chunk along with the midstate for the rest when solving
 	// the block.
 	header := &templateNtfn.Template.Block.Header
-	isBlake3PowActive, err := m.server.isBlake3PowAgendaActive(&header.PrevBlock)
-	if err != nil {
-		log.Errorf("Could not obtain blake3 agenda status: %v", err)
-		return
-	}
-	data, err := serializeGetWorkData(header, isBlake3PowActive)
+	data, err := serializeGetWorkData(header)
 	if err != nil {
 		log.Errorf("Failed to serialize data: %v", err)
 		return
@@ -2414,3 +2409,7 @@ func handleRescan(_ context.Context, wsc *wsClient, icmd interface{}) (interface
 func init() {
 	wsHandlers = wsHandlersBeforeInit
 }
+
+
+
+

@@ -10,14 +10,14 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/kdsmith18542/vigil/base58"
+	"github.com/Vigil-Labs/vgl/base58"
 	
-	"github.com/kdsmith18542/vigil/crypto/ripemd160"
-	"github.com/kdsmith18542/vigil/kawpow"
-	"github.com/kdsmith18542/vigil/VGLec"
-	"github.com/kdsmith18542/vigil/VGLec/edwards/v2"
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/Vigil-Labs/vgl/crypto/ripemd160"
+	"github.com/Vigil-Labs/vgl/kawpow"
+	"github.com/Vigil-Labs/vgl/VGLec"
+	"github.com/Vigil-Labs/vgl/VGLec/edwards"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/Vigil-Labs/vgl/txscript"
 )
 
 const (
@@ -1233,3 +1233,7 @@ func DecodeAddressV0(addr string, params AddressParamsV0) (Address, error) {
 	str := fmt.Sprintf("address %q is not a supported type", addr)
 	return nil, makeError(ErrUnsupportedAddress, str)
 }
+
+
+
+

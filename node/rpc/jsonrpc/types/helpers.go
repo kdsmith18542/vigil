@@ -12,3 +12,7 @@ func EstimateSmartFeeModeAddr(v EstimateSmartFeeMode) *EstimateSmartFeeMode {
 	*p = v
 	return p
 }
+
+
+
+

@@ -10,19 +10,19 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/kdsmith18542/vigil/wallet/deployments"
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/wallet/wallet/txrules"
-	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
-	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
-	blockchain "github.com/kdsmith18542/vigil/blockchain/standalone/v2"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/crypto/rand"
-	"github.com/kdsmith18542/vigil/txscript/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/wallet/deployments"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/txrules"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/udb"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	blockchain "github.com/Vigil-Labs/vgl/blockchain/standalone"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/crypto/rand"
+	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+	"github.com/Vigil-Labs/vgl/txscript/stdscript"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 func (w *Wallet) extendMainChain(ctx context.Context, op errors.Op, dbtx walletdb.ReadWriteTx,
@@ -870,3 +870,7 @@ func (w *Wallet) VoteOnOwnedTickets(ctx context.Context, winningTicketHashes []*
 func (w *Wallet) RevokeOwnedTickets(ctx context.Context, missedTicketHashes []*chainhash.Hash) error {
 	return nil
 }
+
+
+
+

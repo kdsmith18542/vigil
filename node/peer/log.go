@@ -9,10 +9,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/txscript/v4"
-	"github.com/kdsmith18542/vigil/wire"
-	"github.com/kdsmith18542/vigil/slog"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/Vigil-Labs/vgl/slog"
 )
 
 // log is a logger that is initialized with no output filters.  This
@@ -208,3 +208,7 @@ func messageSummary(msg wire.Message) string {
 	// No summary for other messages.
 	return ""
 }
+
+
+
+

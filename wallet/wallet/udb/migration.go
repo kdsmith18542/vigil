@@ -7,9 +7,9 @@ package udb
 import (
 	"context"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
+"github.com/Vigil-Labs/vgl/chaincfg"
 )
 
 // Old package namespace bucket keys.  These are still used as of the very first
@@ -71,3 +71,7 @@ func Migrate(ctx context.Context, db walletdb.DB, params *chaincfg.Params) error
 		return unifiedDBMetadata{}.putVersion(metadataBucket, initialVersion)
 	})
 }
+
+
+
+

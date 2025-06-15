@@ -8,7 +8,7 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
 )
 
 // hexToModNScalar converts the passed hex string into a ModNScalar and will
@@ -61,7 +61,7 @@ func BenchmarkSign(b *testing.B) {
 	d := hexToModNScalar("9e0699c91ca1e3b7e3c9ba71eb71c89890872be97576010fe593fbf3fd57e66d")
 	privKey := secp256k1.NewPrivateKey(d)
 
-	// blake256 of []byte{0x01, 0x02, 0x03, 0x04}.
+	// Keccak256 of []byte{0x01, 0x02, 0x03, 0x04}.
 	msgHash := hexToBytes("c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7")
 
 	b.ReportAllocs()
@@ -81,7 +81,7 @@ func BenchmarkSigVerify(b *testing.B) {
 		hexToFieldVal("ab65528eefbb8057aa85d597258a3fbd481a24633bc9b47a9aa045c91371de52"),
 	)
 
-	// blake256 of []byte{0x01, 0x02, 0x03, 0x04}.
+	// Keccak256 of []byte{0x01, 0x02, 0x03, 0x04}.
 	msgHash := hexToBytes("c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7")
 
 	// Generate the signature.
@@ -101,7 +101,7 @@ func BenchmarkSigSerialize(b *testing.B) {
 	d := hexToModNScalar("9e0699c91ca1e3b7e3c9ba71eb71c89890872be97576010fe593fbf3fd57e66d")
 	privKey := secp256k1.NewPrivateKey(d)
 
-	// blake256 of []byte{0x01, 0x02, 0x03, 0x04}.
+	// Keccak256 of []byte{0x01, 0x02, 0x03, 0x04}.
 	msgHash := hexToBytes("c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7")
 
 	// Generate the signature.
@@ -113,3 +113,7 @@ func BenchmarkSigSerialize(b *testing.B) {
 		sig.Serialize()
 	}
 }
+
+
+
+

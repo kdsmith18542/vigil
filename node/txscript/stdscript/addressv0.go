@@ -5,8 +5,8 @@
 package stdscript
 
 import (
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
 )
 
 // addrToSlice is a convenience function that returns a slice containing the
@@ -170,3 +170,7 @@ func ExtractAddrsV0(pkScript []byte, params stdaddr.AddressParamsV0) (ScriptType
 	// Don't attempt to extract addresses for nonstandard transactions.
 	return STNonStandard, nil
 }
+
+
+
+

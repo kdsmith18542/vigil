@@ -9,8 +9,8 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // TestNet3Params return the network parameters for the test currency network.
@@ -81,11 +81,14 @@ func TestNet3Params() *Params {
 		Name:        "testnet3",
 		Net:         wire.TestNet3,
 		DefaultPort: "19108",
+
+	// Disable all seeders and peer discovery
+	DisableDNSSeed: false,
 		DNSSeeds: []DNSSeed{
-			{"testnet-seed.Vigil.minVGLy.org", true},
-			{"testnet-seed.Vigil.netpurgatory.com", true},
-			{"testnet-seed.vigil.network", true},
+			{"testnet-seed.vigil.org", true},
 		},
+
+		SeedAddrs: []string{},
 
 		// Chain parameters.
 		//
@@ -105,35 +108,25 @@ func TestNet3Params() *Params {
 		// Version 1 difficulty algorithm (EMA + BLAKE256) parameters.
 		WorkDiffAlpha:            1,
 		WorkDiffWindowSize:       144,
-		WorkDiffWindows:          20,
-		TargetTimespan:           time.Minute * 2 * 144, // TimePerBlock * WindowSize
+		WorkDiffWindows:          10, // Fewer windows for more responsive difficulty
+		TargetTimespan:           time.Minute * 1 * 24, // TimePerBlock * WindowSize (24 blocks)
 		RetargetAdjustmentFactor: 4,
 
-		// Version 2 difficulty algorithm (ASERT + BLAKE3) parameters.
+		// Version 2 difficulty algorithm (ASERT + KawPoW) parameters.
 		WorkDiffV2Blake3StartBits: testNetPowLimitBits,
-		WorkDiffV2HalfLifeSecs:    720, // 6 * TimePerBlock (12 minutes)
+		WorkDiffV2HalfLifeSecs:    8 * 60 * 60, // 8 hours for KawPoW ASERT (same as mainnet)
 
-		// Subsidy parameters.
-		BaseSubsidy:              2500000000, // 25 Coin
-		MulSubsidy:               100,
-		DivSubsidy:               101,
-		SubsidyReductionInterval: 2048,
-		WorkRewardProportion:     6,
-		WorkRewardProportionV2:   8,
-		StakeRewardProportion:    3,
-		StakeRewardProportionV2:  1,
-		BlockTaxProportion:       1,
+		// Subsidy parameters for testnet (using larger values for testing)
+		BaseSubsidy:              10000000000, // 100 VGL (in atoms) for testing
+		MulSubsidy:               98,          // 2% reduction for faster testing
+		DivSubsidy:               100,
+		SubsidyReductionInterval: 1008,        // ~1 week at 1 min blocks for testing
+		WorkRewardProportion:     60,          // 60% to PoW miners for initial testing
+		StakeRewardProportion:    30,          // 30% to PoS stakers for initial testing
+		BlockTaxProportion:       10,          // 10% to treasury
 
-		// AssumeValid is the hash of a block that has been externally verified
-		// to be valid.  It allows several validation checks to be skipped for
-		// blocks that are both an ancestor of the assumed valid block and an
-		// ancestor of the best header.  It is also used to determine the old
-		// forks rejection checkpoint.  This is intended to be updated
-		// periodically with new releases.
-		//
-		// Block 88d61d7609c06c8e171f050789f6649d21525a144b820026f7b396476a05a44b
-		// Height: 1377455
-		AssumeValid: *newHashFromStr("88d61d7609c06c8e171f050789f6649d21525a144b820026f7b396476a05a44b"),
+		// No assumed valid blocks for a new testnet
+		AssumeValid: chainhash.Hash{},
 
 		// MinKnownChainWork is the minimum amount of known total work for the
 		// chain at a given point in time.  This is intended to be updated
@@ -178,10 +171,9 @@ func TestNet3Params() *Params {
 						IsNo:        false,
 					}},
 				},
-				// This has to be a past date to ensure that the agenda is active
-				// from the start of the testnet.
-				StartTime:  1672531200, // Jan 1st, 2023
-				ExpireTime: 1704067200, // Jan 1st, 2024
+				// Set start time to now - 1 hour and expire in 1 year
+				StartTime:  uint64(time.Now().Add(-1 * time.Hour).Unix()),
+				ExpireTime: uint64(time.Now().Add(365 * 24 * time.Hour).Unix()), // 1 year from now
 			}},
 			6: {{ // This is the stake difficulty algorithm change, which is now at version 6
 				Vote: Vote{
@@ -564,17 +556,14 @@ func TestNet3Params() *Params {
 		AcceptNonStdTxs: true,
 
 		// Address encoding magics
-		NetworkAddressPrefix: "T",
-		PubKeyAddrID:         [2]byte{0x28, 0xf7}, // starts with Tk
-		PubKeyHashAddrID:     [2]byte{0x0f, 0x21}, // starts with Ts
-		PKHEdwardsAddrID:     [2]byte{0x0f, 0x01}, // starts with Te
-		PKHSchnorrAddrID:     [2]byte{0x0e, 0xe3}, // starts with TS
-		ScriptHashAddrID:     [2]byte{0x0e, 0xfc}, // starts with Tc
-		PrivateKeyID:         [2]byte{0x23, 0x0e}, // starts with Pt
+		NetworkAddressPrefix: "vgl",
+		PubKeyAddrID:         [2]byte{0x0c, 0x2c},
+		PubKeyHashAddrID:     [2]byte{0x0c, 0x00},
+		ScriptHashAddrID:     [2]byte{0x0c, 0x01},
+		PrivateKeyID:         [2]byte{0x0c, 0xef},
 
-		// BIP32 hierarchical deterministic extended key magics
-		HDPrivateKeyID: [4]byte{0x04, 0x35, 0x83, 0x97}, // starts with tprv
-		HDPublicKeyID:  [4]byte{0x04, 0x35, 0x87, 0xd1}, // starts with tpub
+		HDPrivateKeyID: [4]byte{0x04, 0x35, 0x83, 0x94}, // Testnet xprv
+		HDPublicKeyID:  [4]byte{0x04, 0x35, 0x87, 0xcf}, // Testnet xpub
 
 		// BIP44 coin type used in the hierarchical deterministic path for
 		// address generation.
@@ -636,8 +625,12 @@ func TestNet3Params() *Params {
 		seeders: []string{
 			"testnet-seed-1.vigil.network",
 			"testnet-seed-2.vigil.network",
-			"testnet-seed.vgldata.org",
+			"testnet-seed.vigilexplorer.org",
 			"testnet-seed.jholdstock.uk",
 		},
 	}
 }
+
+
+
+

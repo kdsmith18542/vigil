@@ -8,8 +8,8 @@ package jsonrpc
 import (
 	"fmt"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/VGLjson/v4"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+	"github.com/Vigil-Labs/vgl/VGLjson"
 	"github.com/jrick/wsrpc/v2"
 )
 
@@ -109,3 +109,7 @@ var (
 		Message: "account name is reserved by RPC server",
 	}
 )
+
+
+
+

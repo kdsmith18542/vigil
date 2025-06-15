@@ -52,3 +52,7 @@ func BenchmarkScalarMultAdaptor(b *testing.B) {
 		curve.ScalarMult(x, y, k.Bytes())
 	}
 }
+
+
+
+

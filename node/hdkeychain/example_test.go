@@ -8,9 +8,9 @@ package hdkeychain_test
 import (
 	"fmt"
 
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/hdkeychain/v3"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/hdkeychain"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
 )
 
 // This example demonstrates how to generate a cryptographically random seed
@@ -193,3 +193,7 @@ func Example_audits() {
 	// Output:
 	// Audit key N(m/*): dpubZ9169KDAEUnypHbWCe2Vu5TxGEcqJeNeX6XCYFU1fqw2iQZK7fsMhzsEFArbLmyUdprUw9aXHneUNd92bjc31TqC6sUduMY6PK2z4JXDS8j
 }
+
+
+
+

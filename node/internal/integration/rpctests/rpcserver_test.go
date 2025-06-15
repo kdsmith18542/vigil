@@ -14,8 +14,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigiltest/vgldtest"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgltest/vgldtest"
 )
 
 func testGetBestBlock(ctx context.Context, r *vgldtest.Harness, t *testing.T) {
@@ -145,3 +145,7 @@ func TestRpcServer(t *testing.T) {
 		t.Logf("=== Running test: %v ===", test.name)
 	}
 }
+
+
+
+

@@ -38,7 +38,7 @@ A comprehensive suite of tests is provided to ensure proper functionality.
 Two different child key derivation functions are provided: the Child function
 derives extended keys using a modified scheme based on BIP0032, whereas
 ChildBIP32Std produces keys that strictly conform to the standard.  The Child
-function should be used for Vigil wallet key derivation for legacy reasons.
+function should be used for vigilwallet key derivation for legacy reasons.
 
 ## Installation and Updating
 
@@ -60,3 +60,7 @@ the standard go tooling for working with modules to incorporate it.
 
 Package hdkeychain is licensed under the [copyfree](http://copyfree.org) ISC
 License.
+
+
+
+

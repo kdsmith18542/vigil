@@ -3,14 +3,14 @@
 // license that can be found in the LICENSE file.
 
 /*
-Package types implements concrete types for the vglwallet JSON-RPC API.
+Package types implements concrete types for the vigilwallet JSON-RPC API.
 
 When communicating via the JSON-RPC protocol, all of the commands need to be
 marshalled to and from the wire in the appropriate format.  This package
 provides data structures and primitives that are registered with VGLjson to ease
 this process.  An overview specific to this package is provided here, however it
 is also instructive to read the documentation for the VGLjson package
-(https://pkg.go.dev/github.com/kdsmith18542/vigil/VGLjson/v4).
+(https://pkg.go.dev/github.com/Vigil-Labs/vgl/dcrjson).
 
 # Marshalling and Unmarshalling
 
@@ -71,3 +71,7 @@ consistent one-line usage for registered commands and notifications using
 reflection.
 */
 package types
+
+
+
+

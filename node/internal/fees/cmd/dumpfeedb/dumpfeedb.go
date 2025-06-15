@@ -12,8 +12,8 @@ import (
 	"os"
 	"path"
 
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/internal/fees"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/internal/fees"
 	flags "github.com/jessevdk/go-flags"
 )
 
@@ -50,3 +50,7 @@ func main() {
 
 	fmt.Println(est.DumpBuckets())
 }
+
+
+
+

@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // OutOfRangeError describes an error due to accessing an element that is out
@@ -390,3 +390,7 @@ func NewBlockFromBlockAndBytes(msgBlock *wire.MsgBlock, serializedBlock []byte) 
 		serializedBlock: serializedBlock,
 	}
 }
+
+
+
+

@@ -3,19 +3,73 @@
 // Use of this source code is governed by an ISC
 // license that can be found in the LICENSE file.
 
+// Additional optimizations for KawPoW by Vigil Network
+
 package standalone
 
 import (
+	"bytes"
 	"fmt"
 	"math/big"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/wire"
 )
+
+const (
+	// KawPowTargetBlockTime is the desired time between blocks for KawPoW.
+	KawPowTargetBlockTime = 150 // 2.5 minutes in seconds
+
+	// KawPowASERTHalfLife is the half-life for the ASERT algorithm for KawPoW.
+	// This is set to 8 hours (in seconds) to provide a good balance between
+	// responsiveness to hashrate changes and stability for the 2.5-minute
+	// target block time.
+	KawPowASERTHalfLife = 8 * 60 * 60 // 8 hours in seconds
+
+	// MaxDifficultyAdjustmentFactor is the maximum factor the difficulty can adjust
+	// between blocks (4x increase)
+	MaxDifficultyAdjustmentFactor = 4.0
+
+	// MinDifficultyAdjustmentFactor is the minimum factor the difficulty can adjust
+	// between blocks (0.25x decrease)
+	MinDifficultyAdjustmentFactor = 0.25
+
+	// KawPowMinDifficulty is the minimum difficulty allowed for KawPoW.
+	// This is set to a value that prevents extremely long block times while
+	// still allowing for reasonable mining on lower hashrate networks.
+	KawPowMinDifficulty = 0x00000ffff0000000000000000000000000000000000000000000000000000000
+
+	// KawPowMaxDifficultyAdjust is the maximum factor by which the difficulty
+	// can change between blocks. This prevents extreme difficulty swings.
+	KawPowMaxDifficultyAdjust = 4.0
+
+	// KawPowMinDifficultyAdjust is the minimum factor by which the difficulty
+	// can change between blocks. This prevents extreme difficulty swings.
+	KawPowMinDifficultyAdjust = 0.25
+)
+
+// CalcKawPowASERTDiff calculates the next required difficulty for KawPoW using
+// the ASERT algorithm with parameters optimized for KawPoW's characteristics.
+//
+// This is a convenience wrapper around CalcASERTDiff that uses KawPoW-specific
+// parameters.
+func CalcKawPowASERTDiff(startDiffBits uint32, powLimit *big.Int, timeDelta, heightDelta int64) uint32 {
+	return CalcASERTDiff(
+		startDiffBits,
+		powLimit,
+		KawPowTargetBlockTime,
+		timeDelta,
+		heightDelta,
+		KawPowASERTHalfLife,
+	)
+}
 
 var (
 	// bigOne is 1 represented as a big.Int.  It is defined here to avoid the
 	// overhead of creating it multiple times.
 	bigOne = big.NewInt(1)
+
+
 
 	// oneLsh256 is 1 shifted left 256 bits.  It is defined here to avoid the
 	// overhead of creating it multiple times.
@@ -159,16 +213,16 @@ func CalcWork(bits uint32) *big.Int {
 // checkProofOfWorkRange ensures the provided target difficulty is in min/max
 // range per the provided proof-of-work limit.
 func checkProofOfWorkRange(target *big.Int, powLimit *big.Int) error {
-	// The target difficulty must be larger than zero.
-	if target.Sign() <= 0 {
-		str := fmt.Sprintf("target difficulty of %064x is too low", target)
+	// The target difficulty must be less than the proof of work limit.
+	if target.Cmp(powLimit) > 0 {
+		str := fmt.Sprintf("target difficulty of %064x is higher than max of %064x",
+			target, powLimit)
 		return ruleError(ErrUnexpectedDifficulty, str)
 	}
 
-	// The target difficulty must be less than the maximum allowed.
-	if target.Cmp(powLimit) > 0 {
-		str := fmt.Sprintf("target difficulty of %064x is higher than max of "+
-			"%064x", target, powLimit)
+	// The target difficulty must be greater than zero.
+	if target.Sign() <= 0 {
+		str := fmt.Sprintf("target difficulty of %064x is too low", target)
 		return ruleError(ErrUnexpectedDifficulty, str)
 	}
 
@@ -182,41 +236,42 @@ func CheckProofOfWorkRange(difficultyBits uint32, powLimit *big.Int) error {
 	return checkProofOfWorkRange(target, powLimit)
 }
 
-// checkProofOfWorkHash ensures the provided hash is less than the provided
-// target difficulty.
-func checkProofOfWorkHash(powHash *chainhash.Hash, target *big.Int) error {
-	// The proof of work hash must be less than the target difficulty.
-	hashNum := HashToBig(powHash)
-	if hashNum.Cmp(target) > 0 {
-		str := fmt.Sprintf("proof of work hash %064x is higher than "+
-			"expected max of %064x", hashNum, target)
-		return ruleError(ErrHighHash, str)
-	}
-
-	return nil
-}
-
-// CheckProofOfWorkHash ensures the provided hash is less than the provided
-// compact target difficulty.
-func CheckProofOfWorkHash(powHash *chainhash.Hash, difficultyBits uint32) error {
-	target := CompactToBig(difficultyBits)
-	return checkProofOfWorkHash(powHash, target)
-}
-
-// CheckProofOfWork ensures the provided hash is less than the provided compact
-// target difficulty and that the target difficulty is in min/max range per the
-// provided proof-of-work limit.
-//
-// This is semantically equivalent to and slightly more efficient than calling
-// CheckProofOfWorkRange followed by CheckProofOfWorkHash.
-func CheckProofOfWork(powHash *chainhash.Hash, difficultyBits uint32, powLimit *big.Int) error {
-	target := CompactToBig(difficultyBits)
+// CheckKawPowProofOfWork validates a KawPoW proof of work. It verifies that:
+// 1. The provided final hash is less than the target difficulty
+// 2. The provided mix hash and final hash match the expected values for the given block header
+// 3. The target difficulty is within the valid range
+func CheckKawPowProofOfWork(header *wire.BlockHeader, powLimit *big.Int) error {
+	// First verify the target difficulty is in range
+	target := CompactToBig(header.Bits)
 	if err := checkProofOfWorkRange(target, powLimit); err != nil {
 		return err
 	}
 
-	// The proof of work hash must be less than the target difficulty.
-	return checkProofOfWorkHash(powHash, target)
+	// Calculate the expected mix and final hashes
+	expectedMixHash, err := header.PowHashKawPow()
+	if err != nil {
+		return ruleError(ErrUnexpectedDifficulty, fmt.Sprintf("failed to calculate KawPoW hash: %v", err))
+	}
+
+	// Verify the final hash is less than the target
+	finalHashNum := HashToBig(&expectedFinalHash)
+	if finalHashNum.Cmp(target) > 0 {
+		str := fmt.Sprintf("proof of work hash %064x is higher than expected max of %064x",
+			finalHashNum, target)
+		return ruleError(ErrHighHash, str)
+	}
+
+	// Verify the mix hash matches the expected value
+	if !bytes.Equal(header.MixHash[:], expectedMixHash[:]) {
+		return ruleError(ErrUnexpectedDifficulty, "invalid mix hash")
+	}
+
+	// Verify the final hash matches the expected value
+	if !bytes.Equal(header.FinalHash[:], expectedFinalHash[:]) {
+		return ruleError(ErrUnexpectedDifficulty, "invalid final hash")
+	}
+
+	return nil
 }
 
 // CalcASERTDiff calculates an absolutely scheduled exponentially weighted
@@ -391,6 +446,22 @@ func CalcASERTDiff(startDiffBits uint32, powLimit *big.Int, targetSecsPerBlock,
 		nextDiff.Rsh(nextDiff, uint(-shifts))
 	}
 
+	// Enforce maximum and minimum difficulty adjustment factors
+	maxAdjust := new(big.Int).Set(startDiff)
+	maxAdjust.Mul(maxAdjust, new(big.Int).SetInt64(int64(MaxDifficultyAdjustmentFactor * float64(1<<16))))
+	maxAdjust.Div(maxAdjust, big.NewInt(1<<16))
+
+	minAdjust := new(big.Int).Set(startDiff)
+	minAdjust.Mul(minAdjust, new(big.Int).SetInt64(int64(MinDifficultyAdjustmentFactor * float64(1<<16))))
+	minAdjust.Div(minAdjust, big.NewInt(1<<16))
+
+	// Clamp the difficulty adjustment to the allowed range
+	if nextDiff.Cmp(maxAdjust) > 0 {
+		nextDiff = maxAdjust
+	} else if nextDiff.Cmp(minAdjust) < 0 {
+		nextDiff = minAdjust
+	}
+
 	// Limit the target difficulty to the valid hardest and easiest values.
 	// The valid range is [1, powLimit].
 	if nextDiff.Sign() == 0 {
@@ -404,3 +475,7 @@ func CalcASERTDiff(startDiffBits uint32, powLimit *big.Int, targetSecsPerBlock,
 	// Convert the difficulty to the compact representation and return it.
 	return BigToCompact(nextDiff)
 }
+
+
+
+

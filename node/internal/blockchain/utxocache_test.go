@@ -11,12 +11,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/database/v3"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/database"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // Define constants for indicating flags throughout the tests.
@@ -1572,3 +1572,7 @@ func TestShutdownUtxoCache(t *testing.T) {
 	// Validate that the utxo cache is now caught up to the tip.
 	g.ExpectUtxoSetState(g.TipName())
 }
+
+
+
+

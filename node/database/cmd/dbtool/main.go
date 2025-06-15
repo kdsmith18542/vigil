@@ -12,8 +12,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/kdsmith18542/vigil/database/v3"
-	"github.com/kdsmith18542/vigil/slog"
+	"github.com/Vigil-Labs/vgl/database"
+	"github.com/Vigil-Labs/vgl/slog"
 	flags "github.com/jessevdk/go-flags"
 )
 
@@ -115,3 +115,7 @@ func main() {
 		os.Exit(1)
 	}
 }
+
+
+
+

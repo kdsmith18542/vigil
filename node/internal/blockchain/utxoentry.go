@@ -5,7 +5,7 @@
 package blockchain
 
 import (
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
 )
 
 const (
@@ -258,3 +258,7 @@ func (entry *UtxoEntry) Clone() *UtxoEntry {
 
 	return newEntry
 }
+
+
+
+

@@ -11,7 +11,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/VGLec"
+	"github.com/Vigil-Labs/vgl/VGLec"
 )
 
 // TestWIF ensures that WIF-related APIs work as intended including that they
@@ -278,3 +278,7 @@ func TestWIF(t *testing.T) {
 		}
 	}
 }
+
+
+
+

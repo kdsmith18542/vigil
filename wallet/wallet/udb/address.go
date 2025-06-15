@@ -6,8 +6,8 @@
 package udb
 
 import (
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
 )
 
 // ManagedAddress is an interface that provides acces to information regarding
@@ -234,3 +234,7 @@ func newScriptAddress(m *Manager, account uint32, scriptHash, redeemScript []byt
 		redeemScript: redeemScript,
 	}, nil
 }
+
+
+
+

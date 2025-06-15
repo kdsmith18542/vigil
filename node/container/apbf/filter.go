@@ -642,3 +642,7 @@ func NewFilter(minCapacity uint32, fpRate float64) *Filter {
 	l := nearOptimalL(k, fpRate)
 	return NewFilterKL(minCapacity, k, l)
 }
+
+
+
+

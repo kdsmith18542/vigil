@@ -12,13 +12,15 @@ import (
 	"path/filepath"
 	"runtime"
 	"runtime/debug"
+	"net/http"
 	"runtime/pprof"
 	"strings"
 
-	"github.com/kdsmith18542/vigil/internal/blockchain"
-	"github.com/kdsmith18542/vigil/internal/blockchain/indexers"
-	"github.com/kdsmith18542/vigil/internal/limits"
-	"github.com/kdsmith18542/vigil/internal/version"
+	"github.com/Vigil-Labs/vgl/internal/blockchain"
+	"github.com/Vigil-Labs/vgl/internal/blockchain/indexers"
+	"github.com/Vigil-Labs/vgl/internal/limits"
+	"github.com/Vigil-Labs/vgl/internal/version"
+	"github.com/Vigil-Labs/vgl/node/api_server"
 )
 
 var cfg *config
@@ -242,6 +244,18 @@ func vgldMain() error {
 		return nil
 	}
 
+	// Create and start the API server.
+	apiServer := api_server.NewAPIServer(svr.RPCServer())
+	apiServer.RegisterAPIRoutes()
+	go func() {
+		listenAddr := "127.0.0.1:8080" // You can make this configurable
+		vgldLog.Infof("API server listening on %s", listenAddr)
+		err := http.ListenAndServe(listenAddr, nil)
+		if err != nil && err != http.ErrServerClosed {
+			vgldLog.Errorf("API server failed: %v", err)
+		}
+	}()
+
 	lifetimeNotifier.notifyStartupComplete()
 	defer lifetimeNotifier.notifyShutdownEvent(lifetimeEventP2PServer)
 
@@ -283,3 +297,7 @@ func main() {
 		os.Exit(1)
 	}
 }
+
+
+
+

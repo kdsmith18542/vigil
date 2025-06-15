@@ -11,10 +11,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/database/v3"
-	_ "github.com/kdsmith18542/vigil/database/v3/ffldb"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/database"
+	_ "github.com/Vigil-Labs/vgl/database/ffldb"
+	"github.com/Vigil-Labs/vgl/VGLutil"
 )
 
 var (
@@ -96,3 +96,7 @@ func setupGlobalConfig() error {
 
 	return nil
 }
+
+
+
+

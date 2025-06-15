@@ -9,7 +9,7 @@ import (
 	"hash"
 	"io"
 
-	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 const (
@@ -312,3 +312,7 @@ func NewMsgMixSlotReserve(identity [33]byte, sid [32]byte, run uint32,
 		SeenCiphertexts: seenCTs,
 	}
 }
+
+
+
+

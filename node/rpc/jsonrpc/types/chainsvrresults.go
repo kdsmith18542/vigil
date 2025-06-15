@@ -7,6 +7,18 @@ package types
 
 import "encoding/json"
 
+// GetStakingInfoResult models the data returned from the getstakinginfo command.
+type GetStakingInfoResult struct {
+	TotalStaked      uint64 `json:"totalstaked"`
+	TicketsInMempool uint32 `json:"ticketsinmempool"`
+	TicketsLive      uint32 `json:"ticketslive"`
+	TicketsMissed    uint32 `json:"ticketsmissed"`
+	TicketsExpired   uint32 `json:"ticketsexpired"`
+	TicketsRevoked   uint32 `json:"ticketsrevoked"`
+	SecurityScore    uint32 `json:"securityscore"`
+	ProjectedROI     float64 `json:"projectedroi"`
+}
+
 // TxRawDecodeResult models the data from the decoderawtransaction command.
 type TxRawDecodeResult struct {
 	Txid     string `json:"txid"`
@@ -721,3 +733,7 @@ type Vout struct {
 	Version      uint16             `json:"version"`
 	ScriptPubKey ScriptPubKeyResult `json:"scriptPubKey"`
 }
+
+
+
+

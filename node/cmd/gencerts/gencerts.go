@@ -22,7 +22,7 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/Vigil-Labs/vgl/crypto/rand"
 	flags "github.com/jessevdk/go-flags"
 	"golang.org/x/net/idna"
 )
@@ -361,3 +361,7 @@ func marshalPrivateKey(key interface{}) ([]byte, error) {
 	}
 	return buf.Bytes(), nil
 }
+
+
+
+

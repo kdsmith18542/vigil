@@ -508,3 +508,7 @@ func TestTxOutCompressionErrors(t *testing.T) {
 			"errDeserialize", err)
 	}
 }
+
+
+
+

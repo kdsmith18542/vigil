@@ -9,7 +9,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
 )
 
 // TestEncodeUtxoFlags validates that the correct bit representation is returned
@@ -315,3 +315,7 @@ func TestUtxoEntry(t *testing.T) {
 		}
 	}
 }
+
+
+
+

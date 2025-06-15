@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // NetAddress defines information about a peer on the network.
@@ -184,3 +184,7 @@ func NewNetAddressFromIPPort(ip net.IP, port uint16, services wire.ServiceFlag) 
 		Timestamp: timestamp,
 	}
 }
+
+
+
+

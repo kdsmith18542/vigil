@@ -11,9 +11,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/kdsmith18542/vigil/database/v3"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/internal/blockchain/progresslog"
+	"github.com/Vigil-Labs/vgl/database"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/internal/blockchain/progresslog"
 )
 
 // IndexNtfnType represents an index notification type.
@@ -418,3 +418,7 @@ func (s *IndexSubscriber) Run(ctx context.Context) {
 	wg.Wait()
 	log.Tracef("Index subscriber stopped")
 }
+
+
+
+

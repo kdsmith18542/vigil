@@ -23,7 +23,7 @@ import (
 	"math/big"
 	"os"
 
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
 )
 
 // curveParams houses the secp256k1 curve parameters for convenient access.
@@ -394,3 +394,7 @@ func main() {
 	fmt.Println("Alternatively, the following parameters are valid as well:")
 	printParams(&endoParams[1])
 }
+
+
+
+

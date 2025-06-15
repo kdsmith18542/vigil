@@ -64,3 +64,7 @@ func (msg *MsgGetCFTypes) MaxPayloadLength(pver uint32) uint32 {
 func NewMsgGetCFTypes() *MsgGetCFTypes {
 	return &MsgGetCFTypes{}
 }
+
+
+
+

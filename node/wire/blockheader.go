@@ -11,8 +11,8 @@ import (
 	"io"
 	"time"
 
-	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil-Labs/vgl/node/kawpow"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/kawpow"
 	"lukechampine.com/blake3"
 )
 
@@ -21,9 +21,9 @@ import (
 // bytes + VoteBits 2 bytes + FinalState 6 bytes + Voters 2 bytes + FreshStake 1
 // byte + Revocations 1 bytes + PoolSize 4 bytes + Bits 4 bytes + SBits 8 bytes
 // + Height 4 bytes + Size 4 bytes + Timestamp 4 bytes + Nonce 8 bytes +
-// ExtraData 32 bytes + StakeVersion 4 bytes + MixHash 32 bytes
-// --> Total 220 bytes.
-const MaxBlockHeaderPayload = 84 + (chainhash.HashSize * 5) + 8 // 244 bytes
+// ExtraData 32 bytes + StakeVersion 4 bytes + MixHash 32 bytes + FinalHash 32 bytes
+// --> Total 252 bytes.
+const MaxBlockHeaderPayload = 84 + (chainhash.HashSize * 5) + 8 // 252 bytes
 
 // BlockHeader defines information about a block and is used in the Vigil
 // block (MsgBlock) and headers (MsgHeaders) messages.
@@ -86,87 +86,31 @@ type BlockHeader struct {
 
 	// MixHash is the mix hash used by the KawPoW algorithm.
 	MixHash chainhash.Hash
-
-	// FinalHash is the final hash used by the KawPoW algorithm.
 	FinalHash chainhash.Hash
+
+
 }
 
 // blockHeaderLen is a constant that represents the number of bytes for a block
 // header.
-const blockHeaderLen = 244 // Updated for KawPoW with FinalHash
+const blockHeaderLen = 252 // Updated for KawPoW with FinalHash
 
 // BlockHash computes the block identifier hash for the given block header.
 func (h *BlockHeader) BlockHash() chainhash.Hash {
-	// Encode the header and hash everything prior to the number of
-	// transactions.  Ignore the error returns since there is no way the encode
-	// could fail except being out of memory which would cause a run-time panic.
-	buf := bytes.NewBuffer(make([]byte, 0, MaxBlockHeaderPayload))
-	_ = writeBlockHeader(buf, 0, h)
-
-	return chainhash.HashH(buf.Bytes())
+	return h.FinalHash
 }
 
-// PowHashV1 calculates and returns the version 1 proof of work hash for the
-// block header.
-//
-// NOTE: This is the original proof of work hash function used at Vigil launch
-// and applies to all blocks prior to the activation of VGLP0011.
-func (h *BlockHeader) PowHashV1() chainhash.Hash {
-	return h.BlockHash()
-}
-
-// PowHashV2 calculates and returns the version 2 proof of work hash as defined
-// in VGLP0011 for the block header.
-func (h *BlockHeader) PowHashV2() chainhash.Hash {
-	// Encode the header and hash everything prior to the number of
-	// transactions.  Ignore the error returns since there is no way the encode
-	// could fail except being out of memory which would cause a run-time panic.
+// BlockHashBlake3 computes the Blake3 hash of the block header.
+func (h *BlockHeader) BlockHashBlake3() chainhash.Hash {
 	buf := bytes.NewBuffer(make([]byte, 0, MaxBlockHeaderPayload))
 	_ = writeBlockHeader(buf, 0, h)
-
 	return blake3.Sum256(buf.Bytes())
 }
 
-// PowHashKawPow calculates and returns the KawPoW proof of work hash for the
-// block header. It returns the mix hash and the final hash.
-func (h *BlockHeader) PowHashKawPow() (chainhash.Hash, chainhash.Hash, error) {
-	// Encode the header for hashing (excluding MixHash and FinalHash)
-	buf := bytes.NewBuffer(make([]byte, 0, MaxBlockHeaderPayload-64)) // Subtract 64 bytes for MixHash and FinalHash
-	err := writeElements(buf, h.Version, &h.PrevBlock, &h.MerkleRoot,
-		&h.StakeRoot, h.VoteBits, h.FinalState, h.Voters, h.FreshStake,
-		h.Revocations, h.PoolSize, h.Bits, h.SBits, h.Height, h.Size,
-		uint32(h.Timestamp.Unix()), h.Nonce, &h.ExtraData, h.StakeVersion)
-	if err != nil {
-		return chainhash.Hash{}, chainhash.Hash{}, err
-	}
-
-	// Calculate the epoch from block height
-	epoch := uint64(h.Height) / 30000 // KawPoW epoch length is 30000 blocks
-
-	// Get or generate the DAG for this epoch
-	dag := kawpow.NewDAG(epoch)
-	err = dag.Generate()
-	if err != nil {
-		return chainhash.Hash{}, chainhash.Hash{}, err
-	}
-
-	// Create header hash from the encoded data
-	headerHash := kawpow.Keccak256(buf.Bytes())
-	var headerHashFixed kawpow.Hash
-	copy(headerHashFixed[:], headerHash)
-
-	// Calculate KawPoW hash
-	finalHashBytes, mixHashBytes, err := kawpow.KawPowHash(headerHashFixed, h.Nonce, int64(h.Height), dag)
-	if err != nil {
-		return chainhash.Hash{}, chainhash.Hash{}, err
-	}
-
-	// Convert byte slices to chainhash.Hash
-	var mixHash, finalHash chainhash.Hash
-	copy(mixHash[:], mixHashBytes)
-	copy(finalHash[:], finalHashBytes)
-
-	return mixHash, finalHash, nil
+// PowHashKawPow returns the KawPoW proof of work hash for the block header.
+// It returns the mix hash and the final hash.
+func (h *BlockHeader) PowHashKawPow() (chainhash.Hash, chainhash.Hash) {
+	return h.MixHash, h.FinalHash
 }
 
 // BtcDecode decodes r using the Vigil protocol encoding into the receiver.
@@ -229,7 +173,7 @@ func NewBlockHeader(version int32, prevHash *chainhash.Hash,
 	merkleRootHash *chainhash.Hash, stakeRoot *chainhash.Hash, voteBits uint16,
 	finalState [6]byte, voters uint16, freshStake uint8, revocations uint8,
 	poolsize uint32, bits uint32, sbits int64, height uint32, size uint32,
-	nonce uint64, extraData [32]byte, stakeVersion uint32) *BlockHeader {
+	nonce uint64, extraData [32]byte, stakeVersion uint32, mixHash *chainhash.Hash, finalHash *chainhash.Hash) *BlockHeader {
 
 	// Limit the timestamp to one second precision since the protocol
 	// doesn't support better.
@@ -248,10 +192,10 @@ func NewBlockHeader(version int32, prevHash *chainhash.Hash,
 		SBits:       sbits,
 		Height:      height,
 		Size:        size,
+		MixHash:     *mixHash,
+		FinalHash:   *finalHash,
 		Timestamp:   time.Unix(time.Now().Unix(), 0),
 		Nonce:       nonce,
-		MixHash:     chainhash.Hash{},
-		FinalHash:   chainhash.Hash{},
 		ExtraData:   extraData,
 		StakeVersion: stakeVersion,
 	}
@@ -305,3 +249,7 @@ func writeBlockHeader(w io.Writer, pver uint32, bh *BlockHeader) error {
 	// Write MixHash, FinalHash and remaining fields
 	return writeElements(w, &bh.MixHash, &bh.FinalHash, bh.ExtraData, bh.StakeVersion)
 }
+
+
+
+

@@ -70,3 +70,7 @@ func BenchmarkMillionA(b *testing.B) {
 		millionA()
 	}
 }
+
+
+
+

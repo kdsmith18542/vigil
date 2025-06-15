@@ -10,7 +10,7 @@ import (
 )
 
 // Sha512VersionStringRFC6979 is the RFC6979 nonce version for a Schnorr signature
-// over the Curve25519 curve using BLAKE256 as the hash function.
+// over the Curve25519 curve using Keccak256 as the hash function.
 var Sha512VersionStringRFC6979 = []byte("Edwards+SHA512  ")
 
 // combinePubkeys combines a slice of public keys into a single public key
@@ -194,3 +194,7 @@ func schnorrCombinePartialSigs(sigs []*Signature) (*Signature, error) {
 
 	return NewSignature(sigs[0].R, combinedSigS), nil
 }
+
+
+
+

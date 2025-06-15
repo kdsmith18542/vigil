@@ -19,3 +19,7 @@ func GenerateSharedSecret(privkey *PrivateKey, pubkey *PublicKey) []byte {
 	xBytes := result.X.Bytes()
 	return xBytes[:]
 }
+
+
+
+

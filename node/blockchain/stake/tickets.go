@@ -7,12 +7,12 @@ package stake
 import (
 	"fmt"
 
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5/internal/dbnamespace"
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5/internal/ticketdb"
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5/internal/tickettreap"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/database/v3"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/stake/internal/dbnamespace"
+	"github.com/Vigil-Labs/vgl/blockchain/stake/internal/ticketdb"
+	"github.com/Vigil-Labs/vgl/blockchain/stake/internal/tickettreap"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/database"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // UndoTicketDataSlice is a pass through for ticketdb's UndoTicketData, which is
@@ -1149,3 +1149,7 @@ func WriteDisconnectedBestNode(dbTx database.Tx, node *Node, hash chainhash.Hash
 		NextWinners: nextWinners,
 	})
 }
+
+
+
+

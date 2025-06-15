@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/kdsmith18542/vigil/wire"
-	"github.com/kdsmith18542/vigil/slog"
+	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/Vigil-Labs/vgl/slog"
 )
 
 // pickNoun returns the singular or plural form of a noun depending on the
@@ -144,3 +144,7 @@ func (l *Logger) SetLastLogTime(time time.Time) {
 	l.lastLogTime = time
 	l.Unlock()
 }
+
+
+
+

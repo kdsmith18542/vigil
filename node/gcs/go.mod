@@ -1,4 +1,4 @@
-module github.com/kdsmith18542/vigil/gcs/v4
+module github.com/Vigil-Labs/vgl/gcs/v4
 
 go 1.17
 
@@ -7,7 +7,6 @@ require (
 	github.com/kdsmith18542/vigil/blockchain/stake/v5 v5.0.1
 	github.com/kdsmith18542/vigil/chaincfg/chainhash v1.0.4
 	github.com/kdsmith18542/vigil/chaincfg/v3 v3.2.1
-	github.com/kdsmith18542/vigil/crypto/blake256 v1.0.1
 	github.com/kdsmith18542/vigil/txscript/v4 v4.1.1
 	github.com/kdsmith18542/vigil/wire v1.7.0
 )
@@ -23,5 +22,4 @@ require (
 	github.com/kdsmith18542/vigil/dcrutil/v4 v4.0.2 // indirect
 	github.com/kdsmith18542/vigil/slog v1.2.0 // indirect
 	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
-	lukechampine.com/blake3 v1.3.0 // indirect
 )

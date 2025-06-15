@@ -126,3 +126,7 @@ func (s *parentStack) Push(node *treapNode) {
 	s.overflow[index] = node
 	s.index++
 }
+
+
+
+

@@ -69,3 +69,7 @@ func DeriveKey(password []byte, p *Argon2idParams, len uint32) []byte {
 	defer runtime.GC()
 	return argon2.IDKey(password, p.Salt[:], p.Time, p.Memory, p.Threads, len)
 }
+
+
+
+

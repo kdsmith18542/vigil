@@ -251,3 +251,7 @@ func TestScriptTokenizerUnsupportedVersion(t *testing.T) {
 		t.Fatalf("script tokenizer did not error with unsupported version")
 	}
 }
+
+
+
+

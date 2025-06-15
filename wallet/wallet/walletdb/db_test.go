@@ -10,9 +10,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	_ "github.com/kdsmith18542/vigil/wallet/wallet/internal/bdb"
-	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+_ "github.com/Vigil-Labs/vgl/wallet/wallet/internal/bdb"
+"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
 )
 
 // dbType is the database type name for this driver.
@@ -140,3 +140,7 @@ func TestInterface(t *testing.T) {
 	ctx := context.Background()
 	testInterface(ctx, t, db)
 }
+
+
+
+

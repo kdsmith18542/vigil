@@ -66,7 +66,7 @@ scheme:
   - Enforces even y coordinates for R to support efficient verification by
     disambiguating the two possible y coordinates
   - Canonically encodes by both components of the signature with 32-bytes each
-  - Uses BLAKE-256 with 14 rounds for the hash function to calculate challenge e
+  - Uses Keccak256 for the hash function to calculate challenge e
   - Uses RFC6979 to obviate the need for an entropy source at signing time
   - Produces deterministic signatures for a given message and private key pair
 
@@ -100,3 +100,7 @@ good goal is to work towards providing the additional infrastructure to increase
 their usage.
 */
 package schnorr
+
+
+
+

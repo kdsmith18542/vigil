@@ -5,7 +5,7 @@
 package fees
 
 import (
-	"github.com/kdsmith18542/vigil/slog"
+	"github.com/Vigil-Labs/vgl/slog"
 )
 
 // log is a logger that is initialized with no output filters.  This means the
@@ -19,3 +19,7 @@ var log = slog.Disabled
 func UseLogger(logger slog.Logger) {
 	log = logger
 }
+
+
+
+

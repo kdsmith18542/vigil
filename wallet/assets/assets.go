@@ -23,3 +23,7 @@ func init() {
 func Path(asset string) string {
 	return filepath.Join(basepath, asset)
 }
+
+
+
+

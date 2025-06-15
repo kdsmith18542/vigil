@@ -527,3 +527,7 @@ var baseVersionBIP0037Encoded = []byte{
 	0xfa, 0x92, 0x03, 0x00, // Last block
 	0x01, // Relay tx
 }
+
+
+
+

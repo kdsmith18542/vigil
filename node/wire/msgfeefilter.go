@@ -66,3 +66,7 @@ func NewMsgFeeFilter(minfee int64) *MsgFeeFilter {
 		MinFee: minfee,
 	}
 }
+
+
+
+

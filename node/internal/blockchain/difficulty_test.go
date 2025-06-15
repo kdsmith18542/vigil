@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // TestEstimateSupply ensures the supply estimation function used in the stake
@@ -1135,3 +1135,7 @@ func TestMinDifficultyReduction(t *testing.T) {
 		}
 	}
 }
+
+
+
+

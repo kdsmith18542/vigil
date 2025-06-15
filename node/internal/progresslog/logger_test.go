@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kdsmith18542/vigil/wire"
-	"github.com/kdsmith18542/vigil/slog"
+	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/Vigil-Labs/vgl/slog"
 )
 
 var (
@@ -226,3 +226,7 @@ func TestLogHeaderProgress(t *testing.T) {
 		}
 	}
 }
+
+
+
+

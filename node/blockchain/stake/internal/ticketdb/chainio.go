@@ -8,10 +8,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5/internal/dbnamespace"
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5/internal/tickettreap"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/Vigil-Labs/vgl/blockchain/stake/internal/dbnamespace"
+	"github.com/Vigil-Labs/vgl/blockchain/stake/internal/tickettreap"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/database"
 )
 
 const (
@@ -746,3 +746,7 @@ func DbCreate(dbTx database.Tx) error {
 	_, err = meta.CreateBucket(dbnamespace.TicketsInBlockBucketName)
 	return err
 }
+
+
+
+

@@ -9,11 +9,11 @@
 // Full documentation of the API implemented by this package is maintained in a
 // language-agnostic document:
 //
-//	https://github.com/kdsmith18542/vigilwallet/blob/master/rpc/documentation/api.md
+//	https://github.com/Vigil-Labs/vgl/blob/master/rpc/documentation/api.md
 //
 // Any API changes must be performed according to the steps listed here:
 //
-//	https://github.com/kdsmith18542/vigilwallet/blob/master/rpc/documentation/serverchanges.md
+//	https://github.com/Vigil-Labs/vgl/blob/master/rpc/documentation/serverchanges.md
 package rpcserver
 
 import (
@@ -30,33 +30,33 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/kdsmith18542/vigil/wallet/chain"
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/wallet/internal/cfgutil"
-	"github.com/kdsmith18542/vigil/wallet/internal/loader"
-	"github.com/kdsmith18542/vigil/wallet/internal/netparams"
-	"github.com/kdsmith18542/vigil/wallet/p2p"
-	pb "github.com/kdsmith18542/vigil/wallet/rpc/walletrpc"
-	"github.com/kdsmith18542/vigil/wallet/spv"
-	"github.com/kdsmith18542/vigil/wallet/ticketbuyer"
-	"github.com/kdsmith18542/vigil/wallet/wallet"
-	"github.com/kdsmith18542/vigil/wallet/wallet/txauthor"
-	"github.com/kdsmith18542/vigil/wallet/wallet/txrules"
-	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
-	"github.com/kdsmith18542/vigil/wallet/walletseed"
-	"github.com/kdsmith18542/vigil/addrmgr/v2"
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/crypto/rand"
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/gcs/v4"
-	"github.com/kdsmith18542/vigil/hdkeychain/v3"
-	"github.com/kdsmith18542/vigil/txscript/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/wallet/chain"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+	"github.com/Vigil-Labs/vgl/wallet/internal/cfgutil"
+	"github.com/Vigil-Labs/vgl/wallet/internal/loader"
+	"github.com/Vigil-Labs/vgl/wallet/internal/netparams"
+	"github.com/Vigil-Labs/vgl/wallet/p2p"
+	pb "github.com/Vigil-Labs/vgl/wallet/rpc/walletrpc"
+	"github.com/Vigil-Labs/vgl/wallet/spv"
+	"github.com/Vigil-Labs/vgl/wallet/ticketbuyer"
+	"github.com/Vigil-Labs/vgl/wallet/wallet"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/txauthor"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/txrules"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/udb"
+	"github.com/Vigil-Labs/vgl/wallet/walletseed"
+	"github.com/Vigil-Labs/vgl/addrmgr"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/crypto/rand"
+	"github.com/Vigil-Labs/vgl/dcrec/secp256k1"
+	"github.com/Vigil-Labs/vgl/dcrutil"
+	"github.com/Vigil-Labs/vgl/gcs"
+	"github.com/Vigil-Labs/vgl/hdkeychain"
+	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+	"github.com/Vigil-Labs/vgl/txscript/stdscript"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // Public API version constants
@@ -4298,3 +4298,7 @@ func (s *walletServer) DiscoverUsage(ctx context.Context, req *pb.DiscoverUsageR
 
 	return &pb.DiscoverUsageResponse{}, nil
 }
+
+
+
+

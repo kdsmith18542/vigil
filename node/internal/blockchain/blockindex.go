@@ -12,12 +12,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/database/v3"
-	"github.com/kdsmith18542/vigil/internal/staging/primitives"
-	"github.com/kdsmith18542/vigil/math/uint256"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/database"
+	"github.com/Vigil-Labs/vgl/internal/staging/primitives"
+	"github.com/Vigil-Labs/vgl/math/uint256"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // blockStatus is a bit field representing the validation state of the block.
@@ -1433,3 +1433,7 @@ func (bi *blockIndex) Flush() error {
 	bi.Unlock()
 	return nil
 }
+
+
+
+

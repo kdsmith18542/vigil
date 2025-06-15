@@ -12,7 +12,7 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // baseMsgGetCFsV2 returns a MsgGetCFsV2 struct populated with mock
@@ -244,3 +244,7 @@ func TestGetCFiltersV2WireErrors(t *testing.T) {
 		}
 	}
 }
+
+
+
+

@@ -11,10 +11,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/database/v3"
-	"github.com/kdsmith18542/vigil/internal/blockchain"
-	"github.com/kdsmith18542/vigil/internal/progresslog"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/database"
+	"github.com/Vigil-Labs/vgl/internal/blockchain"
+	"github.com/Vigil-Labs/vgl/internal/progresslog"
 )
 
 const (
@@ -249,3 +249,7 @@ func dumpBlockChain(params *chaincfg.Params, b *blockchain.BlockChain) error {
 
 	return nil
 }
+
+
+
+

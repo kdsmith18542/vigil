@@ -5,7 +5,7 @@
 package standalone
 
 import (
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // log2FloorMasks defines the masks to use when quickly calculating
@@ -205,3 +205,7 @@ func VerifyInclusionProof(root, leaf *chainhash.Hash, leafIndex uint32, proof []
 
 	return *root == intermediate
 }
+
+
+
+

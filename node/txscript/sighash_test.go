@@ -9,8 +9,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // TestVarIntSerializeSize ensures the serialize size for variable length
@@ -141,3 +141,7 @@ func TestCalcSignatureHash(t *testing.T) {
 			msg1, msg3)
 	}
 }
+
+
+
+

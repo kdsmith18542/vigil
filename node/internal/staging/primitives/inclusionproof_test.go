@@ -7,7 +7,7 @@ package primitives
 import (
 	"testing"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // TestGenerateInclusionProof ensures the expected proofs are produced for
@@ -399,3 +399,7 @@ nextTest:
 		}
 	}
 }
+
+
+
+

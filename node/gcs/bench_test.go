@@ -8,7 +8,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 var (
@@ -159,3 +159,7 @@ func BenchmarkHash(b *testing.B) {
 		globalHashResult = filter.Hash()
 	}
 }
+
+
+
+

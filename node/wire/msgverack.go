@@ -45,3 +45,7 @@ func (msg *MsgVerAck) MaxPayloadLength(pver uint32) uint32 {
 func NewMsgVerAck() *MsgVerAck {
 	return &MsgVerAck{}
 }
+
+
+
+

@@ -15,7 +15,7 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // mainNetGenesisHash is the hash of the first block in the block chain for the
@@ -963,3 +963,7 @@ func expectedSerializationEqual(t *testing.T, got, expected []byte) bool {
 	}
 	return false
 }
+
+
+
+

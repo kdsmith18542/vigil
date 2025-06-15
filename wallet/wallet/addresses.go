@@ -9,16 +9,16 @@ import (
 	"encoding/binary"
 	"runtime/trace"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/wallet/internal/compat"
-	"github.com/kdsmith18542/vigil/wallet/wallet/txsizes"
-	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
-	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/hdkeychain/v3"
-	"github.com/kdsmith18542/vigil/txscript/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+	"github.com/Vigil-Labs/vgl/wallet/internal/compat"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/txsizes"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/udb"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/hdkeychain"
+	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
 )
 
 // AccountKind describes the purpose and type of a wallet account.
@@ -1012,3 +1012,7 @@ func deriveBranches(acctXpub *hdkeychain.ExtendedKey) (extKey, intKey *hdkeychai
 	intKey, err = acctXpub.Child(udb.InternalBranch)
 	return
 }
+
+
+
+

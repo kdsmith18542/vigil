@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // AssertError identifies an error that indicates an internal code consistency
@@ -851,3 +851,7 @@ func (e MultiError) As(target interface{}) bool {
 	}
 	return false
 }
+
+
+
+

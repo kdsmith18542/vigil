@@ -187,3 +187,7 @@ func (b *bitReader) readNBits(n uint) (uint64, error) {
 
 	return value, nil
 }
+
+
+
+

@@ -1,0 +1,208 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigil (VGL) Mining Pool | UI Demonstration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Using the exact same "Forged Core" styles as the website for consistency */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #212121; /* Warm Dark Gray background */
+            color: #E0E0E0;
+        }
+
+        .glow-text-gold {
+            text-shadow: 0 0 5px rgba(255, 191, 0, 0.7), 0 0 10px rgba(255, 191, 0, 0.5);
+        }
+        
+        .glass-panel {
+            background: rgba(45, 45, 45, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Custom table styles */
+        .table-custom tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .table-custom tr:last-child {
+            border-bottom: none;
+        }
+        .table-custom td, .table-custom th {
+            padding: 1rem;
+        }
+        .table-custom a {
+            color: #FFBF00;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .table-custom a:hover {
+            color: #fcd34d;
+        }
+
+        /* Animation for the chart line */
+        @keyframes draw {
+            to { stroke-dashoffset: 0; }
+        }
+        .chart-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 3s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Navigation (Consistent with main site) -->
+    <header class="sticky top-0 left-0 right-0 z-50 glass-panel">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path d="M 10,10 L 50,90 L 90,10" fill="none" stroke="#F5F5F5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M 50,60 L 65,30 L 35,30 Z" fill="#FFBF00" />
+                    </g>
+                </svg>
+                <div class="text-2xl font-black tracking-wider text-white">
+                    VIGIL <span class="text-sm font-light text-gray-400">Pool</span>
+                </div>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#" class="hover:text-amber-400 transition-colors">Main Site</a>
+                <a href="#" class="hover:text-amber-400 transition-colors">Explorer</a>
+                <a href="#" class="hover:text-amber-400 transition-colors">Wallet</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-6 mt-8">
+        
+        <!-- Pool Stats Overview -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-8">
+            <div class="glass-panel p-4 rounded-lg">
+                <p class="text-sm text-gray-400 uppercase">Pool Hashrate</p>
+                <p class="text-xl font-bold text-amber-400 glow-text-gold">12.84 GH/s</p>
+            </div>
+            <div class="glass-panel p-4 rounded-lg">
+                <p class="text-sm text-gray-400 uppercase">Active Miners</p>
+                <p class="text-xl font-bold">1,421</p>
+            </div>
+            <div class="glass-panel p-4 rounded-lg">
+                <p class="text-sm text-gray-400 uppercase">Blocks Found</p>
+                <p class="text-xl font-bold">2,108</p>
+            </div>
+            <div class="glass-panel p-4 rounded-lg">
+                <p class="text-sm text-gray-400 uppercase">Payout Scheme</p>
+                <p class="text-xl font-bold">PPLNS</p>
+            </div>
+        </div>
+        
+        <!-- Search and Hashrate Chart -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+            <div class="lg:col-span-1">
+                <h2 class="text-2xl font-bold mb-4">Miner Stats</h2>
+                <div class="glass-panel rounded-xl p-6">
+                    <p class="text-gray-400 mb-2">Enter your vigilwallet address to check your mining stats.</p>
+                     <div class="relative">
+                        <input type="text" placeholder="VGL..." class="w-full bg-gray-800 border-2 border-gray-700 rounded-lg py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 transition-colors">
+                        <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-amber-500 text-black font-bold p-2 rounded-md hover:bg-amber-400">
+                            Lookup
+                        </button>
+                    </div>
+                    <div class="mt-6">
+                         <h3 class="font-bold text-lg mb-2">Connection Info</h3>
+                         <p class="font-mono text-sm bg-gray-900 p-3 rounded-md">stratum+tcp://pool.govgl.com:3333</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-2">
+                 <h2 class="text-2xl font-bold mb-4">Pool Hashrate (24h)</h2>
+                 <div class="glass-panel rounded-xl p-4">
+                     <svg viewBox="0 0 500 150" class="w-full h-full">
+                        <defs>
+                            <linearGradient id="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+                                <stop offset="0%" stop-color="#FFBF00" stop-opacity="0.4"/>
+                                <stop offset="100%" stop-color="#FFBF00" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Grid lines -->
+                        <line x1="0" y1="30" x2="500" y2="30" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                        <line x1="0" y1="90" x2="500" y2="90" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                        <!-- Chart path -->
+                        <path d="M 0 80 L 50 70 L 100 90 L 150 85 L 200 100 L 250 95 L 300 75 L 350 60 L 400 80 L 450 75 L 500 90" fill="url(#chart-gradient)" />
+                        <path d="M 0 80 L 50 70 L 100 90 L 150 85 L 200 100 L 250 95 L 300 75 L 350 60 L 400 80 L 450 75 L 500 90" fill="none" stroke="#FFBF00" stroke-width="2" class="chart-line"/>
+                     </svg>
+                 </div>
+            </div>
+        </div>
+
+
+        <!-- Blocks Found Table -->
+        <div>
+            <h2 class="text-2xl font-bold mb-4">Blocks Found by Pool</h2>
+            <div class="glass-panel rounded-xl overflow-hidden">
+                <table class="w-full text-left table-custom">
+                    <thead class="bg-gray-800/50 text-gray-400 uppercase text-xs">
+                        <tr>
+                            <th>Height</th>
+                            <th>Timestamp</th>
+                            <th>Reward</th>
+                            <th>Difficulty</th>
+                            <th class="text-right">Txns</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Mock Data Rows -->
+                        <tr>
+                            <td><a href="#">105,432</a></td>
+                            <td>3 minutes ago</td>
+                            <td class="font-mono">10.00 VGL</td>
+                            <td class="font-mono">8.71 K</td>
+                            <td class="text-right">15</td>
+                        </tr>
+                        <tr>
+                           <td><a href="#">105,429</a></td>
+                            <td>9 minutes ago</td>
+                            <td class="font-mono">10.00 VGL</td>
+                            <td class="font-mono">8.71 K</td>
+                            <td class="text-right">32</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">105,425</a></td>
+                            <td>18 minutes ago</td>
+                            <td class="font-mono">10.00 VGL</td>
+                            <td class="font-mono">8.69 K</td>
+                            <td class="text-right">25</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">105,422</a></td>
+                            <td>25 minutes ago</td>
+                            <td class="font-mono">10.00 VGL</td>
+                            <td class="font-mono">8.68 K</td>
+                            <td class="text-right">19</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">105,419</a></td>
+                            <td>33 minutes ago</td>
+                            <td class="font-mono">10.00 VGL</td>
+                            <td class="font-mono">8.68 K</td>
+                            <td class="text-right">28</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer class="text-center text-gray-500 text-sm mt-12">
+            <p>&copy; 2024 Vigil. All rights reserved.</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

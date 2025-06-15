@@ -6,9 +6,9 @@
 package spv
 
 import (
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/Vigil-Labs/vgl/txscript/stdscript"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // rescanCheckTransaction is a helper function to rescan both stake and regular
@@ -113,3 +113,7 @@ Txs:
 
 	return matches
 }
+
+
+
+

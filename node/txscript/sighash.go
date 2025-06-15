@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // SigHashType represents hash type bits at the end of a signature.
@@ -456,3 +456,7 @@ func CalcSignatureHash(script []byte, hashType SigHashType, tx *wire.MsgTx, idx 
 
 	return calcSignatureHash(script, hashType, tx, idx, cachedPrefix)
 }
+
+
+
+

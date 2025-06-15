@@ -10,8 +10,8 @@ import (
 	"errors"
 	"time"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/database"
 )
 
 // fetchBlockCmd defines the configuration options for the fetchblock command.
@@ -61,3 +61,7 @@ func (cmd *fetchBlockCmd) Execute(args []string) error {
 func (cmd *fetchBlockCmd) Usage() string {
 	return "<block-hash>"
 }
+
+
+
+

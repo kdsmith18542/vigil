@@ -19,7 +19,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/kdsmith18542/vigil/slog"
+	"github.com/Vigil-Labs/vgl/slog"
 	"google.golang.org/grpc/grpclog"
 )
 
@@ -79,3 +79,7 @@ func (l logger) Printf(format string, args ...any) {
 func (l logger) Println(args ...any) {
 	l.Info(stripGrpcPrefixArgs(args)...)
 }
+
+
+
+

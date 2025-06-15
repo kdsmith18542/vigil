@@ -3185,3 +3185,7 @@ var RegNetSubsidyDefinition = []TokenPayout{
 	mustPayout("76a91402fb1ac0137666d79165e13cecd403883615270788ac", 100000*1e8),
 	mustPayout("76a91469de627d3231b14228653dd09cba75eeb872754288ac", 100000*1e8),
 }
+
+
+
+

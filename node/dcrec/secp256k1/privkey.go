@@ -109,3 +109,7 @@ func (p PrivateKey) Serialize() []byte {
 	p.Key.PutBytes(&privKeyBytes)
 	return privKeyBytes[:]
 }
+
+
+
+

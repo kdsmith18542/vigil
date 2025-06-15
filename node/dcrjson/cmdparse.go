@@ -550,3 +550,7 @@ func NewCmd(method interface{}, args ...interface{}) (interface{}, error) {
 
 	return rvp.Interface(), nil
 }
+
+
+
+

@@ -10,8 +10,8 @@ import (
 	"net"
 	"time"
 
-	"github.com/kdsmith18542/vigil/peer/v3"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/peer"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // mockRemotePeer creates a basic inbound peer listening on the simnet port for
@@ -108,3 +108,7 @@ func Example_newOutboundPeer() {
 	// Output:
 	// outbound: received version
 }
+
+
+
+

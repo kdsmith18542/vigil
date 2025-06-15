@@ -161,3 +161,7 @@ func (tx *levelDbUtxoBackendTx) NewIterator(prefix []byte) UtxoBackendIterator {
 	}
 	return tx.Transaction.NewIterator(slice, nil)
 }
+
+
+
+

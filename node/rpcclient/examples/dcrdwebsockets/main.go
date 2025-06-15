@@ -12,8 +12,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/rpcclient/v8"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/rpcclient"
 )
 
 func main() {
@@ -76,3 +76,7 @@ func main() {
 	// terminates the process with Ctrl+C).
 	client.WaitForShutdown()
 }
+
+
+
+

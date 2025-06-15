@@ -19,14 +19,14 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/container/lru"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/container/lru"
 	
-	"github.com/kdsmith18542/vigil/crypto/rand"
-	"github.com/kdsmith18542/vigil/kawpow"
-	"github.com/kdsmith18542/vigil/wire"
-	"github.com/kdsmith18542/vigil/go-socks/socks"
-	"github.com/kdsmith18542/vigil/slog"
+	"github.com/Vigil-Labs/vgl/crypto/rand"
+	"github.com/Vigil-Labs/vgl/kawpow"
+	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/Vigil-Labs/vgl/go-socks/socks"
+	"github.com/Vigil-Labs/vgl/slog"
 )
 
 const (
@@ -2278,3 +2278,7 @@ func NewOutboundPeer(cfg *Config, addr string) (*Peer, error) {
 
 	return p, nil
 }
+
+
+
+

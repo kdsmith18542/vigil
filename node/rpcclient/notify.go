@@ -13,11 +13,11 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	chainjson "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	chainjson "github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 var (
@@ -1019,3 +1019,7 @@ func (c *Client) LoadTxFilterAsync(ctx context.Context, reload bool, addresses [
 func (c *Client) LoadTxFilter(ctx context.Context, reload bool, addresses []stdaddr.Address, outPoints []wire.OutPoint) error {
 	return c.LoadTxFilterAsync(ctx, reload, addresses, outPoints).Receive()
 }
+
+
+
+

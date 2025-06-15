@@ -59,3 +59,7 @@ func GenerateBoolArray16(flags uint16) BoolArray16 {
 
 	return ba
 }
+
+
+
+

@@ -9,7 +9,7 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
 )
 
 // hexToModNScalar converts the passed hex string into a ModNScalar and will
@@ -79,7 +79,7 @@ func BenchmarkSign(b *testing.B) {
 	d := hexToModNScalar("9e0699c91ca1e3b7e3c9ba71eb71c89890872be97576010fe593fbf3fd57e66d")
 	privKey := secp256k1.NewPrivateKey(d)
 
-	// blake256 of []byte{0x01, 0x02, 0x03, 0x04}.
+	// Keccak256 of []byte{0x01, 0x02, 0x03, 0x04}.
 	msgHash := hexToBytes("c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7")
 
 	b.ReportAllocs()
@@ -117,7 +117,7 @@ func BenchmarkNonceRFC6979(b *testing.B) {
 	privKeyStr := "9e0699c91ca1e3b7e3c9ba71eb71c89890872be97576010fe593fbf3fd57e66d"
 	privKey := hexToBytes(privKeyStr)
 
-	// BLAKE-256 of []byte{0x01, 0x02, 0x03, 0x04}.
+	// Keccak256 of []byte{0x01, 0x02, 0x03, 0x04}.
 	msgHash := hexToBytes("c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7")
 
 	b.ReportAllocs()
@@ -135,7 +135,7 @@ func BenchmarkSignCompact(b *testing.B) {
 	d := hexToModNScalar("9e0699c91ca1e3b7e3c9ba71eb71c89890872be97576010fe593fbf3fd57e66d")
 	privKey := secp256k1.NewPrivateKey(d)
 
-	// blake256 of []byte{0x01, 0x02, 0x03, 0x04}.
+	// Keccak256 of []byte{0x01, 0x02, 0x03, 0x04}.
 	msgHash := hexToBytes("c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7")
 
 	b.ReportAllocs()
@@ -158,7 +158,7 @@ func BenchmarkRecoverCompact(b *testing.B) {
 		"93c59bf1fbfa2f9d3b76ecd0c99406f61a6de2bb5a8937c061c176ecf381d0231e0d" +
 		"af73b922c8952c7")
 
-	// blake256 of []byte{0x01, 0x02, 0x03, 0x04}.
+	// Keccak256 of []byte{0x01, 0x02, 0x03, 0x04}.
 	msgHash := hexToBytes("c301ba9de5d6053caad9f5eb46523f007702add2c62fa39de03146a36b8026b7")
 
 	// Ensure a valid compact signature is being benchmarked.
@@ -179,3 +179,7 @@ func BenchmarkRecoverCompact(b *testing.B) {
 		_, _, _ = RecoverCompact(compactSig, msgHash)
 	}
 }
+
+
+
+

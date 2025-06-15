@@ -8,8 +8,8 @@ package blockchain
 import (
 	"fmt"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/VGLutil"
 )
 
 // NotificationType represents the type of a notification message.
@@ -190,3 +190,7 @@ func (b *BlockChain) sendNotification(typ NotificationType, data interface{}) {
 	n := Notification{Type: typ, Data: data}
 	b.notifications(&n)
 }
+
+
+
+

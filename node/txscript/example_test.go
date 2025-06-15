@@ -8,8 +8,8 @@ package txscript_test
 import (
 	"fmt"
 
-	"github.com/kdsmith18542/vigil/txscript/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
+	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
 )
 
 // This example demonstrates creating a script tokenizer instance and using it
@@ -42,3 +42,7 @@ func ExampleScriptTokenizer() {
 	// Output:
 	// script contains 5 opcode(s)
 }
+
+
+
+

@@ -7,9 +7,9 @@ package udb
 import (
 	"context"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
+"github.com/Vigil-Labs/vgl/chaincfg"
 )
 
 // Open opens the database and returns various "manager" types that must be used
@@ -52,3 +52,7 @@ func Open(ctx context.Context, db walletdb.DB, params *chaincfg.Params, pubPass 
 	})
 	return
 }
+
+
+
+

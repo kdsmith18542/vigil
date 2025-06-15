@@ -10,8 +10,8 @@ import (
 	"encoding/binary"
 	"runtime/debug"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+"github.com/Vigil-Labs/vgl/crypto/rand"
 	"golang.org/x/crypto/nacl/secretbox"
 	"golang.org/x/crypto/scrypt"
 )
@@ -247,3 +247,7 @@ func NewSecretKey(password *[]byte, N, r, p int) (*SecretKey, error) {
 
 	return &sk, nil
 }
+
+
+
+

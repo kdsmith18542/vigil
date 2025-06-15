@@ -7,7 +7,7 @@ package mixclient
 import (
 	"errors"
 
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 var errExceedsStandardSize = errors.New("tx size would exceed standardness rules")
@@ -94,3 +94,7 @@ func (c *coinjoinSize) join(contributedInputs, mcount int, change *wire.TxOut) e
 
 	return nil
 }
+
+
+
+

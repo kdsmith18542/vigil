@@ -17,15 +17,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/wallet/rpc/client/vgld"
-	"github.com/kdsmith18542/vigil/wallet/validate"
-	"github.com/kdsmith18542/vigil/wallet/wallet"
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/crypto/blake256"
-	"github.com/kdsmith18542/vigil/mixing/mixpool"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+	"github.com/Vigil-Labs/vgl/wallet/rpc/client/vgld"
+	"github.com/Vigil-Labs/vgl/wallet/validate"
+	"github.com/Vigil-Labs/vgl/wallet/wallet"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/crypto/blake256"
+	"github.com/Vigil-Labs/vgl/mixing/mixpool"
+	"github.com/Vigil-Labs/vgl/wire"
 	"github.com/jrick/wsrpc/v2"
 	"golang.org/x/sync/errgroup"
 )
@@ -976,3 +976,7 @@ func (s *Syncer) mixMessage(ctx context.Context, params json.RawMessage) error {
 
 	return err
 }
+
+
+
+

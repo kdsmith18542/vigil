@@ -26,9 +26,9 @@ import (
 
 	"github.com/gorilla/websocket"
 
-	"github.com/kdsmith18542/vigil/VGLjson/v4"
-	chainjson "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
-	"github.com/kdsmith18542/vigil/go-socks/socks"
+	"github.com/Vigil-Labs/vgl/VGLjson"
+	chainjson "github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
+	"github.com/Vigil-Labs/vgl/go-socks/socks"
 )
 
 var (
@@ -1427,3 +1427,7 @@ func (c *Client) Connect(ctx context.Context, retry bool) error {
 		return nil
 	}
 }
+
+
+
+

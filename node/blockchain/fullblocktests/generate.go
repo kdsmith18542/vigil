@@ -13,16 +13,16 @@ import (
 	"math"
 	"time"
 
-	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/crypto/rand"
-	"github.com/kdsmith18542/vigil/VGLec"
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4/sign"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/chaingen"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/crypto/rand"
+	"github.com/Vigil-Labs/vgl/VGLec"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/Vigil-Labs/vgl/txscript/sign"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 const (
@@ -3058,3 +3058,7 @@ func Generate(includeLargeReorg bool) (tests [][]TestInstance, err error) {
 
 	return tests, nil
 }
+
+
+
+

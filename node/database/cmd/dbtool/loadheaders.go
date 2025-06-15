@@ -8,8 +8,8 @@ package main
 import (
 	"time"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/database"
 )
 
 // headersCmd defines the configuration options for the loadheaders command.
@@ -90,3 +90,7 @@ func (cmd *headersCmd) Execute(args []string) error {
 		return nil
 	})
 }
+
+
+
+

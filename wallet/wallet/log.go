@@ -5,7 +5,7 @@
 
 package wallet
 
-import "github.com/kdsmith18542/vigil/slog"
+import "github.com/Vigil-Labs/vgl/slog"
 
 // log is a logger that is initialized with no output filters.  This
 // means the package will not perform any logging by default until the caller
@@ -36,3 +36,7 @@ func (infoLogger) Print(args ...any)                 { log.Info(args...) }
 func (infoLogger) Printf(format string, args ...any) { log.Infof(format, args...) }
 func (infoLogger) Log(args ...any)                   { log.Info(args...) }
 func (infoLogger) Logf(format string, args ...any)   { log.Infof(format, args...) }
+
+
+
+

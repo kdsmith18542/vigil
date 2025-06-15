@@ -14,7 +14,7 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // TestBlock tests the MsgBlock API.
@@ -805,3 +805,7 @@ var testBlockTxLocs = []TxLoc{
 var testBlockSTxLocs = []TxLoc{
 	{TxStart: 340, TxLen: 158},
 }
+
+
+
+

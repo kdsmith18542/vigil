@@ -261,3 +261,7 @@ func NonceRFC6979(privKey []byte, hash []byte, extra []byte, version []byte, ext
 		v = hasher.Sum()
 	}
 }
+
+
+
+

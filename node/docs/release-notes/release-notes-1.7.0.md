@@ -994,7 +994,6 @@ All commits since the last release may be viewed on GitHub
 - secp256k1: Always initialize adaptor instance ([Vigil/vgld#2690](https://github.com/vigilnetwork/vgl/pull/2690))
 - secp256k1: Optimize precomp values to use affine ([Vigil/vgld#2690](https://github.com/vigilnetwork/vgl/pull/2690))
 - rpcserver: Handle getwork nil err during reorg ([Vigil/vgld#2700](https://github.com/vigilnetwork/vgl/pull/2700))
-- secp256k1: Use blake256 directly in examples ([Vigil/vgld#2697](https://github.com/vigilnetwork/vgl/pull/2697))
 - secp256k1: Improve scalar mult readability ([Vigil/vgld#2695](https://github.com/vigilnetwork/vgl/pull/2695))
 - secp256k1: Optimize NAF conversion ([Vigil/vgld#2695](https://github.com/vigilnetwork/vgl/pull/2695))
 - blockchain: Verify state of VGLP0007 voting ([Vigil/vgld#2679](https://github.com/vigilnetwork/vgl/pull/2679))
@@ -1447,3 +1446,7 @@ All commits since the last release may be viewed on GitHub
 - Ryan Staudt
 - Youssef Boukenken
 - Wisdom Arerosuoghene
+
+
+
+

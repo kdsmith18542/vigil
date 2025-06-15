@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/txscript/v4"
+	"github.com/Vigil-Labs/vgl/txscript"
 )
 
 // These variables are used to help ensure the benchmarks do not elide code.
@@ -393,3 +393,7 @@ func BenchmarkExtractAtomicSwapDataPushes(b *testing.B) {
 		})
 	}
 }
+
+
+
+

@@ -15,3 +15,7 @@ const (
 	// MaxAmount is the maximum transaction amount allowed in atoms.
 	MaxAmount = 21e6 * AtomsPerCoin
 )
+
+
+
+

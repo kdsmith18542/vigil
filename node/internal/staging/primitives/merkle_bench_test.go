@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // BenchmarkCalcMerkleRootInPlace benchmarks merkle root calculation for various
@@ -56,3 +56,7 @@ func BenchmarkCalcMerkleRoot(b *testing.B) {
 		})
 	}
 }
+
+
+
+

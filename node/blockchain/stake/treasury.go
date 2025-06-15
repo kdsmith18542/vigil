@@ -7,10 +7,10 @@ package stake
 import (
 	"fmt"
 
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4/schnorr"
-	"github.com/kdsmith18542/vigil/txscript/v4"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1/schnorr"
+	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 const (
@@ -272,3 +272,7 @@ func CheckTreasuryBase(mtx *wire.MsgTx) error {
 func IsTreasuryBase(tx *wire.MsgTx) bool {
 	return checkTreasuryBase(tx) == nil
 }
+
+
+
+

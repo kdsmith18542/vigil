@@ -8,7 +8,7 @@ package tickettreap
 import (
 	"fmt"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 const (
@@ -191,3 +191,7 @@ func (s *parentStack) Push(node *treapNode) {
 	s.overflow[index] = node
 	s.index++
 }
+
+
+
+

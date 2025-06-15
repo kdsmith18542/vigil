@@ -6,7 +6,7 @@
 package udb
 
 import (
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 type graphNode struct {
@@ -114,3 +114,7 @@ func dependencySort(txs map[chainhash.Hash]*TxRecord) []*TxRecord {
 	}
 	return sorted
 }
+
+
+
+

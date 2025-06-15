@@ -10,10 +10,10 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/base58"
-	"github.com/kdsmith18542/vigil/crypto/ripemd160"
-	"github.com/kdsmith18542/vigil/VGLec/edwards/v2"
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
+	"github.com/Vigil-Labs/vgl/base58"
+	"github.com/Vigil-Labs/vgl/crypto/ripemd160"
+	"github.com/Vigil-Labs/vgl/VGLec/edwards"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
 )
 
 // mockAddrParams implements the AddressParams interface and is used throughout
@@ -1417,3 +1417,7 @@ func TestProbablyV0Base58Addr(t *testing.T) {
 		}
 	}
 }
+
+
+
+

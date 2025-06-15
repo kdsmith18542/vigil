@@ -7,7 +7,7 @@ package primitives
 import (
 	"testing"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // TestCalcMerkleRoot ensures the expected merkle root is produced for known
@@ -130,3 +130,7 @@ func TestCalcMerkleRoot(t *testing.T) {
 		}
 	}
 }
+
+
+
+

@@ -388,3 +388,7 @@ func Edwards() *TwistedEdwardsCurve {
 	c.initParam25519()
 	return c
 }
+
+
+
+

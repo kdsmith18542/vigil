@@ -54,7 +54,7 @@ standard.  Specifically, the Vigil variation strips leading zeros of a private
 key, causing subsequent child keys to differ from the keys expected by standard
 BIP0032.  The ChildBIP32Std method retains leading zeros, ensuring the child
 keys expected by BIP0032 are derived.  The Child function must be used for
-Vigil wallet key derivation for legacy reasons.
+vigilwallet key derivation for legacy reasons.
 
 # Normal vs Hardened Child Extended Keys
 
@@ -94,3 +94,7 @@ decoding, an error will be returned if a given encoded extended key is not for
 the specified network.
 */
 package hdkeychain
+
+
+
+

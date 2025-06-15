@@ -13,12 +13,12 @@ import (
 	"sort"
 	"time"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
-	"github.com/kdsmith18542/vigil/mixing"
-	"github.com/kdsmith18542/vigil/mixing/internal/chacha20prng"
-	"github.com/kdsmith18542/vigil/mixing/mixpool"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/Vigil-Labs/vgl/mixing"
+	"github.com/Vigil-Labs/vgl/mixing/internal/chacha20prng"
+	"github.com/Vigil-Labs/vgl/mixing/mixpool"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 var errBlameFailed = errors.New("blame failed")
@@ -451,3 +451,7 @@ DCLoop:
 
 	return nil
 }
+
+
+
+

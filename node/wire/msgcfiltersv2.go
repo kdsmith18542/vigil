@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // MaxCFiltersV2PerBatch is the maximum number of committed filters that may
@@ -164,3 +164,7 @@ func NewMsgCFiltersV2(filters []MsgCFilterV2) *MsgCFiltersV2 {
 		CFilters: filters,
 	}
 }
+
+
+
+

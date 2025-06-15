@@ -12,3 +12,7 @@ https://bounty.vigil.network/
 
 All bugs must be reproducible in the latest production release or the master branch of the code.
 
+
+
+
+

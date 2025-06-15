@@ -8,19 +8,19 @@ package main
 import (
 	"os"
 
-	"github.com/kdsmith18542/vigil/wallet/chain"
-	"github.com/kdsmith18542/vigil/wallet/internal/loader"
-	"github.com/kdsmith18542/vigil/wallet/internal/loggers"
-	"github.com/kdsmith18542/vigil/wallet/internal/rpc/jsonrpc"
-	"github.com/kdsmith18542/vigil/wallet/internal/rpc/rpcserver"
-	"github.com/kdsmith18542/vigil/wallet/p2p"
-	"github.com/kdsmith18542/vigil/wallet/spv"
-	"github.com/kdsmith18542/vigil/wallet/ticketbuyer"
-	"github.com/kdsmith18542/vigil/wallet/wallet"
-	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
-	"github.com/kdsmith18542/vigil/connmgr/v3"
-	"github.com/kdsmith18542/vigil/mixing/mixpool"
-	"github.com/kdsmith18542/vigil/slog"
+	"github.com/Vigil-Labs/vgl/wallet/chain"
+	"github.com/Vigil-Labs/vgl/wallet/internal/loader"
+	"github.com/Vigil-Labs/vgl/wallet/internal/loggers"
+	"github.com/Vigil-Labs/vgl/wallet/internal/rpc/jsonrpc"
+	"github.com/Vigil-Labs/vgl/wallet/internal/rpc/rpcserver"
+	"github.com/Vigil-Labs/vgl/wallet/p2p"
+	"github.com/Vigil-Labs/vgl/wallet/spv"
+	"github.com/Vigil-Labs/vgl/wallet/ticketbuyer"
+	"github.com/Vigil-Labs/vgl/wallet/wallet"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/udb"
+	"github.com/Vigil-Labs/vgl/connmgr"
+	"github.com/Vigil-Labs/vgl/mixing/mixpool"
+	"github.com/Vigil-Labs/vgl/slog"
 )
 
 var log = loggers.MainLog
@@ -91,3 +91,7 @@ func fatalf(format string, args ...any) {
 	loggers.CloseLogRotator()
 	os.Exit(1)
 }
+
+
+
+

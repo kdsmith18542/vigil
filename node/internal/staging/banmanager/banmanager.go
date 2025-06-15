@@ -11,8 +11,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/kdsmith18542/vigil/connmgr/v3"
-	"github.com/kdsmith18542/vigil/peer/v3"
+	"github.com/Vigil-Labs/vgl/connmgr"
+	"github.com/Vigil-Labs/vgl/peer"
 )
 
 // Config is the configuration struct for the ban manager.
@@ -256,3 +256,7 @@ func (bm *BanManager) BanScore(p *peer.Peer) uint32 {
 	}
 	return bmp.banScore.Int()
 }
+
+
+
+

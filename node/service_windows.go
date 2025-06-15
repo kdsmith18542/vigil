@@ -10,7 +10,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/kdsmith18542/vigil/internal/version"
+	"github.com/Vigil-Labs/vgl/internal/version"
 	"golang.org/x/sys/windows/svc"
 	"golang.org/x/sys/windows/svc/eventlog"
 	"golang.org/x/sys/windows/svc/mgr"
@@ -294,3 +294,7 @@ func init() {
 	runServiceCommand = performServiceCommand
 	winServiceMain = serviceMain
 }
+
+
+
+

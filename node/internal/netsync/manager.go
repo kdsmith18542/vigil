@@ -13,20 +13,20 @@ import (
 	"sync"
 	"time"
 
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/container/apbf"
-	"github.com/kdsmith18542/vigil/database/v3"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/internal/blockchain"
-	"github.com/kdsmith18542/vigil/internal/mempool"
-	"github.com/kdsmith18542/vigil/internal/progresslog"
-	"github.com/kdsmith18542/vigil/math/uint256"
-	"github.com/kdsmith18542/vigil/mixing"
-	"github.com/kdsmith18542/vigil/mixing/mixpool"
-	peerpkg "github.com/kdsmith18542/vigil/peer/v3"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/container/apbf"
+	"github.com/Vigil-Labs/vgl/database"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/internal/blockchain"
+	"github.com/Vigil-Labs/vgl/internal/mempool"
+	"github.com/Vigil-Labs/vgl/internal/progresslog"
+	"github.com/Vigil-Labs/vgl/math/uint256"
+	"github.com/Vigil-Labs/vgl/mixing"
+	"github.com/Vigil-Labs/vgl/mixing/mixpool"
+	peerpkg "github.com/Vigil-Labs/vgl/peer"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 const (
@@ -2199,3 +2199,7 @@ func New(config *Config) *SyncManager {
 		isCurrent:        config.Chain.IsCurrent(),
 	}
 }
+
+
+
+

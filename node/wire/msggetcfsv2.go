@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // MsgGetCFsV2 implements the Message interface and represents a Vigil
@@ -71,3 +71,7 @@ func NewMsgGetCFsV2(startHash, endHash *chainhash.Hash) *MsgGetCFsV2 {
 		EndHash:   *endHash,
 	}
 }
+
+
+
+

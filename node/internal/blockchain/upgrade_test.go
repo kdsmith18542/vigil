@@ -11,8 +11,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // TestBlockIndexDecodeErrorsV2 performs negative tests against decoding block
@@ -664,3 +664,7 @@ func TestTicketDBUndoEntrySerializationV1(t *testing.T) {
 		}
 	}
 }
+
+
+
+

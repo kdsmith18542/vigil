@@ -9,7 +9,7 @@
 package database
 
 import (
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // Cursor represents a cursor over key/value pairs and nested buckets of a
@@ -479,3 +479,7 @@ type DB interface {
 	// Flush writes all outstanding cached entries to disk.
 	Flush() error
 }
+
+
+
+

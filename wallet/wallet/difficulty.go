@@ -6,21 +6,21 @@
 package wallet
 
 // This code was copied from vgld/blockchain/difficulty.go and modified for
-// vglwallet's header storage.
+// vigilwallet's header storage.
 
 import (
 	"context"
 	"math/big"
 	"time"
 
-	"github.com/kdsmith18542/vigil/wallet/deployments"
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
-	blockchain "github.com/kdsmith18542/vigil/blockchain/standalone/v2"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/wallet/deployments"
+"github.com/Vigil-Labs/vgl/wallet/errors"
+"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
+blockchain "github.com/Vigil-Labs/vgl/blockchain/standalone"
+"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+"github.com/Vigil-Labs/vgl/chaincfg"
+"github.com/Vigil-Labs/vgl/dcrutil"
+"github.com/Vigil-Labs/vgl/wire"
 )
 
 func (w *Wallet) isTestNet3() bool {
@@ -905,3 +905,7 @@ func (w *Wallet) validateHeaderChainDifficulties(dbtx walletdb.ReadTx, chain []*
 
 	return nil, nil
 }
+
+
+
+

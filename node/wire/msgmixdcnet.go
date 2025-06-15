@@ -9,7 +9,7 @@ import (
 	"hash"
 	"io"
 
-	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // MsgMixDCNet is the DC-net broadcast.  It implements the Message interface.
@@ -308,3 +308,7 @@ func NewMsgMixDCNet(identity [33]byte, sid [32]byte, run uint32,
 		SeenSlotReserves: seenSlotReserves,
 	}
 }
+
+
+
+

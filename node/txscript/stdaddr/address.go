@@ -9,7 +9,7 @@ package stdaddr
 import (
 	"fmt"
 
-	"github.com/kdsmith18542/vigil/crypto/ripemd160"
+	"github.com/Vigil-Labs/vgl/crypto/ripemd160"
 )
 
 // AddressParams defines an interface that is used to provide the parameters
@@ -455,3 +455,7 @@ func DecodeAddress(addr string, params AddressParams) (Address, error) {
 	str := fmt.Sprintf("address %q is not a supported type", addr)
 	return nil, makeError(ErrUnsupportedAddress, str)
 }
+
+
+
+

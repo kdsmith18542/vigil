@@ -5,7 +5,7 @@
 
 package txsizes
 
-import "github.com/kdsmith18542/vigil/wire"
+import "github.com/Vigil-Labs/vgl/wire"
 
 // Worst case script and input/output size estimates.
 const (
@@ -207,3 +207,7 @@ func EstimateInputSize(scriptSize int) int {
 func EstimateOutputSize(scriptSize int) int {
 	return 8 + 2 + wire.VarIntSerializeSize(uint64(scriptSize)) + scriptSize
 }
+
+
+
+

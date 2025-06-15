@@ -268,3 +268,7 @@ func (curve *TwistedEdwardsCurve) invert(a *big.Int) *big.Int {
 	inv := new(big.Int).Exp(a, sub2, curve.P)
 	return inv
 }
+
+
+
+

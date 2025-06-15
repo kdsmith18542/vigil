@@ -1,10 +1,10 @@
 package compat
 
 import (
-	"github.com/kdsmith18542/vigil/blockchain/standalone/v2"
-	"github.com/kdsmith18542/vigil/hdkeychain/v3"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/standalone"
+"github.com/Vigil-Labs/vgl/hdkeychain"
+"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+"github.com/Vigil-Labs/vgl/wire"
 )
 
 func HD2Address(k *hdkeychain.ExtendedKey, params stdaddr.AddressParams) (*stdaddr.AddressPubKeyHashEcdsaSecp256k1V0, error) {
@@ -25,3 +25,7 @@ func IsEitherCoinBaseTx(tx *wire.MsgTx) bool {
 	}
 	return false
 }
+
+
+
+

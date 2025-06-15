@@ -180,3 +180,7 @@ func MakeScriptTokenizer(scriptVersion uint16, script []byte) ScriptTokenizer {
 	}
 	return ScriptTokenizer{version: scriptVersion, script: script, err: err}
 }
+
+
+
+

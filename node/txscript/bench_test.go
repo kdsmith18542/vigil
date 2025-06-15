@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 const (
@@ -322,3 +322,7 @@ func BenchmarkCheckSignatureEncoding(b *testing.B) {
 		}
 	}
 }
+
+
+
+

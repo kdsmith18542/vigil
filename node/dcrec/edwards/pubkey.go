@@ -100,3 +100,7 @@ func (p PublicKey) GetY() *big.Int {
 func (p PublicKey) GetType() int {
 	return ecTypeEdwards
 }
+
+
+
+

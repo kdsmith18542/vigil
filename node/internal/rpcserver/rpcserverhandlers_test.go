@@ -26,29 +26,29 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/kdsmith18542/vigil/addrmgr/v3"
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
-	"github.com/kdsmith18542/vigil/blockchain/standalone/v2"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/database/v3"
-	"github.com/kdsmith18542/vigil/VGLjson/v4"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/gcs/v4"
-	"github.com/kdsmith18542/vigil/gcs/v4/blockcf2"
-	"github.com/kdsmith18542/vigil/internal/blockchain"
-	"github.com/kdsmith18542/vigil/internal/blockchain/indexers"
-	"github.com/kdsmith18542/vigil/internal/mempool"
-	"github.com/kdsmith18542/vigil/internal/mining"
-	"github.com/kdsmith18542/vigil/internal/version"
-	"github.com/kdsmith18542/vigil/math/uint256"
-	"github.com/kdsmith18542/vigil/mixing"
-	"github.com/kdsmith18542/vigil/peer/v3"
-	"github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/addrmgr"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/Vigil-Labs/vgl/blockchain/standalone"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/database"
+	"github.com/Vigil-Labs/vgl/VGLjson"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/gcs"
+	"github.com/Vigil-Labs/vgl/gcs/blockcf2"
+	"github.com/Vigil-Labs/vgl/internal/blockchain"
+	"github.com/Vigil-Labs/vgl/internal/blockchain/indexers"
+	"github.com/Vigil-Labs/vgl/internal/mempool"
+	"github.com/Vigil-Labs/vgl/internal/mining"
+	"github.com/Vigil-Labs/vgl/internal/version"
+	"github.com/Vigil-Labs/vgl/math/uint256"
+	"github.com/Vigil-Labs/vgl/mixing"
+	"github.com/Vigil-Labs/vgl/peer"
+	"github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
+	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+	"github.com/Vigil-Labs/vgl/txscript/stdscript"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 const (
@@ -199,8 +199,7 @@ type testRPCChain struct {
 	treasuryActiveErr             error
 	subsidySplitActive            bool
 	subsidySplitActiveErr         error
-	blake3PowActive               bool
-	blake3PowActiveErr            error
+
 	kawpowActive                  bool
 	kawpowActiveErr               error
 	subsidySplitR2Active          bool
@@ -444,11 +443,7 @@ func (c *testRPCChain) IsSubsidySplitAgendaActive(*chainhash.Hash) (bool, error)
 	return c.subsidySplitActive, c.subsidySplitActiveErr
 }
 
-// IsBlake3PowAgendaActive returns a mocked bool representing whether or not the
-// blake3 proof of work agenda is active.
-func (c *testRPCChain) IsBlake3PowAgendaActive(*chainhash.Hash) (bool, error) {
-	return c.blake3PowActive, c.blake3PowActiveErr
-}
+
 
 // IsKawpowAgendaActive returns a mocked bool representing whether or not the
 // KawPoW proof of work agenda is active.
@@ -3830,7 +3825,7 @@ func TestHandleGetBlock(t *testing.T) {
 	blk := VGLutil.NewBlock(&block432100)
 	blkHash := blk.Hash()
 	blkHashString := blkHash.String()
-	powHash := blkHeader.PowHashV1() // pre-VGLP0011 activation
+	_, powHash := blkHeader.PowHashKawPow() // pre-VGLP0011 activation
 	powHashString := powHash.String()
 	blkBytes, err := blk.Bytes()
 	if err != nil {
@@ -4103,7 +4098,8 @@ func TestHandleGetBlockHeader(t *testing.T) {
 		t.Fatalf("error serializing block header: %+v", err)
 	}
 	blkHeaderHexString := hex.EncodeToString(blkHeaderBytes)
-	powHashString := blkHeader.PowHashV1().String() // pre-VGLP0011 block
+	_, finalHash := blkHeader.PowHashKawPow()
+	powHashString := finalHash.String() // pre-VGLP0011 block
 	blk := VGLutil.NewBlock(&block432100)
 	blkHash := blk.Hash()
 	blkHashString := blkHash.String()
@@ -5739,15 +5735,10 @@ func TestHandleGetWork(t *testing.T) {
 	mockPowLimitBig := mockPowLimit.ToBig()
 	mockPowLimitBits := standalone.BigToCompact(mockPowLimitBig)
 
-	serializeGetWorkDataBlake256 := func(header *wire.BlockHeader) []byte {
-		const isBlake3PowActive = false
-		data, err := serializeGetWorkData(header, isBlake3PowActive)
-		if err != nil {
-			t.Fatalf("unexpected serialize error: %v", err)
-		}
-		return data
+	data, err := serializeGetWorkData(&block432100.Header, false)
+	if err != nil {
+		t.Fatalf("unexpected serialize error: %v", err)
 	}
-	data := serializeGetWorkDataBlake256(&block432100.Header)
 
 	submissionB := make([]byte, hex.EncodedLen(len(data)))
 	hex.Encode(submissionB, data)
@@ -5767,22 +5758,7 @@ func TestHandleGetWork(t *testing.T) {
 	buf.Write(submissionB[240:])
 	invalidPOWSub := buf.String()
 
-	// Create a mock block solved by blake3 based on the existing test block.
-	solvedBlake3Block := func() *wire.MsgBlock {
-		isSolved := func(header *wire.BlockHeader) bool {
-			powHash := header.PowHashV2()
-			err := standalone.CheckProofOfWork(&powHash, header.Bits,
-				mockPowLimitBig)
-			return err == nil
-		}
-		blk := block432100
-		header := &blk.Header
-		header.Bits = mockPowLimitBits
-		for !isSolved(header) {
-			header.Nonce++
-		}
-		return &blk
-	}()
+
 
 	testRPCServerHandler(t, []rpcTest{{
 		name:    "handleGetWork: CPU IsMining enabled",
@@ -5924,7 +5900,7 @@ func TestHandleGetWork(t *testing.T) {
 				// Create an orphan block by mutating the previous block field
 				// and solving the block.
 				isSolved := func(header *wire.BlockHeader) bool {
-					powHash := header.PowHashV1()
+					_, powHash := header.PowHashKawPow()
 					err := standalone.CheckProofOfWork(&powHash, header.Bits,
 						mockPowLimitBig)
 					return err == nil
@@ -5936,7 +5912,10 @@ func TestHandleGetWork(t *testing.T) {
 					header.Nonce++
 				}
 
-				data := serializeGetWorkDataBlake256(&header)
+				data, err := serializeGetWorkData(&header, false)
+	if err != nil {
+		t.Fatalf("unexpected serialize error: %v", err)
+	}
 				encoded := hex.EncodeToString(data)
 				return &encoded
 			}(),
@@ -5977,13 +5956,11 @@ func TestHandleGetWork(t *testing.T) {
 		mockMiningState: defaultMockMiningState(),
 		result:          true,
 	}, {
-		name:    "handleGetWork: blake3 submission ok",
+		name:    "handleGetWork: submission ok",
 		handler: handleGetWork,
 		cmd: &types.GetWorkCmd{
 			Data: func() *string {
-				const isBlake3PowActive = true
-				data, err := serializeGetWorkData(&solvedBlake3Block.Header,
-					isBlake3PowActive)
+				data, err := serializeGetWorkData(&block432100.Header, false)
 				if err != nil {
 					t.Fatalf("unexpected serialize error: %v", err)
 				}
@@ -5999,16 +5976,15 @@ func TestHandleGetWork(t *testing.T) {
 		}(),
 		mockMiningState: func() *testMiningState {
 			mockMiningState := defaultMockMiningState()
-			tmplKey := getWorkTemplateKey(&solvedBlake3Block.Header)
+			tmplKey := getWorkTemplateKey(&block432100.Header)
 			workState := newWorkState()
-			workState.templatePool[tmplKey] = solvedBlake3Block
-			workState.prevBestHash = &solvedBlake3Block.Header.PrevBlock
+			workState.templatePool[tmplKey] = &block432100
+			workState.prevBestHash = &block432100.Header.PrevBlock
 			mockMiningState.workState = workState
 			return mockMiningState
 		}(),
 		mockChain: func() *testRPCChain {
 			chain := defaultMockRPCChain()
-			chain.blake3PowActive = true
 			return chain
 		}(),
 		result: true,
@@ -6017,7 +5993,7 @@ func TestHandleGetWork(t *testing.T) {
 		handler: handleGetWork,
 		cmd: &types.GetWorkCmd{
 			Data: func() *string {
-				submissionHex := string(submissionB[:getworkDataLenBlake256-1])
+				submissionHex := string(submissionB[:getworkDataLen-1])
 				return &submissionHex
 			}(),
 		},
@@ -6046,7 +6022,7 @@ func TestHandleGetWork(t *testing.T) {
 		wantErr:         true,
 		errCode:         VGLjson.ErrRPCDecodeHexString,
 	}, {
-		name:    "handleGetWork: unable to obtain blake3 pow agenda status",
+		name:    "handleGetWork: unable to obtain pow agenda status",
 		handler: handleGetWork,
 		cmd: &types.GetWorkCmd{
 			Data: &submission,
@@ -6054,7 +6030,118 @@ func TestHandleGetWork(t *testing.T) {
 		mockMiningState: defaultMockMiningState(),
 		mockChain: func() *testRPCChain {
 			chain := defaultMockRPCChain()
-			chain.blake3PowActiveErr = blockchain.ErrUnknownBlock
+			return chain
+		}(),
+		wantErr: true,
+		errCode: VGLjson.ErrRPCInternal.Code,
+	}, {
+		name:    "handleGetWork: invalid proof of work",
+		handler: handleGetWork,
+		cmd: &types.GetWorkCmd{
+			Data: &invalidPOWSub,
+		},
+		mockMiningState: defaultMockMiningState(),
+		mockSyncManager: func() *testSyncManager {
+			syncManager := defaultMockSyncManager()
+			syncManager.submitBlockErr = blockchain.ErrHighHash
+			return syncManager
+		}(),
+		result: false,
+	}, {
+		name:    "handleGetWork: duplicate block",
+		handler: handleGetWork,
+		cmd: &types.GetWorkCmd{
+			Data: &submission,
+		},
+		mockMiningState: defaultMockMiningState(),
+		mockSyncManager: func() *testSyncManager {
+			syncManager := defaultMockSyncManager()
+			syncManager.submitBlockErr = blockchain.RuleError{
+				Err:         blockchain.ErrDuplicateBlock,
+				Description: "Duplicate Block",
+			}
+			return syncManager
+		}(),
+		wantErr: false,
+		result:  false,
+	}})
+		handler: handleGetWork,
+		cmd: &types.GetWorkCmd{
+			Data: func() *string {
+				
+				data, err := serializeGetWorkData(&block432100.Header,
+	false)
+				if err != nil {
+					t.Fatalf("unexpected serialize error: %v", err)
+				}
+				encoded := hex.EncodeToString(data)
+				return &encoded
+			}(),
+		},
+		mockChainParams: func() *chaincfg.Params {
+			params := cloneParams(defaultChainParams)
+			params.PowLimit = mockPowLimitBig
+			params.PowLimitBits = mockPowLimitBits
+			return params
+		}(),
+		mockMiningState: func() *testMiningState {
+			mockMiningState := defaultMockMiningState()
+			tmplKey := getWorkTemplateKey(&block432100.Header)
+			workState := newWorkState()
+			workState.templatePool[tmplKey] = &block432100
+			workState.prevBestHash = &block432100.Header.PrevBlock
+			mockMiningState.workState = workState
+			return mockMiningState
+		}(),
+		mockChain: func() *testRPCChain {
+			chain := defaultMockRPCChain()
+			
+			return chain
+		}(),
+		result: true,
+	}, {
+		name:    "handleGetWork: submission hex too short",
+		handler: handleGetWork,
+		cmd: &types.GetWorkCmd{
+			Data: func() *string {
+				submissionHex := string(submissionB[:getworkDataLen-1])
+				return &submissionHex
+			}(),
+		},
+		mockMiningState: defaultMockMiningState(),
+		wantErr:         true,
+		errCode:         VGLjson.ErrRPCInvalidParameter,
+	}, {
+		name:    "handleGetWork: submission hex too long",
+		handler: handleGetWork,
+		cmd: &types.GetWorkCmd{
+			Data: func() *string {
+				submissionHex := string(submissionB) + "a"
+				return &submissionHex
+			}(),
+		},
+		mockMiningState: defaultMockMiningState(),
+		wantErr:         true,
+		errCode:         VGLjson.ErrRPCInvalidParameter,
+	}, {
+		name:    "handleGetWork: invalid submission hex",
+		handler: handleGetWork,
+		cmd: &types.GetWorkCmd{
+			Data: &invalidHexSub,
+		},
+		mockMiningState: defaultMockMiningState(),
+		wantErr:         true,
+		errCode:         VGLjson.ErrRPCDecodeHexString,
+	}, {
+		name:    "handleGetWork: unable to obtain pow agenda status",
+		handler: handleGetWork,
+		cmd: &types.GetWorkCmd{
+			Data: &submission,
+		},
+		mockMiningState: defaultMockMiningState(),
+		mockChain: func() *testRPCChain {
+			chain := defaultMockRPCChain()
+			
 			return chain
 		}(),
 		wantErr: true,
@@ -8272,3 +8359,7 @@ func testRPCServerHandler(t *testing.T, tests []rpcTest) {
 		})
 	}
 }
+
+
+
+

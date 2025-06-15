@@ -9,7 +9,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/kdsmith18542/vigil/internal/blockchain"
+	"github.com/Vigil-Labs/vgl/internal/blockchain"
 )
 
 // ErrorKind identifies a kind of error.  It has full support for errors.Is and
@@ -147,3 +147,7 @@ func wrapTxRuleError(kind ErrorKind, desc string, err error) error {
 
 	return txRuleError(kind, desc)
 }
+
+
+
+

@@ -7,7 +7,7 @@ package VGLjson
 import (
 	"encoding/hex"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // EncodeConcatenatedHashes serializes a slice of chainhash.Hash values into a
@@ -56,3 +56,7 @@ func DecodeConcatenatedHashes(hashes string) ([]chainhash.Hash, error) {
 	}
 	return decoded, nil
 }
+
+
+
+

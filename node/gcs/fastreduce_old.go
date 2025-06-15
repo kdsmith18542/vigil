@@ -52,3 +52,7 @@ func fastReduce(x, N uint64) uint64 {
 	hi, _ := mul64(x, N)
 	return hi
 }
+
+
+
+

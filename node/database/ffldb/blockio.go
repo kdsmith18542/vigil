@@ -18,9 +18,9 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/database/v3"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/database"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 const (
@@ -773,3 +773,7 @@ func newBlockStore(basePath string, network wire.CurrencyNet) *blockStore {
 	store.deleteFileFunc = store.deleteFile
 	return store
 }
+
+
+
+

@@ -7,7 +7,7 @@ package mixing
 import (
 	"time"
 
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/Vigil-Labs/vgl/chaincfg"
 )
 
 // MaxExpiry returns the maximum allowed expiry for a new pair request message
@@ -16,3 +16,7 @@ func MaxExpiry(tipHeight uint32, params *chaincfg.Params) uint32 {
 	target := params.TargetTimePerBlock
 	return tipHeight + uint32(60*time.Minute/target) + 1
 }
+
+
+
+

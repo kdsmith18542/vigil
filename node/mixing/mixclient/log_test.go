@@ -7,8 +7,8 @@ package mixclient
 import (
 	"testing"
 
-	"github.com/kdsmith18542/vigil/mixing/mixpool"
-	"github.com/kdsmith18542/vigil/slog"
+	"github.com/Vigil-Labs/vgl/mixing/mixpool"
+	"github.com/Vigil-Labs/vgl/slog"
 )
 
 type testLog struct {
@@ -35,3 +35,7 @@ func useTestLogger(t *testing.T) (slog.Logger, func()) {
 		mixpool.UseLogger(slog.Disabled)
 	}
 }
+
+
+
+

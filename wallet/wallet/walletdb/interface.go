@@ -13,7 +13,7 @@ import (
 	"io"
 	"runtime/trace"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
 )
 
 // ReadTx represents a database transaction that can only be used for reads.  If
@@ -321,3 +321,7 @@ func Open(dbType string, args ...any) (DB, error) {
 
 	return drv.Open(args...)
 }
+
+
+
+

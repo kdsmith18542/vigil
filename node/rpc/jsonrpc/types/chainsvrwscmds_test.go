@@ -12,7 +12,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/VGLjson/v4"
+	"github.com/Vigil-Labs/vgl/VGLjson"
 )
 
 // TestChainSvrWsCmds tests all of the chain server websocket-specific commands
@@ -269,3 +269,7 @@ func TestChainSvrWsCmds(t *testing.T) {
 		}
 	}
 }
+
+
+
+

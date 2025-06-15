@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 const (
@@ -211,3 +211,7 @@ func CheckTransactionSanity(tx *wire.MsgTx, maxTxSize uint64) error {
 
 	return nil
 }
+
+
+
+

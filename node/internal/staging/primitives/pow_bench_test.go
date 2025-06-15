@@ -7,7 +7,7 @@ package primitives
 import (
 	"testing"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // BenchmarkDiffBitsToUint256 benchmarks converting the compact representation
@@ -77,3 +77,7 @@ func BenchmarkCheckProofOfWork(b *testing.B) {
 		_ = CheckProofOfWork(blockHash, diffBits, powLimit)
 	}
 }
+
+
+
+

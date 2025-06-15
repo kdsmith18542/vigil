@@ -18,16 +18,16 @@ import (
 
 	"vigil.network/vgl/cspp/v2/solverrpc"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg"
 	
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
-	"github.com/kdsmith18542/vigil/mixing"
-	"github.com/kdsmith18542/vigil/mixing/internal/chacha20prng"
-	"github.com/kdsmith18542/vigil/mixing/utxoproof"
-	"github.com/kdsmith18542/vigil/txscript/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/Vigil-Labs/vgl/mixing"
+	"github.com/Vigil-Labs/vgl/mixing/internal/chacha20prng"
+	"github.com/Vigil-Labs/vgl/mixing/utxoproof"
+	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 var params = chaincfg.SimNetParams()
@@ -406,3 +406,7 @@ func TestAccept(t *testing.T) {
 
 	t.Logf("%s", spew.Sdump(tx))
 }
+
+
+
+

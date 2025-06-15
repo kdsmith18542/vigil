@@ -18,11 +18,11 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/kdsmith18542/vigil/base58"
+	"github.com/Vigil-Labs/vgl/base58"
 	
-	"github.com/kdsmith18542/vigil/crypto/ripemd160"
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
-	"github.com/kdsmith18542/vigil/kawpow"
+	"github.com/Vigil-Labs/vgl/crypto/ripemd160"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/Vigil-Labs/vgl/kawpow"
 )
 
 const (
@@ -196,7 +196,7 @@ func (k *ExtendedKey) ParentFingerprint() uint32 {
 	return binary.BigEndian.Uint32(k.parentFP)
 }
 
-// hash160 returns RIPEMD160(BLAKE256(v)).
+// hash160 returns RIPEMD160(Keccak256(v)).
 func hash160(v []byte) []byte {
 	kawpowHash := kawpow.HashFunc(v)
 	h := ripemd160.New()
@@ -204,8 +204,8 @@ func hash160(v []byte) []byte {
 	return h.Sum(nil)
 }
 
-// doubleBlake256Cksum returns the first four bytes of BLAKE256(BLAKE256(v)).
-func doubleBlake256Cksum(v []byte) []byte {
+// doubleKeccak256Cksum returns the first four bytes of Keccak256(Keccak256(v)).
+func doubleKeccak256Cksum(v []byte) []byte {
 	first := kawpow.HashFunc(v)
 	second := kawpow.HashFunc(first[:])
 	return second[:4]
@@ -343,7 +343,7 @@ func (k *ExtendedKey) child(i uint32, strictBIP32 bool) (*ExtendedKey, error) {
 	}
 
 	// The fingerprint of the parent for the derived child is the first 4
-	// bytes of the RIPEMD160(BLAKE256(parentPubKey)).
+	// bytes of the RIPEMD160(Keccak256(parentPubKey)).
 	parentFP := hash160(k.pubKeyBytes())[:4]
 	return newExtendedKey(k.privVer, k.pubVer, childKey, childChainCode,
 		parentFP, k.depth+1, i, isPrivate), nil
@@ -468,7 +468,7 @@ func (k *ExtendedKey) String() string {
 		serializedBytes = append(serializedBytes, k.pubKeyBytes()...)
 	}
 
-	checkSum := doubleBlake256Cksum(serializedBytes)
+	checkSum := doubleKeccak256Cksum(serializedBytes)
 	serializedBytes = append(serializedBytes, checkSum...)
 	return base58.Encode(serializedBytes)
 }
@@ -569,7 +569,7 @@ func NewKeyFromString(key string, net NetworkParams) (*ExtendedKey, error) {
 	// Split the payload and checksum up and ensure the checksum matches.
 	payload := decoded[:len(decoded)-4]
 	checkSum := decoded[len(decoded)-4:]
-	expectedCheckSum := doubleBlake256Cksum(payload)
+	expectedCheckSum := doubleKeccak256Cksum(payload)
 	if !bytes.Equal(checkSum, expectedCheckSum) {
 		return nil, ErrBadChecksum
 	}
@@ -635,3 +635,7 @@ func GenerateSeed(length uint8) ([]byte, error) {
 
 	return buf, nil
 }
+
+
+
+

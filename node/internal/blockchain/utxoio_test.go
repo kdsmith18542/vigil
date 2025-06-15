@@ -11,8 +11,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // TestUtxoSerialization ensures serializing and deserializing unspent
@@ -516,3 +516,7 @@ func TestDecodeOutpointKeyErrors(t *testing.T) {
 		}
 	}
 }
+
+
+
+

@@ -4,6 +4,8 @@
 
 Vigil is a groundbreaking cryptocurrency that merges the fair, grassroots distribution of GPU mining with the ironclad security and on-chain governance of a hybrid PoS network. It is built for and governed by its community.
 
+[![Build Status](https://github.com/Vigil-Labs/vgl/workflows/Build%20Status/badge.svg)](https://github.com/Vigil-Labs/vgl/actions?query=workflow%3A%22Build+Status%22)
+
 ## 🚀 Project Overview
 
 - **Ticker Symbol**: VGL
@@ -129,3 +131,6 @@ This software is currently in development. Use at your own risk. Always verify t
 ---
 
 **Vigil - Building the future of decentralized, community-governed cryptocurrency.**
+
+
+

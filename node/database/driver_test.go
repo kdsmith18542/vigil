@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/database/v3"
-	_ "github.com/kdsmith18542/vigil/database/v3/ffldb"
+	"github.com/Vigil-Labs/vgl/database"
+	_ "github.com/Vigil-Labs/vgl/database/ffldb"
 )
 
 // checkDbError ensures the passed error is an Error that matches the passed
@@ -123,3 +123,7 @@ func TestCreateOpenUnsupported(t *testing.T) {
 		return
 	}
 }
+
+
+
+

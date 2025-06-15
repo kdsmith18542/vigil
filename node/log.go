@@ -10,22 +10,22 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/kdsmith18542/vigil/addrmgr/v3"
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
-	"github.com/kdsmith18542/vigil/connmgr/v3"
-	"github.com/kdsmith18542/vigil/database/v3"
-	"github.com/kdsmith18542/vigil/internal/blockchain"
-	"github.com/kdsmith18542/vigil/internal/blockchain/indexers"
-	"github.com/kdsmith18542/vigil/internal/fees"
-	"github.com/kdsmith18542/vigil/internal/mempool"
-	"github.com/kdsmith18542/vigil/internal/mining"
-	"github.com/kdsmith18542/vigil/internal/mining/cpuminer"
-	"github.com/kdsmith18542/vigil/internal/netsync"
-	"github.com/kdsmith18542/vigil/internal/rpcserver"
-	"github.com/kdsmith18542/vigil/mixing/mixpool"
-	"github.com/kdsmith18542/vigil/peer/v3"
-	"github.com/kdsmith18542/vigil/txscript/v4"
-	"github.com/kdsmith18542/vigil/slog"
+	"github.com/Vigil-Labs/vgl/addrmgr"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/Vigil-Labs/vgl/connmgr"
+	"github.com/Vigil-Labs/vgl/database"
+	"github.com/Vigil-Labs/vgl/internal/blockchain"
+	"github.com/Vigil-Labs/vgl/internal/blockchain/indexers"
+	"github.com/Vigil-Labs/vgl/internal/fees"
+	"github.com/Vigil-Labs/vgl/internal/mempool"
+	"github.com/Vigil-Labs/vgl/internal/mining"
+	"github.com/Vigil-Labs/vgl/internal/mining/cpuminer"
+	"github.com/Vigil-Labs/vgl/internal/netsync"
+	"github.com/Vigil-Labs/vgl/internal/rpcserver"
+	"github.com/Vigil-Labs/vgl/mixing/mixpool"
+	"github.com/Vigil-Labs/vgl/peer"
+	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/Vigil-Labs/vgl/slog"
 	"github.com/jrick/logrotate/rotator"
 )
 
@@ -203,3 +203,7 @@ func humanizeBytes(b int64) string {
 	}
 	return fmt.Sprintf("%.2f %ciB", float64(b)/float64(div), "KMGTPE"[exp])
 }
+
+
+
+

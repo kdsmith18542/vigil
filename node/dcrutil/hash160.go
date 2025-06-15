@@ -8,8 +8,8 @@ package VGLutil
 import (
 	"hash"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/crypto/ripemd160"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/crypto/ripemd160"
 )
 
 // Calculate the hash of hasher over buf.
@@ -22,3 +22,7 @@ func calcHash(buf []byte, hasher hash.Hash) []byte {
 func Hash160(buf []byte) []byte {
 	return calcHash(chainhash.HashB(buf), ripemd160.New())
 }
+
+
+
+

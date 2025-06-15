@@ -11,13 +11,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/database/v3"
-	_ "github.com/kdsmith18542/vigil/database/v3/ffldb"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/chaingen"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/database"
+	_ "github.com/Vigil-Labs/vgl/database/ffldb"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // testChain represents a mock implementation of a block chain as
@@ -586,3 +586,7 @@ func TestTxIndexAsync(t *testing.T) {
 		t.Fatalf("expected tip hash to be %s, got %s", bk4a.Hash(), tipHash)
 	}
 }
+
+
+
+

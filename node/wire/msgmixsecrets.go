@@ -9,7 +9,7 @@ import (
 	"hash"
 	"io"
 
-	"github.com/kdsmith18542/vigil-Labs/vgl/node/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // MsgMixSecrets reveals secrets of a failed mix run.  After secrets are
@@ -345,3 +345,7 @@ func NewMsgMixSecrets(identity [33]byte, sid [32]byte, run uint32,
 		SeenSecrets:     make([]chainhash.Hash, 0),
 	}
 }
+
+
+
+

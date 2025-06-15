@@ -12,11 +12,11 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/kdsmith18542/vigil/database/v3"
-	"github.com/kdsmith18542/vigil/internal/blockchain"
-	"github.com/kdsmith18542/vigil/internal/blockchain/indexers"
-	"github.com/kdsmith18542/vigil/internal/limits"
-	"github.com/kdsmith18542/vigil/slog"
+	"github.com/Vigil-Labs/vgl/database"
+	"github.com/Vigil-Labs/vgl/internal/blockchain"
+	"github.com/Vigil-Labs/vgl/internal/blockchain/indexers"
+	"github.com/Vigil-Labs/vgl/internal/limits"
+	"github.com/Vigil-Labs/vgl/slog"
 )
 
 const (
@@ -142,3 +142,7 @@ func main() {
 		os.Exit(1)
 	}
 }
+
+
+
+

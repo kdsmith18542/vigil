@@ -12,3 +12,7 @@ package secp256k1
 func scalarBaseMultNonConst(k *ModNScalar, result *JacobianPoint) {
 	scalarBaseMultNonConstFast(k, result)
 }
+
+
+
+

@@ -5,7 +5,7 @@
 
 package netparams
 
-import "github.com/kdsmith18542/vigil/chaincfg/v3"
+import "github.com/Vigil-Labs/vgl/chaincfg"
 
 // Params is used to group parameters for various networks such as the main
 // network and test networks.
@@ -16,7 +16,7 @@ type Params struct {
 	GRPCServerPort    string
 }
 
-// MainNetParams contains parameters specific running vglwallet and
+// MainNetParams contains parameters specific running vigilwallet and
 // vgld on the main network (wire.MainNet).
 var MainNetParams = Params{
 	Params:            chaincfg.MainNetParams(),
@@ -25,7 +25,7 @@ var MainNetParams = Params{
 	GRPCServerPort:    "9111",
 }
 
-// TestNet3Params contains parameters specific running vglwallet and
+// TestNet3Params contains parameters specific running vigilwallet and
 // vgld on the test network (version 3) (wire.TestNet3).
 var TestNet3Params = Params{
 	Params:            chaincfg.TestNet3Params(),
@@ -42,3 +42,7 @@ var SimNetParams = Params{
 	JSONRPCServerPort: "19557",
 	GRPCServerPort:    "19558",
 }
+
+
+
+

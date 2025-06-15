@@ -139,3 +139,7 @@ func NewMsgHeaders() *MsgHeaders {
 		Headers: make([]*BlockHeader, 0, MaxBlockHeadersPerMsg),
 	}
 }
+
+
+
+

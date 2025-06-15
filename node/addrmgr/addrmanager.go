@@ -16,9 +16,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/crypto/rand"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/crypto/rand"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // peersFilename is the default filename to store serialized peers.
@@ -1225,3 +1225,7 @@ func New(dataDir string) *AddrManager {
 	am.reset()
 	return &am
 }
+
+
+
+

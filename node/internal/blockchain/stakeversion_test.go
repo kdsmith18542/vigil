@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg"
 )
 
 // isVoterMajorityVersion determines if minVer requirement is met based on
@@ -797,3 +797,7 @@ func TestLarge(t *testing.T) {
 		}
 	}
 }
+
+
+
+

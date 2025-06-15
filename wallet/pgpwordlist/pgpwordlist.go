@@ -19,7 +19,7 @@ package pgpwordlist
 import (
 	"strings"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
 )
 
 // ByteToMnemonic returns the PGP word list encoding of b when found at index.
@@ -58,3 +58,7 @@ func DecodeMnemonics(words []string) ([]byte, error) {
 	}
 	return decoded[:idx], nil
 }
+
+
+
+

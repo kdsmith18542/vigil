@@ -9,10 +9,10 @@ import (
 	"fmt"
 	"hash"
 
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4"
-	"github.com/kdsmith18542/vigil/VGLec/secp256k1/v4/schnorr"
-	"github.com/kdsmith18542/vigil/kawpow"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1"
+	"github.com/Vigil-Labs/vgl/VGLec/secp256k1/schnorr"
+	"github.com/Vigil-Labs/vgl/kawpow"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 const tag = "Vigil-mix-signature"
@@ -128,3 +128,7 @@ func verify(h hash.Hash, pk []byte, sig []byte, sigHash []byte, command string, 
 	h.Write(buf.Bytes())
 	return sigParsed.Verify(h.Sum(nil), pkParsed)
 }
+
+
+
+

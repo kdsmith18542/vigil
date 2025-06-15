@@ -38,3 +38,7 @@ func fastReduce(x, N uint64) uint64 {
 	hi, _ := bits.Mul64(x, N)
 	return hi
 }
+
+
+
+

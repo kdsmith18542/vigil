@@ -21,3 +21,7 @@ const (
 	// signature over the secp256k1 elliptic curve.
 	STSchnorrSecp256k1 = 2
 )
+
+
+
+

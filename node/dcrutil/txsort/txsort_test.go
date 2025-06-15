@@ -12,7 +12,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // TestSort ensures the transaction sorting works as expected.
@@ -152,3 +152,7 @@ func TestSort(t *testing.T) {
 		}
 	}
 }
+
+
+
+

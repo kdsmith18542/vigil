@@ -365,3 +365,7 @@ func Verify(pub *PublicKey, hash []byte, r, s *big.Int) bool {
 	sigArray := copyBytes64(sigBytes)
 	return ed25519.Verify(pubArray, hash, sigArray)
 }
+
+
+
+

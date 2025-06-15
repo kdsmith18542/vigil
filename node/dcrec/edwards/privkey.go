@@ -13,7 +13,7 @@ import (
 	"math/big"
 
 	"github.com/agl/ed25519"
-	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/Vigil-Labs/vgl/crypto/rand"
 )
 
 // These constants define the lengths of serialized private keys.
@@ -227,3 +227,7 @@ func (p PrivateKey) GetD() *big.Int {
 func (p PrivateKey) GetType() int {
 	return ecTypeEdwards
 }
+
+
+
+

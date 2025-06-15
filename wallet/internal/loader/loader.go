@@ -11,11 +11,11 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/wallet/wallet"
-	_ "github.com/kdsmith18542/vigil/wallet/wallet/drivers/bdb" // driver loaded during init
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+"github.com/Vigil-Labs/vgl/wallet/wallet"
+_ "github.com/Vigil-Labs/vgl/wallet/wallet/drivers/bdb" // driver loaded during init
+"github.com/Vigil-Labs/vgl/chaincfg"
+"github.com/Vigil-Labs/vgl/dcrutil"
 )
 
 const (
@@ -413,3 +413,7 @@ func fileExists(filePath string) (bool, error) {
 	}
 	return true, nil
 }
+
+
+
+

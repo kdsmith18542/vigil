@@ -9,8 +9,8 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // fromHex converts the passed hex string into a byte slice and will panic if
@@ -260,3 +260,7 @@ func TestCalcPriority(t *testing.T) {
 		}
 	}
 }
+
+
+
+

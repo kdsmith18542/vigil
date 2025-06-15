@@ -11,12 +11,12 @@ import (
 	"encoding/hex"
 	"encoding/json"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/VGLjson/v4"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	chainjson "github.com/kdsmith18542/vigil/rpc/jsonrpc/types/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/VGLjson"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	chainjson "github.com/Vigil-Labs/vgl/rpc/jsonrpc/types"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // FutureGetRawTransactionResult is a future promise to deliver the result of a
@@ -394,3 +394,7 @@ func (c *Client) SendRawTransactionAsync(ctx context.Context, tx *wire.MsgTx, al
 func (c *Client) SendRawTransaction(ctx context.Context, tx *wire.MsgTx, allowHighFees bool) (*chainhash.Hash, error) {
 	return c.SendRawTransactionAsync(ctx, tx, allowHighFees).Receive()
 }
+
+
+
+

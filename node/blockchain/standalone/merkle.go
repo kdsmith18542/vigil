@@ -5,8 +5,8 @@
 package standalone
 
 import (
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // CalcMerkleRootInPlace is an in-place version of CalcMerkleRoot that reuses
@@ -159,3 +159,7 @@ func CalcCombinedTxTreeMerkleRoot(regularTxns, stakeTxns []*wire.MsgTx) chainhas
 	copy(both[chainhash.HashSize:], stakeRoot[:])
 	return chainhash.HashH(both[:])
 }
+
+
+
+

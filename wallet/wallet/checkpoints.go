@@ -5,10 +5,10 @@
 package wallet
 
 import (
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 func mustParseHash(s string) chainhash.Hash {
@@ -67,3 +67,7 @@ func (w *Wallet) rollbackInvalidCheckpoints(dbtx walletdb.ReadWriteTx) error {
 	}
 	return nil
 }
+
+
+
+

@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 func decodeHash(reversedHash string) chainhash.Hash {
@@ -79,3 +79,7 @@ func TestDecodeConcatenatedHashes(t *testing.T) {
 		}
 	}
 }
+
+
+
+

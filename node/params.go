@@ -6,7 +6,7 @@
 package main
 
 import (
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/Vigil-Labs/vgl/chaincfg"
 )
 
 // params is used to group parameters for various networks such as the main
@@ -47,3 +47,7 @@ var regNetParams = params{
 	Params:  chaincfg.RegNetParams(),
 	rpcPort: "18656",
 }
+
+
+
+

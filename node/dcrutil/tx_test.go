@@ -13,8 +13,8 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // TestTx tests the API for Tx.
@@ -226,3 +226,7 @@ func TestNewTxDeepTxIns(t *testing.T) {
 		}
 	}
 }
+
+
+
+

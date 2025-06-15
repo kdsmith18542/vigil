@@ -8,7 +8,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
+	"github.com/Vigil-Labs/vgl/txscript/stdscript"
 )
 
 // hexToBytes converts the passed hex string into bytes and will panic if there
@@ -71,3 +71,7 @@ func ExampleExtractScriptHashV0() {
 	// Output:
 	// script hash: 433ec2ac1ffa1b7b7d027f564529c57197f9ae88
 }
+
+
+
+

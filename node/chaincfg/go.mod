@@ -9,7 +9,7 @@ require (
 )
 
 require (
-	github.com/kdsmith18542/vigil/crypto/blake256 v1.0.1 // indirect
+	github.com/kdsmith18542/vigil/kawpow v1.0.0 // indirect
 	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
 	lukechampine.com/blake3 v1.3.0 // indirect
 )

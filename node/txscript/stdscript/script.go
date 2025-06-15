@@ -542,3 +542,7 @@ func DetermineRequiredSigs(scriptVersion uint16, script []byte) uint16 {
 
 	return 0
 }
+
+
+
+

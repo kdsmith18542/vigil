@@ -12,7 +12,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/VGLec"
+	"github.com/Vigil-Labs/vgl/VGLec"
 )
 
 // hexToBytes converts the passed hex string into bytes and will panic if there
@@ -1643,3 +1643,7 @@ func TestExtractAtomicSwapDataPushesV0(t *testing.T) {
 		}
 	}
 }
+
+
+
+

@@ -8,7 +8,7 @@ package treap
 import (
 	"bytes"
 
-	"github.com/kdsmith18542/vigil/crypto/rand"
+	"github.com/Vigil-Labs/vgl/crypto/rand"
 )
 
 // cloneTreapNode returns a shallow copy of the passed node.
@@ -360,3 +360,7 @@ func (t *Immutable) ForEach(fn func(k, v []byte) bool) {
 func NewImmutable() *Immutable {
 	return &Immutable{}
 }
+
+
+
+

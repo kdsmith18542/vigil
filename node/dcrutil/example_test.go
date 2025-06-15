@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/Vigil-Labs/vgl/VGLutil"
 )
 
 func ExampleAmount() {
@@ -77,3 +77,7 @@ func ExampleAmount_unitConversions() {
 	// Atom to MicroCoin: 444333222111 μVGL
 	// Atom to Atom: 44433322211100 Atom
 }
+
+
+
+

@@ -17,7 +17,7 @@ require (
 	github.com/agl/ed25519 v0.0.0-20170116200512-5312a6153412 // indirect
 	github.com/dchest/siphash v1.2.3 // indirect
 	github.com/kdsmith18542/vigil/base58 v1.0.5 // indirect
-	github.com/kdsmith18542/vigil/crypto/blake256 v1.0.1 // indirect
+	github.com/kdsmith18542/vigil/kawpow v1.0.0 // indirect
 	github.com/kdsmith18542/vigil/crypto/ripemd160 v1.0.2 // indirect
 	github.com/kdsmith18542/vigil/dcrec/edwards/v2 v2.0.3 // indirect
 	github.com/kdsmith18542/vigil/slog v1.2.0 // indirect

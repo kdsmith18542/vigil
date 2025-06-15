@@ -189,3 +189,7 @@ func BenchmarkJacobianPointEquivalency(b *testing.B) {
 		point1.EquivalentNonConst(&point2)
 	}
 }
+
+
+
+

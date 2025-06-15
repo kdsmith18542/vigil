@@ -10,7 +10,7 @@ require (
 )
 
 require (
-	github.com/kdsmith18542/vigil/crypto/blake256 v1.0.1 // indirect
+	github.com/kdsmith18542/vigil/kawpow v1.0.0 // indirect
 	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
 	golang.org/x/crypto v0.24.0 // indirect
 	golang.org/x/sys v0.21.0 // indirect

@@ -14,9 +14,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	_ "github.com/kdsmith18542/vigil/wallet/wallet/internal/bdb"
-	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+_ "github.com/Vigil-Labs/vgl/wallet/wallet/internal/bdb"
+"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
 )
 
 // This example demonstrates creating a new database.
@@ -173,3 +173,7 @@ func Example_basicUsage() {
 
 	// Output:
 }
+
+
+
+

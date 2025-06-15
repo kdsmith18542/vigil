@@ -5,9 +5,9 @@
 package udb
 
 import (
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
+"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 type agendaPreferencesTy struct {
@@ -92,3 +92,7 @@ func DefaultAgendaPreference(dbtx walletdb.ReadTx, version uint32, agendaID stri
 func TicketAgendaPreference(dbtx walletdb.ReadTx, ticketHash *chainhash.Hash, version uint32, agendaID string) (choiceID string) {
 	return agendaPreferences.ticketPreference(dbtx, ticketHash, version, agendaID)
 }
+
+
+
+

@@ -7,10 +7,10 @@ package blockchain
 import (
 	"testing"
 
-	"github.com/kdsmith18542/vigil/blockchain/v5/chaingen"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/chaingen"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // TestFetchUtxoView ensures fetching a utxo viewpoint for the current tip block
@@ -227,3 +227,7 @@ func TestFetchUtxoView(t *testing.T) {
 	}
 	testInputsSpent(view, spendB1aTx1Out0, true)
 }
+
+
+
+

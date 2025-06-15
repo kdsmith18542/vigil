@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 const (
@@ -185,3 +185,7 @@ func NewMsgCFHeaders() *MsgCFHeaders {
 		HeaderHashes: make([]*chainhash.Hash, 0, MaxCFHeadersPerMsg),
 	}
 }
+
+
+
+

@@ -399,3 +399,7 @@ func (n *upnpNAT) DeletePortMapping(protocol string, externalPort, internalPort 
 	_ = response
 	return
 }
+
+
+
+

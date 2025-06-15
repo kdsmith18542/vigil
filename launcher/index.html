@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vigil Launcher</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+        }
+        .section h2 {
+            color: #34495e;
+            margin-top: 0;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .status-message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .status-message.success {
+            background-color: #e6ffe6;
+            color: #28a745;
+            border: 1px solid #28a745;
+        }
+        .status-message.error {
+            background-color: #ffe6e6;
+            color: #dc3545;
+            border: 1px solid #dc3545;
+        }
+        .status-message.info {
+            background-color: #e6f7ff;
+            color: #007bff;
+            border: 1px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vigil Node & Wallet Launcher</h1>
+
+        <div class="section">
+            <h2>Node Control</h2>
+            <p>Manage your Vigil node. Start it to sync the blockchain and participate in the network.</p>
+            <div class="button-group">
+                <button id="start-node-btn">Start Node</button>
+                <button id="stop-node-btn" disabled>Stop Node</button>
+            </div>
+            <div id="node-status" class="status-message info">Node Status: Stopped</div>
+        </div>
+
+        <div class="section">
+            <h2>Wallet</h2>
+            <p>Access your vigilwallet to manage your funds.</p>
+            <div class="button-group">
+                <button id="open-wallet-btn">Open Wallet</button>
+            </div>
+            <div id="wallet-status" class="status-message info">Wallet Status: Closed</div>
+        </div>
+
+        <div class="section">
+            <h2>Installation & Updates</h2>
+            <p>Ensure you have the latest version of Vigil node and wallet.</p>
+            <div class="button-group">
+                <button id="install-update-btn">Install/Update Vigil</button>
+            </div>
+            <div id="install-status" class="status-message info">Installation Status: Not Checked</div>
+        </div>
+    </div>
+
+    <script>
+        const startNodeBtn = document.getElementById('start-node-btn');
+        const stopNodeBtn = document.getElementById('stop-node-btn');
+        const openWalletBtn = document.getElementById('open-wallet-btn');
+        const installUpdateBtn = document.getElementById('install-update-btn');
+
+        const nodeStatusDiv = document.getElementById('node-status');
+        const walletStatusDiv = document.getElementById('wallet-status');
+        const installStatusDiv = document.getElementById('install-status');
+
+        startNodeBtn.addEventListener('click', () => {
+            window.electronAPI.startNode();
+            startNodeBtn.disabled = true;
+            stopNodeBtn.disabled = false;
+        });
+
+        stopNodeBtn.addEventListener('click', () => {
+            window.electronAPI.stopNode();
+            startNodeBtn.disabled = false;
+            stopNodeBtn.disabled = true;
+        });
+
+        openWalletBtn.addEventListener('click', () => {
+            window.electronAPI.openWallet();
+        });
+
+        installUpdateBtn.addEventListener('click', () => {
+            window.electronAPI.installUpdate();
+        });
+
+        window.electronAPI.onNodeStatus((status) => {
+            nodeStatusDiv.textContent = status;
+            if (status.includes('Running')) {
+                nodeStatusDiv.className = 'status-message success';
+            } else if (status.includes('Stopped')) {
+                nodeStatusDiv.className = 'status-message info';
+            } else {
+                nodeStatusDiv.className = 'status-message info';
+            }
+        });
+
+        window.electronAPI.onWalletStatus((status) => {
+            walletStatusDiv.textContent = status;
+            if (status.includes('Opened')) {
+                walletStatusDiv.className = 'status-message success';
+            } else {
+                walletStatusDiv.className = 'status-message info';
+            }
+        });
+
+        window.electronAPI.onInstallStatus((status) => {
+            installStatusDiv.textContent = status;
+            if (status.includes('up to date')) {
+                installStatusDiv.className = 'status-message success';
+            } else {
+                installStatusDiv.className = 'status-message info';
+            }
+        });
+    </script>
+</body>
+</html>

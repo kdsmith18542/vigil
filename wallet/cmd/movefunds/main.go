@@ -23,13 +23,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/kdsmith18542/vigil/wallet/rpc/jsonrpc/types"
-	"github.com/kdsmith18542/vigil/wallet/wallet/txauthor"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/wallet/rpc/jsonrpc/types"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/txauthor"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // params is the global representing the chain parameters. It is assigned
@@ -239,3 +239,7 @@ func main() {
 
 	fmt.Println("Successfully wrote transaction to sign script.")
 }
+
+
+
+

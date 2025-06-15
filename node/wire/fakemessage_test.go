@@ -54,3 +54,7 @@ func (msg *fakeMessage) MaxPayloadLength(pver uint32) uint32 {
 
 	return lenp
 }
+
+
+
+

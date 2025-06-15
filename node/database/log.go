@@ -6,7 +6,7 @@
 package database
 
 import (
-	"github.com/kdsmith18542/vigil/slog"
+	"github.com/Vigil-Labs/vgl/slog"
 )
 
 // UseLogger uses a specified Logger to output package logging info.
@@ -18,3 +18,7 @@ func UseLogger(logger slog.Logger) {
 		}
 	}
 }
+
+
+
+

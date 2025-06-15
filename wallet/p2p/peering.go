@@ -17,25 +17,25 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/wallet/lru"
-	"github.com/kdsmith18542/vigil/wallet/version"
-	"github.com/kdsmith18542/vigil/addrmgr/v2"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/connmgr/v3"
-	"github.com/kdsmith18542/vigil/crypto/blake256"
-	"github.com/kdsmith18542/vigil/crypto/rand"
-	"github.com/kdsmith18542/vigil/gcs/v4"
-	blockcf "github.com/kdsmith18542/vigil/gcs/v4/blockcf2"
-	"github.com/kdsmith18542/vigil/mixing"
-	"github.com/kdsmith18542/vigil/wire"
-	"github.com/kdsmith18542/vigil/go-socks/socks"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+"github.com/Vigil-Labs/vgl/wallet/lru"
+"github.com/Vigil-Labs/vgl/wallet/version"
+"github.com/Vigil-Labs/vgl/addrmgr"
+"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+"github.com/Vigil-Labs/vgl/chaincfg"
+"github.com/Vigil-Labs/vgl/connmgr"
+"github.com/Vigil-Labs/vgl/crypto/blake256"
+"github.com/Vigil-Labs/vgl/crypto/rand"
+"github.com/Vigil-Labs/vgl/gcs"
+blockcf "github.com/Vigil-Labs/vgl/gcs/blockcf2"
+"github.com/Vigil-Labs/vgl/mixing"
+"github.com/Vigil-Labs/vgl/wire"
+"github.com/Vigil-Labs/vgl/go-socks/socks"
 	"golang.org/x/sync/errgroup"
 )
 
 // uaName is the LocalPeer useragent name.
-const uaName = "vglwallet"
+const uaName = "vigilwallet"
 
 // uaVersion is the LocalPeer useragent version.
 var uaVersion = version.String()
@@ -2244,3 +2244,7 @@ func (rp *RemotePeer) receivedInv(ctx context.Context, inv *wire.MsgInv) {
 	case <-ctx.Done():
 	}
 }
+
+
+
+

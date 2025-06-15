@@ -68,7 +68,7 @@ scheme:
 * Enforces even `y` coordinates for `R` to support efficient verification by
   disambiguating the two possible `y` coordinates
 * Canonically encodes by both components of the signature with 32-bytes each
-* Uses BLAKE-256 with 14 rounds for the hash function to calculate challenge `e`
+* Uses Keccak256 for the hash function to calculate challenge `e`
 * Uses RFC6979 to obviate the need for an entropy source at signing time
 * Produces deterministic signatures for a given message and private key pair
 
@@ -196,14 +196,14 @@ coordinates since this choice also ties into that. Also, one of the variants
 reverses the order of the concatenation of the message `m` and the point `R`.
 
 Combining these details with the following additional information specific to
-Vigil results in the choice of `e = BLAKE-256(R.x || m)` for the challenge with
+Vigil results in the choice of `e = Keccak256(R.x || m)` for the challenge with
 additional restrictions on `R` to ensure verifiers can reconstruct the full
 point:
 
 * The order of the committed information for the challenge is not important and
   the more common formulation consists of `R` followed by `m`
 * Compact signatures are more desirable since they end up in the public ledger
-* The BLAKE-256 hash function with 14 rounds is already in widespread use and
+* The Keccak256 hash function is already in widespread use and
   satisfies all requirements needed for the hash function
 
 ### Sign For `s` Calculation
@@ -253,7 +253,7 @@ r, s = signature
 4. R = kG
 5. Negate nonce k if R.y is odd (R.y is the y coordinate of the point R)
 6. r = R.x (R.x is the x coordinate of the point R)
-7. e = BLAKE-256(r || m) (Ensure r is padded to 32 bytes)
+7. e = Keccak256(r || m) (Ensure r is padded to 32 bytes)
 8. Repeat from step 3 (with iteration + 1) if e >= n
 9. s = k - e*d mod n
 10. Return (r, s)
@@ -273,7 +273,7 @@ r, s = signature
 2. Fail if Q is not a point on the curve
 3. Fail if r >= p
 4. Fail if s >= n
-5. e = BLAKE-256(r || m) (Ensure r is padded to 32 bytes)
+5. e = Keccak256(r || m) (Ensure r is padded to 32 bytes)
 6. Fail if e >= n
 7. R = s*G + e*Q
 8. Fail if R is the point at infinity
@@ -332,3 +332,7 @@ Use the standard go tooling for working with modules to incorporate it.
 
 Package schnorr is licensed under the [copyfree](http://copyfree.org) ISC
 License.
+
+
+
+

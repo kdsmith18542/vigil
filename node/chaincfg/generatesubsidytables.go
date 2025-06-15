@@ -16,7 +16,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
+	"github.com/Vigil-Labs/vgl/chaincfg"
 )
 
 type payout struct {
@@ -96,3 +96,7 @@ func defs(p printer, paramsName string, tokenPayouts []chaincfg.TokenPayout) {
 		"\treturn tokenPayouts(blockOnePayoutScripts_%[1]s, blockOnePayouts_%[1]s)\n"+
 		"}\n", paramsName)
 }
+
+
+
+

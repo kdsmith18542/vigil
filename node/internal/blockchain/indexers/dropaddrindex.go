@@ -8,7 +8,7 @@ package indexers
 import (
 	"context"
 
-	"github.com/kdsmith18542/vigil/database/v3"
+	"github.com/Vigil-Labs/vgl/database"
 )
 
 const (
@@ -56,3 +56,7 @@ func DropAddrIndex(ctx context.Context, db database.DB) error {
 	log.Infof("Dropped %s", addrIndexName)
 	return nil
 }
+
+
+
+

@@ -46,3 +46,7 @@ func (msg *MsgMemPool) MaxPayloadLength(pver uint32) uint32 {
 func NewMsgMemPool() *MsgMemPool {
 	return &MsgMemPool{}
 }
+
+
+
+

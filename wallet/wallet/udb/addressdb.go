@@ -10,9 +10,9 @@ import (
 	"encoding/binary"
 	"time"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/wallet/kdf"
-	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+	"github.com/Vigil-Labs/vgl/wallet/kdf"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
 )
 
 var (
@@ -1781,3 +1781,7 @@ func upgradeManager(ns walletdb.ReadWriteBucket) error {
 
 	return nil
 }
+
+
+
+

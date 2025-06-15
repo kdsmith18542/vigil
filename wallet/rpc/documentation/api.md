@@ -2594,7 +2594,7 @@ by the private passphrase.  This does not affect any other accounts.
 #### `GetTrackedVSPTickets`
 
 The `GetTrackedVSPTickets` request returns the list of tickets currently tracked
-by the VSP client inside vglwallet. This only applies to tickets purchased
+by the VSP client inside vigilwallet. This only applies to tickets purchased
 following the new vspd mode.
 
 **Request** `GetTrackedVSPTicketsRequest`
@@ -3067,3 +3067,7 @@ to consider the bandwidth implications of requesting a large number of blocks.
 **Expected errors:**
 
 - `Unavailable`: The wallet is not currently connected to the p2p network.
+
+
+
+

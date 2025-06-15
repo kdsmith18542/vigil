@@ -43,3 +43,7 @@ func (msg *MsgGetMiningState) MaxPayloadLength(pver uint32) uint32 {
 func NewMsgGetMiningState() *MsgGetMiningState {
 	return &MsgGetMiningState{}
 }
+
+
+
+

@@ -5,7 +5,7 @@
 package cpuminer
 
 import (
-	"github.com/kdsmith18542/vigil/slog"
+	"github.com/Vigil-Labs/vgl/slog"
 )
 
 // log is a logger that is initialized with no output filters.  This
@@ -29,3 +29,7 @@ func pickNoun(n uint64, singular, plural string) string {
 	}
 	return plural
 }
+
+
+
+

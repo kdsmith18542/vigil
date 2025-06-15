@@ -9,9 +9,9 @@ import (
 	"encoding/binary"
 	"sort"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/kawpow"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/kawpow"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // deriveSessionID creates the mix session identifier from an initial sorted
@@ -120,3 +120,7 @@ func ValidateSession(ke *wire.MsgMixKeyExchange) error {
 
 	return nil
 }
+
+
+
+

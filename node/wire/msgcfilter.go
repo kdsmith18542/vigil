@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 const (
@@ -129,3 +129,7 @@ func NewMsgCFilter(blockHash *chainhash.Hash, filterType FilterType,
 		Data:       data,
 	}
 }
+
+
+
+

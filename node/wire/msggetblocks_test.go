@@ -13,7 +13,7 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // TestGetBlocks tests the MsgGetBlocks API.
@@ -310,3 +310,7 @@ func TestGetBlocksWireErrors(t *testing.T) {
 		}
 	}
 }
+
+
+
+

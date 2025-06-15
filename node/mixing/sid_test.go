@@ -11,8 +11,8 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 func TestSessionID(t *testing.T) {
@@ -96,3 +96,7 @@ func TestInvalidSession(t *testing.T) {
 			err, errInvalidPROrder)
 	}
 }
+
+
+
+

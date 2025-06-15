@@ -39,3 +39,7 @@ func HashB(b []byte) []byte {
 func HashH(b []byte) Hash {
 	return Hash(HashFunc(b))
 }
+
+
+
+

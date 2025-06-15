@@ -7,12 +7,12 @@ package blockchain
 import (
 	"fmt"
 
-	"github.com/kdsmith18542/vigil/blockchain/standalone/v2"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/database/v3"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/gcs/v4"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/standalone"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/database"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/gcs"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 const (
@@ -293,3 +293,7 @@ func (b *BlockChain) LocateCFiltersV2(startHash, endHash *chainhash.Hash) (*wire
 	}
 	return wire.NewMsgCFiltersV2(filters), nil
 }
+
+
+
+

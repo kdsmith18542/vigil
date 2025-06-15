@@ -11,10 +11,10 @@ import (
 	"math"
 	"runtime"
 
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/txscript/v4"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/txscript"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // PrevScripter defines an interface that provides access to scripts and their
@@ -272,3 +272,7 @@ func checkBlockScripts(block *VGLutil.Block, utxoView *UtxoViewpoint, txTree boo
 	// Validate all of the inputs.
 	return newTxValidator(utxoView, scriptFlags, sigCache).Validate(txValItems)
 }
+
+
+
+

@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
+	"github.com/Vigil-Labs/vgl/VGLutil"
 )
 
 // AmountFlag embeds a VGLutil.Amount and implements the flags.Marshaler and
@@ -42,3 +42,7 @@ func (a *AmountFlag) UnmarshalFlag(value string) error {
 	a.Amount = amount
 	return nil
 }
+
+
+
+

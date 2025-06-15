@@ -14,7 +14,7 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // TestTx tests the MsgTx API.
@@ -1093,3 +1093,7 @@ var multiTxWitnessEncoded = []byte{
 // multiTxPkScriptLocs is the location information for the public key scripts
 // located in multiTx.
 var multiTxPkScriptLocs = []int{58, 136}
+
+
+
+

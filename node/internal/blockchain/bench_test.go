@@ -30,3 +30,7 @@ func BenchmarkAncestor(b *testing.B) {
 		branchTip(branch2Nodes).Ancestor(0)
 	}
 }
+
+
+
+

@@ -307,3 +307,7 @@ func (e RuleError) Unwrap() error {
 func ruleError(kind ErrorKind, desc string) RuleError {
 	return RuleError{Err: kind, Description: desc}
 }
+
+
+
+

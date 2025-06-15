@@ -456,3 +456,7 @@ func (c *SubsidyCache) CalcTreasurySubsidy(height int64, voters uint16, useVGLP0
 	// Adjust for the number of voters.
 	return (int64(voters) * subsidy) / int64(c.params.VotesPerBlock())
 }
+
+
+
+

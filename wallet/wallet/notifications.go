@@ -10,17 +10,17 @@ import (
 	"context"
 	"sync"
 
-	"github.com/kdsmith18542/vigil/wallet/errors"
-	"github.com/kdsmith18542/vigil/wallet/internal/compat"
-	"github.com/kdsmith18542/vigil/wallet/wallet/udb"
-	"github.com/kdsmith18542/vigil/wallet/wallet/walletdb"
-	"github.com/kdsmith18542/vigil/blockchain/stake/v5"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
-	"github.com/kdsmith18542/vigil/VGLutil/v4"
-	"github.com/kdsmith18542/vigil/hdkeychain/v3"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdaddr"
-	"github.com/kdsmith18542/vigil/txscript/v4/stdscript"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/wallet/errors"
+	"github.com/Vigil-Labs/vgl/wallet/internal/compat"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/udb"
+	"github.com/Vigil-Labs/vgl/wallet/wallet/walletdb"
+	"github.com/Vigil-Labs/vgl/blockchain/stake"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/VGLutil"
+	"github.com/Vigil-Labs/vgl/hdkeychain"
+	"github.com/Vigil-Labs/vgl/txscript/stdaddr"
+	"github.com/Vigil-Labs/vgl/txscript/stdscript"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // TODO: It would be good to send errors during notification creation to the rpc
@@ -988,3 +988,7 @@ func (c *ConfirmationNotificationsClient) process(tipHeight int32) {
 	case <-c.ctx.Done():
 	}
 }
+
+
+
+

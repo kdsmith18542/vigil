@@ -11,9 +11,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kdsmith18542/vigil/chaincfg/v3"
-	"github.com/kdsmith18542/vigil/math/uint256"
-	"github.com/kdsmith18542/vigil/wire"
+	"github.com/Vigil-Labs/vgl/chaincfg"
+	"github.com/Vigil-Labs/vgl/math/uint256"
+	"github.com/Vigil-Labs/vgl/wire"
 )
 
 // TestBlockNodeHeader ensures that block nodes reconstruct the correct header
@@ -758,3 +758,7 @@ func TestShortBlockKeyCollisions(t *testing.T) {
 	assertLookupResult(fullCollisions[0], fullCollisions[1])
 	assertLookupResult(fullCollisions[1], fullCollisions[1])
 }
+
+
+
+

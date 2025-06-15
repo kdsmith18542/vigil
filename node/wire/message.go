@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // MessageHeaderSize is the number of bytes in a Vigil message header.
@@ -450,3 +450,7 @@ func ReadMessage(r io.Reader, pver uint32, VGLnet CurrencyNet) (Message, []byte,
 	_, msg, buf, err := ReadMessageN(r, pver, VGLnet)
 	return msg, buf, err
 }
+
+
+
+

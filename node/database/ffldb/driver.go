@@ -8,9 +8,9 @@ package ffldb
 import (
 	"fmt"
 
-	"github.com/kdsmith18542/vigil/database/v3"
-	"github.com/kdsmith18542/vigil/wire"
-	"github.com/kdsmith18542/vigil/slog"
+	"github.com/Vigil-Labs/vgl/database"
+	"github.com/Vigil-Labs/vgl/wire"
+	"github.com/Vigil-Labs/vgl/slog"
 )
 
 var log = slog.Disabled
@@ -83,3 +83,7 @@ func init() {
 			dbType, err))
 	}
 }
+
+
+
+

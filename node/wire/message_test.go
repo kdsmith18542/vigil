@@ -16,7 +16,7 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/kdsmith18542/vigil/chaincfg/chainhash"
+	"github.com/Vigil-Labs/vgl/chaincfg/chainhash"
 )
 
 // makeHeader is a convenience function to make a message header in the form of
@@ -460,3 +460,7 @@ func TestWriteMessageWireErrors(t *testing.T) {
 		}
 	}
 }
+
+
+
+
